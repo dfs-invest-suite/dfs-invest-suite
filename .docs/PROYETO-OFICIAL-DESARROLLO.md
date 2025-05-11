@@ -1,0 +1,1290 @@
+¡Absolutamente! He asimilado la magnitud y profundidad de la tarea. Actuando como la IA Arquitecta Experta en NX y Nest.js, y basándome en el Blueprint Maestro v3.3: DFS-Invest-Suite como la fuente única de verdad (integrando la lógica y funcionalidades de los documentos previos como anexo-III-developer-flow.md, anexo-v-roadmap-dev-flow.md, anti-ban-whatsapp-integration.md y blueprint-tecnico-integral-v2.1-optimizado.md de forma coherente), procederé a generar la explicación técnica detallada y exhaustiva solicitada.
+Dado el nivel de detalle extremo requerido para cada uno de los 15 puntos y sus sub-puntos, esta respuesta será necesariamente muy extensa y se generará por partes, sección por sección, para asegurar la calidad y la profundidad requerida en cada una.
+Empezaré con la SECCIÓN 1: VISIÓN GENERAL DEL PROYECTO.
+SECCIÓN 1: VISIÓN GENERAL DEL PROYECTO (DFS-Invest-Suite v3.3)
+1.1. Propósito y Objetivos Principales del Proyecto
+El proyecto dfs-invest-suite tiene como propósito fundamental la creación de una plataforma Software as a Service (SaaS) multi-tenant robusta, escalable y de alta calidad. Esta suite está diseñada para revolucionar la forma en que las empresas (inicialmente enfocadas en el sector inmobiliario, con DFS Investimentos Imobiliários como "Tenant Semilla") gestionan sus leads, optimizan su comunicación con clientes (principalmente vía WhatsApp Cloud API) y automatizan procesos clave de marketing y ventas.
+Los objetivos principales son:
+Resolver el Problema Crítico de Baneos de WhatsApp: Implementar un sistema Anti-Ban sofisticado y adaptativo, que opere dentro de las políticas de Meta, para asegurar la continuidad y profesionalismo de la comunicación vía WhatsApp para cada tenant.
+Maximizar la Eficiencia en la Gestión de Leads: Desde la captación multi-fuente, pasando por la calificación inteligente (potenciada por IA), el nurturing automatizado y la asignación óptima a consultores, hasta la conversión y seguimiento.
+Proporcionar una Plataforma Tecnológica de Vanguardia: Utilizar un stack moderno (NX, NestJS, Next.js, GraphQL, Prisma, PostgreSQL, Redis, BullMQ, Docker, Kubernetes futuro) y seguir las mejores prácticas de ingeniería de software (Arquitectura Hexagonal, DDD Táctico, DevSecOps, Observabilidad) para construir un sistema mantenible, escalable y seguro.
+Habilitar la Innovación Futura: Sentar las bases para un ecosistema digital más amplio ("DFS Invest Suite") que pueda incorporar módulos adicionales como portales públicos de propiedades, portales para inversores, herramientas de analítica avanzada y, potencialmente, la tokenización de activos inmobiliarios.
+Ofrecer Valor Estratégico a los Tenants:
+Aumentar tasas de conversión.
+Reducir costos operativos y de adquisición de leads.
+Mejorar la experiencia del cliente final del tenant.
+Proporcionar visibilidad y control operacional a través de interfaces dedicadas (PWAs para Supervisores y Consultores).
+Establecer un Modelo de Negocio SaaS Sostenible: Para dfs-invest-suite como proveedor de la plataforma, permitiendo el onboarding de múltiples tenants con aislamiento de datos y configuración.
+1.2. Problemática que Resuelve y su Relevancia en el Contexto de Negocio
+La plataforma dfs-invest-suite aborda problemáticas cruciales para empresas que dependen de la comunicación masiva y personalizada para la captación y gestión de leads, especialmente aquellas en sectores de alto valor y ciclos de venta largos como el inmobiliario con Sociedades de Propósito Específico (SPEs).
+Problema Principal (Anti-Ban):
+Descripción: Las interrupciones operacionales y el daño reputacional causados por los frecuentes baneos de números de WhatsApp debido a patrones de envío no conformes o el uso de métodos no oficiales. Cada baneo representa pérdida de leads, ROI publicitario desperdiciado y una imagen profesional comprometida.
+Relevancia: WhatsApp es un canal de comunicación vital en mercados como el brasileño. La incapacidad de usarlo de forma fiable es una vulnerabilidad crítica que impacta directamente ventas y crecimiento.
+Solución DFS-Invest-Suite: Un sistema Anti-Ban multicapa que utiliza exclusivamente la API Oficial Cloud, gestiona la salud de los números, controla la frecuencia de envío de forma adaptativa y emula patrones de comunicación naturales, minimizando drásticamente el riesgo de baneo para sus tenants.
+Ineficiencia en la Gestión del Ciclo de Vida del Lead:
+Descripción: Procesos manuales o semi-manuales para la importación, calificación, asignación y seguimiento de leads, lo que resulta en foco excesivo en leads "calientes" inmediatos, negligencia de prospectos a medio/largo plazo, calificación superficial, y falta de estrategias de nurturing escalables.
+Relevancia: Oportunidades de negocio valiosas se pierden debido a la incapacidad de gestionar grandes volúmenes de leads de manera personalizada y a lo largo de todo su ciclo de decisión.
+Solución DFS-Invest-Suite: Automatización inteligente de la calificación (con reglas de negocio y asistencia IA), asignación optimizada a consultores (Roleta RR+ y algoritmos más avanzados), y capacidades de nurturing y seguimiento contextualizado, todo ello operando sobre los datos aislados de cada tenant.
+Falta de Visibilidad y Decisiones Basadas en Datos:
+Descripción: Operación "intuitiva" o fragmentada sin métricas claras sobre la efectividad de las campañas, el rendimiento de los consultores, o la salud de los canales de comunicación.
+Relevancia: Dificultad para optimizar procesos, justificar inversiones en marketing, y tomar decisiones estratégicas informadas.
+Solución DFS-Invest-Suite: Dashboards y analíticas (PWA Supervisor, módulo de observabilidad interno) que proporcionan visibilidad en tiempo real sobre KPIs clave para cada tenant, transformando datos en insights accionables.
+Desafíos de Escalabilidad y Mantenibilidad Tecnológica:
+Descripción: Sistemas legados o soluciones ad-hoc que son difíciles de escalar, mantener y evolucionar para incorporar nuevas tecnologías o adaptarse a cambios del mercado (como el nuevo modelo de precios PMP de WhatsApp).
+Relevancia: Limitación del crecimiento del negocio del tenant y aumento de la deuda técnica.
+Solución DFS-Invest-Suite: Arquitectura moderna, modular (Hexagonal, NX Monorepo) y un stack tecnológico robusto diseñado para la escalabilidad, mantenibilidad y evolución continua.
+1.3. Stakeholders Principales y sus Intereses Específicos
+Tenants (Empresas Clientes de dfs-invest-suite, ej. DFS Investimentos Imobiliários):
+Intereses: Aumentar ventas y ROI, reducir costos operativos, eliminar baneos de WhatsApp, mejorar la eficiencia de sus equipos comerciales, obtener insights de negocio, proyectar una imagen profesional, asegurar la continuidad del negocio, y tener una plataforma que escale con su crecimiento. Necesitan que la plataforma sea segura, fiable y cumpla con regulaciones (LGPD).
+Usuarios Finales de los Tenants (Supervisores y Consultores Inmobiliarios):
+Intereses: Herramientas intuitivas y eficientes (PWAs) que les faciliten la gestión de leads, la comunicación con prospectos, el seguimiento de tareas y la visualización de su rendimiento. Quieren menos trabajo manual y más tiempo para construir relaciones y cerrar ventas.
+Equipo de Desarrollo y Operaciones de dfs-invest-suite (MetaShark & RaZ WriTe, incluyendo la IA):
+Intereses: Construir un producto de alta calidad, técnicamente sólido, mantenible y escalable. Cumplir con los plazos y el presupuesto. Tener un entorno de desarrollo eficiente y estándares claros. Minimizar la deuda técnica.
+Inversores/Propietarios de dfs-invest-suite (MetaShark/DFS si es una joint venture):
+Intereses: Retorno de la inversión, crecimiento del número de tenants, rentabilidad del modelo SaaS, posicionamiento de la plataforma como líder en el mercado, innovación continua.
+Usuarios Finales de los Clientes de los Tenants (Inversores Potenciales en SPEs):
+Intereses (Indirectos): Recibir comunicación relevante, profesional y no intrusiva. Tener una experiencia fluida y confiable al interactuar con la empresa (tenant de dfs-invest-suite) a través de WhatsApp. Que sus datos sean tratados con privacidad y seguridad.
+Meta (Facebook/WhatsApp):
+Intereses (Indirectos): Que las empresas usen su Plataforma WhatsApp Business Cloud API de manera responsable, cumpliendo sus políticas, y que esto genere una buena experiencia para los usuarios finales de WhatsApp, manteniendo la integridad y el valor de su ecosistema de mensajería. Su modelo de precios (CBP/PMP) también es un interés clave.
+1.4. Resumen de la Arquitectura General y Filosofía de Diseño del Sistema
+Arquitectura General:
+SaaS Multi-Tenant: El sistema está diseñado para servir a múltiples empresas clientes (tenants), cada una con sus datos y configuraciones aisladas, principalmente a través de una estrategia de Database-per-Tenant.
+Monorepo Nx: Todo el código reside en un único repositorio gestionado por Nx, facilitando la compartición de código, la consistencia y los builds/tests optimizados.
+Arquitectura Hexagonal (Ports & Adapters) para el Backend Core: La lógica de negocio central (libs/core/ y libs/application/) está desacoplada de la infraestructura (libs/infrastructure/) mediante interfaces (puertos). Los adaptadores implementan estos puertos para interactuar con tecnologías concretas (DB, APIs externas, colas).
+API Gateway Principal (apps/api-main): Una aplicación NestJS que expone la funcionalidad de la suite a través de una API GraphQL (principalmente) y algunos endpoints REST. Es el punto de entrada para las PWAs y gestiona la autenticación y el contexto del tenant.
+Aplicaciones Frontend (PWAs): Múltiples aplicaciones Next.js (apps/pwa-supervisor, apps/pwa-consultant, apps/admin-platform) construidas con React, Tailwind CSS y Shadcn/UI, que consumen la api-main.
+Comunicación Asíncrona: Uso de colas de mensajes (BullMQ sobre Redis) para tareas en segundo plano (envío de mensajes WA, procesamiento de webhooks, importaciones).
+Comunicación en Tiempo Real: WebSockets (Socket.io integrado en NestJS) para actualizaciones instantáneas en las PWAs.
+Filosofía de Diseño:
+API-First: El diseño comienza con la definición de las APIs (GraphQL) que consumirán los frontends y otros servicios.
+Seguridad por Diseño (DevSecOps): La seguridad es una consideración integral desde el inicio, no un añadido.
+Calidad Primero: Testing exhaustivo en todas las capas, estándares de código estrictos, CI/CD robusto.
+Observabilidad Integral: Logging, métricas y tracing para entender el comportamiento del sistema en producción.
+Escalabilidad y Resiliencia Nativas: Diseño para crecer y tolerar fallos.
+Tipado Estricto con TypeScript: Para mejorar la mantenibilidad y reducir errores.
+Modularidad Extrema: Facilitada por Nx y la arquitectura hexagonal.
+Experiencia de Usuario (UX) por Rol: Interfaces adaptadas a las necesidades de cada tipo de usuario.
+Cumplimiento (Compliance): Especialmente con las políticas de WhatsApp y la LGPD.
+1.5. Detalle de las Innovaciones Técnicas o Conceptuales Más Significativas del Proyecto
+Sistema Anti-Ban Adaptativo y Proactivo para WhatsApp Cloud API (Tenant-Aware):
+Innovación: Va más allá de un simple rate limiter. Combina el monitoreo en tiempo real de la salud de múltiples números de WhatsApp por tenant (basado en Quality Rating de Meta y un Health Score interno derivado de errores API y webhooks de estado), con una lógica de selección inteligente de cuenta para cada envío y un ajuste dinámico de los límites de envío. Incluye estrategias de warm-up/cool-down y un Circuit Breaker por número.
+Conceptual: Actúa como un "director de orquesta de tráfico" y un "sistema inmunológico" para la comunicación WhatsApp de cada tenant.
+Arquitectura SaaS Multi-Tenant con Aislamiento "Database-per-Tenant" Gestionada por Nx y Prisma Dinámico:
+Innovación: La combinación de un monorepo Nx con una estrategia de aislamiento de datos fuerte donde cada tenant tiene su propia base de datos PostgreSQL. El PrismaService dinámico en la capa de infraestructura NestJS es capaz de instanciar un cliente Prisma conectado a la base de datos del tenant correcto en tiempo de ejecución, basado en un TenantContext.
+Conceptual: Proporciona la escalabilidad y el aislamiento de un modelo SaaS robusto, pero con la eficiencia de desarrollo de un monorepo y la productividad de Prisma.
+Integración Profunda de la Lógica de Negocio con el Modelo de Precios PMP de WhatsApp (Anticipación Estratégica):
+Innovación: El sistema no solo se adaptará técnicamente al cambio de CBP a PMP de julio 2025, sino que su lógica de envío y las analíticas para los tenants estarán diseñadas para optimizar costos bajo este nuevo paradigma (maximizando el uso de la Ventana de Servicio al Cliente - CSW, eligiendo la categoría de plantilla correcta, etc.).
+Conceptual: Convierte una restricción de la plataforma (costos por mensaje) en una oportunidad para ofrecer valor añadido a los tenants mediante la optimización inteligente.
+Núcleo de Dominio Hexagonal Desacoplado y Altamente Testeable:
+Innovación (en el contexto de la aplicación): La aplicación rigurosa de la arquitectura hexagonal para los dominios críticos (Anti-Ban, Leads, WhatsApp) asegura que la lógica de negocio más valiosa sea independiente de NestJS, Prisma, o cualquier tecnología de infraestructura, permitiendo tests unitarios puros y una alta mantenibilidad y flexibilidad a largo plazo.
+Conceptual: El "cerebro" del negocio es puro y adaptable.
+Orquestación de la Colaboración Humano-IA en el Proceso de Desarrollo (Meta-Innovación):
+Innovación: El propio blueprint y el flujo de trabajo definido para la interacción entre el Líder Estratégico Humano (RaZ WriTe) y la IA Desarrolladora Experta (L.I.A Legacy) es una innovación en el proceso de construcción del software, buscando maximizar la eficiencia y la calidad.
+Conceptual: "DevOps" para el desarrollo asistido por IA, donde el blueprint es el "código" que la IA "ejecuta".
+Estas innovaciones, combinadas, buscan posicionar a dfs-invest-suite no solo como una solución funcional, sino como una plataforma líder y estratégicamente ventajosa en su nicho.
+---
+SECCIÓN 2: ARQUITECTURA TÉCNICA DETALLADA (DFS-Invest-Suite v3.3)
+2.1. Arquitectura Monorepo Nx Implementada
+La plataforma dfs-invest-suite se desarrolla dentro de un monorepo único gestionado por Nx. Esta elección es fundamental y estratégica, alineada con la visión de una "suite" de aplicaciones interconectadas y la necesidad de compartición eficiente de código y consistencia.
+Estructura de Aplicaciones y Bibliotecas:
+Aplicaciones (apps/): Son los puntos de entrada ejecutables y desplegables de la plataforma. Cada aplicación es un proyecto Nx distinto:
+api-main: La API backend principal (NestJS), actuando como gateway para las PWAs y gestor de la lógica de negocio central.
+pwa-supervisor: Aplicación frontend (Next.js) para los supervisores de los tenants.
+pwa-consultant: Aplicación frontend (Next.js) para los consultores de los tenants.
+admin-platform: Aplicación frontend (Next.js) para los administradores de la plataforma dfs-invest-suite.
+(Futuras apps como portal-public-template también residirían aquí).
+Bibliotecas (libs/): Contienen la mayor parte del código fuente, organizado por responsabilidades y dominios para maximizar la reutilización y el desacoplamiento.
+core/: Lógica de dominio pura, agnóstica a frameworks e infraestructura. Dividida internamente por dominios de negocio (ej. tenancy, anti-ban, leads-flow, whatsapp, users-roles, aiper-assistance, message-template-record, billing). Contiene entidades, value objects, servicios de dominio y, crucialmente, los puertos (interfaces) que definen los contratos con las capas externas.
+application/: Contiene los casos de uso (comandos y queries) y servicios de aplicación. Orquesta la lógica de core/ e interactúa con los puertos definidos en core/ para acceder a la infraestructura. También es tenant-aware y agnóstica a frameworks de entrega (como NestJS o Next.js).
+infrastructure/: Implementaciones concretas (adaptadores) de los puertos definidos en core/ y application/. Aquí reside el código que interactúa directamente con tecnologías externas: Prisma para persistencia (con un PrismaService dinámico por tenant), Redis para caché/colas (con BullMQ), adaptadores para WhatsApp Cloud API, Google AI API, etc. También contiene módulos NestJS que configuran y proveen estos adaptadores.
+shared/: Código verdaderamente transversal y agnóstico (tipos globales, enums, utilidades puras, constantes, clases de error base, schemas de validación base). Tiene cero dependencias de otras librerías de dfs-invest-suite.
+ui-shared/: Componentes UI React (basados en Shadcn/UI y Tailwind CSS) compartidos entre las diferentes PWAs para asegurar consistencia visual y reutilización.
+Patrones de Compartición de Código:
+Alias de TypeScript Paths: Configurados en tsconfig.base.json (ej. @dfs-suite/core, @dfs-suite/shared), permitiendo importaciones limpias y consistentes entre bibliotecas y aplicaciones. Nx gestiona la correcta resolución de estos paths.
+Publicación Implícita (Build de Apps): Las bibliotecas no necesitan ser construidas y publicadas individualmente para ser consumidas por las aplicaciones dentro del mismo monorepo. Nx (a través de la configuración de build de las apps y herramientas como Metro para React Native o el bundler de Next.js/NestJS) se encarga de resolver y empaquetar el código necesario de las bibliotecas.
+Bibliotecas Construibles/Publicables (Futuro): Si alguna librería (ej. un SDK para tenants o un componente UI muy genérico) necesitara ser publicada a un registro NPM externo, se configuraría con la opción --publishable y --importPath al generarla, y tendría su propio proceso de build.
+Estrategia de Empaquetado y Construcción:
+Aplicaciones Backend (api-main - NestJS): Se compila a JavaScript usando el compilador de TypeScript (gestionado por el ejecutor @nx/nest:build o @nx/js:tsc). El resultado es una aplicación Node.js autónoma, lista para ser empaquetada en una imagen Docker.
+Aplicaciones Frontend (PWAs - Next.js): Se construyen usando el CLI de Next.js (orquestado por @nx/next:build). Esto genera los assets estáticos, funciones serverless y el servidor Next.js optimizado para producción, también listo para ser empaquetado en Docker o desplegado en plataformas como Vercel.
+Optimización de Builds con Nx:
+Caché de Tareas: nx build <app> utilizará el caché de Nx para evitar reconstruir si los inputs no han cambiado.
+Builds Afectados: En CI, nx affected -t build construirá solo las aplicaciones y sus dependencias de librería que hayan sido afectadas por los cambios en una PR.
+Dockerización: Cada aplicación desplegable (api-main, pwa-supervisor, etc.) tendrá su propio Dockerfile optimizado (posiblemente multi-stage) para crear imágenes ligeras y seguras.
+Manejo de Dependencias Internas y Externas:
+Dependencias Externas (NPM): Gestionadas por bun a nivel raíz del monorepo (package.json y bun.lockb). Esto asegura versiones consistentes de paquetes externos en todo el workspace.
+Dependencias Internas (Entre Proyectos Nx):
+Nx construye un grafo de dependencias analizando las importaciones de TypeScript entre proyectos.
+Estas dependencias se utilizan para:
+Determinar el orden de construcción en la canalización de tareas (dependsOn en targetDefaults).
+Calcular los proyectos afectados (nx affected).
+Validar los límites de módulo.
+Límites de Módulo (Module Boundaries): Se configurarán reglas de linting con @nx/eslint-plugin-nx (en eslint.config.js a nivel raíz y/o project.json) para asegurar la adherencia a la arquitectura hexagonal (ej. core no puede depender de infrastructure, shared no puede depender de core, apps no pueden importarse entre sí directamente). Se usarán tags en los project.json para definir estos límites (ej. scope:core, type:domain, scope:infra, type:adapter).
+2.2. Detalle de la Arquitectura de Cada Aplicación
+apps/api-main (NestJS Backend):
+Patrón Arquitectónico Principal: Arquitectura Hexagonal a nivel de librerías (core, application, infrastructure). La aplicación api-main actúa como el Adaptador Primario del lado del Servidor que expone los Casos de Uso de libs/application a través de GraphQL y REST.
+Capas (dentro de la app NestJS):
+Capa de Exposición (Controllers/Resolvers): Módulos NestJS por dominio (ej. LeadsApiModule, WhatsAppApiModule). Contienen los Resolvers GraphQL y Controladores REST. Delegan la lógica a los Casos de Uso inyectados. Responsables de la validación de DTOs de entrada y la transformación de resultados a DTOs de respuesta.
+Middleware/Guards/Pipes/Interceptors Globales y por Módulo: Para autenticación (JWT), autorización (RBAC), validación, logging, transformación de respuestas, gestión del contexto del tenant (TenantContextMiddleware).
+Capa de Orquestación (implícita): Los Casos de Uso inyectados desde libs/application actúan como esta capa.
+Límites de Contexto y Dominios: Reflejados en los módulos NestJS que importan y proveen los servicios y casos de uso de los dominios correspondientes de libs/core y libs/application.
+Acoplamiento y Cohesión: Alta cohesión dentro de cada módulo de dominio NestJS. Bajo acoplamiento entre módulos de dominio (idealmente solo a través de eventos o inyección de interfaces de otros dominios si es estrictamente necesario). Acoplamiento con libs/application a través de inyección de tokens de Casos de Uso.
+apps/pwa-supervisor, apps/pwa-consultant, apps/admin-platform (Next.js PWAs):
+Patrón Arquitectónico Principal: Se puede considerar una variación de Model-View-Controller (MVC) o Model-View-ViewModel (MVVM) adaptada a React, con un fuerte énfasis en la separación de concerns y una aproximación a la arquitectura hexagonal en el frontend (como se describe en el anexo-III-developer-flow.md para el DevHub).
+Capas (conceptuales dentro de cada PWA):
+UI (Vista/Presentación): Componentes React (construidos con Shadcn/UI, Tailwind CSS, y componentes de libs/ui-shared). Responsables del renderizado.
+Lógica de UI/Estado del Cliente (Controlador/ViewModel): Custom Hooks de React, Stores de Zustand. Manejan el estado local de la UI, las interacciones del usuario y la orquestación de llamadas a la capa de datos.
+Capa de Datos del Cliente (Modelo/Servicio): Hooks de TanStack Query (React Query) para gestionar el estado del servidor (fetching, caching, mutaciones a api-main). Adaptadores o servicios que encapsulan las llamadas al cliente GraphQL (ej. Apollo Client o un fetcher ligero).
+(Opcional) Lógica de Dominio Frontend (si es compleja): Pequeñas entidades o lógica de validación específica del frontend que podría residir en src/lib o incluso en libs/shared si es reutilizable por el backend.
+Límites de Contexto y Dominios: Organizados por features/rutas dentro del App Router de Next.js.
+Acoplamiento y Cohesión: Alta cohesión dentro de cada feature/ruta. El acoplamiento principal es con api-main (a través de la capa de datos) y con libs/ui-shared para componentes.
+2.3. Infraestructura Técnica
+Servicios Cloud/On-Premise Utilizados:
+Base de Datos (PostgreSQL): Inicialmente gestionada vía Docker Compose para desarrollo local. Para staging/producción, se utilizarán instancias de PostgreSQL gestionadas por un proveedor cloud (AWS RDS, Google Cloud SQL, Azure Database for PostgreSQL) para asegurar backups automáticos, escalabilidad y alta disponibilidad. Database-per-tenant implica que cada tenant tendrá su propia instancia o base de datos separada.
+Base de Datos de Plataforma (PostgreSQL): Una instancia separada (o una base de datos dentro de una instancia gestionada) para almacenar datos de la plataforma dfs-invest-suite (lista de tenants, configuraciones globales, etc.).
+Caché/Broker de Mensajes (Redis): Inicialmente vía Docker Compose. Para staging/producción, instancia de Redis gestionada (AWS ElastiCache, Google Memorystore, Azure Cache for Redis) para BullMQ, Health Scores, Rate Limiting y caching de aplicación.
+Hosting de Aplicaciones:
+api-main: Imágenes Docker desplegadas en un servicio de orquestación de contenedores (Kubernetes - EKS, GKE, AKS) o un servicio más simple como AWS App Runner, Google Cloud Run, Azure Container Apps para el MVP y fases iniciales.
+PWAs (Next.js): Desplegadas en Vercel (preferido por su optimización para Next.js y CI/CD integrado) o como contenedores Docker en la misma plataforma que la API.
+Secret Management: HashiCorp Vault (auto-alojado o cloud) o Doppler. Inyección de secretos en los entornos de ejecución (contenedores).
+Observabilidad Stack:
+Logging: Pino (aplicaciones) + Fluentd/Vector (agente de colecta) -> Grafana Loki o Google Cloud Logging/AWS CloudWatch Logs.
+Métricas: prom-client (aplicaciones) -> Prometheus -> Grafana.
+Tracing: OpenTelemetry SDK -> Jaeger/Tempo/Datadog APM.
+Alertas: Alertmanager.
+Registro de Contenedores: Docker Hub, GitHub Packages, AWS ECR, GCP Artifact Registry.
+CI/CD: GitHub Actions.
+Estrategia de Contenerización y Orquestación:
+Contenerización: Todas las aplicaciones (api-main, PWAs si no se usa Vercel) y servicios de apoyo (PostgreSQL, Redis para desarrollo) se empaquetarán en imágenes Docker. Dockerfile optimizados (multi-stage, usuarios no-root).
+Orquestación:
+Desarrollo Local: Docker Compose (docker-compose.yml) para levantar todo el stack localmente.
+Staging/Producción (MVP/Inicial): Docker Compose en un VPS o un servicio de contenedores simple.
+Staging/Producción (Escalado Futuro): Kubernetes (K8s) para escalabilidad avanzada, auto-sanación y gestión compleja.
+Configuración de Entornos (Desarrollo, Pruebas, Staging, Producción):
+Variables de Entorno: Mecanismo principal para diferenciar la configuración entre entornos. Uso de archivos .env (ej. .env.development, .env.staging) gestionados por @nestjs/config en el backend y next.config.js / variables NEXT_PUBLIC_ en el frontend. Los archivos .env de producción NO se comitean; los valores se inyectan desde el gestor de secretos del entorno de CI/CD o la plataforma de hosting.
+Feature Flags (Flagsmith/LaunchDarkly): Para habilitar/deshabilitar funcionalidades por entorno o por tenant.
+Bases de Datos y Servicios Aislados: Cada entorno (dev, staging, prod) tendrá sus propias instancias de bases de datos y servicios Redis. La estrategia database-per-tenant se aplicará en todos los entornos.
+Arquitectura de Despliegue y Estrategias de Implementación:
+CI/CD Pipeline (GitHub Actions):
+Lint & Format Check.
+Type Check.
+Unit & Integration Tests (con nx affected).
+Build de Artefactos (Imágenes Docker - con nx affected).
+(Opcional) SAST/Dependency Scan.
+Despliegue a Staging.
+Pruebas E2E y de Performance (k6) contra Staging.
+(Aprobación Manual/Automática) Despliegue a Producción.
+Estrategia de Despliegue (Producción):
+MVP/Inicial: Rolling Update.
+Post-MVP (Recomendado): Blue/Green Deployment para minimizar downtime y permitir rollback rápido.
+Despliegue de PWAs en Vercel: Configuración específica en Vercel para monorepos Nx (Root Directory, Build Command, Output Directory, Install Command).
+2.4. Análisis de la Infraestructura de Datos
+Modelado de Bases de Datos:
+Base de Datos de Plataforma (PostgreSQL):
+Contiene la tabla Tenants (id, name, planId, status, createdAt, updatedAt).
+Contiene la tabla TenantConfigurations (tenantId, configKey, encryptedValue, isActive).
+(Opcional) Tablas para usuarios administradores de la plataforma, planes de suscripción globales, etc.
+Base de Datos del Tenant (PostgreSQL - un schema "plantilla" replicado para cada tenant):
+WhatsAppAccounts: (phoneNumberId, wabaId (del tenant), displayNumber, qualityRating, healthScore, status, operationalStatus, messagingLimitTier, etc.)
+Leads: (id, waId, phoneNumber, email, name, statusLead, score, source, assignedToUserId, lastInteractionAt, etc., más campos de perfilamiento)
+LeadInteractions: (id, leadId, timestamp, channel, direction, contentSummary, waMessageId, etc.)
+LeadAssignments: (id, leadId, userId, assignedAt, status).
+Users: (id, email, name, role (TenantAdmin, Supervisor, Consultant), isActive).
+MessageLogs: (id, waMessageId, tenantPhoneNumberId, leadWaId, direction, type, templateName, content, status, sentAt, deliveredAt, readAt, failedAt, errorCode, pricingModel, pricingType, pricingCategory, cost).
+MessageTemplateRecords: (id (HSM ID), name, language, category, statusMeta, statusInternal, componentsJson, etc.).
+BilledUsages: (id, tenantId, messageId, date, category, cost, currency).
+(Otras tablas específicas del dominio del tenant: PropertiesSPE, Investments, etc.).
+ORM: Prisma se utiliza como ORM principal para todas las interacciones con PostgreSQL. El PrismaService dinámico asegura la conexión a la DB correcta del tenant.
+Estrategias de Persistencia y Caching:
+Persistencia Primaria: PostgreSQL para todos los datos relacionales y transaccionales.
+Caching (Redis):
+Rate Limiting: Algoritmo Token Bucket implementado sobre Redis (usando rate-limiter-flexible o scripts LUA) para controlar la frecuencia de envío por tenantId:phoneNumberId.
+Health Scores: Contadores atómicos en Redis para el Health Score de cada tenantId:phoneNumberId.
+Cache de Aplicación: Resultados de queries frecuentes o costosas (ej. lista de plantillas aprobadas por tenant, configuraciones de Anti-Ban).
+Sesiones (si es necesario para alguna PWA, aunque Next.js App Router favorece RSC): Podría usarse Redis.
+Colas (BullMQ sobre Redis): Para todas las operaciones asíncronas (envío de mensajes WA, procesamiento de webhooks, importación de leads, tareas de sincronización de analíticas).
+Gestión de Migraciones y Evolución del Esquema:
+Prisma Migrate: Se utiliza para gestionar las migraciones del schema "plantilla" de la base de datos del tenant.
+Proceso de Provisioning de Tenant: Cuando se crea un nuevo tenant, un proceso automatizado (parte de CreateTenantUseCase o un servicio de orquestación) debe:
+Crear una nueva base de datos PostgreSQL para el tenant.
+Aplicar todas las migraciones Prisma existentes a esta nueva base de datos para llevarla al último schema.
+Almacenar de forma segura la connection string de esta nueva DB en la TenantConfigurations de la base de datos de plataforma.
+Actualización de Schemas para Tenants Existentes: Si hay un cambio en el schema "plantilla", se necesitará un proceso/script para aplicar las nuevas migraciones a todas las bases de datos de los tenants existentes. Esto es una operación crítica que debe planificarse cuidadosamente.
+Optimizaciones Específicas para Consultas Complejas:
+Índices: Creación de índices en PostgreSQL en columnas frecuentemente usadas en cláusulas WHERE, JOIN y ORDER BY (ej. Lead.statusLead, Lead.assignedToUserId, MessageLog.timestamp, WhatsAppAccount.healthScore). Prisma ayuda a definir índices en el schema.
+DataLoader (GraphQL): Implementación de DataLoader en los resolvers GraphQL de api-main para solucionar problemas N+1, especialmente al obtener datos relacionados (ej. obtener un Lead y luego sus interacciones, o un Consultor y luego sus leads asignados).
+Paginación: Uso consistente de paginación (basada en cursor o offset/limit) en todas las APIs que devuelven listas grandes.
+Consultas Prisma Optimizadas: Uso eficiente de select, include, where, orderBy en Prisma para obtener solo los datos necesarios. Evitar seleccionar todos los campos (select *) si no es necesario.
+(Futuro) Réplicas de Lectura: Para cargas de lectura muy altas, se podrían configurar réplicas de lectura de PostgreSQL para las bases de datos de los tenants y dirigir las queries de solo lectura a estas réplicas.
+(Futuro) Particionamiento de Tablas: Para tablas muy grandes (ej. MessageLogs, LeadInteractions), considerar estrategias de particionamiento en PostgreSQL (ej. por tenantId y/o por fecha).
+Esto concluye la SECCIÓN 2. Hemos cubierto la arquitectura monorepo Nx, la arquitectura de las aplicaciones y la infraestructura técnica y de datos, con un fuerte enfoque en el modelo SaaS multi-tenant.
+---
+SECCIÓN 3: COMPONENTES Y MÓDULOS DEL SISTEMA (DFS-Invest-Suite v3.3)
+Esta sección detalla los módulos principales, componentes transversales, servicios compartidos e integraciones externas que conforman la plataforma dfs-invest-suite. La modularidad es clave, gestionada a través de las librerías (libs/) de Nx y los módulos de NestJS/Next.js.
+3.1. Enumeración y Detalle de Cada Módulo Principal (Principalmente Librerías Nx y Módulos NestJS/Next.js dentro de Apps)
+Los "módulos principales" se entienden aquí como las librerías Nx clave (core, application, infrastructure, shared, ui-shared) y los módulos funcionales significativos dentro de las aplicaciones (especialmente en api-main).
+Librería libs/core/ (Núcleo de Dominio)
+Propósito: Contener la lógica de negocio más pura, entidades, value objects, eventos de dominio y los puertos (interfaces) que definen los contratos con el mundo exterior. Es agnóstica a frameworks e infraestructura.
+Módulos Internos (Subdirectorios por Dominio):
+libs/core/src/tenancy/:
+Entidades: Tenant, TenantConfiguration (conceptual).
+Puertos: ITenantRepositoryPort, ITenantConfigRepositoryPort.
+Servicios de Dominio: Lógica para activación, suspensión de tenants, validación de planes (si la lógica es compleja y pura).
+libs/core/src/whatsapp/:
+Tipos/Interfaces: TWhatsAppApiMessageRequest (y todos sus subtipos para mensajes salientes), TWhatsAppWebhookPayload (y todos sus subtipos para webhooks entrantes), WhatsAppTemplateFromApi, WabaPhoneNumberDetailsFromApi.
+Puertos: IWhatsAppMessagePort (para enviar mensajes), IWhatsAppAdminPort (para gestionar activos WA como plantillas, números).
+Eventos de Dominio: IncomingWhatsAppMessageReceivedEvent, WhatsAppMessageStatusUpdatedEvent, etc. (todos tenantId-aware).
+libs/core/src/anti-ban/:
+Entidades: WhatsAppAccount (representa un número de WA de un tenant, con healthScore, status, operationalStatus, qualityRating, etc.).
+Puertos: IWhatsAppAccountRepositoryPort (CRUD para WhatsAppAccount del tenant), IRateLimiterPort (para control de frecuencia por tenantId:phoneNumberId).
+Servicios de Dominio: AntiBanDecisionService (lógica pura para decidir acción de envío basado en salud y límites).
+libs/core/src/leads-flow/:
+Entidades: Lead, LeadInteraction.
+Puertos: ILeadRepositoryPort, ILeadInteractionRepositoryPort.
+Servicios de Dominio: LeadQualificationRulesService (reglas de negocio para calificación no-IA), LeadNurturingLogicService.
+libs/core/src/users-roles/:
+Entidades: User (del tenant, con ETenantUserRole), PlatformAdmin (separado).
+Puertos: IUserRepositoryPort (para usuarios de tenant), IPlatformAdminRepositoryPort.
+Servicios de Dominio: UserAuthenticationDomainService (validación de contraseña), UserAuthorizationDomainService (lógica de permisos base).
+libs/core/src/aiper-assistance/:
+Puertos: IConversationAnalyzerPort, IPromptManagerPort.
+Tipos/Entidades: IConversationAnalysisInput, IConversationAnalysisResult.
+libs/core/src/message-template-record/:
+Entidades: MessageTemplateRecord (representa una plantilla de WA de un tenant).
+Puertos: IMessageTemplateRecordRepositoryPort.
+libs/core/src/billing/:
+Entidades: WhatsAppPricingRate (global), BilledUsage (por tenant).
+Puertos: IWhatsAppPricingRatesRepositoryPort, IBilledUsageRepositoryPort.
+Dependencias: Solo de libs/shared/ y, mínimamente, de otros sub-módulos de core si es estrictamente necesario (a través de sus index.ts públicos).
+Librería libs/application/ (Capa de Aplicación)
+Propósito: Orquestar los casos de uso del sistema. Contiene los servicios de aplicación y listeners de eventos que utilizan los puertos del dominio para interactuar con la lógica de negocio y la infraestructura. Son Tenant-Aware.
+Módulos Internos (Subdirectorios por Característica/Dominio):
+libs/application/src/tenancy/:
+Casos de Uso: CreateTenantUseCase, SetTenantWhatsAppConfigUseCase, GetTenantDetailsUseCase.
+libs/application/src/whatsapp/:
+Casos de Uso: SendWhatsAppMessageUseCase, ManageWhatsAppTemplateUseCase, SyncWhatsAppAssetsUseCase.
+Listeners: IncomingMessageApplicationListener, MessageStatusApplicationListener, AssetUpdateApplicationListener, UserPreferenceApplicationListener.
+libs/application/src/anti-ban/:
+Servicios de Aplicación: AccountHealthManagerService (implementa IAccountHealthManagerServicePort del core o un puerto de aplicación).
+libs/application/src/leads-flow/:
+Casos de Uso: ImportLeadsUseCase, QualifyLeadUseCase, AssignLeadUseCase, TrackInteractionUseCase.
+libs/application/src/billing/:
+Servicios de Aplicación: CostCalculationService (implementa ICostCalculationServicePort).
+Casos de Uso: GetTenantCostReportUseCase.
+libs/application/src/aiper-assistance/:
+Casos de Uso: AnalyzeConversationTextUseCase.
+Dependencias: De libs/core/ (para interfaces de puertos y entidades), libs/shared/ (para DTOs, enums). No debe depender de libs/infrastructure directamente, sino de sus interfaces (puertos).
+Librería libs/infrastructure/ (Capa de Infraestructura)
+Propósito: Implementaciones concretas de los puertos definidos en core/ y application/. Contiene el código que interactúa con bases de datos, APIs externas, sistemas de colas, etc.
+Módulos Internos (Subdirectorios por tipo de tecnología/adaptador):
+libs/infrastructure/src/tenancy-persistence/:
+Adaptadores: PrismaTenantRepository (para DB de plataforma), SecureTenantConfigRepository (usa IEncryptionServicePort para secretos de tenant en DB de plataforma).
+libs/infrastructure/src/persistence/:
+Servicio Clave: PrismaService (o PrismaClientFactory) dinámico para conectar a la DB del tenant.
+Adaptadores: PrismaWhatsAppAccountRepository, PrismaLeadRepository, PrismaUserRepository (todos usando el PrismaClient contextualizado).
+libs/infrastructure/src/cache/:
+Adaptadores: RedisRateLimiterAdapter, RedisAccountStateCacheAdapter (para Health Score).
+Providers: Configuración de conexión a Redis.
+libs/infrastructure/src/queue/:
+Módulo NestJS: QueueModule (configura BullMQ).
+Procesadores: WhatsappWebhookProcessor, WhatsappOutboundProcessor, ImportLeadsProcessor. Estos procesadores inyectan y usan Casos de Uso de libs/application, estableciendo el contexto del tenant.
+libs/infrastructure/src/whatsapp-cloud-api/:
+Adaptador: WhatsappOfficialApiAdapter (implementa IWhatsAppMessagePort).
+libs/infrastructure/src/whatsapp-admin-api/:
+Adaptador: WhatsAppAdminApiAdapter (implementa IWhatsAppAdminPort).
+libs/infrastructure/src/ai-providers/:
+Adaptador: GoogleGeminiAdapter (implementa IConversationAnalyzerPort).
+libs/infrastructure/src/security/:
+Adaptadores/Servicios: Implementación de IEncryptionServicePort (ej. AesEncryptionService). Estrategias Passport para JWT. Implementaciones de RolesGuard de NestJS.
+libs/infrastructure/src/observability/:
+Adaptador: PinoLoggerAdapter (implementa ILoggerPort). Configuración de OpenTelemetry, prom-client.
+Dependencias: De libs/core/ y libs/application/ (para los puertos que implementa), libs/shared/, y librerías externas (Prisma, ioredis, BullMQ, @nestjs/axios, @nestjs/config, etc.).
+Librería libs/shared/ (Compartida Globalmente)
+Propósito: Código 100% reutilizable y agnóstico.
+Artefactos: Tipos, Enums, Utils, Constantes, Errores Personalizados (como se detalla en el Blueprint v3.3).
+Dependencias: Idealmente ninguna otra librería de dfs-invest-suite. Solo dependencias externas muy ligeras y universales (ej. date-fns).
+Librería libs/ui-shared/ (UI Compartida para PWAs)
+Propósito: Componentes React (basados en Shadcn/UI y Tailwind) reutilizables entre pwa-supervisor, pwa-consultant y admin-platform.
+Artefactos: Componentes atómicos (Button, Input, Card), moléculas (LeadListItem, MetricDisplay), y organismos (si son suficientemente genéricos). Hooks UI reutilizables no ligados a fetching de datos.
+Dependencias: De libs/shared/ (para tipos/enums), React, Shadcn/UI, Tailwind.
+Aplicación apps/api-main/ (API NestJS)
+Propósito: Punto de entrada principal para todas las interacciones programáticas con la suite.
+Módulos NestJS:
+AppModule (raíz): Importa módulos de features, ConfigModule, GraphQLModule, EventEmitterModule, QueueModule.
+AuthModule: Maneja autenticación JWT, login.
+Módulos por Dominio (ej. TenancyApiModule, LeadsApiModule, WhatsAppApiModule, BillingApiModule): Contienen los Resolvers GraphQL y Controladores REST. Inyectan Casos de Uso de libs/application y los proveen.
+WebhooksModule: Contiene el WhatsappWebhookController.
+RealtimeModule: Contiene el NotificationsGateway de Socket.io.
+Middleware Global: TenantContextMiddleware para establecer el tenantId.
+Guards Globales: (Opcional) JwtAuthGuard global si la mayoría de la API es protegida.
+Pipes/Filters Globales: Para validación y manejo de excepciones.
+Aplicaciones PWA (apps/pwa-supervisor/, apps/pwa-consultant/, apps/admin-platform/ - Next.js)
+Propósito: Interfaces de usuario por rol.
+Estructura App Router: Rutas organizadas por features. Server Components (RSC) para fetching inicial y layouts. Client Components ("use client") para interactividad.
+Gestión de Estado: TanStack Query (React Query) para estado del servidor (interacción con api-main). Zustand para estado global UI.
+Capa de Servicios Frontend: Funciones/hooks que encapsulan la lógica de llamadas al cliente GraphQL (generado por GraphQL Code Generator o usando Apollo Client) para api-main.
+Autenticación: Flujo de login, almacenamiento seguro de JWT, interceptores para añadir token a las requests.
+Componentes: Uso extensivo de libs/ui-shared y componentes específicos de la aplicación.
+3.2. Componentes Transversales
+Sistema de Autenticación y Autorización (libs/infrastructure/security, apps/api-main/src/auth):
+Autenticación: JWT (RS256/ES256). Flujo de login, refresh tokens. Estrategias Passport en NestJS. MFA obligatorio para roles Admin (Plataforma y Tenant).
+Autorización: RBAC (Role-Based Access Control). RolesGuard en NestJS. Roles: PlatformAdmin, TenantAdmin, TenantSupervisor, TenantConsultant. Permisos definidos y verificados en resolvers/controladores y/o a nivel de Casos de Uso.
+Contexto de Tenant: Integrado con Auth; el JWT del usuario de tenant contiene tenantId.
+Gestión de Logs y Telemetría (libs/infrastructure/observability):
+Logging: Pino (Node.js) para logging JSON estructurado. NestLoggerAdapter para integración con NestJS. Todos los logs deben incluir tenantId (si aplica), userId (si aplica), traceId. Niveles configurables por entorno. Agregación a Loki/CloudWatch.
+Métricas: prom-client en api-main. Métricas RED (Rate, Errors, Duration) para API/servicios. Métricas USE (Utilization, Saturation, Errors) para infraestructura. Métricas de negocio específicas (Leads, Mensajes WA). Exportación a Prometheus. Dashboards en Grafana.
+Tracing: OpenTelemetry SDK. Instrumentación automática para NestJS, Axios, Prisma, Redis, BullMQ. Propagación de W3C Trace Context. Exportación a Jaeger/Tempo.
+Manejo de Errores y Recuperación:
+Errores Personalizados: DomainError, ApplicationError, InfrastructureError, NotFoundError (de libs/shared/).
+Filtros de Excepción Globales (NestJS en api-main): Capturan excepciones y las mapean a respuestas GraphQL/HTTP estandarizadas (IApiResponse de libs/shared/).
+Frontend (PWAs): Error Boundaries de React. Notificaciones (Toasts) para errores no críticos.
+Resiliencia: Circuit Breakers (ej. opossum) en adaptadores de API externa. Reintentos con backoff exponencial para colas BullMQ y llamadas a API.
+Internacionalización (i18n) y Localización (l10n) (Principalmente PWAs, Post-MVP Inicial):
+Librería como next-international o i18next para las PWAs.
+Archivos de traducción por idioma (ej. pt-BR.json, en.json).
+Detección de locale del navegador o preferencia del usuario.
+3.3. Servicios Compartidos
+Bibliotecas de Utilidades Comunes (libs/shared/src/utils/):
+Funciones puras para manipulación de fechas, strings, objetos, validaciones genéricas.
+Servicios de Infraestructura Reutilizables (Instanciados por Tenant o Globales):
+PrismaService (dinámico por tenant).
+Servicio de conexión a Redis (global, pero claves son tenant-namespaced).
+TenantContextService (para obtener el tenantId actual).
+IEncryptionService (para encriptar/desencriptar secretos de tenant).
+ILoggerPort (implementado por PinoLoggerAdapter).
+Componentes UI Compartidos (libs/ui-shared/):
+Componentes base de Shadcn/UI (Button, Card, Input, Table, etc.) con el tema de la suite.
+Componentes de dominio UI reutilizables (ej. LeadStatusBadge, PhoneNumberInput).
+Interceptores, Guards, Pipes Globales (en api-main):
+TenantContextMiddleware: Asegura que el tenantId se establece.
+JwtAuthGuard: Protege la mayoría de los endpoints.
+RolesGuard: Para autorización RBAC.
+ValidationPipe (global): Usa class-validator para DTOs.
+LoggingInterceptor: Loggea requests/responses.
+TransformInterceptor: Mapea respuestas a IApiResponse.
+3.4. Integraciones Externas
+WhatsApp Cloud API (Meta):
+Adaptador: WhatsappOfficialApiAdapter y WhatsAppAdminApiAdapter en libs/infrastructure/.
+Protocolo: HTTPS (Graph API de Meta).
+Autenticación: System User Access Token específico del tenant.
+Resiliencia: Circuit Breaker, reintentos para errores 5xx/429.
+Seguridad: Validación de firma de webhooks (HMAC-SHA256 con App Secret global de la plataforma, luego se verifica si el WABA ID del webhook pertenece a un tenant conocido).
+Google AI (Gemini Pro/Flash u otro LLM):
+Adaptador: GoogleGeminiAdapter en libs/infrastructure/ai-providers/.
+Protocolo: HTTPS (API de Google AI).
+Autenticación: API Key (puede ser global de la plataforma o específica del tenant y gestionada vía ITenantConfigRepositoryPort).
+Resiliencia: Circuit Breaker, reintentos.
+Base de Datos (PostgreSQL):
+Adaptador: PrismaService y repositorios Prisma en libs/infrastructure/persistence/ y tenancy-persistence/.
+Caché/Colas (Redis):
+Adaptador: Cliente ioredis, BullMQ.
+Gestor de Secretos (Vault/Doppler - Recomendado Post-MVP de Fundación):
+Integración en el proceso de arranque de api-main y en CI/CD para inyectar secretos.
+(Futuro) CRM (Pipedrive, Salesforce, etc.):
+Adaptadores específicos en libs/infrastructure/crm-integrations/.
+(Futuro) Plataformas ADS (Facebook CAPI, Google Ads Offline Conversions):
+Adaptadores específicos en libs/infrastructure/ads-integrations/.
+(Futuro) Proveedores de Identidad (OAuth 2.0 / OpenID Connect):
+Si se implementa SSO para admin-platform o para tenants.
+Esto cubre la SECCIÓN 3. Es evidente que la arquitectura está diseñada para ser altamente modular y desacoplada, con una gestión central del contexto del tenant para asegurar el aislamiento. Las librerías de Nx son fundamentales para organizar esta complejidad.
+---
+SECCIÓN 4: FLUJOS DE DATOS Y PROCESOS DE NEGOCIO (DFS-Invest-Suite v3.3)
+Esta sección detalla los casos de uso principales, los flujos de datos críticos y los procesos asíncronos y batch, enfatizando cómo operan dentro de la arquitectura SaaS multi-tenant y la estructura Nx.
+4.1. Enumera y Detalla Cada Caso de Uso Principal:
+Los Casos de Uso residen principalmente en libs/application/ y son invocados por los adaptadores primarios (API, procesadores de cola). Son Tenant-Aware.
+Caso de Uso 1: Onboarding de Nuevo Tenant (CreateTenantUseCase)
+Actores: Administrador de Plataforma (vía apps/admin-platform).
+Precondiciones: El administrador de plataforma está autenticado. Los datos del nuevo tenant (nombre, plan inicial, email del primer admin del tenant) son válidos.
+Flujo Principal:
+Input: name, planId, ownerEmail.
+Validar que el name del tenant no exista (usando ITenantRepositoryPort - DB de plataforma).
+Crear entidad Tenant (Tenant.create()).
+Persistir el Tenant (ITenantRepositoryPort.save()).
+Provisionar Base de Datos del Tenant (invocar IDatabaseProvisioningServicePort.provisionTenantDatabase(tenant.id)). Este servicio (infraestructura) crea la nueva DB y aplica las migraciones Prisma del schema "plantilla".
+Crear Primer Usuario Administrador del Tenant (invocar IManageUsersUseCase.createUser({ tenantId: tenant.id, email: ownerEmail, name: 'Admin', role: ETenantUserRole.TENANT_ADMIN, ... })).
+Generar y almacenar de forma segura la connection string para la nueva DB del tenant (ITenantConfigRepositoryPort.setDbConnectionString()).
+Emitir evento TenantCreatedEvent({ tenantId, ownerEmail }) (para notificaciones, etc.).
+Postcondiciones: Nuevo tenant creado en estado PENDING_ONBOARDING. Su DB está lista. Su primer usuario admin está creado.
+Puntos de Extensión: Enviar email de bienvenida al admin del tenant. Integrar con sistema de facturación de la plataforma.
+Caso de Uso 2: Configuración Inicial de WhatsApp para un Tenant (SetTenantWhatsAppConfigUseCase)
+Actores: Administrador del Tenant (vía apps/pwa-supervisor o apps/admin-platform con su contexto).
+Precondiciones: Tenant existe y está en estado PENDING_ONBOARDING o ACTIVE. Credenciales WA (WABA ID, API Token encriptable, lista de Phone Number IDs) son válidas.
+Flujo Principal:
+Input: tenantId, wabaId, apiToken, phoneNumbers.
+Obtener Tenant (ITenantRepositoryPort.findById(tenantId)).
+Encriptar apiToken.
+Guardar credenciales (ITenantConfigRepositoryPort.setWhatsAppApiCredentials(tenantId, ...)).
+Para cada phoneNumberId proporcionado:
+Obtener detalles del número desde Meta (IWhatsAppAdminPort.getPhoneNumberDetails(wabaId, phoneNumberId, apiTokenDesencriptado)).
+Crear/actualizar la entidad WhatsAppAccount en la DB del tenant (IWhatsAppAccountRepositoryPort.save()).
+Suscribir la App de Meta de la plataforma a los webhooks de la WABA del tenant (IWhatsAppAdminPort.subscribeAppToWabaEvents(wabaId, apiTokenDesencriptado)).
+Si todos los pasos son exitosos y el tenant estaba PENDING_ONBOARDING, actualizar Tenant.status a ACTIVE.
+Emitir TenantWhatsAppConfiguredEvent({ tenantId }).
+Postcondiciones: Credenciales WA del tenant almacenadas de forma segura. Números de teléfono del tenant registrados en su DB. Suscripción a webhooks activa. Tenant (potencialmente) activado.
+Caso de Uso 3: Enviar Mensaje WhatsApp (SendWhatsAppMessageUseCase)
+Actores: Supervisor/Consultor del Tenant (vía PWA), Sistema (Procesos automatizados de nurturing).
+Precondiciones: Tenant activo, con configuración WA válida. Lead existe en DB del tenant.
+Flujo Principal (ya detallado en Blueprint v3.3, Parte 4, Sección 11.1, pero ahora explícitamente tenant-aware):
+Input: tenantId, leadId, messageType ('text', 'template'), payload (contenido, nombre plantilla, variables).
+Obtener Lead y su phoneNumber (ILeadRepositoryPort).
+Verificar ventana de 24h si el messageType no es 'template'.
+Si es 'template', obtener MessageTemplateRecord de la DB del tenant (IMessageTemplateRecordRepositoryPort) para validar que existe, está aprobada y obtener su categoría. (Si no existe localmente o está desactualizada, podría disparar una sincronización vía ManageWhatsAppTemplateUseCase).
+Preparar jobData (incluyendo tenantId, phoneNumber, messageType, payload, accountId (si el usuario PWA seleccionó uno preferente, sino se omite)).
+Añadir job a whatsapp-outbound-queue (IQueuePort.add()).
+Postcondiciones: Job encolado para envío. El procesamiento real (decisión Anti-Ban, llamada a API WA) ocurre en WhatsappOutboundProcessor.
+Caso de Uso 4: Calificar Lead (QualifyLeadUseCase)
+Actores: Sistema (después de un mensaje entrante, o un evento de interacción), Supervisor (manual).
+Precondiciones: Lead existe. tenantId conocido.
+Flujo Principal:
+Input: tenantId, leadId, interactionData? (ej. texto del último mensaje), manualScoreOverride?.
+Obtener Lead y su historial de interacciones (ILeadRepositoryPort, ILeadInteractionRepositoryPort).
+(Si interactionData presente) Llamar a IConversationAnalyzerPort.analyze({ tenantId, text: interactionData.text, ... }) para obtener analysisResult.
+Aplicar LeadQualificationRulesService (reglas de negocio del tenant, si existen).
+Calcular/actualizar Lead.score y Lead.statusLead basado en analysisResult, reglas, e historial.
+Persistir cambios en Lead (ILeadRepositoryPort.save()).
+Emitir LeadQualifiedEvent({ tenantId, leadId, oldStatus, newStatus, oldScore, newScore }).
+Postcondiciones: Lead actualizado con nuevo score/status.
+Caso de Uso 5: Asignar Lead a Consultor (AssignLeadUseCase)
+Actores: Sistema (después de calificación), Supervisor (manual).
+Precondiciones: Lead calificado y no asignado (o necesita reasignación). tenantId conocido.
+Flujo Principal:
+Input: tenantId, leadId, targetConsultantId? (para asignación manual).
+Obtener Lead (ILeadRepositoryPort).
+Si targetConsultantId no provisto, obtener lista de consultores activos del tenant (IUserRepositoryPort.findActiveConsultants(tenantId)).
+Aplicar lógica de "Roleta Inteligente" (considerando carga, expertise, afinidad - post-MVP) para seleccionar chosenConsultantId.
+Actualizar Lead.assignedToUserId = chosenConsultantId (ILeadRepositoryPort.save()).
+Crear registro LeadAssignment (ILeadAssignmentRepositoryPort.save()).
+Notificar al consultor y supervisor (INotificationPort - que podría encolar la notificación).
+Emitir LeadAssignedEvent({ tenantId, leadId, consultantId: chosenConsultantId }).
+Postcondiciones: Lead asignado a un consultor.
+4.2. Flujos de Datos Críticos (Ejemplos Tenant-Aware)
+Flujo: Recepción de Mensaje de WhatsApp y Calificación/Asignación (Detallado)
+Meta -> apps/api-main (Webhook): Payload JSON llega a WhatsappWebhookController.
+Dato Clave: El payload incluye entry[0].id (WABA ID del tenant).
+WhatsappWebhookController:
+Valida firma HMAC-SHA256 (usando GlobalMetaAppSecret de IPlatformSecretsPort).
+Llama a ITenantConfigRepositoryPort.findTenantByWabaId(wabaId) para obtener tenantId.
+Si tenantId no encontrado, loggea error, retorna 200 OK.
+Si encontrado, crea jobData = { tenantId, webhookPayload }.
+Añade job a whatsapp-webhook-queue (IQueuePort.add()).
+libs/infrastructure/queue/processors/whatsapp-webhook.processor.ts:
+Recoge job de la cola. Extrae tenantId y webhookPayload.
+Establece Contexto de Tenant: this.tenantContextService.setTenantId(tenantId) (o lo pasa explícitamente).
+Parsea webhookPayload.
+Si es un mensaje entrante (field === 'messages'):
+Llama a TrackInteractionUseCase.execute({ tenantId, messageDetails, ... }).
+Llama a QualifyLeadUseCase.execute({ tenantId, leadId, interactionData: messageDetails, ... }).
+(Opcional, si el lead se califica como HOT) Llama a AssignLeadUseCase.execute({ tenantId, leadId, ... }).
+Si es un status update (field === 'message_status'):
+Llama a MessageStatusApplicationListener.handleEvent(...) (o un caso de uso).
+(Otros tipos de webhooks: calidad, plantilla, etc., llaman a sus respectivos listeners/casos de uso).
+Transformaciones/Validaciones:
+DTOs con class-validator en WhatsappWebhookController.
+Parseo robusto del payload de webhook.
+Validación de schema en QualifyLeadUseCase si recibe datos de IA.
+Volúmenes y Escalamiento: El cuello de botella podría ser el WebhookProcessor si muchos tenants reciben muchos mensajes. Se escala horizontalmente añadiendo más workers BullMQ y, si es necesario, más instancias de api-main. La DB del tenant individual es el límite final para la escritura.
+Flujo: Envío de Mensaje de Plantilla por Supervisor (Detallado)
+apps/pwa-supervisor: Supervisor selecciona lead, plantilla, rellena variables.
+Dato Clave: El JWT del supervisor contiene su tenantId.
+PWA -> apps/api-main (GraphQL Mutation): sendTemplateMessage(leadId, templateName, components, preferredAccountId?). El tenantId se extrae del JWT en api-main.
+api-main (Resolver GraphQL):
+TenantContextMiddleware ya estableció el tenantId.
+Llama a SendWhatsAppMessageUseCase.execute({ tenantId, leadId, messageType: 'template', payload: { name: templateName, ... } }).
+libs/application/.../send-whatsapp-message.use-case.ts:
+Lógica como en el Caso de Uso 3 anterior. Encola job a whatsapp-outbound-queue con jobData incluyendo tenantId.
+libs/infrastructure/queue/processors/whatsapp-outbound.processor.ts:
+Recoge job. Extrae tenantId. Establece contexto.
+Llama a AntiBanDecisionService.determineSendAction(tenantId, category, risk, preferredAccountId) (la categoría se obtiene del MessageTemplateRecord del tenant).
+Si SEND, llama a IWhatsAppMessagePort.sendMessage(accountId, messagePayload) (el WhatsappOfficialApiAdapter usa las credenciales del tenant activo para accountId).
+Registra MessageLog en la DB del tenant.
+Feedback a PWA: Mutación GraphQL retorna éxito/error de encolamiento. Actualizaciones de estado (SENT, DELIVERED, etc.) llegan vía WebSockets (canal del tenant).
+4.3. Procesos Asíncronos (BullMQ)
+Sistema de Mensajería: BullMQ sobre Redis (instancia Redis global, pero las colas pueden ser prefijadas por tenantId si se necesita aislamiento a nivel de cola, aunque usualmente el tenantId en el jobData es suficiente).
+Colas Principales:
+whatsapp-outbound-queue: Para mensajes salientes. Jobs contienen { tenantId, leadId, messageType, payload, accountId?, retryCount }.
+whatsapp-webhook-queue: Para webhooks entrantes. Jobs contienen { tenantId, webhookPayload, retryCount }.
+import-leads-queue: Para importación de archivos. Jobs contienen { tenantId, fileId, userId, mapping }.
+(Otras colas: analytics-processing-queue, notification-delivery-queue).
+Procesadores (Workers NestJS):
+Clases NestJS decoradas con @Processor('<nombre-cola>') y métodos con @Process().
+Inyectan Casos de Uso de libs/application.
+CRÍTICO: Deben establecer el TenantContext para cada job que procesan.
+Gestión de Tareas:
+Prioridades: Leads calientes o respuestas UIC pueden tener mayor prioridad en whatsapp-outbound-queue.
+Retries con Backoff Exponencial: Configurado en BullMQ para fallos transitorios (ej. error de red al llamar a API WA, DB del tenant temporalmente inaccesible).
+Delayed Jobs: Usado por Anti-Ban para reencolar mensajes si no hay cuentas/tokens disponibles.
+Estrategias de Compensación (Sagas - Post-MVP): Para operaciones complejas que involucran múltiples servicios/dominios y necesitan atomicidad conceptual (ej. crear tenant + configurar WA + facturar). Si un paso falla, los anteriores se revierten.
+4.4. Procesos Batch (Si Aplican)
+Sincronización de Analíticas de Meta: Un job periódico (BullMQ con repeat o un NestJS @Cron()) podría ejecutar un SyncAnalyticsUseCase que, para cada tenant activo:
+Obtiene el tenantId y sus credenciales de API WA.
+Llama a las APIs de analíticas de Meta (analytics, pricing_analytics, template_analytics).
+Persiste los datos agregados en las tablas de métricas del tenant (o en una DB de analíticas central).
+Particionamiento: El job podría procesar tenants en lotes si hay muchos.
+Actualización de Health Score/Rate Limits (Nocturno/Periódico):
+Un job que revise todos los WhatsAppAccounts de todos los tenants, analice su rendimiento reciente (de MessageLogs) y recalibre sus healthScore y los límites en el RedisRateLimiterAdapter.
+Nurturing de Leads (Batch):
+Un job periódico que identifique leads en etapa de "nurturing" para cada tenant y, basado en LeadNurturingLogicService, encole el envío de plantillas de contenido.
+Gestión de Errores y Reintento en Batch: Los procesadores de colas manejan reintentos individuales. Para fallos masivos, se necesitará monitoreo y potencialmente intervención manual o scripts de re-procesamiento batch.
+Con esto finaliza la SECCIÓN 4. Hemos detallado los principales casos de uso y flujos de datos, siempre considerando la arquitectura multi-tenant y cómo Nx facilita la organización de esta lógica.
+---
+¡Excelente! Prosigamos con la SECCIÓN 5: ESTRATEGIAS DE OPTIMIZACIÓN Y RENDIMIENTO para el proyecto dfs-invest-suite v3.3.
+SECCIÓN 5: ESTRATEGIAS DE OPTIMIZACIÓN Y RENDIMIENTO (DFS-Invest-Suite v3.3)
+La optimización y el rendimiento son cruciales para una plataforma SaaS multi-tenant que maneja comunicaciones en tiempo real y grandes volúmenes de datos. Nuestras estrategias se enfocarán en múltiples niveles, desde la base de datos hasta la interfaz de usuario, aprovechando las capacidades de Nx y las tecnologías elegidas.
+5.1. Análisis de las Estrategias de Caching
+El caching es fundamental para reducir la latencia, disminuir la carga en los servicios y bases de datos, y mejorar la experiencia del usuario.
+Niveles de Caché Implementados (Estrategia Multinivel):
+Nivel 1: Browser (Cliente - PWAs Next.js):
+PWA Service Worker (con next-pwa y Workbox): Caching agresivo de assets estáticos de la aplicación (JS, CSS, imágenes, fuentes) usando la estrategia CacheFirst.
+Datos de API (TanStack Query/React Query):
+StaleWhileRevalidate por defecto para la mayoría de las queries GET (ej. lista de leads, detalles de cuenta WA). La UI muestra datos cacheados inmediatamente mientras se actualiza en segundo plano.
+CacheFirst para datos que cambian muy raramente (ej. lista de países, categorías de plantillas globales).
+Configuración de staleTime y cacheTime apropiada por query.
+Estado Global UI (Zustand): El estado de Zustand se persiste en localStorage (o sessionStorage) para mantener preferencias de UI, estado de autenticación (parcial), etc., entre sesiones.
+HTTP Cache Headers (controlados por api-main): api-main establecerá cabeceras Cache-Control apropiadas para las respuestas API GET (ej. public, max-age=... para datos públicos, private, no-cache para datos específicos del usuario/tenant si no se quieren cachear en proxies intermedios).
+Nivel 2: CDN (Edge - para PWAs y assets de api-main):
+Vercel (para PWAs Next.js): Utiliza su CDN global automáticamente para assets estáticos y páginas SSG/ISR.
+API Gateway (si se usa uno delante de api-main en K8s/Cloud): Muchos API Gateways ofrecen capacidades de caching para respuestas GET. Podría usarse para cachear respuestas GraphQL de queries comunes y públicas.
+Configuración: TTLs (Time To Live) agresivos para assets con hash en el nombre. Estrategias de invalidación (ej. por re-despliegue o API) para contenido dinámico cacheado.
+Nivel 3: Backend (api-main y libs/infrastructure/cache - Redis):
+Cache de Aplicación (Redis):
+Resultados de operaciones costosas o datos frecuentemente accedidos que no cambian a menudo:
+Configuración del tenant (obtenida de ITenantConfigRepositoryPort).
+Lista de plantillas aprobadas por tenant (obtenida de IMessageTemplateRecordRepositoryPort o IWhatsAppAdminPort).
+Reglas de negocio Anti-Ban (si son complejas de calcular).
+Tarifas de precios de WhatsApp (si se obtienen de una fuente externa o DB global).
+Claves de Caché: Siempre deben ser tenantId-namespaced. Ej: cache:tenant:${tenantId}:whatsapp_templates.
+TTLs: Definidos cuidadosamente para cada tipo de dato cacheado.
+GraphQL Response Caching (Apollo Server - Opcional Avanzado):
+Apollo Server permite plugins de caching (como apollo-server-plugin-response-cache con un backend Redis) para cachear respuestas completas de queries GraphQL.
+Precaución: La invalidación puede ser compleja, especialmente con datos específicos del usuario/tenant. Usar con cuidado y preferiblemente para queries públicas o muy comunes.
+DataLoader ya ayuda a nivel de resolución de campos, lo que reduce la necesidad de un caché de respuesta completo en muchos casos.
+Nivel 4: Base de Datos (PostgreSQL):
+Caché Interno de PostgreSQL: PostgreSQL tiene sus propios mecanismos de caching de planes de query y datos en memoria. Asegurar suficiente RAM para las instancias de DB (tanto de plataforma como de tenant) es crucial.
+Optimización de Queries e Índices: Reduce la necesidad de cachear a niveles superiores al hacer que las lecturas de DB sean muy rápidas.
+Políticas de Invalidación de Caché:
+Estrategia Principal: Invalidación Explícita y Basada en Eventos.
+React Query (Frontend): Usar queryClient.invalidateQueries([...queryKey]) después de mutaciones exitosas para forzar el refetching de datos relevantes.
+Redis (Backend):
+Cuando una mutación en api-main (o un evento procesado por un worker) modifica datos que están cacheados en Redis, la misma lógica/caso de uso DEBE eliminar (DEL) o actualizar la entrada de caché correspondiente.
+Ejemplo: Si se actualiza el HealthScore de un WhatsAppAccount en la DB del tenant, se debe invalidar el HealthScore cacheado en Redis para cache:tenant:${tenantId}:wa_account_health:${accountId}.
+Event-Driven (Avanzado): Los servicios que modifican datos podrían emitir eventos de "datos cambiados". Otros servicios (o un listener de caché dedicado) se suscribirían a estos eventos para invalidar cachés relevantes.
+TTLs (Time To Live): Usados como mecanismo secundario para asegurar que los datos viejos expiren eventualmente, incluso si la invalidación explícita falla.
+Invalidación de CDN/Browser Cache para Assets Estáticos: Generalmente basada en hash en el nombre del archivo (cache-busting), gestionado por Next.js/Vite.
+Complejidad: La invalidación multinivel es un desafío. Se debe diseñar cuidadosamente las claves de caché para que sean predecibles y fáciles de invalidar.
+Tecnologías Utilizadas:
+Redis: Para caché de backend, rate limiting, health scores, y como backend para BullMQ.
+TanStack Query (React Query): Para caching de estado del servidor en el frontend.
+Workbox (vía next-pwa): Para caching de Service Worker en el frontend.
+Métricas de Efectividad Esperadas:
+Alto porcentaje de aciertos de caché (Cache Hit Rate) para datos frecuentemente leídos.
+Reducción significativa de la latencia percibida por el usuario.
+Disminución de la carga en la base de datos y APIs externas.
+Monitorear Cache Hit/Miss rates en Grafana (para Redis y potencialmente React Query).
+5.2. Detalle de las Optimizaciones de Base de Datos (PostgreSQL con Prisma)
+Estrategias de Indexación:
+Automáticas por Prisma: Prisma crea índices automáticamente para claves primarias (@id) y para campos usados en relaciones (@relation).
+Índices Personalizados (@index, @@index):
+Crear índices en todas las columnas usadas frecuentemente en cláusulas WHERE para filtrado (ej. Lead.statusLead, Lead.assignedToUserId, MessageLog.waMessageId, WhatsAppAccount.phoneNumberId).
+Crear índices compuestos para queries que filtran por múltiples columnas (ej. Lead(tenantId, createdAt) si se listan leads por tenant ordenados por fecha).
+Considerar índices para columnas usadas en ORDER BY.
+Para búsquedas de texto completo (post-MVP), usar índices GIN/GiST en PostgreSQL sobre columnas tsvector.
+Revisión Periódica: Analizar query plans (EXPLAIN ANALYZE) de queries lentas para identificar la necesidad de nuevos índices o la optimización de existentes.
+Particionamiento y Sharding (Estrategia Avanzada Post-MVP para DBs de Tenant):
+Particionamiento de Tablas (PostgreSQL Nativo): Para tablas muy grandes dentro de la DB de un tenant (ej. MessageLogs, LeadInteractions):
+Particionar por rango (ej. por timestamp mensual o trimestral).
+Particionar por lista (ej. por status si hay pocos valores y queries muy selectivas por status).
+Prisma no soporta directamente la definición de particiones en el schema, por lo que esto requeriría scripts SQL manuales gestionados como migraciones "raw" o fuera de Prisma Migrate, o una extensión de Prisma.
+Sharding a Nivel de Aplicación (Más Complejo): Si una única DB de tenant crece demasiado, se podría considerar sharding, pero esto añade una complejidad significativa y está fuera del alcance del MVP. La estrategia "database-per-tenant" ya es una forma de sharding.
+Consultas Optimizadas (Prisma):
+Selección Selectiva de Campos (select, include): Obtener solo los campos necesarios para cada caso de uso para reducir la transferencia de datos y la carga en la DB. Evitar select * implícito.
+Uso Eficiente de Relaciones: Aprovechar las capacidades de Prisma para cargar datos relacionados de forma eficiente, pero ser consciente de posibles problemas N+1 si no se usa con DataLoader en GraphQL.
+Transacciones Prisma: Usar prisma.$transaction([...]) para operaciones que requieren atomicidad a través de múltiples escrituras en la misma DB de tenant.
+Raw Queries (prisma.$queryRaw): Para queries muy complejas o específicas de PostgreSQL que no se pueden expresar eficientemente con el cliente Prisma, pero usar con precaución y solo cuando sea necesario.
+Estrategias de Lectura/Escritura Separadas (Post-MVP):
+Si la carga de lectura es muy alta, configurar réplicas de lectura para las DBs de los tenants y dirigir las queries de solo lectura a estas réplicas. api-main necesitaría lógica para seleccionar la connection string adecuada (primario para escrituras, réplica para lecturas).
+5.3. Explicación de las Optimizaciones de Red
+Compresión y Minimización de Payloads:
+GraphQL: Por naturaleza, ya permite solicitar solo los datos necesarios, reduciendo el tamaño del payload.
+Compresión HTTP (Brotli/Gzip): Habilitada a nivel del servidor web/API Gateway (ej. Nginx, configuración del servicio cloud de contenedores, o middleware en NestJS/Next.js) para todas las respuestas HTTP.
+Minimización de Assets Frontend: Next.js (con Vite/Webpack) minimiza automáticamente JS, CSS y HTML durante el build de producción.
+Estrategias de Polling vs WebSockets:
+WebSockets (Socket.io en NestJS): Usados para actualizaciones en tiempo real desde api-main a las PWAs (ej. nuevo lead asignado, cambio de estado de mensaje, alertas de salud WA). Esto evita el polling ineficiente.
+Polling (Como Fallback o para datos menos críticos): Podría usarse en la PWA con un backoff exponencial si la conexión WebSocket falla temporalmente. Para ciertas analíticas o actualizaciones no críticas, un polling de baja frecuencia podría ser aceptable si los WebSockets añaden demasiada complejidad inicial.
+Implementación de HTTP/2 o HTTP/3:
+Configurar el servidor web/API Gateway/CDN para usar HTTP/2 o HTTP/3. Esto permite multiplexación de requests sobre una única conexión TCP, header compression, y server push, mejorando la performance de carga de múltiples assets. Vercel y la mayoría de los proveedores cloud modernos lo soportan por defecto.
+CDN y Edge Computing:
+CDN (Vercel para PWAs, Cloudfront/Cloudflare para api-main): Servir assets estáticos de las PWAs (JS, CSS, imágenes) desde nodos CDN cercanos al usuario. También se puede cachear respuestas de API GET públicas en el CDN.
+Edge Functions (Vercel Edge Functions, Cloudflare Workers, Lambda@Edge - Futuro): Para lógica que puede ejecutarse más cerca del usuario (ej. redirecciones, personalización A/B, autenticación ligera).
+5.4. Describe Optimizaciones Específicas de Nx
+Configuración de Build Cache ("cache": true en targetDefaults y targets):
+Fundamental. Nx cacheará los outputs de tareas (build, test, lint, etc.) basado en el hash de sus inputs. Si los inputs no cambian, el resultado se restaura instantáneamente.
+Inputs/Outputs Precisos: La efectividad del caché depende de definir correctamente los inputs (archivos fuente, dependencias externas, variables de entorno, argumentos) y outputs (directorios/archivos generados) para cada target.
+Estrategias de Compilación Incremental (implícito en builds affected):
+Nx solo reconstruye/reprueba los proyectos afectados por un cambio (nx affected -t build).
+Las herramientas subyacentes (TSC, Vite, Webpack) también tienen sus propios mecanismos de compilación incremental que Nx orquesta.
+Paralelización de Tareas (parallel en nx.json, --parallel flag):
+Nx ejecuta múltiples tareas en paralelo (hasta el límite configurado) si no tienen dependencias que lo impidan.
+"parallelism": false por target para evitar conflictos de recursos en la misma máquina.
+Tree-shaking y Code Splitting (Gestionado por Bundlers como Vite/Webpack orquestados por Nx):
+Tree-shaking: Elimina código no utilizado de los bundles finales.
+Code Splitting (Next.js App Router, Vite): Divide el código en chunks más pequeños que se cargan bajo demanda (ej. por ruta o para componentes lazy-loaded), mejorando el tiempo de carga inicial. Nx asegura que los builds de las aplicaciones utilicen estas optimizaciones.
+Tareas Inferidas (Project Crystal):
+Al migrar a tareas inferidas, Nx y sus plugins pueden determinar automáticamente los inputs y outputs óptimos para el caché basándose en la configuración de la herramienta (ej. vite.config.ts), reduciendo la configuración manual y mejorando la precisión del caché.
+Distribución de Tareas (Nx Agents con Nx Cloud):
+Aunque es una característica de Nx Cloud, la configuración en Nx (targets bien definidos, caché habilitado) es un prerrequisito para que la DTE funcione eficientemente, distribuyendo la ejecución de tareas en múltiples máquinas agentes en CI.
+Esta sección cubre las principales estrategias de optimización y rendimiento. La combinación de un diseño arquitectónico sólido, el uso eficiente de tecnologías de caching y las optimizaciones específicas de Nx son clave para lograr una plataforma performante y escalable.
+---
+¡Entendido! Continuamos con la SECCIÓN 6: MANEJO DE ESCALABILIDAD Y ALTA DISPONIBILIDAD para el proyecto dfs-invest-suite v3.3.
+SECCIÓN 6: MANEJO DE ESCALABILIDAD Y ALTA DISPONIBILIDAD (DFS-Invest-Suite v3.3)
+La escalabilidad (capacidad de crecer para manejar mayor carga) y la alta disponibilidad (asegurar que el sistema esté operativo la mayor parte del tiempo) son requisitos no funcionales críticos para una plataforma SaaS como dfs-invest-suite.
+6.1. Detalle de la Estrategia de Escalabilidad
+La estrategia de escalabilidad es multifacética, abordando tanto el crecimiento del número de tenants como el volumen de actividad dentro de cada tenant.
+Escalado Horizontal vs Vertical por Componente:
+apps/api-main (NestJS):
+Horizontal (Preferido): Se diseñará para ser stateless en la medida de lo posible (el estado de sesión, si es necesario, se manejará en Redis o un store externo). Esto permite añadir más instancias de contenedor de api-main detrás de un balanceador de carga para manejar un mayor número de requests concurrentes. Kubernetes (HPA - Horizontal Pod Autoscaler) o servicios de contenedores gestionados (Cloud Run, App Runner) facilitan esto.
+Vertical: Aumentar los recursos (CPU/RAM) de las instancias existentes. Útil hasta cierto punto, pero el escalado horizontal es más flexible y resiliente.
+PWAs (apps/pwa-supervisor, apps/pwa-consultant, apps/admin-platform - Next.js):
+Horizontal (Gestionado por Plataforma de Hosting): Si se despliegan en Vercel, la escalabilidad de los assets estáticos y funciones serverless es gestionada por Vercel. Si se despliegan como contenedores Docker, aplica la misma lógica de escalado horizontal que para api-main.
+Bases de Datos PostgreSQL (por Tenant y Plataforma):
+Vertical (Inicial): Aumentar el tamaño de la instancia de la DB (CPU, RAM, IOPS) según lo ofrezca el proveedor cloud (AWS RDS, Google Cloud SQL, etc.).
+Horizontal (Réplicas de Lectura - Post-MVP): Para cargas de lectura intensivas, se pueden añadir réplicas de lectura a las DBs de los tenants (y a la de plataforma). La aplicación (api-main) necesitaría lógica para dirigir las lecturas a las réplicas y las escrituras al primario.
+Sharding (Muy Avanzado): La estrategia "database-per-tenant" ya es una forma de sharding. Si una única base de datos de un tenant individual crece excesivamente, se podría considerar sharding dentro de esa DB, pero esto añade una complejidad considerable y está fuera del alcance del MVP.
+Redis (Caché y BullMQ):
+Vertical: Aumentar el tamaño de la instancia Redis.
+Horizontal (Redis Cluster - Post-MVP): Para muy altas cargas o grandes volúmenes de datos en caché/colas, se puede migrar a un Redis Cluster. BullMQ soporta la conexión a clusters.
+Workers BullMQ (libs/infrastructure/queue/processors ejecutados por api-main o procesos separados):
+Horizontal: Se pueden ejecutar múltiples instancias de los procesadores de cola (workers), ya sea como procesos separados o dentro de múltiples instancias de api-main. BullMQ maneja la distribución de jobs entre los workers conectados a la misma cola.
+Identificación de Cuellos de Botella Potenciales:
+Base de Datos del Tenant: Escrituras intensivas en tablas como MessageLogs o LeadInteractions. Queries complejas sin índices adecuados.
+API de WhatsApp Cloud: Límites de tasa impuestos por Meta. La latencia de la API.
+API de IA (Google Gemini): Límites de tasa, latencia de respuesta para análisis complejos.
+Procesadores de Cola BullMQ: Si un tipo de job es muy lento de procesar y la cola crece demasiado rápido.
+api-main: Carga de CPU/Memoria si hay muchos requests concurrentes y lógica de negocio pesada ejecutándose síncronamente.
+Monitoreo Continuo: Uso de Prometheus, Grafana, y tracing (OpenTelemetry) para identificar proactivamente estos cuellos de botella.
+Puntos de Escala Automática Configurados (Post-MVP con Kubernetes/Servicios Cloud Nativos):
+api-main y Workers BullMQ: HPA en Kubernetes basado en utilización de CPU, memoria, o métricas personalizadas (ej. longitud de cola BullMQ).
+PWAs (si se sirven como contenedores): Similar a api-main. (Vercel lo maneja automáticamente).
+Bases de Datos y Redis Gestionados: Muchos proveedores cloud ofrecen opciones de auto-scaling (para almacenamiento o réplicas de lectura) o facilitan el escalado vertical manual.
+Límites y Umbrales de Crecimiento:
+Se definirán alertas en Alertmanager para umbrales críticos de utilización de recursos (CPU > 80%, Memoria > 85%, Disco > 90%), longitud de colas, latencia de API p95, tasa de error.
+Estos umbrales informarán las decisiones de escalado manual (MVP) o los triggers de auto-scaling (Post-MVP).
+6.2. Explicación de la Estrategia de Alta Disponibilidad (HA)
+La HA se enfoca en asegurar que el sistema permanezca operativo incluso si fallan componentes individuales.
+Redundancia de Componentes Críticos:
+api-main y Workers BullMQ: Ejecutar al menos 2-3 réplicas de contenedor en diferentes nodos/zonas de disponibilidad (AZs) detrás de un balanceador de carga.
+Bases de Datos PostgreSQL (Gestionadas por Cloud):
+Usar la opción de instancia Multi-AZ que ofrecen los proveedores cloud. Esto crea una réplica síncrona en una AZ diferente con failover automático.
+Backups automáticos y Point-in-Time Recovery (PITR) habilitados.
+Redis (Gestionado por Cloud):
+Usar la opción Multi-AZ con failover automático.
+Persistencia AOF+RDB habilitada para recuperación de datos.
+PWAs (Vercel): Vercel proporciona HA de forma nativa a través de su red global.
+Configuración de Failover Automático:
+Balanceador de Carga (para api-main, workers): Detecta instancias no saludables y redirige el tráfico a las saludables.
+Bases de Datos y Redis Gestionados: El proveedor cloud maneja el failover a la instancia de standby en caso de fallo del primario. El DNS de la DB o la connection string pueden necesitar un breve tiempo para actualizarse.
+Aplicaciones: Deben ser resilientes a breves interrupciones de conexión con la DB/Redis y tener lógica de reintento.
+Zonas y Regiones de Despliegue:
+MVP: Despliegue en una única región cloud, pero utilizando múltiples Zonas de Disponibilidad dentro de esa región para los componentes críticos (DB, Redis, contenedores de aplicación).
+Futuro (Recuperación ante Desastres Geográfica): Despliegue activo/pasivo o activo/activo en múltiples regiones. Esto es considerablemente más complejo y costoso, reservado para una fase de madurez mayor.
+SLAs Esperados por Componente:
+API/PWAs: > 99.5% (excluyendo mantenimiento planeado). Idealmente > 99.9%.
+Bases de Datos/Redis Gestionados: Dependerá del SLA ofrecido por el proveedor cloud para sus configuraciones Multi-AZ (típicamente 99.9% o 99.95%).
+API de WhatsApp Cloud / Google AI: Sujeto al SLA de Meta/Google. Nuestro sistema debe ser resiliente a sus indisponibilidades temporales.
+6.3. Describe la Resiliencia del Sistema
+La resiliencia es la capacidad del sistema de recuperarse de fallos y continuar operando.
+Implementación de Circuit Breakers:
+Se usará una librería como opossum en los adaptadores de infraestructura (WhatsappOfficialApiAdapter, GoogleGeminiAdapter, cualquier otra API externa crítica).
+Configuración: Umbrales de fallo (ej. 50% de errores en X requests), timeout, tiempo de "abierto" antes de reintentar (half-open state).
+Fallback: Cuando un circuit breaker está abierto para una API externa, la lógica de la aplicación debe tener un fallback (ej. reencolar el job, usar un resultado cacheado si aplica, retornar un error controlado al usuario, o para IA, usar un modelo local más simple si existe).
+Estrategias de Retry y Backoff:
+Colas BullMQ: Configurar reintentos automáticos con backoff exponencial para jobs que fallan por errores transitorios (ej. errores de red, timeouts cortos de API externa, 5xx).
+Adaptadores de API Externa: Implementar reintentos con backoff exponencial para códigos de error específicos que indican transitoriedad (ej. HTTP 429, 503) antes de que el Circuit Breaker se abra, o como parte de la lógica de reintento del Circuit Breaker.
+Degradación Graceful de Funcionalidades:
+Si un servicio no crítico falla (ej. una API de enriquecimiento de leads secundaria), el flujo principal debe continuar sin él.
+Uso de Feature Flags para desactivar rápidamente funcionalidades problemáticas sin necesidad de un re-despliegue.
+El sistema Anti-Ban, si detecta que todas las cuentas WA de un tenant están en mal estado o bloqueadas, debería encolar los mensajes en lugar de rechazarlos todos (hasta cierto límite), y alertar masivamente.
+Manejo de Sobrecarga y Throttling:
+Colas BullMQ: Actúan como buffer para absorber picos de requests.
+Rate Limiting (NestJS): nestjs-throttler o similar para proteger los endpoints de la api-main contra abuso.
+Rate Limiting (Anti-Ban): El RedisRateLimiterAdapter es fundamental para no sobrecargar la API de WhatsApp.
+Sistema: Debe ser capaz de priorizar tráfico (ej. webhooks de status de Meta sobre envíos de marketing de bajo score) cuando los recursos están limitados.
+6.4. Analiza la Recuperación ante Desastres (DR)
+El DR se enfoca en restaurar el servicio después de un evento catastrófico.
+Estrategia de Backup y Restore:
+Bases de Datos PostgreSQL (Gestionadas por Cloud):
+Backups automáticos diarios/continuos (PITR) habilitados por el proveedor cloud.
+Retención de backups según política (ej. 7-30 días para PITR, snapshots mensuales por más tiempo).
+Redis (Gestionado por Cloud):
+Snapshots RDB periódicos y/o persistencia AOF.
+Si se usa para BullMQ, la persistencia es clave para no perder jobs.
+Configuración de Aplicaciones (Código, Dockerfiles, etc.): Versionado en Git.
+Imágenes Docker: Almacenadas en un registro de contenedores resiliente.
+Secretos: Respaldados de forma segura en Vault/Doppler o el gestor de secretos del cloud.
+RTO (Recovery Time Objective) y RPO (Recovery Point Objective) Definidos:
+MVP (Objetivos Internos):
+RPO: < 15 minutos (para datos transaccionales críticos como mensajes, estados de leads). Esto implica alta frecuencia de backups/replicación para PostgreSQL.
+RTO: < 4 horas (para restaurar el servicio completo en caso de un fallo mayor en una región/AZ, asumiendo DR en la misma región pero diferente AZ inicialmente).
+Procedimientos de Failover entre Regiones (Post-MVP):
+Si se implementa una estrategia de DR geográfica (ej. réplica de DB y contenedores en otra región):
+Documentar el proceso de failover (DNS CNAME switch, promoción de réplica de DB, restauración de Redis desde backup en la nueva región).
+Este es un RTO más largo (ej. 8-24 horas) y RPO más alto si la replicación inter-regional no es síncrona.
+Pruebas de Recuperación Programadas:
+MVP: Al menos una prueba de restauración de la DB del tenant semilla y la DB de plataforma en un entorno de staging aislado antes del lanzamiento.
+Post-MVP: Simulacros de DR trimestrales o semestrales, incluyendo failover a una AZ secundaria.
+Esta sección detalla nuestro enfoque para asegurar que dfs-invest-suite no solo sea funcional y eficiente, sino también altamente escalable, disponible y resiliente ante fallos. La estrategia multi-tenant con aislamiento de DB por tenant es fundamental para la escalabilidad y la gestión de recursos, mientras que el uso de servicios cloud gestionados y patrones de resiliencia robustos apuntan a la alta disponibilidad.
+---
+SECCIÓN 7: SEGURIDAD Y COMPLIANCE (DFS-Invest-Suite v3.3)
+La seguridad y el cumplimiento normativo son pilares no negociables para dfs-invest-suite, especialmente considerando la naturaleza multi-tenant de la plataforma y el manejo de datos de comunicación de clientes (de los tenants) y datos de negocio potencialmente sensibles. Aplicaremos un enfoque de "Seguridad por Diseño" (Security by Design) y DevSecOps.
+7.1. Detalle de la Arquitectura de Seguridad
+Modelo de Autenticación Implementado:
+api-main (NestJS):
+Usuarios de Tenant (Supervisores, Consultores, Admins de Tenant): Autenticación basada en JWT (JSON Web Tokens).
+Algoritmo: RS256 o ES256 (asimétrico, más seguro que HS256).
+Tokens de Acceso: Corta duración (ej. 15-60 minutos), contienen userId, tenantId, roles, sessionId.
+Tokens de Refresco: Larga duración (ej. 7-30 días), almacenados de forma segura (HttpOnly cookie con SameSite=Strict o Lax), usados para obtener nuevos tokens de acceso sin re-autenticar. Implementar rotación de refresh tokens y detección de reutilización.
+Implementación: Usando @nestjs/jwt y estrategias Passport (passport-jwt).
+Administradores de Plataforma (apps/admin-platform): Podrían usar un sistema JWT similar pero con un "issuer" o "audience" diferente, o integrarse con un proveedor de identidad corporativo (OAuth2/OpenID Connect) si DFS-Invest-Suite lo requiere para sus propios administradores.
+Servicios Internos (M2M - Máquina a Máquina): Si los microservicios futuros necesitan comunicarse entre sí, se usarían tokens JWT con client_credentials grant type de OAuth2 o API Keys gestionadas de forma segura.
+Autenticación Multi-Factor (MFA):
+Obligatoria para: Administradores de Plataforma y Administradores de Tenant.
+Recomendada/Configurable para: Supervisores y Consultores (especialmente si acceden a datos muy sensibles).
+Métodos: TOTP (Time-based One-Time Password) usando apps como Google Authenticator/Authy. (Librería speakeasy o similar en NestJS).
+Esquema de Autorización y Control de Acceso (RBAC - Role-Based Access Control):
+Roles de Plataforma: PlatformAdmin, PlatformSupport (futuro).
+Roles de Tenant: TenantAdmin, TenantSupervisor, TenantConsultant.
+Implementación:
+RolesGuard de NestJS en api-main, aplicado a resolvers GraphQL y controladores REST.
+Los permisos se definen en una matriz o lista de control de acceso (ACL) que mapea roles a acciones/recursos (ej. Consultant puede READ sus Leads, Supervisor puede READ todos los Leads de su equipo y UPDATE asignación).
+La lógica de UserAuthorizationDomainService en libs/core/users-roles podría centralizar la definición de estos permisos.
+Principio de Privilegio Mínimo: Los usuarios solo tienen los permisos estrictamente necesarios para realizar sus funciones.
+Aislamiento de Tenant: El TenantContextService y las queries a DB contextualizadas por tenantId son la primera línea de defensa para asegurar que un usuario de un tenant NO pueda acceder a datos de otro tenant. Los Guards RBAC operan después de este aislamiento.
+Protección contra Vulnerabilidades Comunes (OWASP Top 10):
+A01:2021 - Broken Access Control: Mitigado por RBAC robusto y validación de tenantId en cada acceso a datos.
+A02:2021 - Cryptographic Failures: Uso de HTTPS/TLS 1.3 para todo el tráfico. Encriptación de datos sensibles en reposo (secretos de tenant, tokens de API WA) usando AES-256 con una clave maestra de plataforma segura. Algoritmos JWT fuertes. Hasheo seguro de contraseñas (bcrypt o Argon2).
+A03:2021 - Injection:
+SQL Injection: Mitigado por el uso de Prisma ORM (que usa consultas parametrizadas). Evitar raw queries si no es estrictamente necesario y validarlas/sanitizarlas.
+XSS (Cross-Site Scripting): En las PWAs Next.js, React escapa por defecto el contenido renderizado. Usar dangerouslySetInnerHTML con extrema precaución y solo con contenido sanitizado. Configurar Content Security Policy (CSP) headers.
+A04:2021 - Insecure Design: Mitigado por la adopción de una arquitectura hexagonal, principios SOLID, y revisiones de diseño de seguridad (Threat Modeling post-MVP).
+A05:2021 - Security Misconfiguration: Headers de seguridad (HelmetJS en NestJS, y equivalentes o configuración manual en Next.js/Vercel: X-Content-Type-Options, X-Frame-Options, Strict-Transport-Security HSTS). CORS configurado restrictivamente en api-main. Mínimos privilegios para procesos de contenedor.
+A06:2021 - Vulnerable and Outdated Components: Escaneo de dependencias automatizado (Snyk/Dependabot/bun audit) en CI. Política de actualización de dependencias.
+A07:2021 - Identification and Authentication Failures: MFA, políticas de contraseña fuertes, protección contra fuerza bruta (rate limiting en login, CAPTCHA post-MVP), rotación de refresh tokens.
+A08:2021 - Software and Data Integrity Failures: Verificación de firma de webhooks de WhatsApp (HMAC-SHA256). Uso de bun.lockb (frozen lockfile). (Futuro) Firma de artefactos de build.
+A09:2021 - Security Logging and Monitoring Failures: Logging estructurado y contextualizado, métricas de seguridad, alertas para actividades sospechosas (ver sección Observabilidad).
+A10:2021 - Server-Side Request Forgery (SSRF) - Post-MVP: Si la aplicación necesita hacer requests a URLs proporcionadas por el usuario (poco probable en el core), validar y sanitizar esas URLs, usar listas blancas.
+Encriptación en Tránsito y en Reposo:
+En Tránsito: HTTPS/TLS 1.3 obligatorio para toda la comunicación entre PWAs y api-main, y entre api-main y APIs externas (WhatsApp, Google AI).
+En Reposo:
+Secretos de Tenant (API Tokens WA, DB Connection Strings): Encriptados en la DB de plataforma usando AES-256 con una clave maestra de plataforma (gestionada por Vault/Doppler o inyectada de forma segura en api-main).
+Contraseñas de Usuario: Hasheadas con bcrypt o Argon2 (no se pueden desencriptar).
+Backups de Base de Datos: Encriptados por el proveedor cloud.
+7.2. Explicación del Manejo de Datos Sensibles
+Clasificación de Datos Implementada:
+Datos PII (Información Personalmente Identificable) de Leads/Usuarios de Tenant: Nombres, emails, números de teléfono, contenido de conversaciones.
+Datos de Configuración Sensibles del Tenant: API Token de WhatsApp, Connection String de su DB.
+Datos de Autenticación: Hashes de contraseñas, secretos JWT, claves MFA.
+Datos Operacionales/Analíticos: Pueden ser agregados y anonimizados para la plataforma.
+Técnicas de Anonimización y Pseudonimización (Post-MVP para Analíticas Agregadas):
+Si dfs-invest-suite necesita realizar analíticas sobre datos de múltiples tenants, estos datos deben ser anonimizados o pseudonimizados para proteger la privacidad del tenant y sus clientes.
+Para el MVP, el foco es el aislamiento total.
+Políticas de Retención y Eliminación:
+Datos de Tenant: Se retienen mientras la suscripción del tenant esté activa. Tras la cancelación, se establece un período de gracia (ej. 30-90 días) tras el cual los datos (incluida su DB) se eliminan de forma segura (o se anonimizan si el tenant lo permite para datos estadísticos). Este proceso debe estar documentado y ser auditable.
+Logs: Política de retención definida (ej. 90 días para logs de aplicación, más tiempo para logs de auditoría de seguridad), gestionada por el sistema de agregación de logs.
+Auditabilidad y Trazabilidad de Accesos:
+Logging detallado de todas las operaciones CRUD en entidades sensibles, accesos a configuración, intentos de login (exitosos y fallidos), cambios de permisos. Los logs deben incluir tenantId, userId, timestamp, IP de origen (con precaución LGPD).
+7.3. Describe el Cumplimiento Regulatorio
+Regulaciones Aplicables:
+LGPD (Lei Geral de Proteção de Dados - Brasil): IMPRESCINDIBLE, ya que los tenants operarán en Brasil y manejarán datos de ciudadanos brasileños.
+(Potencial Futuro) GDPR: Si la plataforma se expande para servir a tenants en la UE o que manejen datos de ciudadanos de la UE.
+(Potencial Futuro) SOC2/ISO 27001: Si se buscan certificaciones de seguridad para clientes empresariales.
+Controles Técnicos Implementados (para LGPD):
+Principios LGPD: El diseño del sistema debe reflejar los principios de Finalidad, Adequación, Necesidad, Libre Acceso, Calidad de Datos, Transparencia, Seguridad, Prevención, No Discriminación, Responsabilización y Rendición de Cuentas.
+Privacy by Design: La privacidad está integrada en la arquitectura desde el inicio.
+Gestión de Consentimiento (Opt-in): Mecanismos robustos para obtener y gestionar el consentimiento explícito y granular de los usuarios finales de los tenants para el procesamiento de sus datos y para comunicaciones de marketing vía WhatsApp. (El tenant es el controlador de los datos de sus leads, dfs-invest-suite es el procesador).
+Derechos del Titular: La plataforma debe facilitar que los tenants puedan atender las solicitudes de sus usuarios (acceso, corrección, eliminación, portabilidad). api-main podría exponer endpoints para que los tenants gestionen esto, o las PWAs de tenant deben permitir estas acciones.
+ROPA (Registro de Operaciones de Tratamiento): dfs-invest-suite (como plataforma) y cada tenant (para sus propios datos) necesitarán mantener su ROPA.
+RIPD/DPIA (Relatório de Impacto à Proteção de Dados): Necesario para tratamientos de alto riesgo (ej. uso extensivo de IA para calificación, monitoreo de empleados).
+DPO (Encarregado de Proteção de Dados): Tanto dfs-invest-suite como cada tenant necesitarán designar un DPO si cumplen los criterios.
+Procesos de Auditoría Configurados: Logs de auditoría para demostrar cumplimiento.
+Documentación de Compliance Generada: Políticas de Privacidad (para la plataforma y plantillas para tenants), Términos de Servicio, Data Processing Addendum (DPA) con los tenants.
+7.4. Analiza la Seguridad en CI/CD
+Escaneo de Vulnerabilidades en Dependencias:
+bun audit (o npm audit/yarn audit si se usaran).
+Integración de Snyk o GitHub Dependabot/Advanced Security en el pipeline de GitHub Actions para detectar vulnerabilidades en paquetes de terceros. Bloquear builds si se encuentran vulnerabilidades críticas/altas sin mitigación.
+Análisis Estático y Dinámico de Código (SAST/DAST):
+SAST: ESLint con plugins de seguridad (eslint-plugin-security, eslint-plugin-sonarjs). SonarQube/SonarCloud (post-MVP o si hay presupuesto) para un análisis más profundo.
+DAST (Post-MVP): Herramientas como OWASP ZAP integradas en el pipeline para escanear la aplicación desplegada en staging.
+Firma y Verificación de Artefactos (Post-MVP):
+Firmar imágenes Docker con Cosign/Notary v2 para asegurar su integridad y procedencia.
+Gestión Segura de Secretos y Credenciales en CI:
+Utilizar Secretos de GitHub Actions para inyectar credenciales (tokens de API, claves de encriptación para test, etc.) en los jobs de CI. NO hardcodear secretos en los archivos de workflow.
+Para despliegues, usar OIDC con el proveedor cloud (AWS, GCP, Azure) para que GitHub Actions asuma un rol con permisos limitados para desplegar, en lugar de usar claves de acceso de larga duración.
+Esto concluye la SECCIÓN 7. La seguridad y el cumplimiento son procesos continuos y deben ser una prioridad constante en todas las fases del desarrollo y operación de dfs-invest-suite.
+---
+¡Excelente! Continuamos con la SECCIÓN 8: ESTRATEGIA DE TESTING para el proyecto dfs-invest-suite v3.3.
+SECCIÓN 8: ESTRATEGIA DE TESTING (DFS-Invest-Suite v3.3)
+Nuestra estrategia de testing se basa en el principio de "Calidad Primero" y busca asegurar la robustez, fiabilidad y corrección funcional de la plataforma dfs-invest-suite en todos sus niveles. Se implementará una pirámide de testing equilibrada, con un fuerte énfasis en la automatización y la integración continua.
+8.1. Detalle de la Pirámide de Testing Implementada:
+Tests Unitarios (Base de la Pirámide):
+Propósito: Verificar la lógica de unidades de código aisladas (funciones, métodos de clases, componentes React simples, servicios de dominio puros) de forma rápida y eficiente.
+Alcance:
+libs/core/: TODA la lógica de dominio (entidades, servicios de dominio, value objects) debe tener alta cobertura unitaria. Los puertos (interfaces) no se testean directamente, sino sus implementaciones.
+libs/application/: Casos de Uso y Listeners de Eventos. Se mockean los puertos de los que dependen para aislar la lógica de orquestación.
+libs/infrastructure/: Unidades de lógica dentro de los adaptadores (ej. mappers, funciones de construcción de queries complejas si no se usa ORM directamente, lógica de parsing de respuestas de API). Las interacciones directas con DB/APIs externas se cubren con tests de integración.
+libs/shared/src/utils/: Todas las funciones utilitarias.
+libs/ui-shared/ y componentes UI de PWAs: Lógica de presentación simple, funciones de formato, hooks UI sin efectos secundarios.
+Herramienta: Jest (configurado con jest.preset.js de Nx).
+Cobertura Esperada: Objetivo > 85-90% para las librerías core, application y shared. Alta cobertura para lógica crítica.
+Tests de Mutación (Stryker - Post-MVP para libs/core): Para evaluar la calidad de los tests unitarios.
+Tests de Integración (Medio de la Pirámide):
+Propósito: Verificar la interacción correcta entre múltiples unidades o componentes.
+Alcance:
+Adaptadores de Infraestructura (libs/infrastructure/):
+Persistencia: Prisma*RepositoryAdapter contra una base de datos de prueba real (PostgreSQL en Testcontainers). Se verifican operaciones CRUD y queries complejas.
+Caché/Colas: Redis*Adapter y Procesadores BullMQ contra una instancia Redis de prueba (Testcontainers). Se verifica el encolamiento, procesamiento de jobs, rate limiting, health scores.
+APIs Externas (Whatsapp*ApiAdapter, GoogleGeminiAdapter):
+Estrategia Híbrida (Blueprint v3.3, Sección 8.3):
+Mayoría de tests: Mocking HTTP directo (usando nock para backend Node.js, o msw si se quiere compartir mocks con frontend E2E). Validar que el adaptador construye el payload correcto y maneja respuestas mock (éxito, errores 4xx/5xx, timeouts). Validación de Schema de Respuesta (CRÍTICO): Los DTOs que representan la respuesta de la API externa deben ser validados (Zod/Valibot) contra el payload devuelto por el mock para detectar divergencias si la API real cambia.
+(Opcional/Menos frecuente en CI) Tests contra entornos Sandbox/Desarrollo de Meta/Google si están disponibles y son estables, para flujos muy críticos.
+NestJS Módulos (apps/api-main/): Tests de integración de módulos NestJS, verificando que los providers se inyectan correctamente, los guards/pipes funcionan, y los resolvers/controladores interactúan bien con los casos de uso mockeados. Se usa @nestjs/testing.
+Casos de Uso (libs/application/): Tests que verifican la orquestación de múltiples servicios de dominio y puertos de infraestructura (mockeados a nivel de interfaz).
+Herramienta: Jest, Testcontainers, nock/msw.
+Tests End-to-End (E2E - Cima de la Pirámide):
+Propósito: Validar flujos de usuario completos a través de las interfaces de usuario (PWAs) y la API (api-main), simulando la interacción real del usuario.
+Alcance (MVP):
+pwa-supervisor:
+Flujo de Login (Tenant Admin/Supervisor).
+Visualización de lista de leads del tenant.
+Filtrado y detalle de un lead.
+Reasignación manual de un lead.
+Visualización del estado de cuentas WhatsApp del tenant.
+(Simulado/Mockeado) Inicio de importación de Excel (solo UI, el procesamiento backend se prueba en integración).
+api-main (Pruebas de API E2E):
+Llamadas GraphQL/REST para los flujos anteriores, verificando la respuesta completa y efectos secundarios en la DB (contra una DB de test del tenant).
+Flujo de webhook de WhatsApp (enviando un payload mock al endpoint y verificando el procesamiento hasta la DB/cola).
+Herramienta: Playwright (preferido por su robustez y capacidades multi-navegador) o Cypress. Se generan con Nx (@nx/playwright o @nx/cypress).
+Estrategia:
+La mayoría de los E2E correrán contra un backend completamente mockeado (incluyendo la API de WhatsApp) para rapidez y fiabilidad en CI.
+Un conjunto selecto de flujos E2E críticos podría correr contra un entorno de Staging que SÍ interactúe con las APIs externas reales (o sus sandboxes), como se describió en la estrategia híbrida de pruebas externas.
+Tests de Performance y Carga (No Funcionales):
+Propósito: Asegurar que el sistema cumple con los SLAs de rendimiento y puede manejar la carga esperada.
+Alcance (Post-MVP de Fundación, antes de lanzamiento a múltiples tenants):
+api-main: Endpoints GraphQL/REST críticos (ej. envío de mensajes, procesamiento de webhooks, queries de dashboards).
+Base de Datos del Tenant: Pruebas de carga de escritura/lectura.
+Sistema de Colas: Throughput de BullMQ.
+Herramienta: k6 (para scripting de pruebas de carga), combinada con Prometheus/Grafana para monitorear recursos durante las pruebas.
+Métricas: Latencia (p95, p99), tasa de error, throughput (reqs/seg), utilización de CPU/Memoria/Red/Disco.
+8.2. Herramientas y Frameworks Utilizados
+Tests Unitarios e Integración (Backend y Lógica Core/App):
+Framework: Jest.
+Aserciones: API expect de Jest.
+Mocks/Stubs: Funcionalidades de mock de Jest (jest.fn(), jest.spyOn(), jest.mock()). nock para mocking HTTP en tests de adaptadores de API externa.
+Testcontainers: Para levantar instancias efímeras de PostgreSQL y Redis para tests de integración de adaptadores de persistencia y caché/colas.
+NestJS Testing Utilities (@nestjs/testing): Para tests de integración de módulos y componentes NestJS.
+Tests Unitarios y de Componentes (Frontend PWAs):
+Framework: Jest con jsdom (o Vitest si se usa Vite consistentemente y se prefiere).
+Renderizado/Interacción: React Testing Library (RTL).
+Mocks: jest.fn(), msw para mockear llamadas API GraphQL/REST.
+Tests E2E (PWAs y API):
+Framework: Playwright.
+Aserciones: API expect de Playwright.
+Tests de Performance:
+Herramienta: k6.
+Tests de Mutación:
+Herramienta: Stryker Mutator (para TypeScript/JavaScript con Jest).
+Cobertura de Código:
+Jest genera reportes de cobertura. Se puede integrar con SonarQube/Codecov.
+8.3. Entornos de Prueba
+Desarrollo Local (con Docker Compose):
+Desarrolladores ejecutan tests unitarios e de integración localmente.
+Entorno completo con api-main, una instancia de pwa-supervisor, PostgreSQL (DB de plataforma y DB de tenant semilla), Redis.
+CI (GitHub Actions):
+Ejecuta todos los tests unitarios y de integración (con Testcontainers) en cada PR.
+Ejecuta tests E2E (probablemente contra un backend mockeado o un entorno de "preview" ligero).
+Entorno de Staging (Réplica de Producción):
+Despliegue completo de la última versión de develop.
+Conectado a instancias de Staging/Sandbox de APIs externas (WhatsApp, Google AI si es posible).
+Aquí se ejecutan los tests E2E más completos y las pruebas de performance/carga antes de un release a producción.
+Usado para User Acceptance Testing (UAT).
+Entorno de Producción:
+Monitoreo continuo. (Opcional) Smoke tests E2E muy limitados post-despliegue.
+Estrategia de Datos de Prueba:
+Unit/Integration: Datos mockeados directamente en los tests o usando factorías de datos.
+E2E/Staging:
+Un conjunto de datos semilla (realistas pero anonimizados) para el Tenant Semilla y otros tenants de prueba.
+Capacidad de resetear el estado del entorno de staging a uno conocido antes de cada suite E2E.
+Scripts para generar datos de prueba masivos para pruebas de performance.
+Refresh y Reset de Entornos: Scripts automatizados (posiblemente tools/scripts de Nx) para resetear DBs de staging, limpiar cachés, etc.
+8.4. Métricas de Calidad
+Umbrales de Cobertura de Código:
+libs/core: > 90% (líneas, ramas, funciones).
+libs/application: > 85%.
+libs/infrastructure (lógica de adaptador, no interacción directa con lib externa): > 80%.
+apps/* (controladores/resolvers/componentes UI con lógica): > 75%.
+Estos umbrales se verifican en CI y pueden bloquear el merge si no se cumplen.
+Puntuación de Mutación (Mutation Score %) (Post-MVP para libs/core):
+Objetivo > 80-85%.
+Métricas de Complejidad Ciclomática y Código Duplicado:
+SonarQube/SonarCloud o herramienta similar integrada en CI para trackear tendencias.
+Definir umbrales para alertar sobre complejidad excesiva o duplicación.
+Densidad de Bugs (Bug Density):
+Nº de bugs encontrados en staging/producción por KLOC (miles de líneas de código) o por Story Point. Trackear tendencia descendente.
+SLAs de Calidad (Objetivos Internos):
+Tasa de Fallo de Builds en CI: < 5%.
+Tiempo de Ejecución de Suite de Tests en CI: Mantener dentro de límites aceptables (ej. < 15-20 minutos para PRs).
+Lead Time for Changes (DORA metric): Medir tiempo desde commit hasta producción.
+Change Failure Rate (DORA metric): % de despliegues a producción que causan incidentes.
+Esta sección detalla una estrategia de testing exhaustiva y por niveles, crucial para la calidad y estabilidad de dfs-invest-suite. La automatización y la integración en el pipeline de CI son fundamentales.
+---
+SECCIÓN 9: INFRAESTRUCTURA COMO CÓDIGO (IaC) Y DEVOPS (DFS-Invest-Suite v3.3)
+La adopción de prácticas de DevOps y la gestión de la infraestructura como código (IaC) son esenciales para lograr despliegues consistentes, repetibles, rápidos y seguros para la plataforma dfs-invest-suite.
+9.1. Detalle de la Estrategia de IaC
+Herramientas Utilizadas:
+Docker y Docker Compose (Desarrollo Local y MVP Staging/Prod):
+Dockerfile por aplicación (api-main, PWAs si se sirven como contenedores).
+docker-compose.yml: Para orquestar todos los servicios (aplicaciones, PostgreSQL, Redis) en el entorno de desarrollo local.
+docker-compose.prod.yml (o similar): Podría usarse para despliegues simples en un VPS para el MVP inicial de producción/staging, gestionando la red, volúmenes y variables de entorno.
+Terraform (Estrategia Principal para Cloud Staging/Producción Post-MVP):
+Para provisionar y gestionar toda la infraestructura cloud (VPCs, subredes, balanceadores de carga, instancias de Kubernetes (EKS/GKE/AKS), bases de datos gestionadas, instancias Redis, buckets S3 para backups, configuraciones de CDN, IAM roles/policies, etc.).
+Alternativa: Pulumi (usa lenguajes de programación como TypeScript), o herramientas específicas del proveedor cloud (AWS CloudFormation, Azure Resource Manager, Google Cloud Deployment Manager). Terraform es más agnóstico al proveedor.
+Organización de Módulos y Componentes IaC:
+Repositorio: El código IaC (Terraform) residirá dentro del mismo monorepo Nx, posiblemente en una carpeta tools/iac/ o infrastructure/iac/.
+Módulos Terraform: Se crearán módulos Terraform reutilizables para componentes comunes (ej. módulo para una instancia de PostgreSQL, módulo para un cluster K8s, módulo para una aplicación NestJS en K8s).
+Configuración por Entorno: Se usarán workspaces de Terraform o archivos de variables (.tfvars) separados para gestionar las diferencias entre entornos (dev local con Docker, staging cloud, prod cloud).
+Gestión de Estado y Versiones (Terraform):
+Estado Remoto: El archivo de estado de Terraform (terraform.tfstate) se almacenará de forma remota y segura (ej. en un bucket AWS S3 con versionado y bloqueo de estado, o Terraform Cloud/Enterprise). NUNCA se comitea al repositorio Git.
+Versionado: El código IaC se versiona en Git como cualquier otro código. Los módulos Terraform también pueden ser versionados.
+Estrategia de Despliegue Inmutable:
+En la medida de lo posible, se favorecerá la infraestructura inmutable. En lugar de actualizar servidores/contenedores existentes, se crean nuevas instancias con la configuración/código actualizado y se redirige el tráfico. Esto reduce el riesgo de "drift" de configuración y facilita los rollbacks.
+Para contenedores, esto significa construir nuevas imágenes Docker para cada release y desplegarlas.
+Para VMs (si se usaran), herramientas como Packer para crear imágenes de máquina "doradas".
+9.2. Explicación de la Pipeline de CI/CD (GitHub Actions)
+El pipeline de CI/CD es el motor que automatiza la construcción, prueba y despliegue de dfs-invest-suite.
+Etapas Definidas y Gates (Flujo de PR a develop/main):
+Trigger: Push a rama feature o PR a develop/main.
+Lint & Format: bun run lint:affected (usando eslint.config.js), bun run format:check. (Gate: Debe pasar)
+Type Check: bun nx affected --target=type-check. (Gate: Debe pasar)
+Unit & Integration Tests: bun nx affected --target=test --configuration=ci --coverage. (Gate: Deben pasar, cobertura mínima cumplida)
+Build de Aplicaciones Afectadas: bun nx affected --target=build --configuration=production. (Gate: Debe pasar)
+(Opcional en PRs, Mandatorio en Merge a develop) SAST y Scan de Dependencias: SonarCloud/Snyk, bun audit. (Gate: Sin vulnerabilidades críticas/altas nuevas)
+Construir Imágenes Docker (para apps afectadas): Si es merge a develop o PR a main. Las imágenes se taguean con el hash del commit o un tag de "staging".
+Publicar Imágenes Docker a Registro (Staging): Si es merge a develop.
+Desplegar a Entorno de Staging:
+IaC (Terraform apply para cambios de infra si los hay).
+Actualización de servicios de contenedores con las nuevas imágenes.
+Pruebas E2E contra Staging: bun nx e2e <app-e2e> --configuration=staging. (Gate: Deben pasar)
+(Opcional) Pruebas de Performance (k6) contra Staging: (Gate: SLOs básicos cumplidos)
+(Para PR a main o tag de release) Aprobación Manual/Automática para Despliegue a Producción.
+Despliegue a Producción (desde main o tag): Similar a Staging, pero con estrategia Blue/Green o Canary.
+(Opcional) Smoke Tests E2E en Producción.
+Notificaciones: Al equipo sobre el estado del pipeline.
+Estrategia de Branch y Merge (GitHub Flow Ligero):
+main: Siempre desplegable y representa el estado de producción. Protegida. Merges solo desde develop vía PRs de release.
+develop: Rama de integración principal. Representa el próximo release. Merges desde ramas feature/* vía PRs.
+feature/FDFS-XXX-descripcion: Ramas para nuevas funcionalidades/tareas. Creadas desde develop.
+hotfix/FDFS-YYY-descripcion: Para bugs críticos en producción. Creadas desde main. Mergeadas a main Y develop.
+PRs requieren revisión de código y paso de todos los checks de CI.
+Automatización de Release Notes:
+Uso de Conventional Commits (forzado por commitlint).
+Herramienta como standard-version o release-please-action (GitHub Action) para generar automáticamente el CHANGELOG.md y determinar la nueva versión SemVer basada en los tipos de commits desde el último release.
+Rollback y Canary Deployments:
+Rollback:
+Infraestructura (Terraform): terraform apply a una revisión anterior del código IaC.
+Aplicaciones (Contenedores): Re-desplegar la imagen Docker estable anterior.
+Blue/Green: Simplemente redirigir el tráfico de vuelta al entorno "Blue" (el anterior estable).
+Canary Deployments (Post-MVP para funcionalidades de alto riesgo):
+Desplegar la nueva versión a un pequeño subconjunto de usuarios/tráfico.
+Monitorear de cerca.
+Si todo OK, aumentar gradualmente el tráfico a la nueva versión.
+Requiere configuración avanzada del balanceador de carga/service mesh (Istio/Linkerd en K8s) o soporte de la plataforma de hosting (Vercel para Next.js tiene esto).
+Controlado por Feature Flags también.
+9.3. Prácticas GitOps Implementadas (Visión Futura con Kubernetes)
+GitOps es un paradigma donde Git es la fuente única de verdad para definir el estado deseado de la infraestructura y las aplicaciones. Los cambios en el repositorio Git disparan procesos automatizados que sincronizan el estado real con el estado deseado.
+Flujo de Trabajo Git-Centric: Ya implementado parcialmente con CI/CD desde Git.
+Sincronización con Infraestructura (con K8s y herramientas como ArgoCD/Flux):
+Los manifiestos de Kubernetes (YAML) para las aplicaciones y sus configuraciones se almacenan en Git.
+Un operador GitOps (ArgoCD/Flux) en el cluster K8s monitorea el repositorio Git.
+Cuando detecta cambios en los manifiestos, aplica automáticamente esos cambios al cluster.
+Revisión y Aprobación de Cambios: Los cambios en los manifiestos de K8s siguen el mismo flujo de PRs que el código de la aplicación, permitiendo revisión y aprobación.
+Auditabilidad de Despliegues: El historial de Git proporciona un registro auditable de todos los cambios en la configuración y despliegues.
+9.4. Monitoreo y Observabilidad
+Métricas de Negocio vs Técnicas:
+Negocio (por Tenant, agregadas para Plataforma): Número de leads activos, tasa de calificación, tasa de asignación, tiempo de respuesta a leads, tasa de conversión (post-MVP), número de mensajes WA enviados/recibidos, costo de WhatsApp/IA, Quality Rating de números. (Visualizadas en Grafana y/o PWA Supervisor/Admin Platform).
+Técnicas:
+Métricas RED (Rate, Errors, Duration) para cada endpoint API y servicio core.
+Métricas USE (Utilization, Saturation, Errors) para CPU, Memoria, Disco, Red de contenedores/VMs, DBs, Redis.
+Métricas de Cola BullMQ (longitud, tiempo de espera, tasa de procesamiento, errores de job).
+Métricas de JVM/Node.js (heap, garbage collection, event loop lag).
+Implementación de Tracing Distribuido (OpenTelemetry):
+SDKs de OpenTelemetry en api-main (NestJS) y potencialmente en PWAs (para rastrear performance frontend).
+Instrumentación automática para frameworks y librerías (NestJS, Express, Axios, Prisma, ioredis, BullMQ).
+Propagación de Trace Context (W3C) a través de llamadas HTTP, mensajes de cola y eventos.
+Exportación de traces a un backend como Jaeger o Tempo.
+traceId incluido en todos los logs estructurados.
+Dashboards y Alertas Configurados:
+Dashboards (Grafana):
+Dashboard por servicio/aplicación (ej. api-main, pwa-supervisor).
+Dashboard de salud de infraestructura (DBs, Redis, K8s).
+Dashboard de negocio por tenant y global para administradores de plataforma.
+Dashboard específico para el sistema Anti-Ban (Health Scores, Rate Limits, errores WA).
+Alertas (Alertmanager integrado con Prometheus):
+Alertas para tasas de error altas, latencia excesiva, saturación de recursos, colas bloqueadas, Health Score bajo de cuentas WA, errores de API externa persistentes, fallos de jobs críticos.
+Notificaciones a canales de Slack, PagerDuty (para alertas críticas).
+Análisis de Logs Centralizado (Grafana Loki o ELK/EFK):
+Todos los logs estructurados (JSON con tenantId, userId, traceId) se envían a un sistema centralizado.
+Permite búsquedas y correlación de logs a través de múltiples servicios.
+Dashboards en Grafana para visualizar patrones en logs.
+Esta sección cubre las prácticas de DevOps y la gestión de infraestructura como código, fundamentales para un ciclo de vida de desarrollo y operaciones eficiente, seguro y escalable para dfs-invest-suite.
+---
+¡Entendido perfectamente! Mantendremos el enfoque en soluciones Open Source o Freemium robustas para esta fase inicial, con la flexibilidad de migrar a servicios de pago más adelante cuando los recursos y la escala lo justifiquen.
+Continuamos con la SECCIÓN 10: BIBLIOTECAS Y FRAMEWORKS UTILIZADOS para el proyecto dfs-invest-suite v3.3, con este principio en mente.
+SECCIÓN 10: BIBLIOTECAS Y FRAMEWORKS UTILIZADOS (DFS-Invest-Suite v3.3 - Enfoque Open Source/Freemium)
+La elección del stack tecnológico se ha realizado priorizando herramientas maduras, con amplio soporte comunitario, licencias permisivas (MIT, Apache 2.0, etc.) y, siempre que sea posible, opciones open source o con un tier gratuito generoso.
+10.1. Enumeración y Justificación de Cada Biblioteca Externa Significativa:
+Backend (apps/api-main y libs/* relacionadas con backend):
+Node.js (Runtime): Open Source. Elección estándar por su ecosistema y rendimiento en I/O.
+NestJS (Framework Backend): Open Source (MIT). Proporciona una estructura modular y opinada, DI, excelente integración con TypeScript y un ecosistema de módulos robusto.
+@nestjs/core, @nestjs/common, @nestjs/platform-express (o @nestjs/platform-fastify si se prioriza performance bruta sobre ecosistema Express).
+GraphQL (Apollo Server vía @nestjs/apollo y apollo-server-express): Open Source. Estándar para APIs GraphQL. Apollo Server es una implementación popular.
+graphql, graphql-tools: Librerías base para GraphQL.
+WebSockets (Socket.io vía @nestjs/websockets y socket.io): Open Source. Estándar para comunicación bidireccional en tiempo real.
+Prisma (ORM): Open Source (Apache 2.0). Excelente DX, type-safety, migraciones. prisma (CLI), @prisma/client.
+PostgreSQL (Base de Datos): Open Source (PostgreSQL License). RDBMS potente y maduro. (Se usará instancia Docker localmente/MVP, y servicios cloud gestionados con tiers gratuitos/económicos como AWS RDS Free Tier, Supabase, o ElephantSQL para inicio).
+Redis (Caché/Broker de Mensajes): Open Source (BSD). Alto rendimiento. (Instancia Docker localmente/MVP, y servicios cloud gestionados con tiers gratuitos/económicos como Redis Labs Free Tier, Upstash).
+BullMQ (Sistema de Colas): Open Source (MIT). Robusto, basado en Redis, con características avanzadas.
+bullmq, @nestjs/bullmq.
+Pino (Logging): Open Source (MIT). Logger JSON estructurado de alto rendimiento.
+pino, pino-pretty (para desarrollo), nestjs-pino.
+OpenTelemetry SDKs (Tracing/Métricas): Open Source (Apache 2.0). Estándar para observabilidad.
+@opentelemetry/api, @opentelemetry/sdk-node, varios instrumentadores (@opentelemetry/instrumentation-http, -nestjs-core, -pg, -redis, etc.) y exportadores (ej. -exporter-trace-otlp-http, -exporter-prometheus).
+prom-client (Métricas): Open Source (Apache 2.0). Para exponer métricas en formato Prometheus.
+@nestjs/config (Gestión de Configuración): Open Source (MIT). Para cargar variables de entorno desde archivos .env.
+class-validator y class-transformer (Validación/Transformación DTOs): Open Source (MIT). Estándar en NestJS.
+Valibot / Zod (Validación de Schemas - en libs/shared): Open Source (MIT). Para validación de datos más genérica y schemas de configuración. Valibot es más ligero.
+Passport.js con Estrategias (passport-jwt, etc. - Autenticación): Open Source (MIT). Framework de autenticación modular para Node.js.
+@nestjs/passport, passport, passport-jwt.
+bcrypt / argon2 (Hasheo de Contraseñas): Open Source.
+helmet (Seguridad HTTP Headers): Open Source (MIT).
+opossum (Circuit Breaker): Open Source (Apache 2.0). Para resiliencia en llamadas a APIs externas.
+ioredis (Cliente Redis): Open Source (MIT). Cliente Redis performante para Node.js.
+axios (o cliente HTTP incorporado en NestJS): Open Source (MIT). Para realizar llamadas HTTP a APIs externas (WhatsApp, Google AI). @nestjs/axios.
+(Librerías específicas de API externas):
+@google/generative-ai (para Gemini): Licencia Apache 2.0.
+(No hay SDK oficial Cloud API de WhatsApp para Node.js mantenido por Meta, se harán llamadas HTTP directas).
+date-fns (Manipulación de Fechas): Open Source (MIT). Ligera y funcional.
+uuid (Generación de IDs): Open Source (MIT).
+xlsx, papaparse (Parseo Excel/CSV en libs/infrastructure/import): Open Source (Apache 2.0 / MIT).
+Frontend (PWAs apps/pwa-supervisor, etc.):
+React (Librería UI): Open Source (MIT).
+Next.js (Framework): Open Source (MIT). Con App Router.
+Tailwind CSS (Estilos): Open Source (MIT). Framework CSS utility-first.
+Shadcn/UI (Componentes UI): Open Source (MIT). Colección de componentes construidos sobre Tailwind y Radix UI, se copian al proyecto.
+Radix UI (Primitivos UI Accesibles): Open Source (MIT). Usado por Shadcn/UI.
+TanStack Query (React Query - Gestión Estado Servidor): Open Source (MIT).
+Zustand (Gestión Estado Cliente Global): Open Source (MIT).
+GraphQL Client (Apollo Client o graphql-request / fetch):
+Apollo Client: Open Source (MIT). Robusto, con caché, pero más pesado.
+graphql-request o fetch nativo: Más ligeros para queries/mutations simples si el caché de React Query es suficiente.
+@react-input/otp (o similar para inputs OTP): Si se implementa OTP en frontend.
+react-markdown y remark-gfm (Renderizado Markdown para DevHub/Blueprint): Open Source (MIT).
+recharts (Gráficos para DevHub/Dashboards): Open Source (MIT).
+socket.io-client (WebSockets): Open Source (MIT).
+next-pwa (o @ducanh2912/next-pwa - Funcionalidad PWA): Open Source (MIT).
+jose (Manejo JWT en cliente si es necesario): Open Source (MIT).
+Herramientas de Desarrollo y Calidad (Raíz del Workspace):
+Bun (Runtime, Gestor de Paquetes, Bundler, Test Runner): Open Source (MIT).
+Nx (CLI y Plugins): Open Source (MIT).
+TypeScript: Open Source (Apache 2.0).
+ESLint (con plugins): Open Source (MIT y otras).
+Prettier: Open Source (MIT).
+Jest (Framework de Pruebas): Open Source (MIT).
+Playwright (Pruebas E2E): Open Source (Apache 2.0).
+Testcontainers (Pruebas de Integración con DB/Redis): Open Source (MIT).
+nock / msw (Mocking HTTP): Open Source (MIT).
+Husky (Git Hooks): Open Source (MIT).
+lint-staged: Open Source (MIT).
+commitlint (con @commitlint/config-conventional): Open Source (MIT).
+Docker, Docker Compose: Open Source.
+GitHub Actions (CI/CD): Freemium (generoso tier gratuito para proyectos públicos y privados).
+Flagsmith (Feature Flags - Opción Auto-alojada): Open Source (BSD-3-Clause) para la versión auto-alojada. Tier gratuito en cloud.
+Vault / Doppler (Gestión de Secretos - Opción Auto-alojada para Vault, Freemium para Doppler): Vault es Open Source (MPL 2.0). Doppler tiene plan gratuito.
+Grafana, Prometheus, Loki, Alertmanager (Observabilidad): Open Source (Apache 2.0).
+10.2. Frameworks Principales Detallados
+Nx (v20.8.1+):
+Componentes Utilizados: CLI (nx), @nx/nest, @nx/next, @nx/js, @nx/react, @nx/eslint, @nx/jest, @nx/node.
+Configuración Específica: nx.json (npmScope @dfs-suite, targetDefaults, namedInputs, plugins), project.json por proyecto (targets, tags, implicitDependencies). jest.preset.js.
+Extensiones y Plugins Implementados: Los oficiales listados. Se creará un plugin local (@dfs-suite/plugin-internal o similar) para generadores personalizados post-MVP.
+Personalizaciones:
+targetDefaults adaptados para incluir type-check y optimizar inputs/outputs/dependsOn para el caché y la canalización.
+namedInputs como default, production, sharedGlobals para estandarizar la definición de inputs de caché.
+Generadores por defecto en nx.json para que las nuevas libs no sean buildable por defecto.
+Reglas de linting de Nx para límites de módulo (@nx/eslint-plugin-nx).
+NestJS (v10+ - en apps/api-main y libs/infrastructure):
+Componentes Utilizados: Módulos (@Module), Controladores (@Controller), Servicios/Providers (@Injectable), Pipes (@Pipe), Guards (@Guard), Interceptors (@Interceptor), Decoradores Personalizados, HttpModule (@nestjs/axios), @nestjs/config, @nestjs/graphql con ApolloDriver, @nestjs/websockets con SocketIoAdapter, @nestjs/bullmq, @nestjs/jwt, @nestjs/passport.
+Configuración Específica:
+main.ts: Configuración de ValidationPipe global, HttpExceptionFilter global, TenantContextMiddleware global, prefijo API, rawBody para webhooks.
+app.module.ts: Importación de módulos de features y configuración de módulos transversales (GraphQL, Config, Queue, Event).
+Módulos de Dominio/Feature: Estructurados para encapsular resolvers, controladores, servicios y providers relacionados, importando casos de uso y puertos de las librerías core/application.
+Personalizaciones:
+Implementación de TenantContextService y su integración en el ciclo de vida de la solicitud/job.
+Creación de PrismaService dinámico para conexiones multi-tenant.
+Guards RBAC personalizados.
+Next.js (v14+ con App Router - en PWAs):
+Componentes Utilizados: App Router, Server Components (RSC), Client Components ("use client"), Route Handlers (para APIs internas de PWA si es necesario), next/image, next/font, next-pwa.
+Configuración Específica:
+next.config.mjs: Configuración de PWA, publicRuntimeConfig (si es necesario para variables NEXT_PUBLIC_), optimizaciones de build.
+Estructura de carpetas siguiendo convenciones de App Router (app/(group)/route/page.tsx, layout.tsx, loading.tsx, error.tsx).
+Uso de Server Actions (Post-MVP) para mutaciones sin crear API endpoints explícitos.
+Personalizaciones:
+Integración de TanStack Query para data fetching y caching del lado del cliente/servidor (RSC).
+Integración de Zustand para estado global UI.
+Configuración de Service Worker con next-pwa para PWA y caching offline.
+Layouts y componentes de UI específicos usando libs/ui-shared y Shadcn/UI.
+10.3. Bibliotecas Desarrolladas Internamente (Resumen de libs/)
+@dfs-suite/core (libs/core):
+Propósito: Contiene la lógica de negocio fundamental, entidades, value objects, y los puertos (interfaces) para todos los dominios. Es el corazón agnóstico del sistema.
+API Pública: Exporta interfaces de puertos, entidades, tipos de dominio y enums.
+@dfs-suite/application (libs/application):
+Propósito: Orquesta los casos de uso de la aplicación, interactuando con los puertos del dominio.
+API Pública: Exporta interfaces de Casos de Uso y DTOs de aplicación.
+@dfs-suite/infrastructure (libs/infrastructure):
+Propósito: Proporciona las implementaciones concretas (adaptadores) para los puertos definidos en core y application, interactuando con tecnologías externas (DB, APIs, colas, etc.).
+API Pública: Exporta módulos NestJS que proveen los adaptadores listos para ser inyectados.
+@dfs-suite/shared (libs/shared):
+Propósito: Código utilitario 100% puro, tipos globales, enums, constantes, errores base.
+API Pública: Exporta todos sus módulos.
+@dfs-suite/ui-shared (libs/ui-shared):
+Propósito: Componentes React UI reutilizables para las PWAs.
+API Pública: Exporta los componentes React.
+Estrategia de Versionado (Interno): Todas estas librerías se versionan en conjunto con el monorepo. No se publican individualmente en MVP, pero se configuran con importPath para un posible futuro. nx release (post-MVP) podría gestionar versiones individuales si se decide publicar alguna.
+10.4. Gestión de Dependencias
+Estrategia de Actualización:
+Nx y Plugins Oficiales: Usar bun nx migrate latest (o a una versión específica) para actualizaciones coordinadas y ejecución de migradores automáticos. Actualizar una versión mayor a la vez.
+Dependencias Externas:
+Revisión periódica (ej. trimestral o ante alertas de seguridad) de actualizaciones.
+Usar bun update --latest <package> o bun add <package>@latest para dependencias individuales.
+Probar exhaustivamente en staging después de actualizaciones significativas.
+Priorizar actualizaciones de seguridad.
+Manejo de Vulnerabilidades:
+bun audit ejecutado regularmente en CI.
+Snyk/GitHub Dependabot configurado para alertar sobre vulnerabilidades.
+Evaluar impacto y parchear/actualizar según criticidad.
+Monitoreo de Obsolescencia:
+Revisar periódicamente si alguna dependencia clave está obsoleta o sin mantenimiento y planificar su reemplazo.
+Política de Dependencias Transitivas:
+Minimizar. Preferir dependencias directas.
+Analizar el grafo de dependencias (bun pm ls --depth=1 o herramientas visuales) para entender las dependencias transitivas y posibles conflictos.
+Usar overrides en package.json (con precaución) si es necesario para forzar una versión de una dependencia transitiva conflictiva.
+Esta sección cubre las tecnologías y la gestión de dependencias, manteniendo el foco en soluciones Open Source y Freemium para la etapa inicial del proyecto, pero sentando las bases para futuras evoluciones.
+--- **ACTUALIZACION SECCION 10**
+SECCIÓN 10: BIBLIOTECAS Y FRAMEWORKS UTILIZADOS (DFS-Invest-Suite v3.3 - Enfoque Open Source/Freemium con Yarn)
+La elección del stack tecnológico se ha realizado priorizando herramientas maduras, con amplio soporte comunitario, licencias permisivas (MIT, Apache 2.0, etc.) y, siempre que sea posible, opciones open source o con un tier gratuito generoso. Usaremos Yarn como gestor de paquetes.
+10.1. Enumeración y Justificación de Cada Biblioteca Externa Significativa:
+Backend (apps/api-main y libs/* relacionadas con backend):
+Node.js (Runtime): Open Source. Elección estándar por su ecosistema y rendimiento en I/O. (Versión LTS recomendada, ej. v18 o v20, según matriz de compatibilidad Nx).
+NestJS (Framework Backend): Open Source (MIT). Proporciona una estructura modular y opinada, DI, excelente integración con TypeScript y un ecosistema de módulos robusto.
+@nestjs/core, @nestjs/common, @nestjs/platform-express.
+GraphQL (Apollo Server vía @nestjs/apollo y apollo-server-express): Open Source. Estándar para APIs GraphQL.
+graphql, graphql-tools.
+WebSockets (Socket.io vía @nestjs/websockets y socket.io): Open Source. Estándar para comunicación bidireccional en tiempo real.
+Prisma (ORM): Open Source (Apache 2.0). Excelente DX, type-safety, migraciones. prisma (CLI), @prisma/client.
+PostgreSQL (Base de Datos): Open Source (PostgreSQL License). (Instancia Docker localmente/MVP, servicios cloud gestionados con tiers gratuitos/económicos después).
+Redis (Caché/Broker de Mensajes): Open Source (BSD). (Instancia Docker localmente/MVP, servicios cloud gestionados con tiers gratuitos/económicos después).
+BullMQ (Sistema de Colas): Open Source (MIT). Robusto, basado en Redis.
+bullmq, @nestjs/bullmq.
+Pino (Logging): Open Source (MIT). Logger JSON estructurado.
+pino, pino-pretty (desarrollo), nestjs-pino.
+OpenTelemetry SDKs (Tracing/Métricas): Open Source (Apache 2.0).
+@opentelemetry/api, @opentelemetry/sdk-node, instrumentadores y exportadores.
+prom-client (Métricas): Open Source (Apache 2.0).
+@nestjs/config (Gestión de Configuración): Open Source (MIT).
+class-validator y class-transformer (Validación/Transformación DTOs): Open Source (MIT).
+Valibot / Zod (Validación de Schemas): Open Source (MIT).
+Passport.js con Estrategias (passport-jwt, etc.): Open Source (MIT).
+@nestjs/passport, passport, passport-jwt.
+bcrypt (Hasheo de Contraseñas): Open Source (MIT). (Argon2 es una alternativa más moderna y segura, pero bcrypt es más común).
+helmet (Seguridad HTTP Headers): Open Source (MIT).
+opossum (Circuit Breaker): Open Source (Apache 2.0).
+ioredis (Cliente Redis): Open Source (MIT).
+axios (o cliente HTTP incorporado en NestJS): Open Source (MIT). @nestjs/axios.
+@google/generative-ai (para Gemini): Licencia Apache 2.0.
+date-fns (Manipulación de Fechas): Open Source (MIT).
+uuid (Generación de IDs): Open Source (MIT).
+xlsx, papaparse (Parseo Excel/CSV): Open Source (Apache 2.0 / MIT).
+Frontend (PWAs apps/pwa-supervisor, etc.):
+React (Librería UI): Open Source (MIT).
+Next.js (Framework): Open Source (MIT). Con App Router.
+Tailwind CSS (Estilos): Open Source (MIT).
+Shadcn/UI (Componentes UI): Open Source (MIT).
+Radix UI (Primitivos UI Accesibles): Open Source (MIT).
+TanStack Query (React Query - Gestión Estado Servidor): Open Source (MIT).
+Zustand (Gestión Estado Cliente Global): Open Source (MIT).
+GraphQL Client (Apollo Client o graphql-request / fetch): Apollo Client (MIT).
+react-markdown y remark-gfm (Renderizado Markdown): Open Source (MIT).
+recharts (Gráficos): Open Source (MIT).
+socket.io-client (WebSockets): Open Source (MIT).
+@ducanh2912/next-pwa (Funcionalidad PWA): Open Source (MIT).
+jose (Manejo JWT en cliente): Open Source (MIT).
+Herramientas de Desarrollo y Calidad (Raíz del Workspace):
+Yarn (Gestor de Paquetes): Open Source. Usaremos Yarn Berry (v2+) con el plugin node-modules o Yarn v1.x. El yarn.lock (o archivos equivalentes en Berry) será versionado.
+Nx (CLI y Plugins): Open Source (MIT).
+TypeScript: Open Source (Apache 2.0).
+ESLint (con plugins): Open Source (MIT y otras).
+Prettier: Open Source (MIT).
+Jest (Framework de Pruebas): Open Source (MIT).
+Playwright (Pruebas E2E): Open Source (Apache 2.0).
+Testcontainers (Pruebas de Integración): Open Source (MIT).
+nock / msw (Mocking HTTP): Open Source (MIT).
+Husky (Git Hooks): Open Source (MIT).
+lint-staged: Open Source (MIT).
+commitlint (con @commitlint/config-conventional): Open Source (MIT).
+Docker, Docker Compose: Open Source.
+GitHub Actions (CI/CD): Freemium.
+Flagsmith (Feature Flags - Opción Auto-alojada): Open Source (BSD-3-Clause).
+HashiCorp Vault (Gestión de Secretos - Opción Auto-alojada): Open Source (MPL 2.0). (Doppler con plan gratuito es alternativa).
+Grafana, Prometheus, Loki, Alertmanager (Observabilidad): Open Source (Apache 2.0).
+10.2. Frameworks Principales Detallados
+Nx (Versión más reciente LTS o Current Estable, ej. v20.x según matriz de compatibilidad):
+Componentes Utilizados: CLI (nx), @nx/nest, @nx/next, @nx/js, @nx/react, @nx/eslint, @nx/jest, @nx/node.
+Configuración Específica: Misma que la descrita anteriormente para nx.json, project.json, jest.preset.js.
+Personalizaciones: Mismas que las descritas anteriormente.
+NestJS (v10+ - en apps/api-main y libs/infrastructure):
+Componentes Utilizados: Mismos que los descritos anteriormente.
+Configuración Específica: Misma que la descrita anteriormente.
+Personalizaciones: Misma que la descrita anteriormente.
+Next.js (v14+ con App Router - en PWAs):
+Componentes Utilizados: Mismos que los descritos anteriormente.
+Configuración Específica: Misma que la descrita anteriormente.
+Personalizaciones: Misma que la descrita anteriormente.
+10.3. Bibliotecas Desarrolladas Internamente (Resumen de libs/)
+La estructura y propósito de las librerías @dfs-suite/core, @dfs-suite/application, @dfs-suite/infrastructure, @dfs-suite/shared, y @dfs-suite/ui-shared se mantienen como se describió en la respuesta anterior.
+Estrategia de Versionado de Nx (Herramientas):
+Lanzamiento Sincronizado (Lockstep): El paquete nx y todos los paquetes @nx/* (oficiales) se lanzan juntos. Es crucial usar siempre versiones coincidentes (ej. nx@20.1.0 con @nx/js@20.1.0).
+Ciclo de Versiones Mayores: Cada seis meses (abril/octubre). La versión mayor anterior pasa a LTS por 12 meses. Soporte total de 18 meses por versión mayor.
+Tipos de Versiones:
+Parche: Correcciones de seguridad/bugs (cuando sea necesario).
+Menor: Nuevas features y fixes (menos frecuente, recomendable actualizar regularmente).
+Mayor: Pueden tener breaking changes (dos veces al año).
+Política de Obsolescencia: Una API/feature marcada como obsoleta permanecerá funcional por una versión mayor completa antes de ser eliminada (ej. obsoleta en v20.1.0, eliminada en v22.0.0).
+Migraciones: Nx provee nx migrate para actualizaciones automáticas y manejo de breaking changes.
+Acción: Mantendremos el workspace actualizado usando yarn nx migrate latest (o a una versión LTS específica si se decide), actualizando una versión mayor a la vez.
+Estrategia de Versionado para Librerías @dfs-suite/* (Desarrolladas Internamente):
+MVP Inicial (Sin Publicación Externa): Todas las librerías internas (@dfs-suite/*) se versionarán en conjunto con la aplicación principal (api-main o la PWA si es un cambio solo de UI). El versionado del package.json raíz del monorepo (gestionado por nx release post-MVP) dictará la versión de la "suite" como un todo. No se publicarán individualmente a NPM.
+Futuro (Si alguna lib se vuelve publicable):
+Se usará nx release version (del plugin @nx/js:release o similar) para gestionar el versionado SemVer independiente de esa librería específica.
+Se configurará project.json de la librería publicable para nx release.
+Esto permitirá generar changelogs por librería y publicarlas a un registro NPM.
+10.4. Gestión de Dependencias (con Yarn)
+Estrategia de Actualización:
+Nx y Plugins Oficiales: yarn nx migrate latest (o yarn nx migrate <version>).
+Dependencias Externas:
+Revisión periódica.
+yarn upgrade-interactive --latest para una revisión selectiva, o yarn add <package>@latest para paquetes individuales.
+Probar exhaustivamente.
+Manejo de Vulnerabilidades:
+yarn audit (Yarn v1) o yarn npm audit (Yarn Berry) ejecutado en CI.
+Snyk/GitHub Dependabot.
+Monitoreo de Obsolescencia: Similar al anterior.
+Política de Dependencias Transitivas:
+Minimizar.
+Analizar con yarn why <package> o herramientas de visualización de dependencias.
+Usar resolutions en package.json (Yarn v1) o packageExtensions (Yarn Berry con PnP desactivado o node-modules linker) con extrema precaución para forzar versiones de dependencias transitivas.
+Esta sección actualizada refleja el uso de Yarn como gestor de paquetes y detalla la estrategia de versionado tanto para las herramientas de Nx como para nuestras librerías internas. La estabilidad se busca a través de la elección de versiones LTS de Node.js, versiones estables de Nx y un manejo cuidadoso de las dependencias.
