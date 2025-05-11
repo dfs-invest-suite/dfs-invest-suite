@@ -1,0 +1,253 @@
+{
+  "version": "6.0",
+  "nxVersion": "21.0.3",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".docs/PROYETO-OFICIAL-DESARROLLO.md",
+        "hash": "10410953569971947428"
+      },
+      {
+        "file": ".docs/comandos-nx.md",
+        "hash": "8726175323289468080"
+      },
+      {
+        "file": ".docs/directivas-v2.0.1.md",
+        "hash": "16985608459039549285"
+      },
+      {
+        "file": ".docs/proyecto.tecnico.md",
+        "hash": "15656996287753112128"
+      },
+      {
+        "file": ".docs/resumen-dfs-invest-flow-1.0.md",
+        "hash": "2156687276783297710"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".env",
+        "hash": "5359927288126857115"
+      },
+      {
+        "file": ".env.example",
+        "hash": "9701414843099447202"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6147899740314209172"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1880664178033616490"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
+      },
+      {
+        "file": "README.md",
+        "hash": "12802545265401957182"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "6870352021923392442"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15656850100044694043"
+      },
+      {
+        "file": "package.json",
+        "hash": "11738443311357617091"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "30743872940251660"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "12453027730966252881"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "16936441711144470533"
+      }
+    ],
+    "projectFileMap": {
+      "dfs-invest-suite-e2e": [
+        {
+          "file": "apps/dfs-invest-suite-e2e/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "apps/dfs-invest-suite-e2e/jest.config.ts",
+          "hash": "13006421226276415506"
+        },
+        {
+          "file": "apps/dfs-invest-suite-e2e/project.json",
+          "hash": "10168262901783754581"
+        },
+        {
+          "file": "apps/dfs-invest-suite-e2e/src/dfs-invest-suite/dfs-invest-suite.spec.ts",
+          "hash": "110394728024017389",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite-e2e/src/support/global-setup.ts",
+          "hash": "10817858795115919263",
+          "deps": [
+            "npm:@nx/node"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite-e2e/src/support/global-teardown.ts",
+          "hash": "14210317125869451873",
+          "deps": [
+            "npm:@nx/node"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite-e2e/src/support/test-setup.ts",
+          "hash": "15521797170623961900",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "apps/dfs-invest-suite-e2e/tsconfig.spec.json",
+          "hash": "14954872453723519891"
+        }
+      ],
+      "dfs-invest-suite": [
+        {
+          "file": "apps/dfs-invest-suite/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "apps/dfs-invest-suite/jest.config.ts",
+          "hash": "1939335908525439162"
+        },
+        {
+          "file": "apps/dfs-invest-suite/project.json",
+          "hash": "14029494954928664538"
+        },
+        {
+          "file": "apps/dfs-invest-suite/src/app/app.controller.spec.ts",
+          "hash": "7647647754668916054",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite/src/app/app.controller.ts",
+          "hash": "15276891910009544695",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite/src/app/app.module.ts",
+          "hash": "11673476679848632172",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite/src/app/app.service.spec.ts",
+          "hash": "13111976464657524091",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite/src/app/app.service.ts",
+          "hash": "9967902337593410053",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/dfs-invest-suite/src/main.ts",
+          "hash": "150780270862474464",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/dfs-invest-suite/tsconfig.app.json",
+          "hash": "11728618664080294556"
+        },
+        {
+          "file": "apps/dfs-invest-suite/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/dfs-invest-suite/tsconfig.spec.json",
+          "hash": "6622138706846345436"
+        },
+        {
+          "file": "apps/dfs-invest-suite/webpack.config.js",
+          "hash": "13605379425043725613",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,42 +1,70 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# compiled output
-dist
-tmp
-out-tsc
+# Dependencies
+# ----------------------------------------------------------------------
+node_modules/
 
-# dependencies
-node_modules
+# Nx specific
+# ----------------------------------------------------------------------
+.nx/cache/
+.nx/workspace-data/ # Información local del workspace, no necesaria en el repo
+tmp/ # Directorio temporal de Nx
 
-# IDEs and editors
-/.idea
+# Build & Compiled Output
+# ----------------------------------------------------------------------
+dist/
+out-tsc/ # Output del compilador TypeScript si se usa directamente
+coverage/ # Reportes de cobertura de tests
+
+# Local Environment & Secrets (generalmente no se versionan)
+# ----------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+!.env.example # No ignorar archivos de ejemplo de .env
+
+# IDEs and Editors
+# ----------------------------------------------------------------------
+# General
 .project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
+/.sass-cache/ # Asegurarse de que sea un directorio
 
-# IDE - VSCode
+# VSCode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/cSpell.json # Ejemplo si usas cSpell y quieres versionar su config
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
+# JetBrains (/.idea)
+/.idea/
+
+# Logs
+# ----------------------------------------------------------------------
+connect.lock
+libpeerconnection.log
+npm-debug.log* # Abarca npm-debug.log y npm-debug.log.1, etc.
+yarn-error.log*
+pnpm-debug.log*
 testem.log
-/typings
+logs/
+*.log
 
-# System Files
+# OS generated files
+# ----------------------------------------------------------------------
 .DS_Store
 Thumbs.db
 
-.nx/cache
-.nx/workspace-data
+# Deprecated or less common
+# ----------------------------------------------------------------------
+# /typings # Obsoleto, se usa @types de node_modules
+
+# Custom Project Specific Ignores
+# ----------------------------------------------------------------------
+.docs/ # Ignorar la carpeta .docs
