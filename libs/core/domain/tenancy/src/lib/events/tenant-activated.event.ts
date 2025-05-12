@@ -1,24 +1,44 @@
 // libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts
 import { DomainEventBase, DomainEventProps } from '@dfs-suite/core-domain-shared-kernel-events';
-import { AggregateId, CorrelationId } from '@dfs-suite/shared-types'; // Removidos UserId, Maybe si no se usan aquí
-import { IDomainEventMetadata } from '@dfs-suite/core-domain-shared-kernel-events'; // <--- IMPORT AÑADIDO
+// AggregateId, CorrelationId, etc., se infieren a través de DomainEventProps
 
+/**
+ * Payload para el evento TenantActivatedEvent.
+ * Actualmente, este evento no requiere un payload específico más allá de la información
+ * base del evento de dominio. Se usa `Record<string, never>` para un objeto vacío.
+ */
 export type TenantActivatedEventPayload = Record<string, never>;
 
+/**
+ * Evento de dominio que se dispara cuando un tenant es activado.
+ */
 export class TenantActivatedEvent extends DomainEventBase<TenantActivatedEventPayload> {
-  constructor(props: {
-    aggregateId: AggregateId;
-    payload?: TenantActivatedEventPayload;
-    metadata?: Partial<Omit<IDomainEventMetadata, 'timestamp' | 'correlationId'>> & { correlationId?: CorrelationId };
-  }) {
-    super({
-      aggregateId: props.aggregateId,
-      payload: props.payload || ({} as TenantActivatedEventPayload),
-      metadata: props.metadata,
-    });
+  /**
+   * Crea una instancia de TenantActivatedEvent.
+   * @param props - Propiedades del evento, incluyendo el `aggregateId` del tenant activado
+   *                y el `payload` (que debe ser un objeto vacío para este evento).
+   *                La entidad que crea el evento debe pasar `payload: {}`.
+   */
+  constructor(props: DomainEventProps<TenantActivatedEventPayload>) {
+    super(props);
   }
 }
 
+/* SECCIÓN DE MEJORAS FUTURAS
+[
+  Mejora Propuesta 1 (Payload Contextual Opcional):
+    Si la activación de un tenant pudiera ocurrir por diferentes razones o con diferentes parámetros que fueran relevantes para los suscriptores (ej. activado después de pago, activado por admin, configuración específica aplicada durante la activación), `TenantActivatedEventPayload` podría expandirse.
+    Justificación: Mayor contexto para los manejadores de eventos.
+    Impacto: Modificación de `TenantActivatedEventPayload` y del código que dispara el evento.
+]
+[
+  Mejora Propuesta 2 (Timestamp de Activación Específico en Payload):
+    Aunque `metadata.timestamp` indica cuándo se creó el evento, si el "momento de activación" como concepto de negocio es distinto y crucial, podría incluirse en el payload: `activatedAt: IsoDateString`.
+    Justificación: Precisión semántica si el timestamp del evento no es suficiente.
+    Impacto: Adición al payload; la entidad sería responsable de proveer este timestamp.
+]
+*/
+// libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts
 /* SECCIÓN DE MEJORAS FUTURAS
 [
   Mejora Propuesta 1 (Consistencia del Constructor con DomainEventProps):

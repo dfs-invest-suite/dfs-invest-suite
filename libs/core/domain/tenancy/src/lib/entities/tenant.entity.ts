@@ -5,8 +5,7 @@ import { UserId, Maybe, AggregateId, TenantId } from '@dfs-suite/shared-types';
 import { UuidUtils, Guard } from '@dfs-suite/shared-utils';
 import { TenantStatusVO } from '../value-objects/tenant-status.vo';
 import { DbConnectionConfigVO } from '../value-objects/db-connection-config.vo';
-// CORRECCIÓN AQUÍ: Cambiar TenantCreatedEventPayload a ITenantCreatedEventPayload
-import { TenantCreatedEvent, ITenantCreatedEventPayload } from '../events/tenant-created.event';
+import { TenantCreatedEvent, ITenantCreatedEventPayload } from '../events/tenant-created.event'; // Corregido
 import { TenantActivatedEvent, TenantActivatedEventPayload } from '../events/tenant-activated.event';
 import { TenantSuspendedEvent, TenantSuspendedEventPayload } from '../events/tenant-suspended.event';
 import { InvalidTenantStatusTransitionError } from '../errors/invalid-tenant-status-transition.error';
@@ -55,11 +54,10 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
       updatedAt: new Date(),
     });
 
-    // Usar el tipo de payload importado correctamente
-    const eventPayload: ITenantCreatedEventPayload = {
+    const eventPayload: ITenantCreatedEventPayload = { // Corregido
         name: tenant.props.name,
         ownerUserId: tenant.props.ownerUserId,
-        status: initialStatus.value, // Acceder al .value del VO para el payload del evento
+        status: initialStatus.value,
     };
     tenant.addEvent(
       new TenantCreatedEvent({
@@ -156,6 +154,10 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
   }
 }
 
+/* SECCIÓN DE MEJORAS FUTURAS
+// (Mismas que la versión anterior)
+*/
+// libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
 /* SECCIÓN DE MEJORAS FUTURAS
 [
   Mejora Propuesta 1 (Inyección de Logger): La lógica de logging ha sido eliminada de la entidad. El logging contextual sobre las operaciones de la entidad (ej. "Tenant X activado por User Y") debería realizarse en los Casos de Uso (Servicios de Aplicación) que orquestan estas operaciones.

@@ -2,27 +2,26 @@
 import { AggregateId, CorrelationId, IsoDateString, Maybe, UserId } from '@dfs-suite/shared-types';
 
 export interface IDomainEventMetadata {
-  /** Timestamp cuando este evento de dominio ocurrió */
   readonly timestamp: IsoDateString;
-  /** ID para propósitos de correlación (para Eventos de Integración, correlación de logs, etc). */
   readonly correlationId: CorrelationId;
-  /** ID de causación usado para reconstruir el orden de ejecución si es necesario */
   readonly causationId?: Maybe<CorrelationId>;
-  /** ID del usuario para propósitos de depuración y logging */
   readonly userId?: Maybe<UserId>;
 }
 
-// Usamos `unknown` para el payload por defecto para ser más estrictos que `any`.
-// Las clases de evento concretas DEBEN definir su tipo de Payload.
-export interface IDomainEvent<Payload extends Record<string, unknown> = Record<string, unknown>> {
-  /** ID único para esta instancia específica del evento */
-  readonly id: AggregateId; // Podría ser un tipo específico Brand<string, 'EventId'>
-  /** ID del Agregado donde ocurrió el evento de dominio */
-  readonly aggregateId: AggregateId;
-  /** Nombre del evento, típicamente el nombre de la clase del constructor del evento */
+export interface IDomainEvent<Payload extends Record<string, unknown> = Record<string, never>> {
+  readonly id: AggregateId; // ID del evento
+  readonly aggregateId: AggregateId; // ID del agregado que originó el evento
   readonly eventName: string;
-  /** Metadata asociada con el evento */
-  readonly metadata: Readonly<IDomainEventMetadata>; // Asegurar inmutabilidad
-  /** Los datos/payload reales del evento */
-  readonly payload: Readonly<Payload>; // Asegurar inmutabilidad
+  readonly metadata: Readonly<IDomainEventMetadata>;
+  readonly payload: Readonly<Payload>;
 }
+
+/* SECCIÓN DE MEJORAS FUTURAS
+[
+  Mejora Propuesta 1 (Tipado de `eventName`):
+    Se podría considerar usar un tipo literal o un enum para `eventName` si hay un conjunto fijo de nombres de eventos, aunque `this.constructor.name` es una práctica común y flexible.
+    Justificación: Mayor seguridad de tipos para los nombres de eventos, previniendo errores tipográficos al suscribirse.
+    Impacto: Requeriría que cada clase de evento defina explícitamente su `eventName` o que `DomainEventBase` lo infiera de una propiedad estática.
+]
+*/
+// libs/core/domain/shared-kernel/events/src/lib/domain-event.interface.ts

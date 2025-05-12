@@ -1,17 +1,17 @@
 // libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
 import { UuidUtils } from '@dfs-suite/shared-utils';
 import { IDomainEvent, IDomainEventMetadata } from './domain-event.interface';
-import { AggregateId, CorrelationId, IsoDateString, Maybe, UserId } from '@dfs-suite/shared-types';
+import { AggregateId, CorrelationId, IsoDateString } from '@dfs-suite/shared-types';
 import { Guard } from '@dfs-suite/shared-utils';
-import { ArgumentNotProvidedException } from '@dfs-suite/shared-errors';
+import { ArgumentNotProvidedException, ArgumentInvalidException } from '@dfs-suite/shared-errors';
 
-export type DomainEventProps<Payload extends Record<string, unknown>> = { // Volvemos a Record<string, unknown>
+export type DomainEventProps<Payload extends Record<string, unknown>> = {
   aggregateId: AggregateId;
   payload: Payload;
   metadata?: Partial<Omit<IDomainEventMetadata, 'timestamp' | 'correlationId'>> & { correlationId?: CorrelationId };
 };
 
-export abstract class DomainEventBase<Payload extends Record<string, unknown> = Record<string, never>> implements IDomainEvent<Payload> { // Volvemos a Record<string, unknown>, default Record<string, never>
+export abstract class DomainEventBase<Payload extends Record<string, unknown> = Record<string, never>> implements IDomainEvent<Payload> {
   public readonly id: AggregateId;
   public readonly aggregateId: AggregateId;
   public readonly eventName: string;
@@ -25,6 +25,9 @@ export abstract class DomainEventBase<Payload extends Record<string, unknown> = 
     if (Guard.isNil(props.payload)) {
         throw new ArgumentNotProvidedException('DomainEvent payload cannot be null or undefined.');
     }
+    if (typeof props.payload !== 'object' || Array.isArray(props.payload)) {
+        throw new ArgumentInvalidException('DomainEvent payload must be an object (and not an array).');
+    }
     if (Guard.isNil(props.aggregateId) || Guard.isEmpty(props.aggregateId) ) {
         throw new ArgumentNotProvidedException('DomainEvent aggregateId cannot be empty or null/undefined.');
     }
@@ -32,20 +35,43 @@ export abstract class DomainEventBase<Payload extends Record<string, unknown> = 
     this.id = UuidUtils.generateAggregateId();
     this.eventName = this.constructor.name;
     this.aggregateId = props.aggregateId;
-    this.payload = Object.freeze(props.payload);
+    this.payload = Object.freeze({ ...props.payload });
 
     const now = new Date().toISOString() as IsoDateString;
-    const contextCorrelationIdPlaceholder = 'PLACEHOLDER_CORRELATION_ID_FROM_CONTEXT';
-    const defaultCorrelationId = UuidUtils.generateCorrelationId();
+    const contextCorrelationIdPlaceholder = UuidUtils.generateCorrelationId();
 
     this.metadata = Object.freeze({
       timestamp: now,
-      correlationId: props.metadata?.correlationId || (contextCorrelationIdPlaceholder as CorrelationId) || defaultCorrelationId,
+      correlationId: props.metadata?.correlationId || contextCorrelationIdPlaceholder,
       causationId: props.metadata?.causationId,
       userId: props.metadata?.userId,
     });
   }
 }
+
+/* SECCIÓN DE MEJORAS FUTURAS
+
+[
+  Mejora Propuesta 1 (Integración con RequestContextService para CorrelationID):
+    (Reiterada) La lógica actual para `correlationId` es un placeholder. Implementar la obtención del `correlationId` desde un servicio de contexto de solicitud (si está disponible en el scope del evento) sería ideal para una trazabilidad automática. Si no hay contexto (ej. un proceso batch), se generaría uno nuevo.
+    Justificación: Trazabilidad y correlación robusta y automática de eventos.
+    Impacto: Requeriría acceso a un servicio de contexto, lo que podría ser complicado para una clase base del shared-kernel de dominio. Una alternativa es que la capa de aplicación/caso de uso sea siempre responsable de pasar explícitamente el `correlationId` en la metadata del evento.
+]
+[
+  Mejora Propuesta 2 (Schema de Payload Opcional):
+    Considerar la posibilidad de que `DomainEventBase` acepte opcionalmente un schema de Zod/Valibot para el `Payload` en su constructor y realice la validación del payload contra ese schema.
+    Justificación: Aumentaría la seguridad al crear eventos, asegurando que el payload cumpla con una estructura definida más allá del tipado de TypeScript.
+    Impacto: Añadiría una dependencia opcional a `shared-validation-schemas` (o a `zod` directamente, lo cual no es ideal para el kernel) y complejidad al constructor.
+]
+[
+  Mejora Propuesta 3 (Serialización/Deserialización Estándar):
+    Si los eventos necesitan ser serializados (ej. para colas de mensajes o almacenamiento), `DomainEventBase` podría incluir métodos `serialize(): string` y un método estático `deserialize(json: string): DomainEventBaseSubclass`.
+    Justificación: Facilitaría la interoperabilidad y persistencia de eventos.
+    Impacto: Requeriría una estrategia de registro de tipos de eventos y manejo de la (de)serialización, lo cual puede ser complejo. Podría ser mejor manejarlo en una capa de infraestructura de mensajería.
+]
+
+*/
+// libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
 
 /* SECCIÓN DE MEJORAS FUTURAS
 

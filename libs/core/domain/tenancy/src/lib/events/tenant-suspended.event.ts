@@ -1,23 +1,43 @@
 // libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts
 import { DomainEventBase, DomainEventProps } from '@dfs-suite/core-domain-shared-kernel-events';
-import { AggregateId, CorrelationId } from '@dfs-suite/shared-types'; // Removidos UserId, Maybe si no se usan aquí
-import { IDomainEventMetadata } from '@dfs-suite/core-domain-shared-kernel-events'; // <--- IMPORT AÑADIDO
+// AggregateId, CorrelationId, etc., se infieren a través de DomainEventProps
 
+/**
+ * Payload para el evento TenantSuspendedEvent.
+ * Actualmente, este evento no requiere un payload específico.
+ */
 export type TenantSuspendedEventPayload = Record<string, never>;
 
+/**
+ * Evento de dominio que se dispara cuando un tenant es suspendido.
+ */
 export class TenantSuspendedEvent extends DomainEventBase<TenantSuspendedEventPayload> {
-  constructor(props: {
-    aggregateId: AggregateId;
-    payload?: TenantSuspendedEventPayload;
-    metadata?: Partial<Omit<IDomainEventMetadata, 'timestamp' | 'correlationId'>> & { correlationId?: CorrelationId };
-  }) {
-    super({
-      aggregateId: props.aggregateId,
-      payload: props.payload || ({} as TenantSuspendedEventPayload),
-      metadata: props.metadata,
-    });
+  /**
+   * Crea una instancia de TenantSuspendedEvent.
+   * @param props - Propiedades del evento, incluyendo el `aggregateId` del tenant suspendido
+   *                y el `payload` (que debe ser un objeto vacío para este evento).
+   */
+  constructor(props: DomainEventProps<TenantSuspendedEventPayload>) {
+    super(props);
   }
 }
+
+/* SECCIÓN DE MEJORAS FUTURAS
+[
+  Mejora Propuesta 1 (Razón de Suspensión en Payload):
+    Es altamente recomendable que este evento incluya una razón para la suspensión.
+    Ejemplo: `payload: { reason: string; suspendedBy?: UserId; details?: ObjectLiteral }`.
+    Justificación: Proporciona contexto vital para auditoría, notificaciones al usuario y posibles acciones correctivas. Sin una razón, el evento es poco informativo.
+    Impacto: Modificación de `TenantSuspendedEventPayload`, el constructor, y la lógica en `TenantEntity.suspend()` para aceptar y emitir esta razón.
+]
+[
+  Mejora Propuesta 2 (Duración de Suspensión Opcional en Payload):
+    Si una suspensión puede ser temporal con una fecha de finalización prevista, añadir `suspendedUntil?: IsoDateString` al payload.
+    Justificación: Útil para sistemas de notificación o para procesos automáticos de reactivación programada.
+    Impacto: Adición al payload y lógica asociada en el dominio.
+]
+*/
+// libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts
 
 /* SECCIÓN DE MEJORAS FUTURAS
 [

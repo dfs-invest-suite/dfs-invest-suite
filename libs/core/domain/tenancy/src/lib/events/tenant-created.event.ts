@@ -7,10 +7,15 @@ export interface ITenantCreatedEventPayload {
   readonly name: string;
   readonly ownerUserId: UserId;
   readonly status: TenantStatusEnum;
-  // Añadir firma de índice para satisfacer Record<string, unknown>
-  // Permite que cualquier otra propiedad string con valor de estos tipos (o unknown) exista,
-  // haciendo la interfaz compatible con Record<string, unknown>.
-  readonly [key: string]: string | UserId | TenantStatusEnum | unknown;
+  // CORRECCIÓN: Firma de índice para satisfacer Record<string, unknown> de forma más precisa,
+  // o eliminarla si la restricción en DomainEventBase es suficiente con la inferencia.
+  // Dado que DomainEventBase usa Record<string, unknown>, esta interfaz sin firma de índice
+  // debería ser compatible si sus propiedades lo son. El error de "index signature missing"
+  // es el que nos forzó a añadirla. Si persiste, la mantendremos.
+  // Si el error TS2344 en tenant.entity.ts se resuelve con el cambio en AggregateRoot,
+  // podríamos intentar quitar esta firma de índice redundante.
+  // Por ahora, la mantenemos para máxima compatibilidad con la restricción estricta.
+  readonly [key: string]: string | UserId | TenantStatusEnum; // Eliminamos ' | unknown' para que no sea redundante.
 }
 
 export class TenantCreatedEvent extends DomainEventBase<ITenantCreatedEventPayload> {
@@ -18,6 +23,41 @@ export class TenantCreatedEvent extends DomainEventBase<ITenantCreatedEventPaylo
     super(props);
   }
 }
+
+/* SECCIÓN DE MEJORAS FUTURAS
+// (Mismas que antes)
+*/
+// libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts
+/* SECCIÓN DE MEJORAS FUTURAS
+[
+  Mejora Propuesta 1 (Simplificación de Firma de Índice): Si la única razón de la firma de índice es satisfacer la restricción `Record<string, unknown>` y no se esperan realmente propiedades adicionales, se podría investigar si un `utility type` podría hacer que `ITenantCreatedEventPayload` (sin la firma de índice explícita) sea compatible. Alternativamente, si `DomainEventBase` usara `Payload extends object` y se tuviera cuidado en la construcción, esto podría evitarse, pero `Record<string, unknown>` es más específico para payloads de datos. Por ahora, la firma de índice es la solución más directa.
+  Justificación: Reducir la verbosidad en las interfaces de payload si es posible manteniendo la seguridad de tipos.
+  Impacto: Investigación y posible refactorización de tipos genéricos.
+]
+// (Otras mejoras se mantienen)
+*/
+// libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts
+/* SECCIÓN DE MEJORAS FUTURAS
+// (Mismas que antes)
+*/
+// libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts
+/* SECCIÓN DE MEJORAS FUTURAS
+
+[
+  Mejora Propuesta 1 (Inclusión de `planId` en Payload):
+    Si el `planId` es una pieza de información relevante para los suscriptores de este evento inmediatamente después de la creación del tenant, podría añadirse a `ITenantCreatedEventPayload`.
+    Justificación: Proporciona más contexto a los manejadores de eventos sin necesidad de que realicen consultas adicionales para obtener el plan.
+    Impacto: Adición de `readonly planId: Maybe<string>;` a la interfaz del payload y asegurar que se popule al crear el evento.
+]
+[
+  Mejora Propuesta 2 (Payload Mínimo vs. Completo):
+    Evaluar si el payload debe contener solo los IDs y datos mínimos necesarios para que los handlers actúen, o si debe ser más rico. Un payload más rico evita consultas adicionales por parte de los handlers, pero un payload mínimo promueve un mayor desacoplamiento (los handlers son responsables de obtener los datos frescos que necesitan).
+    Justificación: Balancear entre performance (menos queries) y desacoplamiento.
+    Impacto: Diseño cuidadoso del contenido del payload basado en las necesidades de los consumidores del evento.
+]
+
+*/
+// libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts
 
 /* SECCIÓN DE MEJORAS FUTURAS
 

@@ -72,40 +72,32 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "pnpm-lock.yaml",
-        "hash": "16838219719086158194"
-      },
-      {
-        "file": ".npmrc",
-        "hash": "1880664178033616490"
-      },
-      {
-        "file": ".docs/libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
-        "hash": "6986245952543171013"
-      },
-      {
-        "file": ".env.example",
-        "hash": "9701414843099447202"
-      },
-      {
-        "file": "nx.json",
-        "hash": "17719356770727469427"
-      },
-      {
-        "file": ".docs/.BITACORA.md",
-        "hash": "7878283223418165155"
-      },
-      {
-        "file": "pnpm-workspace.yaml",
-        "hash": "12453027730966252881"
-      },
-      {
         "file": ".docs/proyecto.tecnico.md",
         "hash": "15656996287753112128"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
+        "file": ".docs/CAGADAZO.md",
+        "hash": "1773354174811884039"
+      },
+      {
+        "file": ".docs/1-prompt-hidratacion.md",
+        "hash": "8662203574466024184"
+      },
+      {
+        "file": ".docs/.BITACORA.md",
+        "hash": "10752682199050510773"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": "eslint.config copy-2.mjs.md",
+        "hash": "2842474844939100007"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
       },
       {
         "file": ".docs/.PROYETO-OFICIAL-DESARROLLO.md",
@@ -116,92 +108,104 @@
         "hash": "609726058992439065"
       },
       {
-        "file": "README.md",
-        "hash": "1577119330621126201"
-      },
-      {
-        "file": ".docs/mejoras-futuras.md",
-        "hash": "16625039011129785983"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
-      },
-      {
-        "file": ".docs/CAGADAZO.md",
-        "hash": "1773354174811884039"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "6870352021923392442"
-      },
-      {
-        "file": "eslint.config copy-2.mjs.md",
-        "hash": "2842474844939100007"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "6434218381669451380"
-      },
-      {
-        "file": ".docs/resumen-dfs-invest-flow-1.0.md",
-        "hash": "2156687276783297710"
+        "file": "eslint.config copy-1.mjs.md",
+        "hash": "3462096019013144053"
       },
       {
         "file": ".docs/comandos-nx.md",
         "hash": "15026614625424392724"
       },
       {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": "eslint.config copy-1.mjs.md",
-        "hash": "3462096019013144053"
-      },
-      {
-        "file": "eslint.config copy.mjs",
-        "hash": "12076268886621557052"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "1946410691959925030"
+        "file": ".docs/.ROADMAP.md",
+        "hash": "12254595644383960785"
       },
       {
         "file": ".docs/directivas-v2.0.1.md",
         "hash": "16985608459039549285"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": ".docs/1-prompt-hidratacion.md",
-        "hash": "8662203574466024184"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "4637156562308165301"
-      },
-      {
         "file": "eslint.config.mjs",
         "hash": "17524527947721733232"
       },
       {
-        "file": ".docs/.DEUDA-TECNICA.md",
-        "hash": "6636072902076968588"
+        "file": "eslint.config copy.mjs",
+        "hash": "12076268886621557052"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1880664178033616490"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "package.json",
+        "hash": "5939327534152544168"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "12453027730966252881"
+      },
+      {
+        "file": ".docs/mejoras-futuras.md",
+        "hash": "16625039011129785983"
+      },
+      {
+        "file": "README.md",
+        "hash": "1577119330621126201"
+      },
+      {
+        "file": "(_target",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "16838219719086158194"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "1946410691959925030"
+      },
+      {
+        "file": ".docs/libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+        "hash": "6986245952543171013"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "6434218381669451380"
       },
       {
         "file": "scripts/ejecuta.ts",
         "hash": "3581558311956854225"
       },
       {
-        "file": ".docs/.ROADMAP.md",
-        "hash": "12021967318422179340"
+        "file": ".env.example",
+        "hash": "9701414843099447202"
       },
       {
-        "file": "package.json",
-        "hash": "5939327534152544168"
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
+      },
+      {
+        "file": ".docs/resumen-dfs-invest-flow-1.0.md",
+        "hash": "2156687276783297710"
+      },
+      {
+        "file": "nx.json",
+        "hash": "17719356770727469427"
+      },
+      {
+        "file": ".docs/.DEUDA-TECNICA.md",
+        "hash": "6636072902076968588"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "12630965493391364343"
       }
     ],
     "projectFileMap": {
@@ -291,7 +295,7 @@
         },
         {
           "file": "libs/shared/types/src/lib/primitive-types.ts",
-          "hash": "18352048962251480843"
+          "hash": "1114635654044462309"
         },
         {
           "file": "libs/shared/types/tsconfig.json",
@@ -442,7 +446,7 @@
         },
         {
           "file": "libs/core/application/tenancy/src/lib/use-cases/activate-tenant/activate-tenant.use-case.ts",
-          "hash": "18187531670394056647",
+          "hash": "11848029473811998291",
           "deps": [
             "core-domain-shared-kernel-commands-queries",
             "shared-result",
@@ -455,14 +459,15 @@
         },
         {
           "file": "libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts",
-          "hash": "11416871807760430424",
+          "hash": "6170482771723319111",
           "deps": [
             "core-domain-shared-kernel-commands-queries",
             "shared-types",
             "shared-result",
             "shared-errors",
             "core-domain-tenancy",
-            "core-domain-shared-kernel-ports"
+            "core-domain-shared-kernel-ports",
+            "shared-utils"
           ]
         },
         {
@@ -517,7 +522,7 @@
         },
         {
           "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts",
-          "hash": "11958967572708672978",
+          "hash": "17646698459200472938",
           "deps": [
             "shared-utils",
             "shared-types",
@@ -526,7 +531,7 @@
         },
         {
           "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.interface.ts",
-          "hash": "1555359670880441030",
+          "hash": "3532019887717519958",
           "deps": [
             "shared-types"
           ]
@@ -833,7 +838,7 @@
         },
         {
           "file": "libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts",
-          "hash": "3708366696944212628",
+          "hash": "7306792788983270753",
           "deps": [
             "core-domain-shared-kernel-events"
           ]
@@ -1114,11 +1119,11 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/index.ts",
-          "hash": "2432586186110890370"
+          "hash": "13863746038949718308"
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.spec.ts",
-          "hash": "1667110554963350954",
+          "hash": "17969470734745353381",
           "deps": [
             "shared-errors",
             "shared-types",
@@ -1137,7 +1142,7 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.spec.ts",
-          "hash": "5777199551691286627",
+          "hash": "13755550705976263211",
           "deps": [
             "shared-errors",
             "shared-utils",
@@ -1147,7 +1152,7 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts",
-          "hash": "7933287952433382554",
+          "hash": "4488956673490725666",
           "deps": [
             "core-domain-shared-kernel-entities",
             "shared-errors",
@@ -1166,7 +1171,7 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/errors/tenant-already-exists.error.ts",
-          "hash": "11863520933820540814",
+          "hash": "7898384571335655926",
           "deps": [
             "shared-errors",
             "shared-types"
@@ -1174,15 +1179,14 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts",
-          "hash": "6466796190379103861",
+          "hash": "10923011510934406482",
           "deps": [
-            "core-domain-shared-kernel-events",
-            "shared-types"
+            "core-domain-shared-kernel-events"
           ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts",
-          "hash": "18078104396076503415",
+          "hash": "7096404264170860847",
           "deps": [
             "core-domain-shared-kernel-events",
             "shared-types"
@@ -1190,10 +1194,9 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts",
-          "hash": "630724403891347242",
+          "hash": "786616574409418041",
           "deps": [
-            "core-domain-shared-kernel-events",
-            "shared-types"
+            "core-domain-shared-kernel-events"
           ]
         },
         {

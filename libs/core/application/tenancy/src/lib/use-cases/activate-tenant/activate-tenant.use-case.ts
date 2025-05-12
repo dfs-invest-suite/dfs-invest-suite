@@ -34,9 +34,7 @@ export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantComm
         const repoError = tenantResult.error;
         this.logger.error(
             `Error fetching tenant ${String(command.tenantId)}: ${repoError.message}`,
-            repoError.stack,
-            useCaseName,
-            commandCorrelationId
+            repoError.stack, useCaseName, commandCorrelationId
         );
         return err(repoError);
       }
@@ -52,14 +50,13 @@ export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantComm
       let activationResult: Result<void, ExceptionBase | ArgumentInvalidException >;
       try {
         activationResult = tenant.activate();
-      } catch (unexpectedErrorInActivate: unknown) {
-        const errorDescription = typeof unexpectedErrorInActivate === 'string' ? unexpectedErrorInActivate : 'Unexpected structure in activate catch block';
-        const cause = unexpectedErrorInActivate instanceof Error ? unexpectedErrorInActivate : new Error(errorDescription);
+      } catch (unexpectedErrorInActivate: unknown) { // Este es el errorCaught de la línea 94
+        const errorDescription = typeof unexpectedErrorInActivate === 'string' ? unexpectedErrorInActivate : 'Unexpected error during tenant.activate()';
+        // eslint-disable-next-line @typescript-eslint/no-base-to-string
+        const cause = unexpectedErrorInActivate instanceof Error ? unexpectedErrorInActivate : new Error(String(unexpectedErrorInActivate));
         this.logger.error(
             `Unexpected exception from tenant.activate() for ${String(command.tenantId)}: ${cause.message}`,
-            cause.stack,
-            useCaseName,
-            commandCorrelationId
+            cause.stack, useCaseName, commandCorrelationId
         );
         return err(new InternalServerErrorException('Unexpected error during tenant activation logic.', cause, undefined, commandCorrelationId));
       }
@@ -68,9 +65,7 @@ export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantComm
           const domainErrorFromActivate = activationResult.error;
           this.logger.warn(
               `Domain validation failed for tenant activation ${String(command.tenantId)}: ${domainErrorFromActivate.message}`,
-              domainErrorFromActivate.stack,
-              useCaseName,
-              commandCorrelationId
+              domainErrorFromActivate.stack, useCaseName, commandCorrelationId
           );
           return err(domainErrorFromActivate);
       }
@@ -80,9 +75,7 @@ export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantComm
         const updateError = updateResult.error;
         this.logger.error(
             `Error updating tenant ${String(command.tenantId)} after activation: ${updateError.message}`,
-            updateError.stack,
-            useCaseName,
-            commandCorrelationId
+            updateError.stack, useCaseName, commandCorrelationId
         );
         return err(updateError);
       }
@@ -90,7 +83,7 @@ export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantComm
       this.logger.log(`Tenant ${String(command.tenantId)} activated successfully.`, useCaseName, commandCorrelationId);
       return ok(undefined);
 
-    } catch (errorCaught: unknown) {
+    } catch (errorCaught: unknown) { // Este es el errorCaught de la línea 106
       let internalErrorCause: Error;
       let originalErrorStringForLog: string;
 
@@ -98,35 +91,22 @@ export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantComm
         internalErrorCause = errorCaught;
         originalErrorStringForLog = errorCaught.message;
       } else {
-        originalErrorStringForLog = (typeof errorCaught === 'object' && errorCaught !== null)
-          ? JSON.stringify(errorCaught)
-          // La siguiente línea es la que causa el error de lint si no se deshabilita localmente
-          // eslint-disable-next-line @typescript-eslint/no-base-to-string
-          : String(errorCaught);
+        // Colocamos el eslint-disable directamente antes del String() problemático
+        // eslint-disable-next-line @typescript-eslint/no-base-to-string
+        originalErrorStringForLog = String(errorCaught);
         internalErrorCause = new Error(originalErrorStringForLog);
       }
 
       const stackTrace = internalErrorCause.stack ? internalErrorCause.stack : 'No stack trace available';
       this.logger.error(
         `Unexpected error during tenant activation for ${String(command.tenantId)}: ${originalErrorStringForLog}`,
-        stackTrace,
-        useCaseName,
-        commandCorrelationId
+        stackTrace, useCaseName, commandCorrelationId
       );
       return err(new InternalServerErrorException('Failed to activate tenant.', internalErrorCause, undefined, commandCorrelationId));
     }
   }
 }
 
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mismas que antes)
-*/
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mismas que antes)
-*/
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mismas que antes)
-*/
 /* SECCIÓN DE MEJORAS FUTURAS
 [
   Mejora Propuesta 1 (Tipado de IDs en IRepositoryPort): La solución ideal para el cast de `TenantId` a `AggregateId` es hacer `IRepositoryPort` genérico para el tipo de ID: `IRepositoryPort<Aggregate, ID extends AggregateId = AggregateId>`. Entonces `ITenantRepository` podría ser `IRepositoryPort<TenantEntity, TenantId>`. Esto haría que `findOneById` en `ITenantRepository` esperara `TenantId` directamente.
