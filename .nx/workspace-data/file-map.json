@@ -72,28 +72,24 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".docs/1-prompt-hidratacion.md",
-        "hash": "8662203574466024184"
+        "file": "eslint.config.mjs",
+        "hash": "12076268886621557052"
+      },
+      {
+        "file": "package.json",
+        "hash": "5939327534152544168"
+      },
+      {
+        "file": ".docs/comandos-nx.md",
+        "hash": "15026614625424392724"
       },
       {
         "file": ".docs/.DEUDA-TECNICA.md",
         "hash": "5000542817245899305"
       },
       {
-        "file": ".docs/Arquitectura-hexagonal-2025.md",
-        "hash": "609726058992439065"
-      },
-      {
-        "file": "scripts/ejecuta.ts",
-        "hash": "3581558311956854225"
-      },
-      {
-        "file": ".env.example",
-        "hash": "9701414843099447202"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
+        "file": "eslint.config copy-2.mjs.md",
+        "hash": "2842474844939100007"
       },
       {
         "file": ".prettierrc",
@@ -104,100 +100,104 @@
         "hash": "10410953569971947428"
       },
       {
-        "file": ".npmrc",
-        "hash": "1880664178033616490"
-      },
-      {
-        "file": ".docs/directivas-v2.0.1.md",
-        "hash": "16985608459039549285"
-      },
-      {
-        "file": ".docs/.ROADMAP.md",
-        "hash": "1929510085919769302"
-      },
-      {
-        "file": ".docs/comandos-nx.md",
-        "hash": "15026614625424392724"
-      },
-      {
-        "file": "pnpm-lock.yaml",
-        "hash": "16838219719086158194"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "12076268886621557052"
-      },
-      {
-        "file": "pnpm-workspace.yaml",
-        "hash": "12453027730966252881"
-      },
-      {
         "file": ".docs/resumen-dfs-invest-flow-1.0.md",
         "hash": "2156687276783297710"
       },
       {
-        "file": ".vscode/extensions.json",
-        "hash": "4637156562308165301"
+        "file": ".env.example",
+        "hash": "9701414843099447202"
       },
       {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
+        "file": ".npmrc",
+        "hash": "1880664178033616490"
       },
       {
-        "file": "package.json",
-        "hash": "5939327534152544168"
-      },
-      {
-        "file": "nx.json",
-        "hash": "17719356770727469427"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "1946410691959925030"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".docs/proyecto.tecnico.md",
-        "hash": "15656996287753112128"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "6434218381669451380"
-      },
-      {
-        "file": "eslint.config copy-1.mjs.md",
-        "hash": "3462096019013144053"
-      },
-      {
-        "file": "README.md",
-        "hash": "1577119330621126201"
-      },
-      {
-        "file": "eslint.config copy-2.mjs.md",
-        "hash": "2842474844939100007"
+        "file": "scripts/ejecuta.ts",
+        "hash": "3581558311956854225"
       },
       {
         "file": ".docs/.BITACORA.md",
         "hash": "3198722935821927814"
       },
       {
-        "file": ".docs/libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
-        "hash": "6986245952543171013"
+        "file": "nx.json",
+        "hash": "17719356770727469427"
       },
       {
-        "file": ".docs/CAGADAZO.md",
-        "hash": "1773354174811884039"
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
       },
       {
         "file": "jest.config.ts",
         "hash": "6870352021923392442"
       },
       {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
         "file": ".docs/mejoras-futuras.md",
         "hash": "16625039011129785983"
+      },
+      {
+        "file": "eslint.config copy-1.mjs.md",
+        "hash": "3462096019013144053"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "16838219719086158194"
+      },
+      {
+        "file": ".docs/Arquitectura-hexagonal-2025.md",
+        "hash": "609726058992439065"
+      },
+      {
+        "file": ".docs/.ROADMAP.md",
+        "hash": "1929510085919769302"
+      },
+      {
+        "file": ".docs/CAGADAZO.md",
+        "hash": "1773354174811884039"
+      },
+      {
+        "file": ".docs/directivas-v2.0.1.md",
+        "hash": "16985608459039549285"
+      },
+      {
+        "file": ".docs/1-prompt-hidratacion.md",
+        "hash": "8662203574466024184"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "6434218381669451380"
+      },
+      {
+        "file": ".docs/libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+        "hash": "6986245952543171013"
+      },
+      {
+        "file": ".docs/proyecto.tecnico.md",
+        "hash": "15656996287753112128"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "12453027730966252881"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "1946410691959925030"
+      },
+      {
+        "file": "README.md",
+        "hash": "1577119330621126201"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
       }
     ],
     "projectFileMap": {
@@ -275,7 +275,7 @@
         },
         {
           "file": "libs/core/application/tenancy/src/index.ts",
-          "hash": "16310167531403054173"
+          "hash": "5411344268423707243"
         },
         {
           "file": "libs/core/application/tenancy/src/lib/commands/activate-tenant/activate-tenant.command.ts",
@@ -283,7 +283,11 @@
         },
         {
           "file": "libs/core/application/tenancy/src/lib/commands/create-tenant/create-tenant.command.ts",
-          "hash": "7637135161675821920"
+          "hash": "1267463687431770074",
+          "deps": [
+            "core-domain-shared-kernel-commands-queries",
+            "shared-types"
+          ]
         },
         {
           "file": "libs/core/application/tenancy/src/lib/commands/set-tenant-db-config/set-tenant-db-config.command.ts",
@@ -291,7 +295,11 @@
         },
         {
           "file": "libs/core/application/tenancy/src/lib/dtos/tenant-details.dto.ts",
-          "hash": "7637135161675821920"
+          "hash": "5732909883831632253",
+          "deps": [
+            "shared-types",
+            "core-domain-tenancy"
+          ]
         },
         {
           "file": "libs/core/application/tenancy/src/lib/dtos/tenant-summary.dto.ts",
@@ -299,7 +307,13 @@
         },
         {
           "file": "libs/core/application/tenancy/src/lib/ports/database-provisioning.service.port.ts",
-          "hash": "7637135161675821920"
+          "hash": "47233594355647164",
+          "deps": [
+            "shared-result",
+            "shared-types",
+            "shared-errors",
+            "core-domain-tenancy"
+          ]
         },
         {
           "file": "libs/core/application/tenancy/src/lib/ports/user-provisioning.service.port.ts",
@@ -335,7 +349,15 @@
         },
         {
           "file": "libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts",
-          "hash": "7637135161675821920"
+          "hash": "14953211315400932186",
+          "deps": [
+            "core-domain-shared-kernel-commands-queries",
+            "shared-types",
+            "shared-result",
+            "shared-errors",
+            "core-domain-tenancy",
+            "core-domain-shared-kernel-ports"
+          ]
         },
         {
           "file": "libs/core/application/tenancy/src/lib/use-cases/set-tenant-db-config/set-tenant-db-config.use-case.ts",
@@ -617,43 +639,85 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/index.ts",
-          "hash": "7283735509350543976"
+          "hash": "10398775295199220616"
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts",
-          "hash": "17166464025466938392"
+          "hash": "14918754881696533561",
+          "deps": [
+            "core-domain-shared-kernel-entities",
+            "shared-errors",
+            "shared-types",
+            "shared-utils"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts",
-          "hash": "8974145255778808581"
+          "hash": "17497757370997662760",
+          "deps": [
+            "core-domain-shared-kernel-entities",
+            "shared-errors",
+            "shared-types",
+            "shared-utils"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/errors/invalid-tenant-status-transition.error.ts",
-          "hash": "14250602533346619531"
+          "hash": "3524197884629414912",
+          "deps": [
+            "shared-errors",
+            "shared-types"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/errors/tenant-already-exists.error.ts",
-          "hash": "17096309767081886021"
+          "hash": "5670129662879246703",
+          "deps": [
+            "shared-errors",
+            "shared-types"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts",
-          "hash": "1139775332301657718"
+          "hash": "5617918956288898982",
+          "deps": [
+            "core-domain-shared-kernel-events"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts",
-          "hash": "4832289400933080795"
+          "hash": "17920877265423838199",
+          "deps": [
+            "core-domain-shared-kernel-events",
+            "shared-types"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts",
-          "hash": "1713280401731925966"
+          "hash": "10446631264574990407",
+          "deps": [
+            "core-domain-shared-kernel-events"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/ports/tenant-configuration.repository.port.ts",
-          "hash": "6183189779089723638"
+          "hash": "7991032601995884817",
+          "deps": [
+            "core-domain-shared-kernel-ports",
+            "shared-types",
+            "shared-result",
+            "shared-errors"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/ports/tenant.repository.port.ts",
-          "hash": "2591325365383249494"
+          "hash": "8449090872325504129",
+          "deps": [
+            "core-domain-shared-kernel-ports",
+            "shared-types",
+            "shared-result",
+            "shared-errors"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/services/.gitkeep",
@@ -669,11 +733,20 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.ts",
-          "hash": "3769037227882471254"
+          "hash": "4959401873719012538",
+          "deps": [
+            "core-domain-shared-kernel-value-objects",
+            "shared-errors",
+            "shared-utils"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.ts",
-          "hash": "13879159643186595712"
+          "hash": "843915520138148779",
+          "deps": [
+            "core-domain-shared-kernel-value-objects",
+            "shared-errors"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/tsconfig.json",
