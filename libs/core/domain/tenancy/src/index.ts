@@ -11,5 +11,5 @@ export * from './lib/ports/tenant-configuration.repository.port';
 export * from './lib/errors/tenant-already-exists.error';
 export * from './lib/errors/invalid-tenant-status-transition.error';
 
-// Eliminar placeholder si ya no es necesario
+// Ya no necesitamos el placeholder
 // export const placeholderCoreDomainTenancy = true;

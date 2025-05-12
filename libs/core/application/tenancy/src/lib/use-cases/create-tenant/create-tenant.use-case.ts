@@ -21,8 +21,8 @@ const CommandHandler = (_commandType: unknown) =>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   <T extends { new (...args: any[]): object }>(_target: T): T | void => _target;
 
+// Eliminado el eslint-disable-next-line @typescript-eslint/no-unused-vars previo
 const Inject = (_token: unknown) =>
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   (_target: object, _propertyKey: string | symbol | undefined, _parameterIndex?: number): void => {
     // Placeholder
   };
@@ -112,7 +112,6 @@ export class CreateTenantUseCase implements ICommandHandler<CreateTenantCommand,
         try {
           errorMessage = JSON.stringify(error);
         } catch {
-          // Si falla stringify (ej. objeto circular), usamos un mensaje genérico
           errorMessage = 'Failed to stringify unknown error object.';
         }
       }

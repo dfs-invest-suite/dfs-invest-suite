@@ -4,8 +4,7 @@ import { ArgumentNotProvidedException, ArgumentInvalidException } from '@dfs-sui
 import { Guard } from '@dfs-suite/shared-utils';
 
 export interface DbConnectionConfigProps {
-  readonly connectionString: string; // Podría descomponerse en host, port, user, pass, dbname
-  // readonly type: 'postgres' | 'mysql'; // Ejemplo si soportáramos múltiples tipos
+  readonly connectionString: string;
 }
 
 export class DbConnectionConfigVO extends ValueObject<DbConnectionConfigProps> {
@@ -21,8 +20,7 @@ export class DbConnectionConfigVO extends ValueObject<DbConnectionConfigProps> {
     if (Guard.isEmpty(props.connectionString)) {
       throw new ArgumentNotProvidedException('Connection string cannot be empty.');
     }
-    // Aquí podrían ir validaciones más específicas del formato de la connection string
-    if (props.connectionString.length < 10) { // Ejemplo de validación muy simple
+    if (props.connectionString.length < 10) {
         throw new ArgumentInvalidException('Connection string seems too short.');
     }
   }

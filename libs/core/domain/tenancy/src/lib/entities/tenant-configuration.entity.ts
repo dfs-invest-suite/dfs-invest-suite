@@ -7,7 +7,7 @@ import { Guard, UuidUtils } from '@dfs-suite/shared-utils';
 interface TenantConfigurationProps {
   tenantId: TenantId;
   key: string;
-  value: string; // Podría estar encriptado en la persistencia, pero en dominio es string
+  value: string;
   description?: string;
 }
 
@@ -30,7 +30,6 @@ export class TenantConfigurationEntity extends Entity<TenantConfigurationProps> 
     if (Guard.isEmpty(props.key)) {
       throw new ArgumentNotProvidedException('Configuration key cannot be empty.');
     }
-    // Value puede ser string vacío, pero no null/undefined
     if (Guard.isNil(props.value)) {
       throw new ArgumentNotProvidedException('Configuration value cannot be null or undefined.');
     }
@@ -66,11 +65,9 @@ export class TenantConfigurationEntity extends Entity<TenantConfigurationProps> 
     }
     this.props.value = newValue;
     this.setUpdatedAt();
-    // Considerar un evento TenantConfigurationUpdatedEvent si es necesario
   }
 
   public validate(): void {
-    // Invariantes de TenantConfiguration
     if (Guard.isEmpty(this.props.key)) {
       throw new ArgumentNotProvidedException('Configuration key is required.');
     }

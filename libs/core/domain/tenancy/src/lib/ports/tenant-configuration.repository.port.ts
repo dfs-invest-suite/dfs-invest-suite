@@ -10,5 +10,4 @@ export const TENANT_CONFIGURATION_REPOSITORY_PORT = Symbol('TENANT_CONFIGURATION
 export interface ITenantConfigurationRepository extends IRepositoryPort<TenantConfigurationEntity> {
   findByTenantIdAndKey(tenantId: TenantId, key: string): Promise<Result<Maybe<TenantConfigurationEntity>, ExceptionBase | Error>>;
   findAllByTenantId(tenantId: TenantId): Promise<Result<TenantConfigurationEntity[], ExceptionBase | Error>>;
-  // deleteByTenantIdAndKey podría ser útil
 }
