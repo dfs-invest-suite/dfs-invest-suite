@@ -1,15 +1,16 @@
 // libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
 import { AggregateRoot, CreateEntityProps } from '@dfs-suite/core-domain-shared-kernel-entities';
 import { ArgumentInvalidException, ArgumentNotProvidedException } from '@dfs-suite/shared-errors';
-import { UserId, Maybe, AggregateId, TenantId } from '@dfs-suite/shared-types'; // TenantId se usa para el método create que puede recibirlo
+import { UserId, Maybe, AggregateId, TenantId } from '@dfs-suite/shared-types';
 import { UuidUtils, Guard } from '@dfs-suite/shared-utils';
 import { TenantStatusVO } from '../value-objects/tenant-status.vo';
 import { DbConnectionConfigVO } from '../value-objects/db-connection-config.vo';
-import { TenantCreatedEvent, TenantCreatedEventPayload } from '../events/tenant-created.event';
+// CORRECCIÓN AQUÍ: Cambiar TenantCreatedEventPayload a ITenantCreatedEventPayload
+import { TenantCreatedEvent, ITenantCreatedEventPayload } from '../events/tenant-created.event';
 import { TenantActivatedEvent, TenantActivatedEventPayload } from '../events/tenant-activated.event';
 import { TenantSuspendedEvent, TenantSuspendedEventPayload } from '../events/tenant-suspended.event';
 import { InvalidTenantStatusTransitionError } from '../errors/invalid-tenant-status-transition.error';
-import { Result, ok, err } from '@dfs-suite/shared-result'; // Importar Result, ok, err
+import { Result, ok, err } from '@dfs-suite/shared-result';
 
 interface TenantProps {
   name: string;
@@ -30,7 +31,7 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
     super(createEntityProps);
   }
 
-  public static create(props: CreateTenantProps, id?: AggregateId | TenantId): TenantEntity { // id puede ser AggregateId o TenantId
+  public static create(props: CreateTenantProps, id?: AggregateId | TenantId): TenantEntity {
     if (Guard.isEmpty(props.name?.trim())) {
       throw new ArgumentNotProvidedException('Tenant name cannot be empty.');
     }
@@ -38,8 +39,6 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
       throw new ArgumentNotProvidedException('Tenant ownerUserId cannot be empty.');
     }
 
-    // El ID interno de la entidad siempre será AggregateId.
-    // Si se pasa un TenantId, se asume que es compatible y se castea.
     const entityId = (id as AggregateId) || UuidUtils.generateAggregateId();
     const initialStatus = TenantStatusVO.newPendingSetup();
 
@@ -56,14 +55,15 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
       updatedAt: new Date(),
     });
 
-    const eventPayload: TenantCreatedEventPayload = {
+    // Usar el tipo de payload importado correctamente
+    const eventPayload: ITenantCreatedEventPayload = {
         name: tenant.props.name,
         ownerUserId: tenant.props.ownerUserId,
-        status: initialStatus.value,
+        status: initialStatus.value, // Acceder al .value del VO para el payload del evento
     };
     tenant.addEvent(
       new TenantCreatedEvent({
-        aggregateId: entityId, // El aggregateId del evento es el ID de la entidad
+        aggregateId: entityId,
         payload: eventPayload,
       }),
     );
@@ -156,6 +156,34 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
   }
 }
 
+/* SECCIÓN DE MEJORAS FUTURAS
+[
+  Mejora Propuesta 1 (Inyección de Logger): La lógica de logging ha sido eliminada de la entidad. El logging contextual sobre las operaciones de la entidad (ej. "Tenant X activado por User Y") debería realizarse en los Casos de Uso (Servicios de Aplicación) que orquestan estas operaciones.
+  Justificación: Mantiene la entidad de dominio enfocada en la lógica de negocio pura.
+  Impacto: El logging se mueve a la capa de aplicación.
+]
+[
+  Mejora Propuesta 2 (Validación de PlanId con `PlanVO`): Similar a `TenantStatusVO`, `planId` (actualmente `Maybe<string>`) podría representarse con un `PlanIdVO` o `PlanVO` que encapsule su formato y validación (ej. si los planes deben existir en un sistema de facturación o tener una estructura específica).
+  Justificación: Mayor robustez y semántica para la gestión de planes.
+  Impacto: Creación de un nuevo VO, modificación de `TenantProps` y de la lógica de creación/actualización de `planId`.
+]
+[
+  Mejora Propuesta 3 (Gestión de `TenantConfigurationEntity` como parte del Agregado): Si las `TenantConfigurationEntity` son intrínsecamente parte del ciclo de vida y las invariantes del `TenantEntity` (es decir, un Tenant "posee" sus configuraciones), entonces `TenantProps` debería incluir `configurations: TenantConfigurationEntity[]`. La entidad `TenantEntity` tendría métodos para añadir, actualizar o eliminar configuraciones, asegurando la consistencia del agregado completo.
+  Justificación: Modelado DDD más preciso si existe una fuerte relación de agregación.
+  Impacto: Cambios significativos en `TenantProps` y adición de métodos para gestionar la colección de configuraciones. `TenantConfigurationEntity` seguiría siendo una entidad, pero no un `AggregateRoot` si es parte de otro agregado.
+]
+[
+  Mejora Propuesta 4 (Método `updateDetails` Genérico): En lugar de métodos separados como `updateName`, se podría tener un método más genérico `updateDetails(props: Partial<UpdateableTenantProps>)` que maneje la actualización de varias propiedades a la vez, validando y emitiendo los eventos correspondientes.
+  Justificación: API más flexible para actualizaciones.
+  Impacto: Diseño de una interfaz `UpdateableTenantProps` y lógica de actualización más compleja.
+]
+[
+  Mejora Propuesta 5 (Uso de `Result` en métodos de cambio de estado): Los métodos `activate`, `suspend`, `setDatabaseConfiguration`, `updateName` ahora devuelven `Result<void, SpecificErrorType>`. Esto hace explícito que estas operaciones pueden fallar debido a reglas de negocio y permite a los llamadores (Casos de Uso) manejar estos errores de forma funcional.
+  Justificación: Adopción del patrón `Result` para errores de negocio esperados, mejorando la robustez y claridad del flujo de control.
+  Impacto: Los Casos de Uso que llamen a estos métodos necesitarán manejar el `Result`. Las excepciones por violación de invariantes fundamentales (en `validate()` o `create()`) siguen siendo lanzadas.
+]
+*/
+// libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
 /* SECCIÓN DE MEJORAS FUTURAS
 // (Mismas que antes, ligeramente ajustadas)
 [

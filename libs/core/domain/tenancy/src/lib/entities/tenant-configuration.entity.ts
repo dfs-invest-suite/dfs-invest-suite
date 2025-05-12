@@ -1,17 +1,18 @@
 // libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts
-import { Entity, CreateEntityProps } from '@dfs-suite/core-domain-shared-kernel-entities';
+// CAMBIO: Importar AggregateRoot en lugar de solo Entity
+import { AggregateRoot, CreateEntityProps } from '@dfs-suite/core-domain-shared-kernel-entities';
 import { ArgumentNotProvidedException } from '@dfs-suite/shared-errors';
-import { AggregateId, TenantId } from '@dfs-suite/shared-types'; // AggregateId es el tipo para el ID de la entidad
+import { AggregateId, TenantId } from '@dfs-suite/shared-types';
 import { Guard, UuidUtils } from '@dfs-suite/shared-utils';
+// Si esta entidad emite eventos, se necesitarían aquí. Por ahora, no lo hace directamente.
 
 interface TenantConfigurationProps {
-  tenantId: TenantId; // El ID del tenant al que pertenece esta configuración
-  key: string;        // La clave de la configuración (ej. "WHATSAPP_API_TOKEN", "MAX_USERS")
-  value: string;      // El valor de la configuración (podría ser string encriptado o JSON stringified)
-  description?: string; // Descripción opcional de la configuración
+  tenantId: TenantId;
+  key: string;
+  value: string;
+  description?: string;
 }
 
-// Props para crear una nueva configuración
 interface CreateTenantConfigurationProps {
   tenantId: TenantId;
   key: string;
@@ -19,44 +20,37 @@ interface CreateTenantConfigurationProps {
   description?: string;
 }
 
-export class TenantConfigurationEntity extends Entity<TenantConfigurationProps> {
-  // El constructor es llamado por el método factoría `create` o al reconstruir desde persistencia
+// CAMBIO: Extender AggregateRoot en lugar de Entity
+export class TenantConfigurationEntity extends AggregateRoot<TenantConfigurationProps> {
   constructor(createEntityProps: CreateEntityProps<TenantConfigurationProps>) {
     super(createEntityProps);
   }
 
-  /**
-   * Método factoría para crear una nueva instancia de TenantConfigurationEntity.
-   * @param props - Propiedades para la creación.
-   * @param id - (Opcional) ID de la configuración si ya existe.
-   * @returns Nueva instancia de TenantConfigurationEntity.
-   */
   public static create(props: CreateTenantConfigurationProps, id?: AggregateId): TenantConfigurationEntity {
     if (Guard.isEmpty(props.tenantId)) {
       throw new ArgumentNotProvidedException('tenantId cannot be empty for TenantConfiguration.');
     }
-    if (Guard.isEmpty(props.key?.trim())) { // Añadido trim()
+    if (Guard.isEmpty(props.key?.trim())) {
       throw new ArgumentNotProvidedException('Configuration key cannot be empty.');
     }
-    if (Guard.isNil(props.value)) { // Permitir string vacío para 'value', pero no null/undefined
+    if (Guard.isNil(props.value)) {
       throw new ArgumentNotProvidedException('Configuration value cannot be null or undefined.');
     }
 
-    const configId = id || UuidUtils.generateAggregateId(); // Usar AggregateId para el ID de la entidad
+    const configId = id || UuidUtils.generateAggregateId();
     return new TenantConfigurationEntity({
       id: configId,
       props: {
         tenantId: props.tenantId,
-        key: props.key.trim(), // Guardar la clave trimeada
-        value: props.value,     // Guardar el valor tal cual (podría ser string vacío)
-        description: props.description?.trim() || undefined, // Trimear descripción o dejar undefined
+        key: props.key.trim(),
+        value: props.value,
+        description: props.description?.trim() || undefined,
       },
       createdAt: new Date(),
       updatedAt: new Date(),
     });
   }
 
-  // --- Getters ---
   get tenantId(): TenantId {
     return this.props.tenantId;
   }
@@ -66,47 +60,32 @@ export class TenantConfigurationEntity extends Entity<TenantConfigurationProps> 
   get value(): string {
     return this.props.value;
   }
-  get description(): string | undefined { // Tipo explícito con undefined
+  get description(): string | undefined {
     return this.props.description;
   }
 
-  // --- Métodos de Comportamiento ---
-  /**
-   * Actualiza el valor de esta configuración.
-   * @param newValue - El nuevo valor para la configuración.
-   */
   public updateValue(newValue: string): void {
-    if (Guard.isNil(newValue)) { // Permitir string vacío
+    if (Guard.isNil(newValue)) {
       throw new ArgumentNotProvidedException('New configuration value cannot be null or undefined.');
     }
     if (this.props.value === newValue) {
-      return; // No hay cambio, no actualizar timestamp ni emitir eventos (si los hubiera)
+      return;
     }
     this.props.value = newValue;
-    this.setUpdatedAt(); // Actualiza el timestamp de EntityBase
-    // Podría emitirse un evento `TenantConfigurationValueUpdatedEvent` si fuera necesario
+    this.setUpdatedAt();
+    // Ejemplo si se emitiera un evento:
+    // this.addEvent(new TenantConfigurationValueUpdatedEvent({ aggregateId: this.id, payload: { key: this.key, newValue } }));
   }
 
-  /**
-   * Actualiza la descripción de esta configuración.
-   * @param newDescription - La nueva descripción.
-   */
   public updateDescription(newDescription: string | undefined | null): void {
     const trimmedDescription = newDescription?.trim() || undefined;
     if (this.props.description === trimmedDescription) {
-      return; // No hay cambio
+      return;
     }
     this.props.description = trimmedDescription;
     this.setUpdatedAt();
-    // Podría emitirse un evento `TenantConfigurationDescriptionUpdatedEvent`
   }
 
-
-  // --- Validación de Invariantes ---
-  /**
-   * Valida los invariantes de la entidad.
-   * Es llamado por el constructor de EntityBase.
-   */
   public validate(): void {
     if (Guard.isEmpty(this.props.tenantId)) {
       throw new ArgumentNotProvidedException('TenantConfigurationEntity: tenantId is required.');
@@ -114,13 +93,22 @@ export class TenantConfigurationEntity extends Entity<TenantConfigurationProps> 
     if (Guard.isEmpty(this.props.key)) {
       throw new ArgumentNotProvidedException('TenantConfigurationEntity: key is required.');
     }
-    if (Guard.isNil(this.props.value)) { // value puede ser un string vacío, pero no null/undefined
+    if (Guard.isNil(this.props.value)) {
       throw new ArgumentNotProvidedException('TenantConfigurationEntity: value is required (cannot be null/undefined).');
     }
-    // Podrían añadirse otras validaciones, ej. longitud máxima para key/value/description,
-    // o un conjunto de claves permitidas si fuera un enum.
   }
 }
+
+/* SECCIÓN DE MEJORAS FUTURAS
+[
+  Mejora Propuesta 1 (Eventos de Dominio para TenantConfigurationEntity):
+    Si los cambios en una configuración de tenant (ej. `updateValue`, `updateDescription`) son significativos y otras partes del sistema necesitan reaccionar a ellos, `TenantConfigurationEntity` debería emitir sus propios eventos de dominio (ej. `TenantConfigurationValueUpdatedEvent`, `TenantConfigurationDescriptionUpdatedEvent`). Al heredar de `AggregateRoot`, ya tiene la capacidad (`addEvent`).
+    Justificación: Permite una mayor granularidad en la reactividad del sistema y un seguimiento más fino de los cambios en las configuraciones.
+    Impacto: Definición de nuevas clases de evento en `libs/core/domain/tenancy/src/lib/events/` y llamadas a `this.addEvent()` en los métodos correspondientes de esta entidad.
+]
+// (Otras mejoras propuestas anteriormente se mantienen)
+*/
+// libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts
 
 /* SECCIÓN DE MEJORAS FUTURAS
 
