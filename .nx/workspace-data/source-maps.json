@@ -499,6 +499,136 @@
       "nx/core/project-json"
     ]
   },
+  "libs/core/application/tenancy": {
+    "root": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-application": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:application-logic": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:application": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.feature:tenancy": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ]
+  },
   "libs/core/domain/shared-kernel/commands-queries": {
     "root": [
       "libs/core/domain/shared-kernel/commands-queries/project.json",
@@ -568,70 +698,6 @@
       "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/core/domain/shared-kernel/commands-queries/project.json",
       "nx/core/project-json"
@@ -661,6 +727,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/core/domain/shared-kernel/commands-queries/project.json",
       "nx/core/project-json"
     ]
@@ -734,70 +824,6 @@
       "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/core/domain/shared-kernel/entities/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/core/domain/shared-kernel/entities/project.json",
       "nx/core/project-json"
@@ -827,6 +853,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/core/domain/shared-kernel/entities/project.json",
       "nx/core/project-json"
     ]
@@ -900,70 +950,6 @@
       "libs/core/domain/shared-kernel/events/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/core/domain/shared-kernel/events/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/core/domain/shared-kernel/events/project.json",
       "nx/core/project-json"
@@ -993,6 +979,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/core/domain/shared-kernel/events/project.json",
       "nx/core/project-json"
     ]
@@ -1066,70 +1076,6 @@
       "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/core/domain/shared-kernel/mappers/project.json",
       "nx/core/project-json"
@@ -1159,6 +1105,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/core/domain/shared-kernel/mappers/project.json",
       "nx/core/project-json"
     ]
@@ -1232,70 +1202,6 @@
       "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/core/domain/shared-kernel/ports/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/core/domain/shared-kernel/ports/project.json",
       "nx/core/project-json"
@@ -1325,6 +1231,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/core/domain/shared-kernel/ports/project.json",
       "nx/core/project-json"
     ]
@@ -1398,70 +1328,6 @@
       "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/core/domain/shared-kernel/value-objects/project.json",
       "nx/core/project-json"
@@ -1492,6 +1358,160 @@
     ],
     "tags.layer:domain": [
       "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/domain/tenancy": {
+    "root": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-domain": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:domain-logic": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:domain": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.domain:tenancy": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/domain/tenancy/project.json",
       "nx/core/project-json"
     ]
   },
@@ -1564,70 +1584,6 @@
       "libs/shared/constants/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/shared/constants/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/shared/constants/project.json",
       "nx/core/project-json"
@@ -1657,6 +1613,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:shared": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/shared/constants/project.json",
       "nx/core/project-json"
     ]
@@ -1730,70 +1710,6 @@
       "libs/shared/errors/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/shared/errors/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/shared/errors/project.json",
       "nx/core/project-json"
@@ -1823,6 +1739,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:shared": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/shared/errors/project.json",
       "nx/core/project-json"
     ]
@@ -1896,70 +1836,6 @@
       "libs/shared/result/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/shared/result/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/shared/result/project.json",
       "nx/core/project-json"
@@ -1989,6 +1865,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:shared": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/shared/result/project.json",
       "nx/core/project-json"
     ]
@@ -2062,70 +1962,6 @@
       "libs/shared/types/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/shared/types/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/shared/types/project.json",
       "nx/core/project-json"
@@ -2155,6 +1991,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:shared": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/shared/types/project.json",
       "nx/core/project-json"
     ]
@@ -2228,70 +2088,6 @@
       "libs/shared/utils/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/shared/utils/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/shared/utils/project.json",
       "nx/core/project-json"
@@ -2321,6 +2117,30 @@
       "nx/core/project-json"
     ],
     "tags.layer:shared": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
       "libs/shared/utils/project.json",
       "nx/core/project-json"
     ]
@@ -2394,70 +2214,6 @@
       "libs/shared/validation-schemas/eslint.config.mjs",
       "@nx/eslint/plugin"
     ],
-    "targets.test": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/shared/validation-schemas/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
     "name": [
       "libs/shared/validation-schemas/project.json",
       "nx/core/project-json"
@@ -2489,345 +2245,29 @@
     "tags.layer:shared": [
       "libs/shared/validation-schemas/project.json",
       "nx/core/project-json"
-    ]
-  },
-  "libs/core/application/tenancy": {
-    "root": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "targets": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.cache": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.inputs": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.outputs": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.executor": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.cwd": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.command": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies.0": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.description": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.command": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.example": [
-      "libs/core/application/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
     ],
     "targets.test": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
     ],
     "targets.test.executor": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/core/application/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "name": [
-      "libs/core/application/tenancy/project.json",
+      "libs/shared/validation-schemas/project.json",
       "nx/core/project-json"
-    ],
-    "$schema": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "sourceRoot": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "projectType": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.scope:core-application": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.type:application-logic": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.layer:application": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.feature:tenancy": [
-      "libs/core/application/tenancy/project.json",
-      "nx/core/project-json"
-    ]
-  },
-  "libs/core/domain/tenancy": {
-    "root": [
-      "libs/core/domain/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "targets": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.cache": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.inputs": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.outputs": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.executor": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.cwd": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.command": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies.0": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.description": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.command": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.example": [
-      "libs/core/domain/tenancy/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.test": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
     ],
     "targets.test.outputs": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "libs/core/domain/tenancy/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "name": [
-      "libs/core/domain/tenancy/project.json",
+      "libs/shared/validation-schemas/project.json",
       "nx/core/project-json"
     ],
-    "$schema": [
-      "libs/core/domain/tenancy/project.json",
+    "targets.test.options": [
+      "libs/shared/validation-schemas/project.json",
       "nx/core/project-json"
     ],
-    "sourceRoot": [
-      "libs/core/domain/tenancy/project.json",
+    "targets.test.options.jestConfig": [
+      "libs/shared/validation-schemas/project.json",
       "nx/core/project-json"
     ],
-    "projectType": [
-      "libs/core/domain/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags": [
-      "libs/core/domain/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.scope:core-domain": [
-      "libs/core/domain/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.type:domain-logic": [
-      "libs/core/domain/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.layer:domain": [
-      "libs/core/domain/tenancy/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.domain:tenancy": [
-      "libs/core/domain/tenancy/project.json",
+    "targets.test.options.passWithNoTests": [
+      "libs/shared/validation-schemas/project.json",
       "nx/core/project-json"
     ]
   }

@@ -1,4 +1,3 @@
-
 // libs/core/domain/shared-kernel/commands-queries/src/index.ts
 export * from './lib/command.interface';
 export * from './lib/command.base';

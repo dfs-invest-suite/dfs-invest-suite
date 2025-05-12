@@ -4,5 +4,14 @@
   "sourceRoot": "libs/shared/errors/src",
   "projectType": "library",
   "tags": ["scope:shared", "type:errors", "layer:shared"],
-  "targets": {}
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/shared/errors/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
 }

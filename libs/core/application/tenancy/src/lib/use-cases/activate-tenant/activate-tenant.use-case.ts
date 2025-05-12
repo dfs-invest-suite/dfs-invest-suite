@@ -1,64 +1,120 @@
 // libs/core/application/tenancy/src/lib/use-cases/activate-tenant/activate-tenant.use-case.ts
 import { ICommandHandler } from '@dfs-suite/core-domain-shared-kernel-commands-queries';
 import { ActivateTenantCommand } from '../../commands/activate-tenant/activate-tenant.command';
-import { Result, err, ok } from '@dfs-suite/shared-result';
-import { ExceptionBase, NotFoundException } from '@dfs-suite/shared-errors';
-import { ITenantRepository, TENANT_REPOSITORY_PORT, InvalidTenantStatusTransitionError } from '@dfs-suite/core-domain-tenancy';
-import { ILoggerPort, LOGGER_PORT } from '@dfs-suite/core-domain-shared-kernel-ports';
+import { Result, err, ok, isErr } from '@dfs-suite/shared-result';
+import { ExceptionBase, NotFoundException, ArgumentInvalidException, InternalServerErrorException } from '@dfs-suite/shared-errors';
+import { ITenantRepository, TenantEntity, InvalidTenantStatusTransitionError } from '@dfs-suite/core-domain-tenancy';
+import { ILoggerPort } from '@dfs-suite/core-domain-shared-kernel-ports';
+import { Maybe } from '@dfs-suite/shared-types';
+import { Guard } from '@dfs-suite/shared-utils';
 
-const CommandHandler = (_commandType: unknown) => <T extends { new (...args: any[]): object }>(_target: T): T | void => _target;
-const Inject = (_token: unknown) => (_target: object, _propertyKey: string | symbol | undefined, _parameterIndex?: number): void => {};
-
-@CommandHandler(ActivateTenantCommand)
 export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantCommand, void> {
   constructor(
-    @Inject(TENANT_REPOSITORY_PORT)
     private readonly tenantRepository: ITenantRepository,
-    @Inject(LOGGER_PORT)
     private readonly logger: ILoggerPort,
   ) {}
 
   async execute(command: ActivateTenantCommand): Promise<Result<void, ExceptionBase | Error>> {
     const correlationId = command.metadata.correlationId;
-    this.logger.log(`Attempting to activate tenant: ${command.tenantId}`, ActivateTenantUseCase.name, correlationId);
+    const useCaseName = ActivateTenantUseCase.name;
+    this.logger.log(`Attempting to activate tenant: ${command.tenantId}`, useCaseName, correlationId);
 
     try {
-      const tenantResult = await this.tenantRepository.findOneById(command.tenantId);
+      const tenantResult: Result<Maybe<TenantEntity>, ExceptionBase | Error> =
+        await this.tenantRepository.findOneById(command.tenantId);
 
-      if (tenantResult.isErr()) {
-        return err(tenantResult.unwrapErr());
-      }
-      const tenantOption = tenantResult.unwrap();
-      if (tenantOption.isNone()) {
-        return err(new NotFoundException(`Tenant with id ${command.tenantId} not found.`, undefined, undefined, correlationId));
+      if (isErr(tenantResult)) {
+        const repoError = tenantResult.error;
+        this.logger.error(
+            `Error fetching tenant ${command.tenantId}: ${repoError.message}`,
+            repoError.stack,
+            useCaseName,
+            correlationId
+        );
+        return err(repoError);
       }
 
-      const tenant = tenantOption.unwrap();
+      const tenantMaybe: Maybe<TenantEntity> = tenantResult.value;
+      if (Guard.isNil(tenantMaybe)) {
+        const notFoundError = new NotFoundException(`Tenant with id ${command.tenantId} not found.`, undefined, undefined, correlationId);
+        this.logger.warn(notFoundError.message, useCaseName, correlationId);
+        return err(notFoundError);
+      }
+
+      const tenant: TenantEntity = tenantMaybe;
 
       try {
-        tenant.activate(); // Lógica de dominio para cambiar estado y añadir evento
-      } catch (domainError) {
-        if (domainError instanceof ArgumentInvalidException) { // Asumiendo que activate puede lanzar esto
-             return err(new InvalidTenantStatusTransitionError(domainError.message, domainError, undefined, correlationId));
+        tenant.activate();
+      } catch (domainErrorCaught: unknown) {
+        let causeForLog: Error;
+        let originalDomainErrorString: string;
+
+        if (domainErrorCaught instanceof Error) {
+          causeForLog = domainErrorCaught;
+          originalDomainErrorString = domainErrorCaught.message;
+        } else {
+          // eslint-disable-next-line @typescript-eslint/no-base-to-string
+          originalDomainErrorString = String(domainErrorCaught);
+          causeForLog = new Error(originalDomainErrorString);
         }
-        return err(domainError as Error); // Re-lanzar otro error de dominio
+
+        this.logger.error(
+            `Domain error during tenant activation for ${command.tenantId}: ${originalDomainErrorString}`,
+            causeForLog.stack,
+            useCaseName,
+            correlationId
+        );
+
+        if (domainErrorCaught instanceof ArgumentInvalidException) {
+          const transitionError = new InvalidTenantStatusTransitionError(causeForLog.message, causeForLog, undefined, correlationId);
+          return err(transitionError);
+        }
+        return err(causeForLog);
       }
 
-      const updateResult = await this.tenantRepository.update(tenant); // Guardar y publicar eventos
-      if (updateResult.isErr()) {
-        return err(updateResult.unwrapErr());
+      const updateResult = await this.tenantRepository.update(tenant);
+      if (isErr(updateResult)) {
+        const updateError = updateResult.error;
+        this.logger.error(
+            `Error updating tenant ${command.tenantId} after activation: ${updateError.message}`,
+            updateError.stack,
+            useCaseName,
+            correlationId
+        );
+        return err(updateError);
       }
 
-      this.logger.log(`Tenant ${command.tenantId} activated successfully.`, ActivateTenantUseCase.name, correlationId);
+      this.logger.log(`Tenant ${command.tenantId} activated successfully.`, useCaseName, correlationId);
       return ok(undefined);
 
-    } catch (error: unknown) {
-      // ... (manejo de error genérico como en CreateTenantUseCase)
-      const internalError = error instanceof Error ? error : new Error(String(error));
-      this.logger.error('Error during tenant activation', internalError.stack ?? 'No stack trace', ActivateTenantUseCase.name, correlationId);
-      return err(new InternalServerErrorException('Failed to activate tenant.', internalError, undefined, correlationId));
+    } catch (errorCaught: unknown) {
+      let internalErrorCause: Error;
+      let originalErrorString: string;
+
+      if (errorCaught instanceof Error) {
+        internalErrorCause = errorCaught;
+        originalErrorString = errorCaught.message;
+      } else {
+        // eslint-disable-next-line @typescript-eslint/no-base-to-string
+        originalErrorString = String(errorCaught);
+        internalErrorCause = new Error(originalErrorString);
+      }
+
+      this.logger.error(
+        `Unexpected error during tenant activation for ${command.tenantId}: ${originalErrorString}`,
+        internalErrorCause.stack ?? 'No stack trace',
+        useCaseName,
+        correlationId
+      );
+      return err(new InternalServerErrorException('Failed to activate tenant.', internalErrorCause, undefined, correlationId));
     }
   }
 }
-// Necesitaremos importar ArgumentInvalidException
-import { ArgumentInvalidException } from '@dfs-suite/shared-errors';
+
+/* SECCIÓN DE MEJORAS
+// (Mismas que antes)
+*/
+
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+// (Mismas que antes)
+*/
