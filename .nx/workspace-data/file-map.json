@@ -72,139 +72,420 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".docs/.BITACORA.md",
-        "hash": "7878283223418165155"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
-      },
-      {
-        "file": "pnpm-lock.yaml",
-        "hash": "16838219719086158194"
-      },
-      {
-        "file": ".docs/.PROYETO-OFICIAL-DESARROLLO.md",
-        "hash": "10410953569971947428"
-      },
-      {
-        "file": "scripts/ejecuta.ts",
-        "hash": "3581558311956854225"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "1946410691959925030"
-      },
-      {
-        "file": ".docs/.DEUDA-TECNICA.md",
-        "hash": "3472799288662830742"
-      },
-      {
-        "file": ".docs/directivas-v2.0.1.md",
-        "hash": "16985608459039549285"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".docs/comandos-nx.md",
-        "hash": "15026614625424392724"
-      },
-      {
-        "file": ".npmrc",
-        "hash": "1880664178033616490"
-      },
-      {
-        "file": ".env.example",
-        "hash": "9701414843099447202"
-      },
-      {
-        "file": "README.md",
-        "hash": "1577119330621126201"
-      },
-      {
-        "file": "eslint.config copy.mjs",
-        "hash": "12076268886621557052"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "6434218381669451380"
-      },
-      {
-        "file": "eslint.config copy-2.mjs.md",
-        "hash": "2842474844939100007"
-      },
-      {
-        "file": ".docs/CAGADAZO.md",
-        "hash": "1773354174811884039"
-      },
-      {
         "file": ".docs/1-prompt-hidratacion.md",
         "hash": "8662203574466024184"
-      },
-      {
-        "file": ".docs/mejoras-futuras.md",
-        "hash": "16625039011129785983"
-      },
-      {
-        "file": ".docs/Arquitectura-hexagonal-2025.md",
-        "hash": "609726058992439065"
-      },
-      {
-        "file": ".docs/proyecto.tecnico.md",
-        "hash": "15656996287753112128"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": "eslint.config copy-1.mjs.md",
-        "hash": "3462096019013144053"
-      },
-      {
-        "file": "package.json",
-        "hash": "5939327534152544168"
       },
       {
         "file": "pnpm-workspace.yaml",
         "hash": "12453027730966252881"
       },
       {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
+        "file": "eslint.config copy-1.mjs.md",
+        "hash": "3462096019013144053"
       },
       {
-        "file": ".docs/libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
-        "hash": "6986245952543171013"
+        "file": ".docs/CAGADAZO.md",
+        "hash": "1773354174811884039"
       },
       {
-        "file": "nx.json",
-        "hash": "17719356770727469427"
-      },
-      {
-        "file": ".docs/resumen-dfs-invest-flow-1.0.md",
-        "hash": "2156687276783297710"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "4637156562308165301"
+        "file": ".docs/.DEUDA-TECNICA.md",
+        "hash": "6636072902076968588"
       },
       {
         "file": "jest.config.ts",
         "hash": "6870352021923392442"
       },
       {
-        "file": "eslint.config.mjs",
-        "hash": "17524527947721733232"
+        "file": "eslint.config copy-2.mjs.md",
+        "hash": "2842474844939100007"
+      },
+      {
+        "file": ".docs/.BITACORA.md",
+        "hash": "7878283223418165155"
+      },
+      {
+        "file": "package.json",
+        "hash": "5939327534152544168"
+      },
+      {
+        "file": ".docs/resumen-dfs-invest-flow-1.0.md",
+        "hash": "2156687276783297710"
       },
       {
         "file": ".docs/.ROADMAP.md",
         "hash": "12021967318422179340"
+      },
+      {
+        "file": ".env.example",
+        "hash": "9701414843099447202"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "16838219719086158194"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "17524527947721733232"
+      },
+      {
+        "file": "scripts/ejecuta.ts",
+        "hash": "3581558311956854225"
+      },
+      {
+        "file": ".docs/libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+        "hash": "6986245952543171013"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
+      },
+      {
+        "file": "README.md",
+        "hash": "1577119330621126201"
+      },
+      {
+        "file": ".docs/comandos-nx.md",
+        "hash": "15026614625424392724"
+      },
+      {
+        "file": "eslint.config copy.mjs",
+        "hash": "12076268886621557052"
+      },
+      {
+        "file": "nx.json",
+        "hash": "17719356770727469427"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": ".docs/Arquitectura-hexagonal-2025.md",
+        "hash": "609726058992439065"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".docs/directivas-v2.0.1.md",
+        "hash": "16985608459039549285"
+      },
+      {
+        "file": ".docs/.PROYETO-OFICIAL-DESARROLLO.md",
+        "hash": "10410953569971947428"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1880664178033616490"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "1946410691959925030"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".docs/proyecto.tecnico.md",
+        "hash": "15656996287753112128"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": ".docs/mejoras-futuras.md",
+        "hash": "16625039011129785983"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "6434218381669451380"
       }
     ],
     "projectFileMap": {
+      "core-domain-shared-kernel-value-objects": [
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+          "hash": "16585758520623612183"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
+          "hash": "9642659207060320892"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/project.json",
+          "hash": "17713648619358533449"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/src/index.ts",
+          "hash": "17896674559647075650"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/src/lib/value-object.base.ts",
+          "hash": "4363595035137624555",
+          "deps": [
+            "shared-errors",
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/value-objects/value-objects.project.json.md",
+          "hash": "16619873488053266894"
+        }
+      ],
+      "shared-types": [
+        {
+          "file": "libs/shared/types/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/shared/types/jest.config.ts",
+          "hash": "16163362919612580295"
+        },
+        {
+          "file": "libs/shared/types/project.json",
+          "hash": "3195070544824459304"
+        },
+        {
+          "file": "libs/shared/types/src/index.ts",
+          "hash": "3541594760548740148"
+        },
+        {
+          "file": "libs/shared/types/src/lib/api-response.interface.ts",
+          "hash": "12163190414362665549"
+        },
+        {
+          "file": "libs/shared/types/src/lib/brand.type.ts",
+          "hash": "12057631739754552936"
+        },
+        {
+          "file": "libs/shared/types/src/lib/correlation-id.type.ts",
+          "hash": "10979569847989821487"
+        },
+        {
+          "file": "libs/shared/types/src/lib/maybe.type.ts",
+          "hash": "321190837005194403"
+        },
+        {
+          "file": "libs/shared/types/src/lib/object-literal.type.ts",
+          "hash": "12130679675297870943"
+        },
+        {
+          "file": "libs/shared/types/src/lib/paginated.interface.ts",
+          "hash": "17284968405573204699"
+        },
+        {
+          "file": "libs/shared/types/src/lib/primitive-types.ts",
+          "hash": "18352048962251480843"
+        },
+        {
+          "file": "libs/shared/types/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/shared/types/tsconfig.lib.json",
+          "hash": "4680035659544843318"
+        },
+        {
+          "file": "libs/shared/types/tsconfig.spec.json",
+          "hash": "6721001167102314948"
+        },
+        {
+          "file": "libs/shared/types/types.project.json.md",
+          "hash": "169691797980117768"
+        }
+      ],
+      "core-domain-shared-kernel-ports": [
+        {
+          "file": "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+          "hash": "6986245952543171013"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/jest.config.ts",
+          "hash": "9245328252104699384"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/ports.project.json.md",
+          "hash": "8810707073087393878"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/project.json",
+          "hash": "15582840113106905819"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/src/index.ts",
+          "hash": "14423377919037296960"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/src/lib/logger.port.ts",
+          "hash": "600591199813144840",
+          "deps": [
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/src/lib/repository.port.ts",
+          "hash": "415668819055338347",
+          "deps": [
+            "shared-types",
+            "core-domain-shared-kernel-entities",
+            "shared-result",
+            "shared-errors"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        }
+      ],
+      "core-application-tenancy": [
+        {
+          "file": "libs/core/application/tenancy/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/tenancy/jest.config.ts",
+          "hash": "1932307829463977283"
+        },
+        {
+          "file": "libs/core/application/tenancy/project.json",
+          "hash": "12306275110201102636"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/index.ts",
+          "hash": "8717163190097171338"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/commands/activate-tenant/activate-tenant.command.ts",
+          "hash": "16105696024929417897",
+          "deps": [
+            "core-domain-shared-kernel-commands-queries",
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/commands/create-tenant/create-tenant.command.ts",
+          "hash": "1267463687431770074",
+          "deps": [
+            "core-domain-shared-kernel-commands-queries",
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/commands/set-tenant-db-config/set-tenant-db-config.command.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/dtos/tenant-details.dto.ts",
+          "hash": "5732909883831632253",
+          "deps": [
+            "shared-types",
+            "core-domain-tenancy"
+          ]
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/dtos/tenant-summary.dto.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/ports/database-provisioning.service.port.ts",
+          "hash": "47233594355647164",
+          "deps": [
+            "shared-result",
+            "shared-types",
+            "shared-errors",
+            "core-domain-tenancy"
+          ]
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/ports/user-provisioning.service.port.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/queries/get-tenant-details/get-tenant-details.query-handler.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/queries/get-tenant-details/get-tenant-details.query.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/queries/list-tenants/list-tenants.query-handler.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/queries/list-tenants/list-tenants.query.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/use-cases/activate-tenant/activate-tenant.use-case.ts",
+          "hash": "18187531670394056647",
+          "deps": [
+            "core-domain-shared-kernel-commands-queries",
+            "shared-result",
+            "shared-errors",
+            "core-domain-tenancy",
+            "core-domain-shared-kernel-ports",
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts",
+          "hash": "11416871807760430424",
+          "deps": [
+            "core-domain-shared-kernel-commands-queries",
+            "shared-types",
+            "shared-result",
+            "shared-errors",
+            "core-domain-tenancy",
+            "core-domain-shared-kernel-ports"
+          ]
+        },
+        {
+          "file": "libs/core/application/tenancy/src/lib/use-cases/set-tenant-db-config/set-tenant-db-config.use-case.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/tenancy/tenancy.project.json.md",
+          "hash": "4073005674384757309"
+        },
+        {
+          "file": "libs/core/application/tenancy/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/tenancy/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/tenancy/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
       "core-domain-shared-kernel-events": [
         {
           "file": "libs/core/domain/shared-kernel/events/eslint.config.mjs",
@@ -263,86 +544,6 @@
           "hash": "12671384051532635711"
         }
       ],
-      "api-main": [
-        {
-          "file": "apps/api-main/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "apps/api-main/jest.config.ts",
-          "hash": "10458881430985674183"
-        },
-        {
-          "file": "apps/api-main/project.json",
-          "hash": "12150343753858563848"
-        },
-        {
-          "file": "apps/api-main/src/app/app.controller.spec.ts",
-          "hash": "7647647754668916054",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/app/app.module.ts",
-          "hash": "11673476679848632172",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/app/app.service.spec.ts",
-          "hash": "13111976464657524091",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/app/app.service.ts",
-          "hash": "9967902337593410053",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/api-main/src/main.ts",
-          "hash": "1521849095824523532",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core"
-          ]
-        },
-        {
-          "file": "apps/api-main/tsconfig.app.json",
-          "hash": "11728618664080294556"
-        },
-        {
-          "file": "apps/api-main/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/api-main/tsconfig.spec.json",
-          "hash": "6622138706846345436"
-        },
-        {
-          "file": "apps/api-main/webpack.config.js",
-          "hash": "15325509280123933812",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
-        }
-      ],
       "shared-constants": [
         {
           "file": "libs/shared/constants/constants.projects.json.md",
@@ -383,6 +584,52 @@
         {
           "file": "libs/shared/constants/tsconfig.spec.json",
           "hash": "10127395499277068148"
+        }
+      ],
+      "shared-result": [
+        {
+          "file": "libs/shared/result/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/shared/result/jest.config.ts",
+          "hash": "12840828713548891948"
+        },
+        {
+          "file": "libs/shared/result/project.json",
+          "hash": "12036590874798196985"
+        },
+        {
+          "file": "libs/shared/result/result.project.json.md",
+          "hash": "17469239128325310896"
+        },
+        {
+          "file": "libs/shared/result/src/index.ts",
+          "hash": "11287092583336290759"
+        },
+        {
+          "file": "libs/shared/result/src/lib/result.ts",
+          "hash": "756413660481727022"
+        },
+        {
+          "file": "libs/shared/result/src/lib/result.type.ts",
+          "hash": "7777601133905326088"
+        },
+        {
+          "file": "libs/shared/result/src/lib/result.utils.ts",
+          "hash": "16135982259122937571"
+        },
+        {
+          "file": "libs/shared/result/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/shared/result/tsconfig.lib.json",
+          "hash": "4680035659544843318"
+        },
+        {
+          "file": "libs/shared/result/tsconfig.spec.json",
+          "hash": "2037337966284968602"
         }
       ],
       "core-domain-shared-kernel-commands-queries": [
@@ -470,68 +717,6 @@
           "hash": "12671384051532635711"
         }
       ],
-      "shared-types": [
-        {
-          "file": "libs/shared/types/eslint.config.mjs",
-          "hash": "16759498837230279251"
-        },
-        {
-          "file": "libs/shared/types/jest.config.ts",
-          "hash": "16163362919612580295"
-        },
-        {
-          "file": "libs/shared/types/project.json",
-          "hash": "3195070544824459304"
-        },
-        {
-          "file": "libs/shared/types/src/index.ts",
-          "hash": "3541594760548740148"
-        },
-        {
-          "file": "libs/shared/types/src/lib/api-response.interface.ts",
-          "hash": "12163190414362665549"
-        },
-        {
-          "file": "libs/shared/types/src/lib/brand.type.ts",
-          "hash": "12057631739754552936"
-        },
-        {
-          "file": "libs/shared/types/src/lib/correlation-id.type.ts",
-          "hash": "10979569847989821487"
-        },
-        {
-          "file": "libs/shared/types/src/lib/maybe.type.ts",
-          "hash": "321190837005194403"
-        },
-        {
-          "file": "libs/shared/types/src/lib/object-literal.type.ts",
-          "hash": "12130679675297870943"
-        },
-        {
-          "file": "libs/shared/types/src/lib/paginated.interface.ts",
-          "hash": "17284968405573204699"
-        },
-        {
-          "file": "libs/shared/types/src/lib/primitive-types.ts",
-          "hash": "5226136737873509046"
-        },
-        {
-          "file": "libs/shared/types/tsconfig.json",
-          "hash": "9505886339790543345"
-        },
-        {
-          "file": "libs/shared/types/tsconfig.lib.json",
-          "hash": "4680035659544843318"
-        },
-        {
-          "file": "libs/shared/types/tsconfig.spec.json",
-          "hash": "6721001167102314948"
-        },
-        {
-          "file": "libs/shared/types/types.project.json.md",
-          "hash": "169691797980117768"
-        }
-      ],
       "shared-errors": [
         {
           "file": "libs/shared/errors/errores.project.json.md",
@@ -584,26 +769,78 @@
           "hash": "2037337966284968602"
         }
       ],
-      "core-domain-shared-kernel-value-objects": [
+      "core-domain-shared-kernel-mappers": [
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+          "file": "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+          "hash": "6986245952543171013"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/jest.config.ts",
+          "hash": "14952385245368114106"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/mappers.project.json.md",
+          "hash": "2825063586518446478"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/project.json",
+          "hash": "3835645932156169022"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/src/index.ts",
+          "hash": "10776726551422275590"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/src/lib/mapper.interface.ts",
+          "hash": "9286511292617927576",
+          "deps": [
+            "core-domain-shared-kernel-entities"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        }
+      ],
+      "core-domain-shared-kernel-entities": [
+        {
+          "file": "libs/core/domain/shared-kernel/entities/entities.project.json.md",
+          "hash": "7758314969599001301"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
           "hash": "16585758520623612183"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-          "hash": "9642659207060320892"
+          "file": "libs/core/domain/shared-kernel/entities/jest.config.ts",
+          "hash": "4056537276816096924"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/project.json",
-          "hash": "17713648619358533449"
+          "file": "libs/core/domain/shared-kernel/entities/project.json",
+          "hash": "21969991786952002"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/src/index.ts",
-          "hash": "17896674559647075650"
+          "file": "libs/core/domain/shared-kernel/entities/src/index.ts",
+          "hash": "6765042081146218763"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/src/lib/value-object.base.ts",
-          "hash": "4363595035137624555",
+          "file": "libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts",
+          "hash": "3708366696944212628",
+          "deps": [
+            "core-domain-shared-kernel-events"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/src/lib/entity.base.ts",
+          "hash": "8665362913831453240",
           "deps": [
             "shared-errors",
             "shared-types",
@@ -611,66 +848,16 @@
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.json",
+          "file": "libs/core/domain/shared-kernel/entities/tsconfig.json",
           "hash": "7464751594463448890"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.lib.json",
+          "file": "libs/core/domain/shared-kernel/entities/tsconfig.lib.json",
           "hash": "12621438852216795570"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.spec.json",
+          "file": "libs/core/domain/shared-kernel/entities/tsconfig.spec.json",
           "hash": "12671384051532635711"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/value-objects/value-objects.project.json.md",
-          "hash": "16619873488053266894"
-        }
-      ],
-      "shared-result": [
-        {
-          "file": "libs/shared/result/eslint.config.mjs",
-          "hash": "16759498837230279251"
-        },
-        {
-          "file": "libs/shared/result/jest.config.ts",
-          "hash": "12840828713548891948"
-        },
-        {
-          "file": "libs/shared/result/project.json",
-          "hash": "12036590874798196985"
-        },
-        {
-          "file": "libs/shared/result/result.project.json.md",
-          "hash": "17469239128325310896"
-        },
-        {
-          "file": "libs/shared/result/src/index.ts",
-          "hash": "11287092583336290759"
-        },
-        {
-          "file": "libs/shared/result/src/lib/result.ts",
-          "hash": "756413660481727022"
-        },
-        {
-          "file": "libs/shared/result/src/lib/result.type.ts",
-          "hash": "7777601133905326088"
-        },
-        {
-          "file": "libs/shared/result/src/lib/result.utils.ts",
-          "hash": "16135982259122937571"
-        },
-        {
-          "file": "libs/shared/result/tsconfig.json",
-          "hash": "9505886339790543345"
-        },
-        {
-          "file": "libs/shared/result/tsconfig.lib.json",
-          "hash": "4680035659544843318"
-        },
-        {
-          "file": "libs/shared/result/tsconfig.spec.json",
-          "hash": "2037337966284968602"
         }
       ],
       "shared-validation-schemas": [
@@ -728,45 +915,133 @@
           "hash": "2037337966284968602"
         }
       ],
-      "core-domain-shared-kernel-mappers": [
+      "api-main": [
         {
-          "file": "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
-          "hash": "6986245952543171013"
+          "file": "apps/api-main/eslint.config.mjs",
+          "hash": "2624537849564014525"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-          "hash": "14952385245368114106"
+          "file": "apps/api-main/jest.config.ts",
+          "hash": "10458881430985674183"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/mappers.project.json.md",
-          "hash": "2825063586518446478"
+          "file": "apps/api-main/project.json",
+          "hash": "12150343753858563848"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/project.json",
-          "hash": "3835645932156169022"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/src/index.ts",
-          "hash": "10776726551422275590"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/src/lib/mapper.interface.ts",
-          "hash": "9286511292617927576",
+          "file": "apps/api-main/src/app/app.controller.spec.ts",
+          "hash": "7647647754668916054",
           "deps": [
-            "core-domain-shared-kernel-entities"
+            "npm:@nestjs/testing"
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.json",
-          "hash": "7464751594463448890"
+          "file": "apps/api-main/src/app/app.controller.ts",
+          "hash": "15276891910009544695",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.lib.json",
-          "hash": "12621438852216795570"
+          "file": "apps/api-main/src/app/app.module.ts",
+          "hash": "11673476679848632172",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.spec.json",
-          "hash": "12671384051532635711"
+          "file": "apps/api-main/src/app/app.service.spec.ts",
+          "hash": "13111976464657524091",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api-main/src/app/app.service.ts",
+          "hash": "9967902337593410053",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api-main/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/api-main/src/main.ts",
+          "hash": "1521849095824523532",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/api-main/tsconfig.app.json",
+          "hash": "11728618664080294556"
+        },
+        {
+          "file": "apps/api-main/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/api-main/tsconfig.spec.json",
+          "hash": "6622138706846345436"
+        },
+        {
+          "file": "apps/api-main/webpack.config.js",
+          "hash": "15325509280123933812",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
+      "shared-utils": [
+        {
+          "file": "libs/shared/utils/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/shared/utils/jest.config.ts",
+          "hash": "3439586481535294978"
+        },
+        {
+          "file": "libs/shared/utils/project.json",
+          "hash": "16807073514384570557"
+        },
+        {
+          "file": "libs/shared/utils/src/index.ts",
+          "hash": "5184080166991938690"
+        },
+        {
+          "file": "libs/shared/utils/src/lib/guard.ts",
+          "hash": "1575115371281862334",
+          "deps": [
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/shared/utils/src/lib/uuid.utils.ts",
+          "hash": "16061243856661778158",
+          "deps": [
+            "npm:uuid",
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        },
+        {
+          "file": "libs/shared/utils/utils.project.json.md",
+          "hash": "17823575714773670544"
         }
       ],
       "api-main-e2e": [
@@ -820,105 +1095,6 @@
           "hash": "14954872453723519891"
         }
       ],
-      "shared-utils": [
-        {
-          "file": "libs/shared/utils/eslint.config.mjs",
-          "hash": "16759498837230279251"
-        },
-        {
-          "file": "libs/shared/utils/jest.config.ts",
-          "hash": "3439586481535294978"
-        },
-        {
-          "file": "libs/shared/utils/project.json",
-          "hash": "16807073514384570557"
-        },
-        {
-          "file": "libs/shared/utils/src/index.ts",
-          "hash": "5184080166991938690"
-        },
-        {
-          "file": "libs/shared/utils/src/lib/guard.ts",
-          "hash": "1575115371281862334",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/shared/utils/src/lib/uuid.utils.ts",
-          "hash": "16061243856661778158",
-          "deps": [
-            "npm:uuid",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/shared/utils/tsconfig.json",
-          "hash": "9505886339790543345"
-        },
-        {
-          "file": "libs/shared/utils/tsconfig.lib.json",
-          "hash": "5554291030212586824"
-        },
-        {
-          "file": "libs/shared/utils/tsconfig.spec.json",
-          "hash": "2037337966284968602"
-        },
-        {
-          "file": "libs/shared/utils/utils.project.json.md",
-          "hash": "17823575714773670544"
-        }
-      ],
-      "core-domain-shared-kernel-entities": [
-        {
-          "file": "libs/core/domain/shared-kernel/entities/entities.project.json.md",
-          "hash": "7758314969599001301"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
-          "hash": "16585758520623612183"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/jest.config.ts",
-          "hash": "4056537276816096924"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/project.json",
-          "hash": "21969991786952002"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/src/index.ts",
-          "hash": "6765042081146218763"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts",
-          "hash": "3708366696944212628",
-          "deps": [
-            "core-domain-shared-kernel-events"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/src/lib/entity.base.ts",
-          "hash": "8665362913831453240",
-          "deps": [
-            "shared-errors",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.json",
-          "hash": "7464751594463448890"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.lib.json",
-          "hash": "12621438852216795570"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.spec.json",
-          "hash": "12671384051532635711"
-        }
-      ],
       "core-domain-tenancy": [
         {
           "file": "libs/core/domain/tenancy/eslint.config.mjs",
@@ -929,16 +1105,29 @@
           "hash": "12074460860088778811"
         },
         {
+          "file": "libs/core/domain/tenancy/mejoras.project.json.md",
+          "hash": "8320979601055412084"
+        },
+        {
           "file": "libs/core/domain/tenancy/project.json",
-          "hash": "880190979792637862"
+          "hash": "9433867092347827941"
         },
         {
           "file": "libs/core/domain/tenancy/src/index.ts",
           "hash": "2432586186110890370"
         },
         {
+          "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.spec.ts",
+          "hash": "1667110554963350954",
+          "deps": [
+            "shared-errors",
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts",
-          "hash": "12276024360824200568",
+          "hash": "4346362408261664119",
           "deps": [
             "core-domain-shared-kernel-entities",
             "shared-errors",
@@ -948,17 +1137,18 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts",
-          "hash": "17497757370997662760",
+          "hash": "8007563128508803421",
           "deps": [
             "core-domain-shared-kernel-entities",
             "shared-errors",
             "shared-types",
-            "shared-utils"
+            "shared-utils",
+            "shared-result"
           ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/errors/invalid-tenant-status-transition.error.ts",
-          "hash": "14775980024063511976",
+          "hash": "6412853348050986259",
           "deps": [
             "shared-errors",
             "shared-types"
@@ -1019,8 +1209,15 @@
           "hash": "3244421341483603138"
         },
         {
+          "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.spec.ts",
+          "hash": "13359903794088403118",
+          "deps": [
+            "shared-errors"
+          ]
+        },
+        {
           "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.ts",
-          "hash": "6419890763277039662",
+          "hash": "727590962577547882",
           "deps": [
             "core-domain-shared-kernel-value-objects",
             "shared-errors",
@@ -1028,16 +1225,19 @@
           ]
         },
         {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.ts",
-          "hash": "843915520138148779",
+          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.spec.ts",
+          "hash": "10393759206029967426",
           "deps": [
-            "core-domain-shared-kernel-value-objects",
             "shared-errors"
           ]
         },
         {
-          "file": "libs/core/domain/tenancy/tenancy.project.json.md",
-          "hash": "1816780009309260371"
+          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.ts",
+          "hash": "16581122424988651434",
+          "deps": [
+            "core-domain-shared-kernel-value-objects",
+            "shared-errors"
+          ]
         },
         {
           "file": "libs/core/domain/tenancy/tsconfig.json",
@@ -1049,182 +1249,6 @@
         },
         {
           "file": "libs/core/domain/tenancy/tsconfig.spec.json",
-          "hash": "4164763362289325525"
-        }
-      ],
-      "core-domain-shared-kernel-ports": [
-        {
-          "file": "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
-          "hash": "6986245952543171013"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/jest.config.ts",
-          "hash": "9245328252104699384"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/ports.project.json.md",
-          "hash": "8810707073087393878"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/project.json",
-          "hash": "15582840113106905819"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/src/index.ts",
-          "hash": "14423377919037296960"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/src/lib/logger.port.ts",
-          "hash": "600591199813144840",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/src/lib/repository.port.ts",
-          "hash": "415668819055338347",
-          "deps": [
-            "shared-types",
-            "core-domain-shared-kernel-entities",
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.json",
-          "hash": "7464751594463448890"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.lib.json",
-          "hash": "12621438852216795570"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.spec.json",
-          "hash": "12671384051532635711"
-        }
-      ],
-      "core-application-tenancy": [
-        {
-          "file": "libs/core/application/tenancy/eslint.config.mjs",
-          "hash": "15872373987943413713"
-        },
-        {
-          "file": "libs/core/application/tenancy/jest.config.ts",
-          "hash": "1932307829463977283"
-        },
-        {
-          "file": "libs/core/application/tenancy/project.json",
-          "hash": "12306275110201102636"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/index.ts",
-          "hash": "8717163190097171338"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/commands/activate-tenant/activate-tenant.command.ts",
-          "hash": "8980037365716553643",
-          "deps": [
-            "core-domain-shared-kernel-commands-queries",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/commands/create-tenant/create-tenant.command.ts",
-          "hash": "1267463687431770074",
-          "deps": [
-            "core-domain-shared-kernel-commands-queries",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/commands/set-tenant-db-config/set-tenant-db-config.command.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/dtos/tenant-details.dto.ts",
-          "hash": "5732909883831632253",
-          "deps": [
-            "shared-types",
-            "core-domain-tenancy"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/dtos/tenant-summary.dto.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/ports/database-provisioning.service.port.ts",
-          "hash": "47233594355647164",
-          "deps": [
-            "shared-result",
-            "shared-types",
-            "shared-errors",
-            "core-domain-tenancy"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/ports/user-provisioning.service.port.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/queries/get-tenant-details/get-tenant-details.query-handler.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/queries/get-tenant-details/get-tenant-details.query.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/queries/list-tenants/list-tenants.query-handler.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/queries/list-tenants/list-tenants.query.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/use-cases/activate-tenant/activate-tenant.use-case.ts",
-          "hash": "16000258334911527204",
-          "deps": [
-            "core-domain-shared-kernel-commands-queries",
-            "shared-result",
-            "shared-errors",
-            "core-domain-tenancy",
-            "core-domain-shared-kernel-ports",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts",
-          "hash": "11416871807760430424",
-          "deps": [
-            "core-domain-shared-kernel-commands-queries",
-            "shared-types",
-            "shared-result",
-            "shared-errors",
-            "core-domain-tenancy",
-            "core-domain-shared-kernel-ports"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/use-cases/set-tenant-db-config/set-tenant-db-config.use-case.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/tenancy.project.json.md",
-          "hash": "4073005674384757309"
-        },
-        {
-          "file": "libs/core/application/tenancy/tsconfig.json",
-          "hash": "7846400365888195640"
-        },
-        {
-          "file": "libs/core/application/tenancy/tsconfig.lib.json",
-          "hash": "5419457303262888731"
-        },
-        {
-          "file": "libs/core/application/tenancy/tsconfig.spec.json",
           "hash": "4164763362289325525"
         }
       ]

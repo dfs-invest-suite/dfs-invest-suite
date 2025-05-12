@@ -1,4 +1,4 @@
-mejoras futuras
+mejoras propuestas futuras
 {
   "name": "core-domain-tenancy",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
@@ -10,14 +10,14 @@ mejoras futuras
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/core/domain/tenancy/jest.config.ts",
-        "passWithNoTests": true // Se mantendrá hasta que implementemos tests para entidades/VOs de tenancy
+        "jestConfig": "libs/core/domain/tenancy/jest.config.ts"
+        // "passWithNoTests": true // <--- ELIMINAR O COMENTAR ESTA LÍNEA
       }
     }
   }
 }
 /* SECCIÓN DE MEJORAS FUTURAS
-
+// (Mantener las que ya estaban)
 [
   Mejora Propuesta 1 (Tests Unitarios Exhaustivos): Esta librería contendrá lógica de negocio crítica en sus entidades (`TenantEntity`, `TenantConfigurationEntity`) y Value Objects (`TenantStatusVO`, `DbConnectionConfigVO`). Es fundamental añadir tests unitarios que cubran:
     - Creación de entidades/VOs con datos válidos e inválidos.
@@ -32,5 +32,4 @@ mejoras futuras
   Justificación: Mantener las entidades cohesivas y adherirse a los principios DDD.
   Impacto: Creación de archivos de servicio y sus tests correspondientes.
 ]
-
 */

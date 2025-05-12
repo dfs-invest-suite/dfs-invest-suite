@@ -612,8 +612,7 @@
               "{workspaceRoot}/coverage/{projectRoot}"
             ],
             "options": {
-              "jestConfig": "libs/core/domain/tenancy/jest.config.ts",
-              "passWithNoTests": true
+              "jestConfig": "libs/core/domain/tenancy/jest.config.ts"
             },
             "configurations": {},
             "parallelism": true
@@ -11463,11 +11462,6 @@
     "core-domain-tenancy": [
       {
         "source": "core-domain-tenancy",
-        "target": "core-domain-shared-kernel-entities",
-        "type": "static"
-      },
-      {
-        "source": "core-domain-tenancy",
         "target": "shared-errors",
         "type": "static"
       },
@@ -11483,17 +11477,22 @@
       },
       {
         "source": "core-domain-tenancy",
+        "target": "core-domain-shared-kernel-entities",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-tenancy",
+        "target": "shared-result",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-tenancy",
         "target": "core-domain-shared-kernel-events",
         "type": "static"
       },
       {
         "source": "core-domain-tenancy",
         "target": "core-domain-shared-kernel-ports",
-        "type": "static"
-      },
-      {
-        "source": "core-domain-tenancy",
-        "target": "shared-result",
         "type": "static"
       },
       {
@@ -25082,5 +25081,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1747069628606
+  "computedAt": 1747075956630
 }

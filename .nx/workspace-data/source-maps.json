@@ -1509,10 +1509,6 @@
     "targets.test.options.jestConfig": [
       "libs/core/domain/tenancy/project.json",
       "nx/core/project-json"
-    ],
-    "targets.test.options.passWithNoTests": [
-      "libs/core/domain/tenancy/project.json",
-      "nx/core/project-json"
     ]
   },
   "libs/shared/constants": {
