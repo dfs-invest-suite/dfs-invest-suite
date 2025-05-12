@@ -72,24 +72,64 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".docs/1-prompt-hidratacion.md",
-        "hash": "8662203574466024184"
+        "file": "pnpm-lock.yaml",
+        "hash": "16838219719086158194"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1880664178033616490"
+      },
+      {
+        "file": ".docs/libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+        "hash": "6986245952543171013"
+      },
+      {
+        "file": ".env.example",
+        "hash": "9701414843099447202"
+      },
+      {
+        "file": "nx.json",
+        "hash": "17719356770727469427"
+      },
+      {
+        "file": ".docs/.BITACORA.md",
+        "hash": "7878283223418165155"
       },
       {
         "file": "pnpm-workspace.yaml",
         "hash": "12453027730966252881"
       },
       {
-        "file": "eslint.config copy-1.mjs.md",
-        "hash": "3462096019013144053"
+        "file": ".docs/proyecto.tecnico.md",
+        "hash": "15656996287753112128"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".docs/.PROYETO-OFICIAL-DESARROLLO.md",
+        "hash": "10410953569971947428"
+      },
+      {
+        "file": ".docs/Arquitectura-hexagonal-2025.md",
+        "hash": "609726058992439065"
+      },
+      {
+        "file": "README.md",
+        "hash": "1577119330621126201"
+      },
+      {
+        "file": ".docs/mejoras-futuras.md",
+        "hash": "16625039011129785983"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
       },
       {
         "file": ".docs/CAGADAZO.md",
         "hash": "1773354174811884039"
-      },
-      {
-        "file": ".docs/.DEUDA-TECNICA.md",
-        "hash": "6636072902076968588"
       },
       {
         "file": "jest.config.ts",
@@ -100,108 +140,68 @@
         "hash": "2842474844939100007"
       },
       {
-        "file": ".docs/.BITACORA.md",
-        "hash": "7878283223418165155"
-      },
-      {
-        "file": "package.json",
-        "hash": "5939327534152544168"
+        "file": "tsconfig.base.json",
+        "hash": "6434218381669451380"
       },
       {
         "file": ".docs/resumen-dfs-invest-flow-1.0.md",
         "hash": "2156687276783297710"
       },
       {
-        "file": ".docs/.ROADMAP.md",
-        "hash": "12021967318422179340"
-      },
-      {
-        "file": ".env.example",
-        "hash": "9701414843099447202"
-      },
-      {
-        "file": "pnpm-lock.yaml",
-        "hash": "16838219719086158194"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "17524527947721733232"
-      },
-      {
-        "file": "scripts/ejecuta.ts",
-        "hash": "3581558311956854225"
-      },
-      {
-        "file": ".docs/libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
-        "hash": "6986245952543171013"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "4637156562308165301"
-      },
-      {
-        "file": "README.md",
-        "hash": "1577119330621126201"
-      },
-      {
         "file": ".docs/comandos-nx.md",
         "hash": "15026614625424392724"
-      },
-      {
-        "file": "eslint.config copy.mjs",
-        "hash": "12076268886621557052"
-      },
-      {
-        "file": "nx.json",
-        "hash": "17719356770727469427"
       },
       {
         "file": "jest.preset.js",
         "hash": "9430166341120122740"
       },
       {
-        "file": ".docs/Arquitectura-hexagonal-2025.md",
-        "hash": "609726058992439065"
+        "file": "eslint.config copy-1.mjs.md",
+        "hash": "3462096019013144053"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".docs/directivas-v2.0.1.md",
-        "hash": "16985608459039549285"
-      },
-      {
-        "file": ".docs/.PROYETO-OFICIAL-DESARROLLO.md",
-        "hash": "10410953569971947428"
-      },
-      {
-        "file": ".npmrc",
-        "hash": "1880664178033616490"
+        "file": "eslint.config copy.mjs",
+        "hash": "12076268886621557052"
       },
       {
         "file": ".gitignore",
         "hash": "1946410691959925030"
       },
       {
+        "file": ".docs/directivas-v2.0.1.md",
+        "hash": "16985608459039549285"
+      },
+      {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
       },
       {
-        "file": ".docs/proyecto.tecnico.md",
-        "hash": "15656996287753112128"
+        "file": ".docs/1-prompt-hidratacion.md",
+        "hash": "8662203574466024184"
       },
       {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
       },
       {
-        "file": ".docs/mejoras-futuras.md",
-        "hash": "16625039011129785983"
+        "file": "eslint.config.mjs",
+        "hash": "17524527947721733232"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "6434218381669451380"
+        "file": ".docs/.DEUDA-TECNICA.md",
+        "hash": "6636072902076968588"
+      },
+      {
+        "file": "scripts/ejecuta.ts",
+        "hash": "3581558311956854225"
+      },
+      {
+        "file": ".docs/.ROADMAP.md",
+        "hash": "12021967318422179340"
+      },
+      {
+        "file": "package.json",
+        "hash": "5939327534152544168"
       }
     ],
     "projectFileMap": {
@@ -517,7 +517,7 @@
         },
         {
           "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts",
-          "hash": "12261686393811957764",
+          "hash": "11958967572708672978",
           "deps": [
             "shared-utils",
             "shared-types",
@@ -1127,7 +1127,7 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts",
-          "hash": "4346362408261664119",
+          "hash": "17755445720775924199",
           "deps": [
             "core-domain-shared-kernel-entities",
             "shared-errors",
@@ -1136,8 +1136,18 @@
           ]
         },
         {
+          "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.spec.ts",
+          "hash": "5777199551691286627",
+          "deps": [
+            "shared-errors",
+            "shared-utils",
+            "shared-types",
+            "shared-result"
+          ]
+        },
+        {
           "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts",
-          "hash": "8007563128508803421",
+          "hash": "7933287952433382554",
           "deps": [
             "core-domain-shared-kernel-entities",
             "shared-errors",
@@ -1148,7 +1158,7 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/errors/invalid-tenant-status-transition.error.ts",
-          "hash": "6412853348050986259",
+          "hash": "10491467348895150766",
           "deps": [
             "shared-errors",
             "shared-types"
@@ -1156,7 +1166,7 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/errors/tenant-already-exists.error.ts",
-          "hash": "9475730286403079050",
+          "hash": "11863520933820540814",
           "deps": [
             "shared-errors",
             "shared-types"
@@ -1164,14 +1174,15 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts",
-          "hash": "5617918956288898982",
+          "hash": "6466796190379103861",
           "deps": [
-            "core-domain-shared-kernel-events"
+            "core-domain-shared-kernel-events",
+            "shared-types"
           ]
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts",
-          "hash": "17920877265423838199",
+          "hash": "18078104396076503415",
           "deps": [
             "core-domain-shared-kernel-events",
             "shared-types"
@@ -1179,9 +1190,10 @@
         },
         {
           "file": "libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts",
-          "hash": "10446631264574990407",
+          "hash": "630724403891347242",
           "deps": [
-            "core-domain-shared-kernel-events"
+            "core-domain-shared-kernel-events",
+            "shared-types"
           ]
         },
         {
