@@ -1,101 +1,101 @@
-# DfsInvestSuite
+// README.md
+# DFS-Invest-Suite
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+<a alt="Logo de Nx" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+Bienvenido al espacio de trabajo Nx para el proyecto **DFS-Invest-Suite**. Este proyecto utiliza una arquitectura monorepo gestionada por Nx para desarrollar una suite de aplicaciones robusta y escalable.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Primeros Pasos y Comandos Clave
 
-## Run tasks
+Asegúrate de tener [PNPM](https://pnpm.io/installation) instalado. Luego, instala las dependencias del proyecto:
 
-To run the dev server for your app, use:
 
-```sh
-npx nx serve dfs-invest-suite
-```
+pnpm install
 
-To create a production bundle:
 
-```sh
-npx nx build dfs-invest-suite
-```
+Aplicación Principal: api-main (Backend NestJS)
+Servidor de Desarrollo: Para ejecutar api-main en modo desarrollo con recarga automática:
+pnpm nx serve api-main
 
-To see all available targets to run for a project, run:
 
-```sh
-npx nx show project dfs-invest-suite
-```
+La API estará disponible en http://localhost:3000/api (o el puerto configurado).
+Build de Producción: Para compilar api-main para producción:
+pnpm nx build api-main
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Los artefactos se generarán en dist/apps/api-main.
+Tests Unitarios: Para ejecutar los tests unitarios de api-main:
+pnpm nx test api-main
 
-## Add new projects
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+Tests End-to-End (E2E): Para ejecutar los tests E2E de api-main:
+pnpm nx e2e api-main-e2e
 
-Use the plugin's generator to create new projects.
 
-To generate a new application, use:
+Esto requiere que api-main esté construida y (opcionalmente) sirviéndose.
+Comandos Generales de Nx
+Visualizar Grafo de Dependencias:
+pnpm nx graph
 
-```sh
-npx nx g @nx/nest:app demo
-```
 
-To generate a new library, use:
+Ver Targets de un Proyecto: Para listar todos los comandos disponibles para api-main:
+pnpm nx show project api-main
 
-```sh
-npx nx g @nx/node:lib mylib
-```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+Generar Componentes (Ejemplos):
+Generar un nuevo módulo NestJS en api-main:
+pnpm nx g @nx/nest:module mi-nuevo-modulo --project=api-main
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Set up CI!
+Generar una nueva librería de utilidades (agnóstica a framework):
+pnpm nx g @nx/js:lib mi-libreria-util --directory=shared
 
-### Step 1
 
-To connect to Nx Cloud, run the following command:
+Estructura del Proyecto (Visión General Inicial)
+apps/api-main/: Aplicación backend principal (NestJS).
+apps/api-main-e2e/: Tests End-to-End para api-main.
+libs/: Contendrá las librerías compartidas y la lógica de negocio (arquitectura hexagonal).
+libs/core/domain/: Lógica de dominio pura.
+libs/core/application/: Casos de uso y servicios de aplicación.
+libs/infrastructure/: Adaptadores a tecnologías externas (DB, APIs, etc.).
+libs/shared/: Utilidades y tipos compartidos globalmente.
+(Próximamente) libs/ui-shared/: Componentes UI para las PWAs.
+(Próximamente) apps/pwa-supervisor/, apps/pwa-consultant/, apps/admin-platform/: Aplicaciones frontend.
 
-```sh
-npx nx connect
-```
+Linting y Formato
+Lint:
+pnpm nx lint api-main
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+El formateo con Prettier usualmente se integra con el IDE y/o hooks de Git.
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+**Herramientas y Ecosistema**
+Nx Console: Extensión para VSCode/IntelliJ que facilita la interacción con Nx. Instalar Nx Console.
+Nx Cloud: Para optimizar la CI con caché remoto y distribución de tareas.
+Conectar el proyecto: pnpm nx connect
+Generar workflow de CI: pnpm nx g ci-workflow
+Enlaces Útiles (Documentación Oficial Nx)
+Documentación Principal de Nx
+Plugin Nx para NestJS
+Plugin Nx para Node.js (para librerías genéricas)
+Límites de Módulos en Nx (Module Boundaries)
+Gestión de Tareas (Run Tasks)
+Nx en CI
+Comunidad Nx
+Discord de Nx
+Blog de Nx
 
-### Step 2
 
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+Nota estratégica 1: A medida que se desarrollen las PWAs (pwa-supervisor, pwa-consultant, admin-platform), se deberán añadir sus respectivos comandos serve, build y test a este README.
+]
+[
+Nota estratégica 2: La sección "Estructura del Proyecto" deberá expandirse y detallarse a medida que las librerías y aplicaciones se implementen, posiblemente enlazando a documentación de arquitectura más detallada si es necesario.
+]
+[
+Nota estratégica 3: Considerar añadir una sección sobre "Convenciones de Código y Commits" una vez que se definan formalmente.
+]
+[
+Nota estratégica 4: Integrar un script graph en package.json ("graph": "pnpm nx graph") y mencionarlo en el README (pnpm run graph) para facilitar su ejecución.
+]
+*/

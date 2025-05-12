@@ -1,0 +1,8 @@
+{
+  "name": "core-domain-shared-kernel-mappers",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/shared-kernel/mappers/src",
+  "projectType": "library",
+  "tags": ["scope:core-domain", "type:shared-kernel", "layer:domain"],
+  "targets": {}
+}

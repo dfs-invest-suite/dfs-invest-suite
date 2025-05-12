@@ -1,15 +1,1193 @@
 {
   "nodes": {
-    "dfs-invest-suite-e2e": {
-      "name": "dfs-invest-suite-e2e",
-      "type": "e2e",
+    "core-domain-shared-kernel-commands-queries": {
+      "name": "core-domain-shared-kernel-commands-queries",
+      "type": "lib",
       "data": {
-        "root": "apps/dfs-invest-suite-e2e",
+        "root": "libs/core/domain/shared-kernel/commands-queries",
         "targets": {
           "lint": {
             "cache": true,
             "options": {
-              "cwd": "apps/dfs-invest-suite-e2e",
+              "cwd": "libs/core/domain/shared-kernel/commands-queries",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/commands-queries",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\domain\\shared-kernel\\commands-queries"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "core-domain-shared-kernel-commands-queries",
+        "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/domain/shared-kernel/commands-queries/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core-domain",
+          "type:shared-kernel",
+          "layer:domain"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "core-domain-shared-kernel-value-objects": {
+      "name": "core-domain-shared-kernel-value-objects",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/domain/shared-kernel/value-objects",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/value-objects",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/value-objects",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\domain\\shared-kernel\\value-objects"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "core-domain-shared-kernel-value-objects",
+        "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/domain/shared-kernel/value-objects/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core-domain",
+          "type:shared-kernel",
+          "layer:domain"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "core-domain-shared-kernel-entities": {
+      "name": "core-domain-shared-kernel-entities",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/domain/shared-kernel/entities",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/entities",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/entities",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\domain\\shared-kernel\\entities"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "core-domain-shared-kernel-entities",
+        "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/domain/shared-kernel/entities/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core-domain",
+          "type:shared-kernel",
+          "layer:domain"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "core-domain-shared-kernel-mappers": {
+      "name": "core-domain-shared-kernel-mappers",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/domain/shared-kernel/mappers",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/mappers",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/mappers",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\domain\\shared-kernel\\mappers"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "core-domain-shared-kernel-mappers",
+        "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/domain/shared-kernel/mappers/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core-domain",
+          "type:shared-kernel",
+          "layer:domain"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "core-domain-shared-kernel-events": {
+      "name": "core-domain-shared-kernel-events",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/domain/shared-kernel/events",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/events",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/events",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\domain\\shared-kernel\\events"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "core-domain-shared-kernel-events",
+        "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/domain/shared-kernel/events/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core-domain",
+          "type:shared-kernel",
+          "layer:domain"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "core-domain-shared-kernel-ports": {
+      "name": "core-domain-shared-kernel-ports",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/domain/shared-kernel/ports",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/ports",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/domain/shared-kernel/ports",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\domain\\shared-kernel\\ports"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "core-domain-shared-kernel-ports",
+        "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/domain/shared-kernel/ports/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core-domain",
+          "type:shared-kernel",
+          "layer:domain"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "shared-validation-schemas": {
+      "name": "shared-validation-schemas",
+      "type": "lib",
+      "data": {
+        "root": "libs/shared/validation-schemas",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/shared/validation-schemas",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/shared/validation-schemas",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\shared\\validation-schemas"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "shared-validation-schemas",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/shared/validation-schemas/src",
+        "projectType": "library",
+        "tags": [
+          "scope:shared",
+          "type:validation",
+          "layer:shared"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "core-application-tenancy": {
+      "name": "core-application-tenancy",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/application/tenancy",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/application/tenancy",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/application/tenancy",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\application\\tenancy"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "core-application-tenancy",
+        "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/application/tenancy/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core-application",
+          "type:application-logic",
+          "layer:application",
+          "feature:tenancy"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "core-domain-tenancy": {
+      "name": "core-domain-tenancy",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/domain/tenancy",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/domain/tenancy",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/domain/tenancy",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\domain\\tenancy"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "core-domain-tenancy",
+        "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/domain/tenancy/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core-domain",
+          "type:domain-logic",
+          "layer:domain",
+          "domain:tenancy"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "shared-constants": {
+      "name": "shared-constants",
+      "type": "lib",
+      "data": {
+        "root": "libs/shared/constants",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/shared/constants",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/shared/constants",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\shared\\constants"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "shared-constants",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/shared/constants/src",
+        "projectType": "library",
+        "tags": [
+          "scope:shared",
+          "type:constants",
+          "layer:shared"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "shared-errors": {
+      "name": "shared-errors",
+      "type": "lib",
+      "data": {
+        "root": "libs/shared/errors",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/shared/errors",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/shared/errors",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\shared\\errors"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "shared-errors",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/shared/errors/src",
+        "projectType": "library",
+        "tags": [
+          "scope:shared",
+          "type:errors",
+          "layer:shared"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "shared-result": {
+      "name": "shared-result",
+      "type": "lib",
+      "data": {
+        "root": "libs/shared/result",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/shared/result",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/shared/result",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\shared\\result"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "shared-result",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/shared/result/src",
+        "projectType": "library",
+        "tags": [
+          "scope:shared",
+          "type:functional",
+          "layer:shared"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "api-main-e2e": {
+      "name": "api-main-e2e",
+      "type": "e2e",
+      "data": {
+        "root": "apps/api-main-e2e",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "apps/api-main-e2e",
               "command": "eslint ."
             },
             "inputs": [
@@ -51,31 +1229,227 @@
               "{workspaceRoot}/coverage/{e2eProjectRoot}"
             ],
             "options": {
-              "jestConfig": "apps/dfs-invest-suite-e2e/jest.config.ts",
+              "jestConfig": "apps/api-main-e2e/jest.config.ts",
               "passWithNoTests": true
             },
             "dependsOn": [
-              "dfs-invest-suite:build",
-              "dfs-invest-suite:serve"
+              "api-main:build",
+              "api-main:serve"
             ],
             "configurations": {},
             "parallelism": true
           }
         },
-        "name": "dfs-invest-suite-e2e",
+        "name": "api-main-e2e",
         "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "projectType": "application",
         "implicitDependencies": [
-          "dfs-invest-suite"
+          "api-main"
         ],
         "tags": []
       }
     },
-    "dfs-invest-suite": {
-      "name": "dfs-invest-suite",
+    "shared-types": {
+      "name": "shared-types",
+      "type": "lib",
+      "data": {
+        "root": "libs/shared/types",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/shared/types",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/shared/types",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\shared\\types"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "shared-types",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/shared/types/src",
+        "projectType": "library",
+        "tags": [
+          "scope:shared",
+          "type:types",
+          "layer:shared"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "shared-utils": {
+      "name": "shared-utils",
+      "type": "lib",
+      "data": {
+        "root": "libs/shared/utils",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/shared/utils",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/shared/utils",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\shared\\utils"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "shared-utils",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/shared/utils/src",
+        "projectType": "library",
+        "tags": [
+          "scope:shared",
+          "type:utils",
+          "layer:shared"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "api-main": {
+      "name": "api-main",
       "type": "app",
       "data": {
-        "root": "apps/dfs-invest-suite",
+        "root": "apps/api-main",
         "projectType": "application",
         "metadata": {},
         "targets": {
@@ -94,7 +1468,7 @@
               }
             ],
             "outputs": [
-              "{workspaceRoot}/dist\\apps\\dfs-invest-suite"
+              "{workspaceRoot}/dist\\apps\\api-main"
             ],
             "metadata": {
               "technologies": [
@@ -115,7 +1489,7 @@
             },
             "executor": "nx:run-commands",
             "options": {
-              "cwd": "apps/dfs-invest-suite",
+              "cwd": "apps/api-main",
               "args": [
                 "node-env=production"
               ],
@@ -138,15 +1512,15 @@
               "build"
             ],
             "options": {
-              "buildTarget": "dfs-invest-suite:build",
+              "buildTarget": "api-main:build",
               "runBuildTargetDependencies": false
             },
             "configurations": {
               "development": {
-                "buildTarget": "dfs-invest-suite:build:development"
+                "buildTarget": "api-main:build:development"
               },
               "production": {
-                "buildTarget": "dfs-invest-suite:build:production"
+                "buildTarget": "api-main:build:production"
               }
             },
             "parallelism": true
@@ -154,7 +1528,7 @@
           "preview": {
             "continuous": true,
             "options": {
-              "cwd": "apps/dfs-invest-suite",
+              "cwd": "apps/api-main",
               "args": [
                 "--node-env=production"
               ],
@@ -210,7 +1584,7 @@
             ],
             "executor": "nx:run-commands",
             "options": {
-              "command": "pnpm exec nx watch --projects dfs-invest-suite --includeDependentProjects -- pnpm exec nx build-deps dfs-invest-suite"
+              "command": "pnpm exec nx watch --projects api-main --includeDependentProjects -- pnpm exec nx build-deps api-main"
             },
             "configurations": {},
             "parallelism": true
@@ -218,7 +1592,7 @@
           "lint": {
             "cache": true,
             "options": {
-              "cwd": "apps/dfs-invest-suite",
+              "cwd": "apps/api-main",
               "command": "eslint ."
             },
             "inputs": [
@@ -281,11 +1655,11 @@
               }
             ],
             "outputs": [
-              "{workspaceRoot}\\coverage\\apps\\dfs-invest-suite"
+              "{workspaceRoot}\\coverage\\apps\\api-main"
             ],
             "executor": "nx:run-commands",
             "options": {
-              "cwd": "apps/dfs-invest-suite",
+              "cwd": "apps/api-main",
               "env": {
                 "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
               },
@@ -296,10 +1670,12 @@
             "parallelism": true
           }
         },
-        "name": "dfs-invest-suite",
+        "name": "api-main",
         "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "apps/dfs-invest-suite/src",
-        "tags": [],
+        "sourceRoot": "apps/api-main/src",
+        "tags": [
+          "scope:app"
+        ],
         "implicitDependencies": []
       }
     }
@@ -2769,6 +4145,15 @@
         "version": "2.0.3",
         "packageName": "@types/stack-utils",
         "hash": "sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw=="
+      }
+    },
+    "npm:@types/uuid": {
+      "type": "npm",
+      "name": "npm:@types/uuid",
+      "data": {
+        "version": "10.0.0",
+        "packageName": "@types/uuid",
+        "hash": "sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ=="
       }
     },
     "npm:@types/ws": {
@@ -9903,6 +11288,15 @@
       "type": "npm",
       "name": "npm:uuid",
       "data": {
+        "version": "11.1.0",
+        "packageName": "uuid",
+        "hash": "sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A=="
+      }
+    },
+    "npm:uuid@8.3.2": {
+      "type": "npm",
+      "name": "npm:uuid@8.3.2",
+      "data": {
         "version": "8.3.2",
         "packageName": "uuid",
         "hash": "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
@@ -10297,41 +11691,189 @@
     }
   },
   "dependencies": {
-    "dfs-invest-suite-e2e": [
+    "core-domain-shared-kernel-commands-queries": [
       {
-        "source": "dfs-invest-suite-e2e",
-        "target": "dfs-invest-suite",
+        "source": "core-domain-shared-kernel-commands-queries",
+        "target": "shared-result",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-commands-queries",
+        "target": "shared-errors",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-commands-queries",
+        "target": "shared-utils",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-commands-queries",
+        "target": "shared-types",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-commands-queries",
+        "target": "shared-constants",
+        "type": "static"
+      }
+    ],
+    "core-domain-shared-kernel-value-objects": [
+      {
+        "source": "core-domain-shared-kernel-value-objects",
+        "target": "shared-errors",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-value-objects",
+        "target": "shared-types",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-value-objects",
+        "target": "shared-utils",
+        "type": "static"
+      }
+    ],
+    "core-domain-shared-kernel-entities": [
+      {
+        "source": "core-domain-shared-kernel-entities",
+        "target": "core-domain-shared-kernel-events",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-entities",
+        "target": "shared-errors",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-entities",
+        "target": "shared-types",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-entities",
+        "target": "shared-utils",
+        "type": "static"
+      }
+    ],
+    "core-domain-shared-kernel-mappers": [
+      {
+        "source": "core-domain-shared-kernel-mappers",
+        "target": "core-domain-shared-kernel-entities",
+        "type": "static"
+      }
+    ],
+    "core-domain-shared-kernel-events": [
+      {
+        "source": "core-domain-shared-kernel-events",
+        "target": "shared-utils",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-events",
+        "target": "shared-types",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-events",
+        "target": "shared-errors",
+        "type": "static"
+      }
+    ],
+    "core-domain-shared-kernel-ports": [
+      {
+        "source": "core-domain-shared-kernel-ports",
+        "target": "shared-types",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-ports",
+        "target": "core-domain-shared-kernel-entities",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-ports",
+        "target": "shared-result",
+        "type": "static"
+      },
+      {
+        "source": "core-domain-shared-kernel-ports",
+        "target": "shared-errors",
+        "type": "static"
+      }
+    ],
+    "shared-validation-schemas": [
+      {
+        "source": "shared-validation-schemas",
+        "target": "shared-constants",
+        "type": "static"
+      },
+      {
+        "source": "shared-validation-schemas",
+        "target": "npm:zod",
+        "type": "static"
+      }
+    ],
+    "core-application-tenancy": [],
+    "core-domain-tenancy": [],
+    "shared-constants": [],
+    "shared-errors": [
+      {
+        "source": "shared-errors",
+        "target": "shared-types",
+        "type": "static"
+      }
+    ],
+    "shared-result": [],
+    "api-main-e2e": [
+      {
+        "source": "api-main-e2e",
+        "target": "api-main",
         "type": "implicit"
       },
       {
-        "source": "dfs-invest-suite-e2e",
+        "source": "api-main-e2e",
         "target": "npm:axios",
         "type": "static"
       },
       {
-        "source": "dfs-invest-suite-e2e",
+        "source": "api-main-e2e",
         "target": "npm:@nx/node",
         "type": "static"
       }
     ],
-    "dfs-invest-suite": [
+    "shared-types": [],
+    "shared-utils": [
       {
-        "source": "dfs-invest-suite",
+        "source": "shared-utils",
+        "target": "shared-types",
+        "type": "static"
+      },
+      {
+        "source": "shared-utils",
+        "target": "npm:uuid",
+        "type": "static"
+      }
+    ],
+    "api-main": [
+      {
+        "source": "api-main",
         "target": "npm:@nestjs/testing",
         "type": "static"
       },
       {
-        "source": "dfs-invest-suite",
+        "source": "api-main",
         "target": "npm:@nestjs/common",
         "type": "static"
       },
       {
-        "source": "dfs-invest-suite",
+        "source": "api-main",
         "target": "npm:@nestjs/core",
         "type": "static"
       },
       {
-        "source": "dfs-invest-suite",
+        "source": "api-main",
         "target": "npm:@nx/webpack",
         "type": "static"
       }
@@ -22356,7 +23898,7 @@
       },
       {
         "source": "npm:sockjs",
-        "target": "npm:uuid",
+        "target": "npm:uuid@8.3.2",
         "type": "static"
       },
       {
@@ -23855,5 +25397,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1746980702298
+  "computedAt": 1747025176310
 }

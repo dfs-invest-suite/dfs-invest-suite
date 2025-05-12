@@ -1,0 +1,8 @@
+{
+  "name": "core-domain-tenancy",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/tenancy/src",
+  "projectType": "library",
+  "tags": ["scope:core-domain", "type:domain-logic", "layer:domain", "domain:tenancy"],
+  "targets": {}
+}

@@ -1,0 +1,8 @@
+{
+  "name": "shared-errors",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/errors/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:errors", "layer:shared"],
+  "targets": {}
+}
