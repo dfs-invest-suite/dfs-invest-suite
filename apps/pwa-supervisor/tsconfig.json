@@ -1,0 +1,51 @@
+// RUTA: apps/pwa-supervisor/tsconfig.json
+// Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
+// Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
+// Propiedad Intelectual: MetaShark (I.S.)
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "types": ["jest", "node"],
+    "baseUrl": "./", // BaseUrl local para los paths de esta app
+    "paths": {
+      "@/app/*": ["src/app/*"],
+      "@/components/*": ["src/components/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/store/*": ["src/store/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/themes/*": ["src/themes/*"], // Si tienes este directorio
+      "@/types/*": ["src/types/*"], // Si tienes este directorio
+      "@/public/*": ["public/*"]
+    }
+  },
+  "files": [], // Usualmente vacío, Nx y los tsconfig referenciados manejan los archivos
+  "include": [], // No es necesario un include global aquí si app y spec lo definen
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".next",
+    "coverage",
+    "specs", // Excluir la carpeta specs del contexto general
+    "jest.config.ts",
+    "**/*.spec.ts", // Excluir tests del contexto general de la app
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.spec.json" }
+  ]
+}

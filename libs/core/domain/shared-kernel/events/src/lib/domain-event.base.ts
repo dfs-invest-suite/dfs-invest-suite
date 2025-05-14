@@ -1,18 +1,30 @@
 // libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
-import { UuidUtils } from '@dfs-suite/shared-utils';
+// Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
+// Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
+// Propiedad Intelectual: MetaShark (I.S.)
+
+import { UuidUtils, Guard } from '@dfs-suite/shared-utils';
 import { IDomainEvent, IDomainEventMetadata } from './domain-event.interface';
-import { AggregateId, CorrelationId, IsoDateString } from '@dfs-suite/shared-types';
-import { Guard } from '@dfs-suite/shared-utils';
+import {
+  AggregateId,
+  CorrelationId,
+  IsoDateString,
+  Maybe,
+  UserId,
+  DomainEventInstanceId,
+  CommandInstanceId, // Para causationId
+} from '@dfs-suite/shared-types';
 import { ArgumentNotProvidedException, ArgumentInvalidException } from '@dfs-suite/shared-errors';
+// No importar createOperationMetadata para evitar ciclo.
 
 export type DomainEventProps<Payload extends Record<string, unknown>> = {
   aggregateId: AggregateId;
   payload: Payload;
-  metadata?: Partial<Omit<IDomainEventMetadata, 'timestamp' | 'correlationId'>> & { correlationId?: CorrelationId };
+  metadata?: Partial<IDomainEventMetadata>; // Usar IDomainEventMetadata aquí
 };
 
 export abstract class DomainEventBase<Payload extends Record<string, unknown> = Record<string, never>> implements IDomainEvent<Payload> {
-  public readonly id: AggregateId;
+  public readonly id: DomainEventInstanceId;
   public readonly aggregateId: AggregateId;
   public readonly eventName: string;
   public readonly metadata: Readonly<IDomainEventMetadata>;
@@ -32,23 +44,246 @@ export abstract class DomainEventBase<Payload extends Record<string, unknown> = 
         throw new ArgumentNotProvidedException('DomainEvent aggregateId cannot be empty or null/undefined.');
     }
 
-    this.id = UuidUtils.generateAggregateId();
+    this.id = UuidUtils.generateDomainEventInstanceId();
     this.eventName = this.constructor.name;
     this.aggregateId = props.aggregateId;
     this.payload = Object.freeze({ ...props.payload });
 
-    const now = new Date().toISOString() as IsoDateString;
-    const contextCorrelationIdPlaceholder = UuidUtils.generateCorrelationId();
+    // Lógica de metadata local para DomainEventBase
+    const providedCorrelationId = props.metadata?.correlationId;
+    const effectiveCorrelationId =
+      !Guard.isNil(providedCorrelationId) && !Guard.isEmpty(providedCorrelationId)
+        ? providedCorrelationId
+        : UuidUtils.generateCorrelationId();
+
+    const providedUserId = props.metadata?.userId;
+    if (!Guard.isNil(providedUserId) && Guard.isEmpty(providedUserId)) {
+      throw new ArgumentInvalidException(
+        'DomainEvent metadata.userId, if provided, cannot be an empty string.',
+        undefined,
+        { field: 'userId', providedUserId }
+      );
+    }
+
+    const providedCausationId = props.metadata?.causationId;
+     if (!Guard.isNil(providedCausationId) && Guard.isEmpty(providedCausationId as string)) { // Cast a string para isEmpty
+        throw new ArgumentInvalidException(
+            'DomainEvent metadata.causationId, if provided, cannot be an empty string.',
+            undefined,
+            { field: 'causationId', providedCausationId }
+        );
+    }
+
+    const effectiveTimestamp = props.metadata?.timestamp || (new Date().toISOString() as IsoDateString);
+    // Aquí también se podría validar el formato de effectiveTimestamp si viene de props.metadata
 
     this.metadata = Object.freeze({
-      timestamp: now,
-      correlationId: props.metadata?.correlationId || contextCorrelationIdPlaceholder,
-      causationId: props.metadata?.causationId,
-      userId: props.metadata?.userId,
+      timestamp: effectiveTimestamp,
+      correlationId: effectiveCorrelationId,
+      causationId: providedCausationId,
+      userId: providedUserId,
     });
   }
 }
+// libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
+/* SECCIÓN DE MEJORAS (Actualizada)
+[
+  Mejora Aplicada: Lógica de `correlationId` ahora local y corregida.
+]
+[
+  Mejora Aplicada: `id` de evento ahora es `DomainEventInstanceId`.
+]
+[
+  Mejora Aplicada: `metadata.timestamp` es `IsoDateString`.
+]
+[
+  Mejora Aplicada: Validación básica para `userId` y `causationId` en metadata.
+]
+[
+  Mejora Eliminada (Temporalmente): Uso de `createOperationMetadata` para evitar dependencia circular.
+                  Se reintroduce duplicación de lógica de metadata, que es un mal menor.
+                  La Mejora Pendiente de "Reutilización de Lógica de Metadata" sigue siendo válida
+                  pero requeriría que la factoría esté en un nivel más bajo (ej. shared-utils)
+                  o que los tipos de metadata base sean más genéricos.
+]
+... (otras mejoras pendientes se mantienen)
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA (Mantenidas) */
+/* SECCIÓN DE MEJORAS (Actualizada)
+[
+  Mejora Aplicada: Utiliza `createOperationMetadata` para inicializar `metadata`.
+]
+[
+  Mejora Aplicada: `id` de evento ahora es `DomainEventInstanceId`.
+]
+[
+  Mejora Eliminada: La corrección de `correlationId` y `timestamp` ahora es manejada por la factoría.
+]
+[
+  Mejora Eliminada: La validación básica de `userId` en metadata ahora es manejada por la factoría.
+]
+[
+  Mejora Pendiente (Tests Unitarios): Crucial añadir `domain-event.base.spec.ts`.
+    - Los tests deben verificar que `createOperationMetadata` se llama correctamente
+      y que las otras propiedades (`id`, `eventName`, `aggregateId`, `payload`) se inicializan bien.
+]
+... (otras mejoras pendientes para DomainEventBase se mantienen)
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA (Actualizada)
+[
+  Nota 1: Asume que `UuidUtils.generateDomainEventInstanceId()` existe.
+]
+[
+  Nota 2: La compatibilidad entre `Partial<IDomainEventMetadata>` y lo que espera
+          `createOperationMetadata` (que definimos como `Partial<ICommandMetadata | ...>`)
+          y lo que devuelve (que casteamos a `IDomainEventMetadata`) debe ser estructuralmente sólida.
+          Si las interfaces de metadata divergen mucho, `createOperationMetadata` necesitaría
+          ser más genérica o tener sobrecargas.
+]
+*/
+/* SECCIÓN DE MEJORAS (Actualizada)
+[
+  Mejora Aplicada: Lógica de `correlationId` corregida.
+]
+[
+  Mejora Aplicada: `id` de evento ahora es `DomainEventInstanceId`.
+]
+[
+  Mejora Aplicada: `metadata.timestamp` es consistentemente `IsoDateString`.
+]
+[
+  Mejora Aplicada: Validación básica para `userId` en metadata.
+]
+[
+  Mejora Pendiente (Reutilización de Lógica de Metadata): Extraer a función/clase base.
+]
+[
+  Mejora Pendiente (Tests Unitarios): Crucial añadir `domain-event.base.spec.ts`.
+]
+[
+  Mejora Pendiente (Validación de Payload con Schema Zod): Opcional.
+]
+[
+  Mejora Pendiente (Inmutabilidad Profunda del Payload): Considerar `deepFreeze`.
+]
+[
+  Mejora Pendiente (Validación más robusta de `metadataProps.timestamp`):
+    Si `metadataProps.timestamp` se provee como string, validar que sea un `IsoDateString` válido.
+]
+*/
 
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  Nota 1 (UuidUtils): Asume que `UuidUtils.generateDomainEventInstanceId()` existe.
+]
+*/
+// libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
+/* SECCIÓN DE MEJORAS (Consolidado de propuestas anteriores y nuevas observaciones)
+
+[
+  Mejora 1 (Reutilización de Lógica de Metadata):
+    Similar a `CommandBase` y `QueryBase`, la lógica de inicialización de `metadata` (especialmente
+    `correlationId` y `timestamp`) podría compartirse a través de una clase base común
+    (`MessageBase` o `OperationMetadataBase`) o una función utilitaria.
+  Justificación: DRY.
+]
+[
+  Mejora 2 (Tipado de `id` del Evento):
+    La propiedad `id` (ID de la instancia del evento) es `AggregateId`. Podría ser un Branded Type más
+    específico como `DomainEventInstanceId = Brand<string, 'DomainEventInstanceId'>`.
+  Justificación: Mayor seguridad de tipos y semántica.
+]
+[
+  Mejora 3 (Validación de Payload con Schema Zod en Constructor - Opcional):
+    Considerar permitir que el constructor acepte un schema Zod para validar el `payload`.
+  Justificación: Mayor robustez en la creación de eventos.
+]
+[
+  Mejora 4 (Inmutabilidad Profunda del Payload):
+    `Object.freeze({ ...props.payload })` es una copia superficial. Considerar `deepFreeze` si los
+    payloads pueden ser complejos y la inmutabilidad profunda es crítica.
+  Justificación: Garantizar inmutabilidad completa del payload.
+]
+[
+  Mejora 5 (Tests Unitarios):
+    Añadir tests unitarios para `DomainEventBase` para verificar:
+    - Correcta inicialización de `id`, `eventName`, `aggregateId`, `payload` (inmutabilidad).
+    - Correcta inicialización de `metadata` (timestamp, lógica de `correlationId` corregida).
+    - Comportamiento de las validaciones de entrada.
+  Justificación: Asegurar robustez de esta clase base.
+]
+[
+  Mejora 6 (Timestamp en `IDomainEventMetadata`):
+    `IDomainEventMetadata.timestamp` ya es `IsoDateString`. `DomainEventBase` lo inicializa con
+    `new Date().toISOString() as IsoDateString`. Esto es consistente.
+]
+*/
+
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+
+[
+  Nota 1 (Inmutabilidad): Propiedades `readonly` y `Object.freeze` para `payload` y `metadata`. Correcto.
+]
+[
+  Nota 2 (`eventName`): `this.constructor.name` es una convención útil.
+]
+[
+  Nota 3 (Payload): Debe contener información relevante para los consumidores.
+]
+*/
+    // libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
+    /* SECCIÓN DE MEJORAS FUTURAS (Mismas que antes, excepto la Nota 4 que ya se aborda)
+    [
+      Mejora Propuesta 1 (Gestión de `userId` en Metadata): ...
+    ]
+    [
+      Mejora Propuesta 2 (Schema de Payload Opcional y Validación en Constructor): ...
+    ]
+    [
+      Mejora Propuesta 3 (Serialización/Deserialización Estándar para Eventos): ...
+    ]
+    [
+      Mejora Propuesta 4 (Inmutabilidad Profunda del Payload): ...
+    ]
+    [
+      Mejora Propuesta 5 (Tests Unitarios parajest.spyOn(Date, 'now').mockReturnValue(mockTimestamp);
+      const command = new TestCommand({ data: 'test' });
+      expect(command.metadata.timestamp).toBe(mockTimestamp);
+      (Date.now as jest.Mock).mockRestore();
+    });
+
+    it('should use a provided timestamp', () => {
+      const command = new TestCommand({ data: 'test' }, { timestamp: mockTimestamp });
+      expect(command.metadata.timestamp).toBe(mockTimestamp);
+    });
+
+    it('should have undefined causationId if none is provided', () => {
+      const command = new TestCommand({ data: 'test' });
+      expect(command.metadata.causationId).toBeUndefined();
+    });
+
+    it('should use a provided causationId', () => {
+      const causationId = UuidUtils.generateCorrelationId();
+      const command = new TestCommand({ data: 'test' }, { causationId });
+      expect(command.metadata.causationId).toBe(causationId);
+    });
+
+    it('should have undefined userId if none is provided', () => {
+      const command = new TestCommand({ data: 'test' });
+      expect(command.metadata.userId).toBeUndefined();
+    });
+
+    it('should use a provided userId', () => {
+      const command = new TestCommand({ data: 'test' }, { userId: mockProvidedUserId });
+      expect(command.metadata.userId).toBe(mockProvidedUserId);
+    });
+
+    it('metadata object should be frozen', () => {
+      const command = new TestCommand({ data: 'test' });
+      expect(Object.isFrozen(command.metadata)).toBe(true);
+    });
+  });
+});
 /* SECCIÓN DE MEJORAS FUTURAS
 
 [

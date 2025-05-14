@@ -1,15 +1,17 @@
+// RUTA: libs/core/domain/shared-kernel/value-objects/tsconfig.spec.json
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../../../../dist/out-tsc",
     "module": "commonjs",
-    "moduleResolution": "node10",
-    "types": ["jest", "node"]
+    "moduleResolution": "node",
+    "types": ["jest", "node", "@testing-library/jest-dom"]
   },
   "include": [
     "jest.config.ts",
-    "src/**/*.test.ts",
     "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+    "src/**/*.test.ts"
+    // "src/test-setup.ts" // Si existiera
+  ],
+  "exclude": ["node_modules", "dist"]
 }

@@ -3,7 +3,7 @@
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace globalThis {
-  // eslint-disable-next-line no-var
+   
   var __TEARDOWN_MESSAGE__: string;
 }
 

@@ -68,3 +68,9 @@ Thumbs.db
 # Custom Project Specific Ignores
 # ----------------------------------------------------------------------
 .docs/ # Ignorar la carpeta .docs
+
+# Next.js
+.next
+out
+.cursor\rules\nx-rules.mdc
+.github\instructions\nx.instructions.md

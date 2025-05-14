@@ -1,0 +1,4 @@
+// C:\...\dfs-invest-suite\tsconfig.json
+{
+  "extends": "./tsconfig.base.json"
+}

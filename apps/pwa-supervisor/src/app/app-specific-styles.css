@@ -1,0 +1,13 @@
+/* apps/pwa-supervisor/src/app/app-specific-styles.css */
+/*
+  NO @tailwind base;
+  NO @tailwind components;
+  NO @tailwind utilities;
+
+  Solo estilos que complementan o sobreescriben el tema de ui-shared
+  y son exclusivos de pwa-supervisor.
+*/
+
+/* .my-supervisor-specific-class {
+  @apply text-red-500;
+} */

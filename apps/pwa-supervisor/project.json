@@ -1,0 +1,59 @@
+{
+  "name": "pwa-supervisor",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pwa-supervisor",
+  "projectType": "application",
+  "tags": ["scope:app", "type:pwa", "layer:presentation", "app:pwa-supervisor"],
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/pwa-supervisor"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/pwa-supervisor"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "pwa-supervisor:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pwa-supervisor:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "pwa-supervisor:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "pwa-supervisor:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/pwa-supervisor/jest.config.ts",
+        "passWithNoTests": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

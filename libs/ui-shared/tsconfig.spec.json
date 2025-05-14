@@ -1,0 +1,18 @@
+// RUTA: libs/ui-shared/tsconfig.spec.json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "module": "commonjs",
+    "types": ["jest", "node", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.tsx", // Asegura que esto capture los tests en subdirectorios
+    "src/**/*.test.tsx",
+    "src/test-setup.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

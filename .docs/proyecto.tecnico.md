@@ -5,7 +5,7 @@ A LA ATENCIÓN DE LA IA EXPERTA EN NX:
 
 Este documento detalla la arquitectura proyectada, la estructura de archivos, los componentes clave y la lógica fundamental para la plataforma dfs-invest-suite. Tu tarea será traducir estas especificaciones en un workspace Nx funcional, configurando las aplicaciones, librerías y las interconexiones iniciales.
 
-I. FILOSOFÍA Y PRINCIPIOS ARQUITECTÓNICOS RECTORES (A APLICAR EN NX):
+**I. FILOSOFÍA Y PRINCIPIOS ARQUITECTÓNICOS RECTORES (A APLICAR EN NX)**:
 Monorepo Estricto con Nx:
 Justificación: Visibilidad completa, compartición de código optimizada, consistencia en tooling, builds/tests afectados para eficiencia, gestión centralizada de dependencias.
 Acción IA NX: Utilizar generadores Nx para crear todas las apps y libs. Configurar nx.json para npmScope (ej. @dfs-suite), targetDefaults, namedInputs, y plugins (@nx/nest, @nx/next, @nx/js, @nx/eslint, @nx/jest).
@@ -176,7 +176,9 @@ Llama a ILeadRepository.findByWaId(event.messageDetails.from) (el PrismaLeadRepo
 Consideración para la IA NX: Al generar servicios y controladores en NestJS, asegurar que aquellos que necesitan operar en un contexto de tenant puedan acceder al tenantId (sea por inyección del TenantContextService o porque el tenantId se pasa como parámetro desde el llamador que ya conoce el contexto, como el procesador de cola).
 
 ---
-Blueprint Maestro v3.3: DFS-Invest-Suite - Integración WhatsApp, Núcleo Anti-Ban y Arquitectura SaaS Multi-Tenant
+**Blueprint Maestro v3.3**
+**DFS-Invest-Suite**
+Integración WhatsApp, Núcleo Anti-Ban y Arquitectura SaaS Multi-Tenant
 Fecha de Documento: 2025-05-10
 Versión: 3.3
 Autores: L.I.A Legacy & RaZ WriTe
@@ -1012,7 +1014,7 @@ if (!tenantId) {
 // this.tenantContextService.runWithinContext(tenantId, async () => { /* ...lógica del job... */ });
 // O si es un servicio request-scoped que se puede resolver con el tenantId:
 // const scopedUseCase = await this.moduleRef.resolve(SEND_WHATSAPP_MESSAGE_USE_CASE, contextIdConTenant);
-Use code with caution.
+
 TypeScript
 Acción IA NX: Implementar la lógica para establecer el contexto del tenant. La forma exacta dependerá de cómo se implemente TenantContextService y la inyección de dependencias para workers BullMQ en NestJS. Una opción es resolver dependencias con scope de request dentro del procesador si BullMQ lo permite o pasar el tenantId explícitamente a cada servicio/caso de uso llamado. La propagación explícita del tenantId a los casos de uso es más simple y robusta para workers de cola.
 IV.E. Submódulos: whatsapp-cloud-api y whatsapp-admin-api (Adaptadores)

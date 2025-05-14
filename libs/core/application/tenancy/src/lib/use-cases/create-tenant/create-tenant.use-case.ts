@@ -106,7 +106,7 @@ export class CreateTenantUseCase implements ICommandHandler<CreateTenantCommand,
         errorCause = error;
         displayMessage = error.message;
       } else {
-        // eslint-disable-next-line @typescript-eslint/no-base-to-string
+         
         displayMessage = String(error); // Simplificado y con el disable aquí
         errorCause = new Error(displayMessage);
       }

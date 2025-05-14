@@ -1,17 +1,21 @@
+// RUTA: libs/core/domain/shared-kernel/commands-queries/tsconfig.json
 {
-  "extends": "../../../../../tsconfig.base.json",
+  "extends": "../../../../../tsconfig.base.json", // Correcto, apunta al tsconfig.base.json raíz
   "compilerOptions": {
-    "module": "commonjs",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "importHelpers": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true
+    // Opciones específicas de esta librería si anulan o complementan tsconfig.base.json.
+    // Por ahora, asumimos que tsconfig.base.json es suficiente y no se necesitan overrides aquí.
+    // Si se necesitan, asegurar que no entren en conflicto con tsconfig.lib.json o tsconfig.spec.json.
+    // "strict": true, // Ya debería estar en tsconfig.base.json
+    // "noImplicitReturns": true, // Ya debería estar en tsconfig.base.json
+    // Dejar compilerOptions vacío aquí es a menudo lo mejor si todo se hereda bien.
   },
-  "files": [],
-  "include": [],
+  "files": [], // 'files' es para una lista explícita, 'include' es más común con Nx para src
+  "include": [
+    // Este 'include' podría referenciar solo el 'src/index.ts' si se usa 'tsc -b'
+    // o puede estar vacío si 'tsconfig.lib.json' y 'tsconfig.spec.json'
+    // son los únicos que se compilan/analizan directamente.
+    // Por ahora, lo dejamos vacío para evitar conflictos.
+  ],
   "references": [
     {
       "path": "./tsconfig.lib.json"

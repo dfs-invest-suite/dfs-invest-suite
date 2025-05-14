@@ -1,0 +1,11 @@
+export default {
+  displayName: 'ui-shared',
+  preset: '../../jest.preset.js',
+  transform: {
+    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',
+    '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nx/react/babel'] }],
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  coverageDirectory: '../../coverage/libs/ui-shared',
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
+};

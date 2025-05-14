@@ -1,0 +1,27 @@
+// RUTA: apps/pwa-supervisor/tsconfig.spec.json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "types": ["jest", "node", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "jest.config.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.tsx",
+    "src/**/*.d.ts",
+    "../specs/**/*.spec.tsx", // Para la carpeta specs
+    "../specs/**/*.spec.ts",
+    "src/test-setup.ts" // Si se crea un test-setup.ts en pwa-supervisor/src
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".next" // Excluir .next de los tests
+  ]
+}

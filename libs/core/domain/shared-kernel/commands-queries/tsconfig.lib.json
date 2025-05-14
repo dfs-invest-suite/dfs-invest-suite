@@ -1,10 +1,26 @@
+// RUTA: libs/core/domain/shared-kernel/commands-queries/tsconfig.lib.json
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.json", // Correcto, hereda del tsconfig.json de la librería
   "compilerOptions": {
-    "outDir": "../../../../../dist/out-tsc",
-    "declaration": true,
-    "types": ["node"]
+    "outDir": "../../../../../dist/out-tsc", // Salida estándar de Nx
+    "declaration": true, // Generar archivos .d.ts, crucial para librerías
+    "declarationMap": true, // Generar source maps para los .d.ts, bueno para DX
+    "module": "commonjs", // O "esnext" si tu target de build lo maneja. CommonJS es seguro para libs Node.
+    "types": ["node"] // Tipos de ambiente para esta librería (si es backend/agnóstica)
+    // Hereda 'strict', 'esModuleInterop', 'target', etc., de tsconfig.json -> tsconfig.base.json
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
+  "include": [
+    "src/index.ts", // Incluir el punto de entrada
+    "src/lib/**/*.ts" // Incluir todo el código fuente bajo 'lib'
+    // Si tienes más directorios en 'src' que no sean 'lib', añádelos aquí.
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/*.stories.ts", // Si usaras Storybook
+    "src/**/*.stories.tsx"
+  ]
 }

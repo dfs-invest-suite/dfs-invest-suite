@@ -1,8 +1,6 @@
 // README.md
 # DFS-Invest-Suite
 
-<a alt="Logo de Nx" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-
 Bienvenido al espacio de trabajo Nx para el proyecto **DFS-Invest-Suite**. Este proyecto utiliza una arquitectura monorepo gestionada por Nx para desarrollar una suite de aplicaciones robusta y escalable.
 
 ## Primeros Pasos y Comandos Clave

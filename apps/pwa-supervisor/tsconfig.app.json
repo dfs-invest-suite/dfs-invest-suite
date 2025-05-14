@@ -1,0 +1,37 @@
+// RUTA: apps/pwa-supervisor/tsconfig.app.json
+// Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
+// Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
+// Propiedad Intelectual: MetaShark (I.S.)
+{
+  "extends": "./tsconfig.json", // Hereda del tsconfig.json local de la app
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc", // Estándar Nx, aunque Next.js no lo use directamente para build final
+    "module": "esnext", // Para Next.js
+    "lib": ["dom", "dom.iterable", "esnext"], // APIs de navegador y ES moderno
+    "noEmit": true // Next.js maneja la transpilación y emisión
+    // "jsx": "preserve" // Ya heredado de tsconfig.json
+    // "target": "es5", // Next.js puede transpilar a ES5 para navegadores antiguos si es necesario
+    // pero es mejor dejar que el target base (ej. es2021) sea el de desarrollo
+  },
+  "include": [
+    // Archivos que forman el código fuente de la aplicación
+    "next-env.d.ts", // Tipos globales de Next.js
+    ".next/types/**/*.ts", // Tipos generados por Next.js durante el dev/build
+    "src/**/*.ts", // Todos los archivos .ts en src/
+    "src/**/*.tsx", // Todos los archivos .tsx en src/
+    "index.d.ts" // El archivo index.d.ts en la raíz de pwa-supervisor
+  ],
+  "exclude": [
+    // Excluir explícitamente de este contexto de "código de app"
+    "node_modules",
+    "dist",
+    ".next/cache", // Excluir el caché de Next.js
+    "jest.config.ts",
+    "specs", // Excluir completamente la carpeta specs del código fuente de la app
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/test-setup.ts" // Si existiera un test-setup.ts específico para la app
+  ]
+}

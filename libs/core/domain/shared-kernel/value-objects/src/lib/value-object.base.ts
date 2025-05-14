@@ -70,7 +70,7 @@ export abstract class ValueObject<TProps> {
   private isDomainPrimitive(
     obj: unknown,
   ): obj is IDomainPrimitive<TProps & (Primitives | Date)> {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+     
     return typeof obj === 'object' && obj !== null && Object.prototype.hasOwnProperty.call(obj, 'value');
   }
 }

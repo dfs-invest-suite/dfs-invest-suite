@@ -52,7 +52,7 @@ export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantComm
         activationResult = tenant.activate();
       } catch (unexpectedErrorInActivate: unknown) { // Este es el errorCaught de la línea 94
         const errorDescription = typeof unexpectedErrorInActivate === 'string' ? unexpectedErrorInActivate : 'Unexpected error during tenant.activate()';
-        // eslint-disable-next-line @typescript-eslint/no-base-to-string
+         
         const cause = unexpectedErrorInActivate instanceof Error ? unexpectedErrorInActivate : new Error(String(unexpectedErrorInActivate));
         this.logger.error(
             `Unexpected exception from tenant.activate() for ${String(command.tenantId)}: ${cause.message}`,
@@ -92,7 +92,7 @@ export class ActivateTenantUseCase implements ICommandHandler<ActivateTenantComm
         originalErrorStringForLog = errorCaught.message;
       } else {
         // Colocamos el eslint-disable directamente antes del String() problemático
-        // eslint-disable-next-line @typescript-eslint/no-base-to-string
+         
         originalErrorStringForLog = String(errorCaught);
         internalErrorCause = new Error(originalErrorStringForLog);
       }

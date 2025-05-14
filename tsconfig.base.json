@@ -1,35 +1,152 @@
+// tsconfig.base.json
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
+    // --- Configuración Base del Proyecto y Salida ---
+    "baseUrl": ".", // Establece la base para la resolución de módulos y paths
+    "rootDir": ".", // La raíz del código fuente del monorepo
+    "outDir": "dist/out-tsc", // Directorio de salida común para artefactos de transpilación (usado por tsconfig.lib/app.json)
+
+    // --- Módulos y Resolución ---
+    "module": "esnext", // Permite usar la sintaxis de módulos ES más reciente.
+                        // Los proyectos individuales (libs/apps) pueden sobreescribir a "commonjs"
+                        // en sus tsconfig.lib.json o tsconfig.app.json si es necesario para su entorno de ejecución.
+    "moduleResolution": "bundler", // O "node". "bundler" es más moderno y se alinea con cómo los bundlers (Vite, Webpack, Parcel)
+                                  // resuelven módulos, especialmente para proyectos con "type": "module" en package.json
+                                  // o que usan condiciones de exportación. Si encuentras problemas, "node" es una alternativa segura.
+                                  // El snapshot tenía "node", así que lo mantendremos por consistencia si no hay problemas.
+                                  // CAMBIO PROPUESTO (considerar): "bundler" si todas tus herramientas soportan bien esta resolución.
+                                  // POR AHORA, MANTENEMOS "node" DEL SNAPSHOT para evitar cambios disruptivos si no son necesarios.
+                                  // "moduleResolution": "node",
+
+    "resolveJsonModule": true, // Permite importar archivos .json como módulos.
+    "isolatedModules": true,   // Mejora el rendimiento de transpilación con herramientas como SWC/esbuild/Babel
+                               // y asegura que cada archivo pueda ser transpilado de forma aislada.
+                               // Puede requerir que todos los archivos sean módulos (tengan import/export).
+
+    // --- Emisión de JavaScript y Mapas de Fuente ---
+    "sourceMap": true,         // Genera archivos .map para debugging.
+    "declaration": false,      // Las declaraciones (.d.ts) se generan a nivel de librería (tsconfig.lib.json).
+    "declarationMap": false,   // Los mapas para declaraciones también se manejan a nivel de librería.
+    "importHelpers": true,     // Importa helpers (ej. __extends, __assign) desde tslib en lugar de inyectarlos
+                               // en cada archivo, reduciendo el tamaño del bundle. (Asegúrate que tslib sea una dependencia).
+
+    // --- Características de JavaScript y Entorno ---
+    "target": "es2021",        // La versión de ECMAScript a la que se compilará el código.
+                               // ES2021 es un buen balance entre modernidad y compatibilidad.
+    "lib": ["es2022", "dom"],  // Especifica las librerías de ambiente disponibles (APIs de JS y DOM).
+                               // "es2022" incluye características hasta ES2022. "dom" para PWAs.
+
+    // --- Interoperabilidad y Strictness ---
+    "esModuleInterop": true,   // Mejora la interoperabilidad con módulos CommonJS. Recomendado.
+    "allowSyntheticDefaultImports": true, // Permitir `import React from "react"` en lugar de `import * as React from "react"`.
+                                        // EsModuleInterop ya lo habilita, pero a veces se añade explícitamente.
+    "forceConsistentCasingInFileNames": true, // Previene problemas en sistemas case-insensitive.
+    "strict": true,            // Habilita todas las opciones de chequeo de tipos estrictos (muy recomendado).
+                               // Incluye noImplicitAny, strictNullChecks, etc.
+
+    // --- Chequeos Adicionales (Sub-opciones de "strict" o relacionadas) ---
+    // Estas son generalmente buenas prácticas y muchas ya están cubiertas por "strict": true
+    // "noImplicitAny": true, (cubierto por strict)
+    // "strictNullChecks": true, (cubierto por strict)
+    // "strictFunctionTypes": true, (cubierto por strict)
+    // "strictBindCallApply": true, (cubierto por strict)
+    // "strictPropertyInitialization": true, (cubierto por strict)
+    // "noImplicitThis": true, (cubierto por strict)
+    // "alwaysStrict": true, (cubierto por strict)
+
+    // --- Opciones de Calidad de Código Adicionales (Más allá de "strict") ---
+    "noUnusedLocals": true,                // Reporta locales no usados (bueno para limpieza).
+    "noUnusedParameters": true,            // Reporta parámetros no usados (bueno para limpieza).
+    "noImplicitReturns": true,             // Asegura que todas las rutas de código en funciones retornen un valor si la función lo espera.
+    "noFallthroughCasesInSwitch": true,    // Previene fallthroughs accidentales en switch.
+    // "noImplicitOverride": true,         // (TypeScript 5.0+) Requerir 'override' en métodos que sobreescriben. Ya estaba en tsconfig.json de libs.
+                                           // Moverlo aquí lo hace global.
+
+    // --- Decoradores (Para NestJS) ---
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2020", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
+
+    // --- Paths (Alias de Módulo) ---
+    // Mantenidos exactamente como en tu snapshot, ya que son cruciales y específicos de tu estructura.
     "paths": {
-      "@dfs-suite/shared-types": ["libs/shared/types/src/index.ts"],
-      "@dfs-suite/shared-result": ["libs/shared/result/src/index.ts"],
-      "@dfs-suite/shared-errors": ["libs/shared/errors/src/index.ts"],
-      "@dfs-suite/shared-utils": ["libs/shared/utils/src/index.ts"],
+      "@/components/*": ["libs/ui-shared/src/components/ui/*"],
+      "@/lib/utils": ["libs/ui-shared/src/lib/utils.ts"],
+      "@dfs-suite/core-application-tenancy": [
+        "libs/core/application/tenancy/src/index.ts"
+      ],
+      "@dfs-suite/core-domain-shared-kernel-commands-queries": [
+        "libs/core/domain/shared-kernel/commands-queries/src/index.ts"
+      ],
+      "@dfs-suite/core-domain-shared-kernel-entities": [
+        "libs/core/domain/shared-kernel/entities/src/index.ts"
+      ],
+      "@dfs-suite/core-domain-shared-kernel-events": [
+        "libs/core/domain/shared-kernel/events/src/index.ts"
+      ],
+      "@dfs-suite/core-domain-shared-kernel-mappers": [
+        "libs/core/domain/shared-kernel/mappers/src/index.ts"
+      ],
+      "@dfs-suite/core-domain-shared-kernel-ports": [
+        "libs/core/domain/shared-kernel/ports/src/index.ts"
+      ],
+      "@dfs-suite/core-domain-shared-kernel-value-objects": [
+        "libs/core/domain/shared-kernel/value-objects/src/index.ts"
+      ],
+      "@dfs-suite/core-domain-tenancy": [
+        "libs/core/domain/tenancy/src/index.ts"
+      ],
       "@dfs-suite/shared-constants": ["libs/shared/constants/src/index.ts"],
-      "@dfs-suite/shared-validation-schemas": ["libs/shared/validation-schemas/src/index.ts"],
-      "@dfs-suite/core-domain-shared-kernel-entities": ["libs/core/domain/shared-kernel/entities/src/index.ts"],
-      "@dfs-suite/core-domain-shared-kernel-value-objects": ["libs/core/domain/shared-kernel/value-objects/src/index.ts"],
-      "@dfs-suite/core-domain-shared-kernel-events": ["libs/core/domain/shared-kernel/events/src/index.ts"],
-      "@dfs-suite/core-domain-shared-kernel-ports": ["libs/core/domain/shared-kernel/ports/src/index.ts"],
-      "@dfs-suite/core-domain-shared-kernel-commands-queries": ["libs/core/domain/shared-kernel/commands-queries/src/index.ts"],
-      "@dfs-suite/core-domain-shared-kernel-mappers": ["libs/core/domain/shared-kernel/mappers/src/index.ts"],
-      "@dfs-suite/core-domain-tenancy": ["libs/core/domain/tenancy/src/index.ts"],
-      "@dfs-suite/core-application-tenancy": ["libs/core/application/tenancy/src/index.ts"]
-    }
+      "@dfs-suite/shared-errors": ["libs/shared/errors/src/index.ts"],
+      "@dfs-suite/shared-result": ["libs/shared/result/src/index.ts"],
+      "@dfs-suite/shared-types": ["libs/shared/types/src/index.ts"],
+      "@dfs-suite/shared-utils": ["libs/shared/utils/src/index.ts"],
+      "@dfs-suite/shared-validation-schemas": [
+        "libs/shared/validation-schemas/src/index.ts"
+      ],
+      "@dfs-suite/ui-shared": ["libs/ui-shared/src/index.ts"]
+    },
+
+    // --- Optimización de Build y Chequeo ---
+    "skipLibCheck": true,        // No chequear tipos de archivos de declaración de librerías externas (.d.ts). Acelera la compilación.
+    "skipDefaultLibCheck": true, // Similar a skipLibCheck, para las librerías default (lib.d.ts).
+
+    // --- Opciones Avanzadas (Considerar si son necesarias) ---
+    // "allowUnreachableCode": false, // Por defecto es undefined (permite código inalcanzable sin error). Poner a false lo reporta.
+    // "noPropertyAccessFromIndexSignature": true, // Ya estaba en tsconfig.json de libs, buena opción a considerar globalmente.
+                                                // Hace que el acceso a propiedades a través de una firma de índice sea más explícito.
+    "allowJs": false, // No permitir archivos JavaScript en el proyecto (si todo es TypeScript).
+                      // El snapshot de pwa-supervisor/tsconfig.json tiene allowJs: true.
+                      // Si algunas apps lo necesitan, es mejor ponerlo en su tsconfig.app.json.
+                      // Mantenerlo false aquí como base estricta.
+
+    // "checkJs": false, // Si allowJs es true, esto habilitaría el chequeo de tipos en archivos JS.
+    "composite": false, // No es un proyecto 'composite' en la raíz. Las librerías individuales podrían serlo si se usa --build.
+    // "incremental": true // Habilitar builds incrementales. Nx maneja su propio caché.
+                           // La opción de Next.js en pwa-supervisor/tsconfig.json tiene incremental: true.
+
+    // --- Opciones de JSX (para React/Next.js) ---
+    // Esta configuración es mejor manejarla en los tsconfig.json específicos de las apps/libs de frontend
+    // ya que puede variar (ej. 'react-jsx' vs 'preserve').
+    // "jsx": "preserve", // Ejemplo, pero no lo ponemos en la base.
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [ // Archivos y directorios a excluir de la compilación global
+    "node_modules",
+    "tmp",
+    "dist",
+    "apps/**/jest.config.ts", // Archivos de config de Jest de apps
+    "libs/**/jest.config.ts", // Archivos de config de Jest de libs
+    "apps/**/*.spec.ts",      // Archivos de test de apps
+    "apps/**/*.spec.tsx",
+    "apps/**/*.test.ts",
+    "apps/**/*.test.tsx",
+    "libs/**/*.spec.ts",      // Archivos de test de libs
+    "libs/**/*.spec.tsx",
+    "libs/**/*.test.ts",
+    "libs/**/*.test.tsx",
+    "**/*.stories.ts",        // Excluir archivos de Storybook
+    "**/*.stories.tsx"
+  ]
+  // "include": [] // No es necesario un 'include' global si los proyectos individuales especifican el suyo.
+                 // Si se añade, podría ser ["src", "apps", "libs"] pero es mejor que cada proyecto maneje su 'include'.
 }
