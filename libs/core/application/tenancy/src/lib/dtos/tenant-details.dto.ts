@@ -1,5 +1,10 @@
 // libs/core/application/tenancy/src/lib/dtos/tenant-details.dto.ts
-import { IsoDateString, Maybe, TenantId, UserId } from '@dfs-suite/shared-types';
+import {
+  IsoDateString,
+  Maybe,
+  TenantId,
+  UserId,
+} from '@dfs-suite/shared-types';
 import { TenantStatusEnum } from '@dfs-suite/core-domain-tenancy'; // Asumiendo que se exporta desde el index del dominio
 
 export interface TenantDetailsDto {

@@ -4,16 +4,23 @@ import { IPaginatedQueryParams, Maybe } from '@dfs-suite/shared-types';
 import { DEFAULT_PAGE, DEFAULT_PAGE_LIMIT } from '@dfs-suite/shared-constants';
 import { IQueryMetadata } from './query.interface'; // Usa IQueryMetadata
 
-export type OrderBy<TFields extends string> = { field: TFields | 'createdAt' | 'updatedAt'; direction: 'asc' | 'desc' };
+export type OrderBy<TFields extends string> = {
+  field: TFields | 'createdAt' | 'updatedAt';
+  direction: 'asc' | 'desc';
+};
 
-export abstract class PaginatedQueryBase<TOrderByFields extends string = string> extends QueryBase {
+export abstract class PaginatedQueryBase<
+  TOrderByFields extends string = string
+> extends QueryBase {
   readonly limit: number;
   readonly page: number;
   readonly offset: number;
   readonly orderBy: Maybe<OrderBy<TOrderByFields>>;
 
   constructor(
-    params: Partial<IPaginatedQueryParams & { orderBy?: OrderBy<TOrderByFields> }> = {},
+    params: Partial<
+      IPaginatedQueryParams & { orderBy?: OrderBy<TOrderByFields> }
+    > = {},
     metadata?: Partial<IQueryMetadata> // Ya usa IQueryMetadata
   ) {
     super(metadata); // Pasa metadata a QueryBase, que ahora tiene la lógica mejorada
@@ -22,7 +29,10 @@ export abstract class PaginatedQueryBase<TOrderByFields extends string = string>
     this.offset = params.offset ?? (this.page - 1) * this.limit;
     this.orderBy =
       params.sortBy && params.sortOrder
-        ? { field: params.sortBy as TOrderByFields, direction: params.sortOrder }
+        ? {
+            field: params.sortBy as TOrderByFields,
+            direction: params.sortOrder,
+          }
         : undefined;
   }
 }

@@ -14,7 +14,7 @@ import {
 
 export interface ICommandMetadata {
   readonly correlationId: CorrelationId;
-   
+
   // Temporalmente deshabilitado si el linter sigue dando problemas con la unión de Branded Types.
   // Investigar si es un falso positivo o si la configuración de ESLint/TypeScript necesita ajuste
   // para entender mejor estas uniones nominales.

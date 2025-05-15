@@ -25,7 +25,7 @@ Ejemplos oficiales de Meta:
 Hay varios ejemplos oficiales de cómo usar la WhatsApp Cloud API en diversos lenguajes de programación, incluyendo Java, Python y Node.js. Estos ejemplos cubren casos de uso como aplicaciones de e-commerce, envío de plantillas educativas, y validación de firmas para webhooks.
 
 **SDK oficial de Node.js:**
-Meta ha publicado un SDK oficial para Node.js que simplifica el acceso a la Cloud API. Este SDK está escrito en **TypeScript** y proporciona verificación de tipos para el uso de la plataforma WhatsApp Business. 
+Meta ha publicado un SDK oficial para Node.js que simplifica el acceso a la Cloud API. Este SDK está escrito en **TypeScript** y proporciona verificación de tipos para el uso de la plataforma WhatsApp Business.
 
 **Implementaciones del algoritmo Token Bucket para Rate Limiting**
 Para la parte crítica del sistema anti-baneo, podemos basarnos en varias implementaciones existentes del algoritmo Token Bucket:
@@ -112,8 +112,8 @@ Costo-efectividad: Aunque se mantiene el modelo de precios por conversación de 
 El sistema anti-baneo de DFS-Invest-Flow está diseñado específicamente para abordar los desafíos de limitación de tasas, calidad y banneos potenciales que impone Meta en la WhatsApp Cloud API:
 
 1. **Monitoreo de Calidad**
-WhatsApp mantiene una calificación de calidad de cuenta basada en los comentarios de los destinatarios de mensajes: Verde (Alta Calidad), Amarillo (Calidad Media), Rojo (Calidad Más Baja). Las cuentas con calificaciones de calidad más bajas son degradadas con límites de mensajería limitados y no son elegibles para escalar automáticamente. ChakraHQ Articles
-Nuestro sistema:
+   WhatsApp mantiene una calificación de calidad de cuenta basada en los comentarios de los destinatarios de mensajes: Verde (Alta Calidad), Amarillo (Calidad Media), Rojo (Calidad Más Baja). Las cuentas con calificaciones de calidad más bajas son degradadas con límites de mensajería limitados y no son elegibles para escalar automáticamente. ChakraHQ Articles
+   Nuestro sistema:
 
 Consulta periódicamente la API para obtener el estado de calidad actual
 Almacena y analiza tendencias históricas
@@ -121,8 +121,8 @@ Genera alertas tempranas ante degradaciones
 Adapta automáticamente el comportamiento de envío según la calidad
 
 2. **Gestión de Rate Limits**
-WhatsApp ha impuesto límites de tasa aplicables a todos los usuarios de WhatsApp Business. Todos los números habilitados para WhatsApp nuevos se clasifican como Nivel 1. WhatsApp mueve automáticamente a los clientes entre niveles monitoreando constantemente el volumen y la calidad de los mensajes durante un período de 7 días. Freshsales
-Nuestro sistema implementa:
+   WhatsApp ha impuesto límites de tasa aplicables a todos los usuarios de WhatsApp Business. Todos los números habilitados para WhatsApp nuevos se clasifican como Nivel 1. WhatsApp mueve automáticamente a los clientes entre niveles monitoreando constantemente el volumen y la calidad de los mensajes durante un período de 7 días. Freshsales
+   Nuestro sistema implementa:
 
 Control de envíos para respetar los niveles (Tier 1: 1,000/día, Tier 2: 10,000/día, etc.)
 Algoritmos de consumo de tokens para distribuir mensajes a lo largo del día
@@ -130,7 +130,7 @@ Lógica de decisión AntiBanDecisionService que determina si enviar, encolar o r
 Monitoreo de errores específicos como el "471 Spam Rate Limit"
 
 3. **Rotación Inteligente de Cuentas**
-Cuando la empresa tiene múltiples números de WhatsApp Business:
+   Cuando la empresa tiene múltiples números de WhatsApp Business:
 
 El sistema distribuye la carga entre números según su estado de salud
 Prioriza cuentas con mejor calificación para mensajes críticos
@@ -138,8 +138,8 @@ Recupera automáticamente cuentas con bajo rendimiento limitando su uso
 Balanceo dinámico basado en feedback histórico
 
 4. **Validación de Mensajes y Plantillas**
-Meta ha establecido políticas rigurosas para garantizar el uso responsable de la plataforma, y cualquier violación de estas reglas puede resultar en consecuencias severas, desde suspensiones temporales hasta bloqueos permanentes de cuenta. Truora
-Nuestro sistema:
+   Meta ha establecido políticas rigurosas para garantizar el uso responsable de la plataforma, y cualquier violación de estas reglas puede resultar en consecuencias severas, desde suspensiones temporales hasta bloqueos permanentes de cuenta. Truora
+   Nuestro sistema:
 
 Valida todas las plantillas contra las políticas antes del envío
 Implementa controles para asegurar que solo se contactan usuarios que dieron consentimiento
@@ -147,11 +147,11 @@ Monitorea la frecuencia de envío para evitar spam
 Verifica que los mensajes sean relevantes y personalizados
 
 5. **Gestión de Webhooks y Eventos**
-El sistema procesa en tiempo real los webhooks de WhatsApp para:
-Actualizar el estado de los mensajes (enviado, entregado, leído)
-Detectar patrones de interacción negativos (bloqueos, reportes)
-Ajustar dinámicamente los parámetros de envío
-Alimentar el sistema de calificación de leads
+   El sistema procesa en tiempo real los webhooks de WhatsApp para:
+   Actualizar el estado de los mensajes (enviado, entregado, leído)
+   Detectar patrones de interacción negativos (bloqueos, reportes)
+   Ajustar dinámicamente los parámetros de envío
+   Alimentar el sistema de calificación de leads
 
 Esta integración con WhatsApp Cloud API, combinada con nuestro sofisticado sistema anti-baneo, permite a DFS Investimentos mantener una comunicación fluida con los leads sin interrupciones por baneos, al tiempo que optimiza el rendimiento y los costos operativos.
 
@@ -223,7 +223,6 @@ Filtra cuentas con health > 30 (configurable)
 Ordena por health descendente para priorizar cuentas más saludables
 Intenta consumir un token del rate limiter para la cuenta elegida
 Si hay disponibilidad, envía el mensaje; si no, lo pone en cola o rechaza
-
 
 Al recibir webhooks de WhatsApp:
 Se valida la firma del webhook

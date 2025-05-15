@@ -1,6 +1,9 @@
 // libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.ts
 import { ValueObject } from '@dfs-suite/core-domain-shared-kernel-value-objects';
-import { ArgumentNotProvidedException, ArgumentInvalidException } from '@dfs-suite/shared-errors';
+import {
+  ArgumentNotProvidedException,
+  ArgumentInvalidException,
+} from '@dfs-suite/shared-errors';
 import { Guard } from '@dfs-suite/shared-utils';
 
 /**
@@ -34,12 +37,17 @@ export class DbConnectionConfigVO extends ValueObject<DbConnectionConfigProps> {
    */
   protected validate(props: DbConnectionConfigProps): void {
     if (Guard.isEmpty(props.connectionString)) {
-      throw new ArgumentNotProvidedException('Connection string cannot be empty.');
+      throw new ArgumentNotProvidedException(
+        'Connection string cannot be empty.'
+      );
     }
     // Una validación muy simple; en un caso real, podría ser más compleja
     // (ej. verificar que siga un patrón de URI de DB conocido).
-    if (props.connectionString.length < 10) { // Ejemplo arbitrario de longitud mínima
-        throw new ArgumentInvalidException('Connection string seems too short to be valid.');
+    if (props.connectionString.length < 10) {
+      // Ejemplo arbitrario de longitud mínima
+      throw new ArgumentInvalidException(
+        'Connection string seems too short to be valid.'
+      );
     }
     // Podría intentar parsear la URL para más validación, pero eso puede ser overkill para un VO.
   }

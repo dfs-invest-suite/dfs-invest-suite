@@ -30,7 +30,11 @@ export class Guard {
     if (Array.isArray(value) && value.length === 0) {
       return true;
     }
-    if (typeof value === 'object' && value !== null && Object.keys(value).length === 0) {
+    if (
+      typeof value === 'object' &&
+      value !== null &&
+      Object.keys(value).length === 0
+    ) {
       return true;
     }
     return false;
@@ -43,7 +47,7 @@ export class Guard {
   static lengthIsBetween(
     value: Maybe<string | Array<unknown>>,
     min: number,
-    max: number,
+    max: number
   ): boolean {
     if (this.isNil(value) || this.isEmpty(value)) {
       return false;
@@ -51,8 +55,8 @@ export class Guard {
     // At this point, value is not nil and not "empty" by our definition.
     // Explicit type check for string or Array before accessing .length
     if (typeof value === 'string' || Array.isArray(value)) {
-        const valueLength = value.length;
-        return valueLength >= min && valueLength <= max;
+      const valueLength = value.length;
+      return valueLength >= min && valueLength <= max;
     }
     return false; // Not a string or array, cannot check length
   }

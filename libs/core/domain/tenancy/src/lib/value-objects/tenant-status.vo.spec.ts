@@ -34,7 +34,9 @@ describe('TenantStatusVO', () => {
         ArgumentInvalidException
       );
       expect(() => new TenantStatusVO(invalidStatus)).toThrow(
-        `Invalid tenant status: "${invalidStatus}". Must be one of [${Object.values(TenantStatusEnum).join(', ')}]`
+        `Invalid tenant status: "${invalidStatus}". Must be one of [${Object.values(
+          TenantStatusEnum
+        ).join(', ')}]`
       );
     });
   });

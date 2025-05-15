@@ -16,9 +16,9 @@ export function ok<T, E = never>(value: T): Ok<T, E> {
       return false;
     },
     map: <U>(fn: (val: T) => U) => ok(fn(value)),
-    mapErr: <F>() => ok<T,F>(value),
+    mapErr: <F>() => ok<T, F>(value),
     andThen: <U, F>(fn: (val: T) => Result<U, F>) => fn(value),
-    orElse: <U,F>() => ok<T | U, F>(value),
+    orElse: <U, F>() => ok<T | U, F>(value),
     unwrap: () => value,
     unwrapOr: () => value,
     unwrapErr: () => {
@@ -48,9 +48,12 @@ export function err<E, T = never>(errorValue: E): Err<E, T> {
     andThen: <F>() => err<E, F>(errorValue),
     orElse: <U, F>(fn: (errVal: E) => Result<U, F>) => fn(errorValue),
     unwrap: () => {
-      throw errorValue instanceof Error ? errorValue : new Error(
-        'Called unwrap on an Err value. Error: ' + JSON.stringify(errorValue)
-      );
+      throw errorValue instanceof Error
+        ? errorValue
+        : new Error(
+            'Called unwrap on an Err value. Error: ' +
+              JSON.stringify(errorValue)
+          );
     },
     unwrapOr: (defaultValue: T) => defaultValue,
     unwrapErr: () => errorValue,

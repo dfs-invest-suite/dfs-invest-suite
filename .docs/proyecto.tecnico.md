@@ -34,96 +34,94 @@ II. ESTRUCTURA DE DIRECTORIOS Y ARCHIVOS (PROPUESTA NX):
 (Basada en la estructura ya refinada, aquí se enfatiza la perspectiva Nx)
 dfs-invest-suite/
 ├── apps/
-│   ├── api-main/                   # NestJS (GraphQL/REST API Gateway Multi-Tenant)
-│   │   ├── src/
-│   │   │   ├── app/                # Módulo raíz, config global, TenantContextMiddleware/Guard
-│   │   │   ├── domains/            # Módulos NestJS por dominio (ej. leads, whatsapp, tenancy)
-│   │   │   │   ├── leads/
-│   │   │   │   │   ├── leads.module.ts
-│   │   │   │   │   ├── resolvers/    # Resolvers GraphQL para Leads
-│   │   │   │   │   └── controllers/  # Controladores REST (si aplica)
-│   │   │   │   └── # ... otros módulos de dominio
-│   │   │   ├── webhooks/           # Controlador específico para Webhook de WhatsApp
-│   │   │   │   ├── controllers/
-│   │   │   │   └── utils/          # whatsapp-security.utils.ts
-│   │   │   └── main.ts             # Bootstrap, config bodyParser (rawBody)
-│   │   ├── Dockerfile
-│   │   ├── project.json            # Config Nx para esta app
-│   │   └── tsconfig.app.json
-│   ├── pwa-supervisor/             # Next.js PWA para Supervisores de Tenant
-│   │   ├── src/
-│   │   │   ├── app/                # Next.js App Router
-│   │   │   ├── components/         # Componentes UI específicos de esta PWA
-│   │   │   ├── hooks/
-│   │   │   ├── services/           # Servicios para consumir api-main (GraphQL client)
-│   │   │   └── lib/                # Utils, config específica de la PWA
-│   │   ├── project.json
-│   │   └── # ... (next.config.mjs, public/, etc.)
-│   ├── pwa-consultant/             # Next.js PWA para Consultores de Tenant (similar a pwa-supervisor)
-│   └── admin-platform/             # Next.js PWA para Administradores de Plataforma (DFS)
+│ ├── api-main/ # NestJS (GraphQL/REST API Gateway Multi-Tenant)
+│ │ ├── src/
+│ │ │ ├── app/ # Módulo raíz, config global, TenantContextMiddleware/Guard
+│ │ │ ├── domains/ # Módulos NestJS por dominio (ej. leads, whatsapp, tenancy)
+│ │ │ │ ├── leads/
+│ │ │ │ │ ├── leads.module.ts
+│ │ │ │ │ ├── resolvers/ # Resolvers GraphQL para Leads
+│ │ │ │ │ └── controllers/ # Controladores REST (si aplica)
+│ │ │ │ └── # ... otros módulos de dominio
+│ │ │ ├── webhooks/ # Controlador específico para Webhook de WhatsApp
+│ │ │ │ ├── controllers/
+│ │ │ │ └── utils/ # whatsapp-security.utils.ts
+│ │ │ └── main.ts # Bootstrap, config bodyParser (rawBody)
+│ │ ├── Dockerfile
+│ │ ├── project.json # Config Nx para esta app
+│ │ └── tsconfig.app.json
+│ ├── pwa-supervisor/ # Next.js PWA para Supervisores de Tenant
+│ │ ├── src/
+│ │ │ ├── app/ # Next.js App Router
+│ │ │ ├── components/ # Componentes UI específicos de esta PWA
+│ │ │ ├── hooks/
+│ │ │ ├── services/ # Servicios para consumir api-main (GraphQL client)
+│ │ │ └── lib/ # Utils, config específica de la PWA
+│ │ ├── project.json
+│ │ └── # ... (next.config.mjs, public/, etc.)
+│ ├── pwa-consultant/ # Next.js PWA para Consultores de Tenant (similar a pwa-supervisor)
+│ └── admin-platform/ # Next.js PWA para Administradores de Plataforma (DFS)
 │
 ├── libs/
-│   ├── core/                       # Lógica de Dominio (agnóstica a frameworks)
-│   │   ├── src/
-│   │   │   ├── tenancy/            # Dominio: Tenant, ITenantRepositoryPort, ITenantConfigRepositoryPort
-│   │   │   ├── anti-ban/           # Dominio: WhatsAppAccount, AntiBanDecisionService, IWhatsAppAccountRepositoryPort, IRateLimiterPort
-│   │   │   ├── leads-flow/         # Dominio: Lead, ILeadRepositoryPort, LeadQualificationService
-│   │   │   ├── whatsapp/           # Dominio: TWhatsAppApiMessageRequest, TWebhookPayloads, Eventos WA, IWhatsAppMessagePort, IWhatsAppAdminPort
-│   │   │   ├── users-roles/        # Dominio: User (de tenant), Role, IPermissionService
-│   │   │   ├── aiper-assistance/   # Dominio: IConversationAnalyzerPort, IPromptManagerPort, AnalysisResult
-│   │   │   └── # ... (otros dominios: properties-spe, analytics-core, notifications-core)
-│   │   ├── index.ts                # Exportaciones públicas (interfaces, tipos, enums, constantes)
-│   │   └── project.json            # Config Nx para esta librería
-│   ├── application/                # Casos de Uso y Lógica de Aplicación (Tenant-Aware)
-│   │   ├── src/
-│   │   │   ├── tenancy/            # CreateTenantUseCase, SetTenantWhatsAppConfigUseCase
-│   │   │   ├── anti-ban/           # AccountHealthManagerService (o su puerto), SyncWhatsAppAssetsUseCase (parcialmente aquí)
-│   │   │   ├── leads-flow/         # CreateLeadUseCase, QualifyLeadUseCase, AssignLeadUseCase
-│   │   │   ├── whatsapp/           # SendWhatsAppMessageUseCase, Listeners de eventos WA (IncomingMessage, StatusUpdate, AssetUpdate)
-│   │   │   └── # ...
-│   │   ├── index.ts
-│   │   └── project.json
-│   ├── infrastructure/             # Implementaciones Concretas (Adaptadores)
-│   │   ├── src/
-│   │   │   ├── tenancy-persistence/  # PrismaTenantRepository (para DB de plataforma)
-│   │   │   ├── tenancy-config/       # VaultTenantConfigRepository (o similar para secretos de tenant)
-│   │   │   ├── persistence/          # PrismaService (dinámico por tenant), Repositorios Prisma (Leads, WAAccounts, etc. para DBs de tenant)
-│   │   │   ├── cache/                # RedisRateLimiterAdapter, RedisAccountStateCacheAdapter
-│   │   │   ├── queue/                # QueueModule (BullMQ), WhatsappWebhookProcessor, WhatsappOutboundProcessor
-│   │   │   ├── whatsapp-cloud-api/   # WhatsappOfficialApiAdapter
-│   │   │   ├── whatsapp-admin-api/   # WhatsAppAdminApiAdapter
-│   │   │   ├── ai-providers/         # GoogleGeminiAdapter (implementa IConversationAnalyzerPort)
-│   │   │   ├── security/             # Implementación de AuthGuards NestJS, Estrategias Passport
-│   │   │   └── observability/        # Configuración de PinoLogger, OpenTelemetry
-│   │   ├── index.ts
-│   │   └── project.json
-│   ├── shared/                     # Código 100% compartido y agnóstico
-│   │   ├── src/
-│   │   │   ├── types/              # DTOs base, interfaces comunes, TApiErrorPayload
-│   │   │   ├── enums/              # Enums globales (ej. EOperationalStatus, EWhatsAppQualityRating)
-│   │   │   ├── utils/              # Funciones puras
-│   │   │   ├── validation/         # Schemas Valibot/Zod
-│   │   │   ├── constants/
-│   │   │   └── errors/             # Clases de error personalizadas (AppError, DomainError)
-│   │   ├── index.ts
-│   │   └── project.json
-│   └── ui-shared/                  # Componentes UI React compartidos (Shadcn/UI base)
-│       ├── src/
-│       │   ├── components/         # Átomos, moléculas, organismos
-│       │   └── lib/                # Utils específicos de UI
-│       ├── index.ts
-│       └── project.json
+│ ├── core/ # Lógica de Dominio (agnóstica a frameworks)
+│ │ ├── src/
+│ │ │ ├── tenancy/ # Dominio: Tenant, ITenantRepositoryPort, ITenantConfigRepositoryPort
+│ │ │ ├── anti-ban/ # Dominio: WhatsAppAccount, AntiBanDecisionService, IWhatsAppAccountRepositoryPort, IRateLimiterPort
+│ │ │ ├── leads-flow/ # Dominio: Lead, ILeadRepositoryPort, LeadQualificationService
+│ │ │ ├── whatsapp/ # Dominio: TWhatsAppApiMessageRequest, TWebhookPayloads, Eventos WA, IWhatsAppMessagePort, IWhatsAppAdminPort
+│ │ │ ├── users-roles/ # Dominio: User (de tenant), Role, IPermissionService
+│ │ │ ├── aiper-assistance/ # Dominio: IConversationAnalyzerPort, IPromptManagerPort, AnalysisResult
+│ │ │ └── # ... (otros dominios: properties-spe, analytics-core, notifications-core)
+│ │ ├── index.ts # Exportaciones públicas (interfaces, tipos, enums, constantes)
+│ │ └── project.json # Config Nx para esta librería
+│ ├── application/ # Casos de Uso y Lógica de Aplicación (Tenant-Aware)
+│ │ ├── src/
+│ │ │ ├── tenancy/ # CreateTenantUseCase, SetTenantWhatsAppConfigUseCase
+│ │ │ ├── anti-ban/ # AccountHealthManagerService (o su puerto), SyncWhatsAppAssetsUseCase (parcialmente aquí)
+│ │ │ ├── leads-flow/ # CreateLeadUseCase, QualifyLeadUseCase, AssignLeadUseCase
+│ │ │ ├── whatsapp/ # SendWhatsAppMessageUseCase, Listeners de eventos WA (IncomingMessage, StatusUpdate, AssetUpdate)
+│ │ │ └── # ...
+│ │ ├── index.ts
+│ │ └── project.json
+│ ├── infrastructure/ # Implementaciones Concretas (Adaptadores)
+│ │ ├── src/
+│ │ │ ├── tenancy-persistence/ # PrismaTenantRepository (para DB de plataforma)
+│ │ │ ├── tenancy-config/ # VaultTenantConfigRepository (o similar para secretos de tenant)
+│ │ │ ├── persistence/ # PrismaService (dinámico por tenant), Repositorios Prisma (Leads, WAAccounts, etc. para DBs de tenant)
+│ │ │ ├── cache/ # RedisRateLimiterAdapter, RedisAccountStateCacheAdapter
+│ │ │ ├── queue/ # QueueModule (BullMQ), WhatsappWebhookProcessor, WhatsappOutboundProcessor
+│ │ │ ├── whatsapp-cloud-api/ # WhatsappOfficialApiAdapter
+│ │ │ ├── whatsapp-admin-api/ # WhatsAppAdminApiAdapter
+│ │ │ ├── ai-providers/ # GoogleGeminiAdapter (implementa IConversationAnalyzerPort)
+│ │ │ ├── security/ # Implementación de AuthGuards NestJS, Estrategias Passport
+│ │ │ └── observability/ # Configuración de PinoLogger, OpenTelemetry
+│ │ ├── index.ts
+│ │ └── project.json
+│ ├── shared/ # Código 100% compartido y agnóstico
+│ │ ├── src/
+│ │ │ ├── types/ # DTOs base, interfaces comunes, TApiErrorPayload
+│ │ │ ├── enums/ # Enums globales (ej. EOperationalStatus, EWhatsAppQualityRating)
+│ │ │ ├── utils/ # Funciones puras
+│ │ │ ├── validation/ # Schemas Valibot/Zod
+│ │ │ ├── constants/
+│ │ │ └── errors/ # Clases de error personalizadas (AppError, DomainError)
+│ │ ├── index.ts
+│ │ └── project.json
+│ └── ui-shared/ # Componentes UI React compartidos (Shadcn/UI base)
+│ ├── src/
+│ │ ├── components/ # Átomos, moléculas, organismos
+│ │ └── lib/ # Utils específicos de UI
+│ ├── index.ts
+│ └── project.json
 │
 ├── tools/
 ├── docs/
 ├── prisma/
-│   ├── schema.prisma               # Schema Prisma "plantilla" para las DBs de los tenants
-│   ├── platform-schema.prisma      # (Opcional) Schema Prisma para la DB de plataforma (gestión de tenants, config global)
-│   └── migrations/                 # Migraciones del schema plantilla
+│ ├── schema.prisma # Schema Prisma "plantilla" para las DBs de los tenants
+│ ├── platform-schema.prisma # (Opcional) Schema Prisma para la DB de plataforma (gestión de tenants, config global)
+│ └── migrations/ # Migraciones del schema plantilla
 │
 └── # ... (Archivos raíz: .github, .husky, .vscode, .dockerignore, .env.example, etc.)
-
-
 
 III. Configuración Inicial con Nx (Guía para la IA Experta en Nx):
 Crear Workspace:
@@ -176,6 +174,7 @@ Llama a ILeadRepository.findByWaId(event.messageDetails.from) (el PrismaLeadRepo
 Consideración para la IA NX: Al generar servicios y controladores en NestJS, asegurar que aquellos que necesitan operar en un contexto de tenant puedan acceder al tenantId (sea por inyección del TenantContextService o porque el tenantId se pasa como parámetro desde el llamador que ya conoce el contexto, como el procesador de cola).
 
 ---
+
 **Blueprint Maestro v3.3**
 **DFS-Invest-Suite**
 Integración WhatsApp, Núcleo Anti-Ban y Arquitectura SaaS Multi-Tenant
@@ -228,32 +227,33 @@ Gobernanza Técnica del Proyecto dfs-invest-suite
 4.4. Gestión de Riesgos y Deuda Técnica
 
 **PARTE I: VISIÓN ARQUITECTÓNICA, ESTRATEGIA SAAS Y GOBERNANZA TÉCNICA**
+
 1. Introducción a dfs-invest-suite
-1.1. Propósito y Alcance del Blueprint v3.3
-Este Blueprint Técnico Integral v3.3 sirve como el documento maestro y la fuente única de verdad técnica para el diseño, desarrollo, implementación y evolución de la plataforma dfs-invest-suite. Sustituye y consolida todas las versiones anteriores de blueprints y análisis, incorporando la visión estratégica de una solución Software as a Service (SaaS) multi-tenant. Detalla la arquitectura, stack tecnológico, componentes, flujos de datos, estrategias de cumplimiento, y el roadmap ejecutivo, con un enfoque particular en la integración robusta y conforme con la Plataforma WhatsApp Business Cloud API y el desarrollo de un Núcleo Anti-Ban sofisticado. Se adhiere a las directivas DFS y a los más altos estándares de ingeniería de software.
-1.2. De DFS-Invest-Flow a dfs-invest-suite: Evolución a una Plataforma SaaS
-El concepto original de DFS-Invest-Flow, inicialmente concebido como una solución a medida para DFS Investimentos Imobiliários, evoluciona estratégicamente hacia dfs-invest-suite: una plataforma SaaS multi-tenant. Esta suite ofrecerá a múltiples empresas clientes (tenants), principalmente del sector inmobiliario (con potencial de expansión a otros verticales), las herramientas avanzadas de gestión de leads, comunicación optimizada (inicialmente vía WhatsApp), automatización de procesos de marketing y ventas, y analíticas de negocio. Cada tenant operará en un entorno de datos y configuración completamente aislado, utilizando sus propias credenciales de servicios externos como WhatsApp.
-1.3. Objetivos Estratégicos de la Plataforma
-Para los Tenants (Empresas Clientes):
-Maximizar la eficiencia en la captación, calificación, nurturing y conversión de leads.
-Establecer y mantener comunicaciones profesionales, seguras, personalizadas y conformes a través de WhatsApp, eliminando drásticamente el riesgo de interrupciones por baneos.
-Optimizar el Retorno sobre la Inversión (ROI) de sus esfuerzos de marketing y el costo total de comunicación con clientes.
-Obtener visibilidad completa y control operacional sobre su pipeline comercial y la efectividad de sus interacciones.
-Facilitar el cultivo de relaciones a largo plazo con sus prospectos y clientes.
-Para dfs-invest-suite (Como Proveedor de la Plataforma):
-Posicionarse como la solución SaaS líder y de referencia en el mercado para la gestión inteligente de leads y comunicación multicanal, comenzando por el sector inmobiliario.
-Construir una plataforma tecnológicamente avanzada, robusta, escalable y altamente confiable.
-Establecer un modelo de negocio sostenible y recurrente basado en suscripciones por niveles de servicio o uso.
-Fomentar la innovación continua, incorporando capacidades de IA y expandiendo las funcionalidades y canales soportados.
-1.4. Principios Fundamentales de Diseño y Arquitectura
-Multi-Tenancy con Aislamiento Fuerte: Cada tenant operará en su propio espacio de datos lógicamente aislado (idealmente, base de datos dedicada por tenant) y con su propia configuración de servicios externos (ej. WABA, tokens API), garantizando máxima seguridad, privacidad y previniendo el efecto "vecino ruidoso".
-API-First y Modularidad (Arquitectura Hexagonal): El sistema se construye con una API central (api-main) como fachada principal. La lógica de negocio (core) está rigurosamente desacoplada de la infraestructura (UI, Base de Datos, APIs Externas, Colas) mediante el uso de Puertos y Adaptadores.
-Diseño Orientado al Dominio (DDD Táctico): Modelado claro y cohesivo de los dominios de negocio fundamentales (Tenancy, AntiBan, LeadsFlow, WhatsAppIntegration, UsersRoles, AiperAssistance, etc.) con Entidades ricas, Value Objects y Servicios de Dominio bien definidos.
-Escalabilidad y Resiliencia Nativas: Diseño para soportar crecimiento en el número de tenants, usuarios por tenant y volumen de datos/mensajes. Implementación de mecanismos de tolerancia a fallos como colas persistentes, circuit breakers, y reintentos inteligentes.
-Calidad y Seguridad por Diseño (DevSecOps): Prácticas de testing exhaustivas (unitarias, integración, E2E), estándares de código estrictos (linting, formatting), revisiones de código, seguridad integrada en cada capa (OWASP, encriptación de datos sensibles en reposo y tránsito), y cumplimiento con regulaciones de privacidad (LGPD).
-Observabilidad Integral: Logging estructurado y contextualizado (tenantId, userId, traceId), métricas de rendimiento y negocio detalladas, y tracing distribuido para un monitoreo proactivo, diagnóstico rápido y mejora continua.
-Experiencia de Usuario (UX) Optimizada y por Rol: Interfaces de usuario (pwa-supervisor, pwa-consultant, admin-platform) intuitivas, eficientes, responsivas y adaptadas a las necesidades específicas de cada rol.
-Desarrollo Iterativo e Incremental Ágil: Entregas de valor frecuentes, priorización basada en impacto, y adaptabilidad a través de Sprints y un roadmap faseado, permitiendo feedback temprano y ajustes.
+   1.1. Propósito y Alcance del Blueprint v3.3
+   Este Blueprint Técnico Integral v3.3 sirve como el documento maestro y la fuente única de verdad técnica para el diseño, desarrollo, implementación y evolución de la plataforma dfs-invest-suite. Sustituye y consolida todas las versiones anteriores de blueprints y análisis, incorporando la visión estratégica de una solución Software as a Service (SaaS) multi-tenant. Detalla la arquitectura, stack tecnológico, componentes, flujos de datos, estrategias de cumplimiento, y el roadmap ejecutivo, con un enfoque particular en la integración robusta y conforme con la Plataforma WhatsApp Business Cloud API y el desarrollo de un Núcleo Anti-Ban sofisticado. Se adhiere a las directivas DFS y a los más altos estándares de ingeniería de software.
+   1.2. De DFS-Invest-Flow a dfs-invest-suite: Evolución a una Plataforma SaaS
+   El concepto original de DFS-Invest-Flow, inicialmente concebido como una solución a medida para DFS Investimentos Imobiliários, evoluciona estratégicamente hacia dfs-invest-suite: una plataforma SaaS multi-tenant. Esta suite ofrecerá a múltiples empresas clientes (tenants), principalmente del sector inmobiliario (con potencial de expansión a otros verticales), las herramientas avanzadas de gestión de leads, comunicación optimizada (inicialmente vía WhatsApp), automatización de procesos de marketing y ventas, y analíticas de negocio. Cada tenant operará en un entorno de datos y configuración completamente aislado, utilizando sus propias credenciales de servicios externos como WhatsApp.
+   1.3. Objetivos Estratégicos de la Plataforma
+   Para los Tenants (Empresas Clientes):
+   Maximizar la eficiencia en la captación, calificación, nurturing y conversión de leads.
+   Establecer y mantener comunicaciones profesionales, seguras, personalizadas y conformes a través de WhatsApp, eliminando drásticamente el riesgo de interrupciones por baneos.
+   Optimizar el Retorno sobre la Inversión (ROI) de sus esfuerzos de marketing y el costo total de comunicación con clientes.
+   Obtener visibilidad completa y control operacional sobre su pipeline comercial y la efectividad de sus interacciones.
+   Facilitar el cultivo de relaciones a largo plazo con sus prospectos y clientes.
+   Para dfs-invest-suite (Como Proveedor de la Plataforma):
+   Posicionarse como la solución SaaS líder y de referencia en el mercado para la gestión inteligente de leads y comunicación multicanal, comenzando por el sector inmobiliario.
+   Construir una plataforma tecnológicamente avanzada, robusta, escalable y altamente confiable.
+   Establecer un modelo de negocio sostenible y recurrente basado en suscripciones por niveles de servicio o uso.
+   Fomentar la innovación continua, incorporando capacidades de IA y expandiendo las funcionalidades y canales soportados.
+   1.4. Principios Fundamentales de Diseño y Arquitectura
+   Multi-Tenancy con Aislamiento Fuerte: Cada tenant operará en su propio espacio de datos lógicamente aislado (idealmente, base de datos dedicada por tenant) y con su propia configuración de servicios externos (ej. WABA, tokens API), garantizando máxima seguridad, privacidad y previniendo el efecto "vecino ruidoso".
+   API-First y Modularidad (Arquitectura Hexagonal): El sistema se construye con una API central (api-main) como fachada principal. La lógica de negocio (core) está rigurosamente desacoplada de la infraestructura (UI, Base de Datos, APIs Externas, Colas) mediante el uso de Puertos y Adaptadores.
+   Diseño Orientado al Dominio (DDD Táctico): Modelado claro y cohesivo de los dominios de negocio fundamentales (Tenancy, AntiBan, LeadsFlow, WhatsAppIntegration, UsersRoles, AiperAssistance, etc.) con Entidades ricas, Value Objects y Servicios de Dominio bien definidos.
+   Escalabilidad y Resiliencia Nativas: Diseño para soportar crecimiento en el número de tenants, usuarios por tenant y volumen de datos/mensajes. Implementación de mecanismos de tolerancia a fallos como colas persistentes, circuit breakers, y reintentos inteligentes.
+   Calidad y Seguridad por Diseño (DevSecOps): Prácticas de testing exhaustivas (unitarias, integración, E2E), estándares de código estrictos (linting, formatting), revisiones de código, seguridad integrada en cada capa (OWASP, encriptación de datos sensibles en reposo y tránsito), y cumplimiento con regulaciones de privacidad (LGPD).
+   Observabilidad Integral: Logging estructurado y contextualizado (tenantId, userId, traceId), métricas de rendimiento y negocio detalladas, y tracing distribuido para un monitoreo proactivo, diagnóstico rápido y mejora continua.
+   Experiencia de Usuario (UX) Optimizada y por Rol: Interfaces de usuario (pwa-supervisor, pwa-consultant, admin-platform) intuitivas, eficientes, responsivas y adaptadas a las necesidades específicas de cada rol.
+   Desarrollo Iterativo e Incremental Ágil: Entregas de valor frecuentes, priorización basada en impacto, y adaptabilidad a través de Sprints y un roadmap faseado, permitiendo feedback temprano y ajustes.
 
 **PARTE II: DISEÑO DETALLADO DEL DOMINIO (LIBS/CORE/)**
 
@@ -268,66 +268,66 @@ libs/shared/src/types/:
 global.types.ts: Interfaces o tipos muy genéricos (ej. Maybe<T> = T | null | undefined;, PaginatedResult<T>).
 api-error.types.ts:
 export interface IApiErrorDetail {
-  code: string | number; // Código de error específico de la aplicación o de Meta
-  message: string;       // Mensaje legible para humanos
-  field?: string;         // Campo que causó el error (opcional)
-  details?: any;          // Información adicional, ej. el objeto error de Meta
+code: string | number; // Código de error específico de la aplicación o de Meta
+message: string; // Mensaje legible para humanos
+field?: string; // Campo que causó el error (opcional)
+details?: any; // Información adicional, ej. el objeto error de Meta
 }
 export interface IApiResponse<T = any> {
-  success: boolean;
-  data?: T;
-  error?: IApiErrorDetail;
-  requestId?: string; // Para tracing
+success: boolean;
+data?: T;
+error?: IApiErrorDetail;
+requestId?: string; // Para tracing
 }
 
 libs/shared/src/enums/:
 whatsapp-quality-rating.enum.ts:
 export enum EWhatsAppQualityRating {
-  GREEN = 'GREEN',
-  YELLOW = 'YELLOW',
-  RED = 'RED',
-  UNKNOWN = 'UNKNOWN',
-  NA = 'NA', // Not Available
+GREEN = 'GREEN',
+YELLOW = 'YELLOW',
+RED = 'RED',
+UNKNOWN = 'UNKNOWN',
+NA = 'NA', // Not Available
 }
 
 whatsapp-messaging-tier.enum.ts:
 export enum EWhatsAppMessagingTier {
-  TIER_0 = 'TIER_0', // 250 conversaciones/24h
-  TIER_1 = 'TIER_1', // 1K
-  TIER_2 = 'TIER_2', // 10K
-  TIER_3 = 'TIER_3', // 100K
-  TIER_4 = 'TIER_4', // UNLIMITED
-  UNKNOWN = 'UNKNOWN',
+TIER_0 = 'TIER_0', // 250 conversaciones/24h
+TIER_1 = 'TIER_1', // 1K
+TIER_2 = 'TIER_2', // 10K
+TIER_3 = 'TIER_3', // 100K
+TIER_4 = 'TIER_4', // UNLIMITED
+UNKNOWN = 'UNKNOWN',
 }
 
 TypeScript
 internal-account-status.enum.ts:
 export enum EInternalAccountStatus {
-  HEALTHY = 'HEALTHY',
-  WARN = 'WARN', // Calidad Meta YELLOW o healthScore interno bajo
-  FLAGGED = 'FLAGGED', // Calidad Meta RED pero aún no restringido
-  RESTRICTED = 'RESTRICTED', // Restricción de Meta
-  BLOCKED = 'BLOCKED',     // Bloqueo de Meta
-  UNKNOWN = 'UNKNOWN',
+HEALTHY = 'HEALTHY',
+WARN = 'WARN', // Calidad Meta YELLOW o healthScore interno bajo
+FLAGGED = 'FLAGGED', // Calidad Meta RED pero aún no restringido
+RESTRICTED = 'RESTRICTED', // Restricción de Meta
+BLOCKED = 'BLOCKED', // Bloqueo de Meta
+UNKNOWN = 'UNKNOWN',
 }
 
 internal-operational-status.enum.ts:
 export enum EInternalOperationalStatus {
-  ACTIVE = 'ACTIVE',
-  IN_WARMUP = 'IN_WARMUP',
-  COOLING_DOWN = 'COOLING_DOWN',
-  MAINTENANCE_BY_ADMIN = 'MAINTENANCE_BY_ADMIN',
-  SUSPENDED_BY_META_CONFIRMED = 'SUSPENDED_BY_META_CONFIRMED',
-  PENDING_SETUP = 'PENDING_SETUP',
+ACTIVE = 'ACTIVE',
+IN_WARMUP = 'IN_WARMUP',
+COOLING_DOWN = 'COOLING_DOWN',
+MAINTENANCE_BY_ADMIN = 'MAINTENANCE_BY_ADMIN',
+SUSPENDED_BY_META_CONFIRMED = 'SUSPENDED_BY_META_CONFIRMED',
+PENDING_SETUP = 'PENDING_SETUP',
 }
 
 message-category.enum.ts:
 export enum EMessageCategory {
-  MARKETING = 'MARKETING',
-  UTILITY = 'UTILITY',
-  AUTHENTICATION = 'AUTHENTICATION',
-  SERVICE = 'SERVICE', // Para conversaciones iniciadas por usuario
-  UNKNOWN = 'UNKNOWN',
+MARKETING = 'MARKETING',
+UTILITY = 'UTILITY',
+AUTHENTICATION = 'AUTHENTICATION',
+SERVICE = 'SERVICE', // Para conversaciones iniciadas por usuario
+UNKNOWN = 'UNKNOWN',
 }
 
 (Otros enums globales que surjan)
@@ -342,25 +342,24 @@ common.constants.ts: Constantes globales (ej. DEFAULT_PAGE_SIZE = 20).
 libs/shared/src/errors/:
 custom-errors.ts: Clases base para errores de dominio y aplicación.
 export class BaseError extends Error {
-  public readonly context?: string;
-  public readonly code?: string | number;
-  constructor(message: string, code?: string | number, context?: string) {
-    super(message);
-    this.name = this.constructor.name;
-    this.code = code;
-    this.context = context;
-    Error.captureStackTrace(this, this.constructor);
-  }
+public readonly context?: string;
+public readonly code?: string | number;
+constructor(message: string, code?: string | number, context?: string) {
+super(message);
+this.name = this.constructor.name;
+this.code = code;
+this.context = context;
+Error.captureStackTrace(this, this.constructor);
+}
 }
 export class DomainError extends BaseError {}
 export class ApplicationError extends BaseError {}
 export class InfrastructureError extends BaseError {}
 export class NotFoundError extends ApplicationError {
-  constructor(resource: string, id: string | number) {
-    super(`${resource} with ID ${id} not found`, 'NOT_FOUND');
-  }
+constructor(resource: string, id: string | number) {
+super(`${resource} with ID ${id} not found`, 'NOT_FOUND');
 }
-
+}
 
 **II.B. Librería Core: tenancy (libs/core/src/tenancy/)**
 Propósito: Lógica de dominio para la gestión de Tenants de la plataforma dfs-invest-suite.
@@ -371,68 +370,65 @@ libs/core/src/tenancy/entities/tenant.entity.ts:
 import { EInternalTenantStatus } from '@dfs-suite/shared'; // Asumiendo que se mueve a shared o se define aquí
 
 export class Tenant {
-  constructor(
-    public readonly id: string, // UUID
-    public name: string,
-    public status: EInternalTenantStatus,
-    public planId: string,
-    public readonly createdAt: Date,
-    public updatedAt: Date,
-    // Configuración sensible NO se almacena aquí.
-  ) {}
+constructor(
+public readonly id: string, // UUID
+public name: string,
+public status: EInternalTenantStatus,
+public planId: string,
+public readonly createdAt: Date,
+public updatedAt: Date,
+// Configuración sensible NO se almacena aquí.
+) {}
 
-  static create(id: string, name: string, planId: string): Tenant {
-    const now = new Date();
-    return new Tenant(id, name, EInternalTenantStatus.PENDING_ONBOARDING, planId, now, now);
-  }
+static create(id: string, name: string, planId: string): Tenant {
+const now = new Date();
+return new Tenant(id, name, EInternalTenantStatus.PENDING_ONBOARDING, planId, now, now);
+}
 
-  public activate(): void {
-    if (this.status === EInternalTenantStatus.SUSPENDED_BY_PLATFORM) {
-      throw new DomainError('Cannot activate a suspended tenant directly. Must be unsuspended first.');
-    }
-    this.status = EInternalTenantStatus.ACTIVE;
-    this.updatedAt = new Date();
-  }
-  // ... otros métodos: deactivate, suspend, changePlan, isSubscriptionActive ...
+public activate(): void {
+if (this.status === EInternalTenantStatus.SUSPENDED_BY_PLATFORM) {
+throw new DomainError('Cannot activate a suspended tenant directly. Must be unsuspended first.');
+}
+this.status = EInternalTenantStatus.ACTIVE;
+this.updatedAt = new Date();
+}
+// ... otros métodos: deactivate, suspend, changePlan, isSubscriptionActive ...
 }
 export enum EInternalTenantStatus {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE', // Ej. canceló suscripción pero datos aún existen por un tiempo
-  SUSPENDED_BY_PLATFORM = 'SUSPENDED_BY_PLATFORM', // Ej. por abuso o impago
-  TRIAL = 'TRIAL',
-  PENDING_ONBOARDING = 'PENDING_ONBOARDING', // Creado, pero no ha completado configuración (ej. WA token)
+ACTIVE = 'ACTIVE',
+INACTIVE = 'INACTIVE', // Ej. canceló suscripción pero datos aún existen por un tiempo
+SUSPENDED_BY_PLATFORM = 'SUSPENDED_BY_PLATFORM', // Ej. por abuso o impago
+TRIAL = 'TRIAL',
+PENDING_ONBOARDING = 'PENDING_ONBOARDING', // Creado, pero no ha completado configuración (ej. WA token)
 }
-
 
 libs/core/src/tenancy/ports/tenant-repository.port.ts:
 import type { Tenant } from '../entities/tenant.entity';
 export interface ITenantRepositoryPort {
-  findById(id: string): Promise<Tenant | null>;
-  findByWabaId(wabaId: string): Promise<Tenant | null>; // Necesario para el webhook controller
-  save(tenant: Tenant): Promise<Tenant>;
-  // ... otros métodos como listAll, findByOwnerEmail, etc.
+findById(id: string): Promise<Tenant | null>;
+findByWabaId(wabaId: string): Promise<Tenant | null>; // Necesario para el webhook controller
+save(tenant: Tenant): Promise<Tenant>;
+// ... otros métodos como listAll, findByOwnerEmail, etc.
 }
 export const TENANT_REPOSITORY_PORT = Symbol('ITenantRepositoryPort');
 
-
-
 libs/core/src/tenancy/ports/tenant-config-repository.port.ts:
 export interface TenantWhatsAppCredentials {
-  wabaId: string;
-  apiToken: string; // Este será el token encriptado para almacenamiento y desencriptado en uso
-  phoneNumbers: Array<{
-    id: string; // Phone Number ID
-    displayNumber: string;
-    isDefault?: boolean;
-    // otros metadatos que el tenant quiera asociar al número para la suite
-  }>;
+wabaId: string;
+apiToken: string; // Este será el token encriptado para almacenamiento y desencriptado en uso
+phoneNumbers: Array<{
+id: string; // Phone Number ID
+displayNumber: string;
+isDefault?: boolean;
+// otros metadatos que el tenant quiera asociar al número para la suite
+}>;
 }
 export interface ITenantConfigRepositoryPort {
-  getDbConnectionString(tenantId: string): Promise<string | null>; // Encriptada
-  setDbConnectionString(tenantId: string, connectionString: string): Promise<void>;
-  getWhatsAppApiCredentials(tenantId: string): Promise<TenantWhatsAppCredentials | null>; // Token desencriptado para uso
-  setWhatsAppApiCredentials(tenantId: string, creds: TenantWhatsAppCredentials): Promise<void>; // Token se encripta antes de guardar
-  // ... métodos para otros secretos/configuraciones del tenant (ej. API Key de IA si es por tenant)
+getDbConnectionString(tenantId: string): Promise<string | null>; // Encriptada
+setDbConnectionString(tenantId: string, connectionString: string): Promise<void>;
+getWhatsAppApiCredentials(tenantId: string): Promise<TenantWhatsAppCredentials | null>; // Token desencriptado para uso
+setWhatsAppApiCredentials(tenantId: string, creds: TenantWhatsAppCredentials): Promise<void>; // Token se encripta antes de guardar
+// ... métodos para otros secretos/configuraciones del tenant (ej. API Key de IA si es por tenant)
 }
 export const TENANT_CONFIG_REPOSITORY_PORT = Symbol('ITenantConfigRepositoryPort');
 
@@ -450,33 +446,33 @@ whatsapp-asset.types.ts:
 import { EMessageCategory, EWhatsAppQualityRating, EInternalOperationalStatus, EInternalAccountStatus, EWhatsAppMessagingTier, EWhatsAppNameStatus } from '@dfs-suite/shared';
 
 export interface WhatsAppTemplateFromApi {
-  id: string; // HSM ID
-  name: string;
-  language: string;
-  status: string; // 'APPROVED', 'PENDING', 'REJECTED', etc. (valores exactos de Meta)
-  category: EMessageCategory;
-  quality_score?: EWhatsAppQualityRating; // o el tipo que devuelva Meta
-  components: Array<{ // Estructura de cómo Meta devuelve los componentes definidos
-    type: 'HEADER' | 'BODY' | 'FOOTER' | 'BUTTONS';
-    text?: string; // Con placeholders {{n}}
-    format?: 'TEXT' | 'IMAGE' | 'VIDEO' | 'DOCUMENT' | 'LOCATION';
-    example?: any; // Objeto example tal como lo devuelve la API GET /template
-    buttons?: Array<{ type: string; text: string; url?: string; phone_number?: string; [key: string]: any; }>;
-  }>;
-  // ... otros campos de la respuesta GET /template
+id: string; // HSM ID
+name: string;
+language: string;
+status: string; // 'APPROVED', 'PENDING', 'REJECTED', etc. (valores exactos de Meta)
+category: EMessageCategory;
+quality_score?: EWhatsAppQualityRating; // o el tipo que devuelva Meta
+components: Array<{ // Estructura de cómo Meta devuelve los componentes definidos
+type: 'HEADER' | 'BODY' | 'FOOTER' | 'BUTTONS';
+text?: string; // Con placeholders {{n}}
+format?: 'TEXT' | 'IMAGE' | 'VIDEO' | 'DOCUMENT' | 'LOCATION';
+example?: any; // Objeto example tal como lo devuelve la API GET /template
+buttons?: Array<{ type: string; text: string; url?: string; phone_number?: string; [key: string]: any; }>;
+}>;
+// ... otros campos de la respuesta GET /template
 }
 
 export interface WabaPhoneNumberDetailsFromApi {
-  id: string; // Phone Number ID
-  display_phone_number: string;
-  verified_name: string | null;
-  quality_rating: EWhatsAppQualityRating;
-  name_status: EWhatsAppNameStatus;
-  code_verification_status?: string; // VERIFIED, NOT_VERIFIED
-  messaging_limit_tier?: EWhatsAppMessagingTier; // ¡Campo y valores a confirmar!
-  current_messaging_limit?: number; // ¡Campo y valores a confirmar!
-  throughput?: { level: string }; // ¡Campo y estructura a confirmar!
-  // ... otros campos que devuelva GET /phone_number_id
+id: string; // Phone Number ID
+display_phone_number: string;
+verified_name: string | null;
+quality_rating: EWhatsAppQualityRating;
+name_status: EWhatsAppNameStatus;
+code_verification_status?: string; // VERIFIED, NOT_VERIFIED
+messaging_limit_tier?: EWhatsAppMessagingTier; // ¡Campo y valores a confirmar!
+current_messaging_limit?: number; // ¡Campo y valores a confirmar!
+throughput?: { level: string }; // ¡Campo y estructura a confirmar!
+// ... otros campos que devuelva GET /phone_number_id
 }
 
 libs/core/src/whatsapp/ports/:
@@ -486,7 +482,9 @@ libs/core/src/whatsapp/events/:
 Definir todas las clases de eventos con sus payloads tipados, asegurando que incluyan tenantId.
 Ejemplos: IncomingWhatsAppMessageReceivedEvent(tenantId, wabaId, phoneNumberId, messageDetails, jobId?), WhatsAppMessageStatusUpdatedEvent(tenantId, ...), WhatsAppTemplateStatusChangedEvent(tenantId, ...), WhatsAppAccountViolationEvent(tenantId, ...).
 (Continuará con los dominios anti-ban, leads-flow, users-roles, aiper-assistance dentro de libs/core/, y luego pasaremos a libs/application/ en el próximo prompt).
+
 ---
+
 PARTE I: VISIÓN ARQUITECTÓNICA, ESTRATEGIA SAAS Y GOBERNANZA TÉCNICA
 Introducción a DFS-Invest-Suite
 1.1. Propósito y Alcance del Blueprint v3.3
@@ -610,10 +608,10 @@ libs/core/src/anti-ban/ports/rate-limiter.port.ts:
 Interfaz IRateLimiterPort.
 Métodos (Ahora deben ser explícitamente conscientes del tenant y del accountId para la clave):
 export interface IRateLimiterPort {
-  consumeToken(tenantId: string, accountId: string, cost?: number): Promise<{ allowed: boolean; remainingPoints?: number; msBeforeNext?: number }>;
-  checkAllowance(tenantId: string, accountId: string, cost?: number): Promise<{ allowed: boolean; remainingPoints?: number }>;
-  configureLimits(tenantId: string, accountId: string, points: number, durationSeconds: number): Promise<void>;
-  resetLimit(tenantId: string, accountId: string): Promise<void>; // Para resetear al cambiar de día o tier
+consumeToken(tenantId: string, accountId: string, cost?: number): Promise<{ allowed: boolean; remainingPoints?: number; msBeforeNext?: number }>;
+checkAllowance(tenantId: string, accountId: string, cost?: number): Promise<{ allowed: boolean; remainingPoints?: number }>;
+configureLimits(tenantId: string, accountId: string, points: number, durationSeconds: number): Promise<void>;
+resetLimit(tenantId: string, accountId: string): Promise<void>; // Para resetear al cambiar de día o tier
 }
 export const RATE_LIMITER_PORT = Symbol('IRateLimiterPort');
 
@@ -635,38 +633,38 @@ Estructura y Artefactos:
 libs/core/src/leads-flow/index.ts
 libs/core/src/leads-flow/entities/lead.entity.ts:
 export class Lead {
-  constructor(
-    public readonly id: string, // UUID
-    public waId: string | null, // WhatsApp ID del usuario
-    public phoneNumber: string | null,
-    public email: string | null,
-    public name: string | null,
-    public status: string, // Ej: "NEW", "CONTACTED", "QUALIFIED", "NURTURING", "CONVERTED", "LOST"
-    public score: number | null, // 0-100
-    public source: string | null, // Ej: "WHATSAPP_INBOUND_CTWA", "EXCEL_IMPORT", "PORTAL_FORM"
-    public assignedToUserId: string | null, // ID del User (consultor) del tenant
-    public hasWhatsAppOptIn: boolean = false,
-    public optInTimestamp?: Date,
-    public optInSource?: string,
-    public optInCategories?: string[], // Ej: ["MARKETING_GLOBAL", "UTILITY_SPE_X"]
-    public lastInteractionAt?: Date,
-    public readonly createdAt: Date,
-    public updatedAt: Date,
-    // Campos para perfilamiento (pueden ser un objeto anidado o campos separados):
-    public budgetRange?: string,
-    public propertyInterestType?: string,
-    public locationInterest?: string,
-    public investmentTimeline?: string,
-    public notes?: string,
-    // ...otros campos relevantes para el negocio inmobiliario
-  ) {}
+constructor(
+public readonly id: string, // UUID
+public waId: string | null, // WhatsApp ID del usuario
+public phoneNumber: string | null,
+public email: string | null,
+public name: string | null,
+public status: string, // Ej: "NEW", "CONTACTED", "QUALIFIED", "NURTURING", "CONVERTED", "LOST"
+public score: number | null, // 0-100
+public source: string | null, // Ej: "WHATSAPP_INBOUND_CTWA", "EXCEL_IMPORT", "PORTAL_FORM"
+public assignedToUserId: string | null, // ID del User (consultor) del tenant
+public hasWhatsAppOptIn: boolean = false,
+public optInTimestamp?: Date,
+public optInSource?: string,
+public optInCategories?: string[], // Ej: ["MARKETING_GLOBAL", "UTILITY_SPE_X"]
+public lastInteractionAt?: Date,
+public readonly createdAt: Date,
+public updatedAt: Date,
+// Campos para perfilamiento (pueden ser un objeto anidado o campos separados):
+public budgetRange?: string,
+public propertyInterestType?: string,
+public locationInterest?: string,
+public investmentTimeline?: string,
+public notes?: string,
+// ...otros campos relevantes para el negocio inmobiliario
+) {}
 
-  static create(waId: string, name?: string, source?: string, associatedWabaId?: string, associatedPhoneNumberId?: string): Lead { /* ... */ }
-  public updateScore(newScore: number) { /* ... */ }
-  public changeStatus(newStatus: string) { /* ... */ }
-  public assignTo(userId: string) { /* ... */ }
-  public recordInteraction(interactionDetails: any) { this.lastInteractionAt = new Date(); /* ... */ }
-  public setWhatsAppOptIn(status: boolean, source?: string, categories?: string[]) { /* ... */ }
+static create(waId: string, name?: string, source?: string, associatedWabaId?: string, associatedPhoneNumberId?: string): Lead { /_ ... _/ }
+public updateScore(newScore: number) { /_ ... _/ }
+public changeStatus(newStatus: string) { /_ ... _/ }
+public assignTo(userId: string) { /_ ... _/ }
+public recordInteraction(interactionDetails: any) { this.lastInteractionAt = new Date(); /_ ... _/ }
+public setWhatsAppOptIn(status: boolean, source?: string, categories?: string[]) { /_ ... _/ }
 }
 
 libs/core/src/leads-flow/entities/lead-interaction.entity.ts (Alternativa a MessageLog para interacciones más genéricas):
@@ -682,21 +680,21 @@ Acción IA Nx: Crear subdirectorio.
 Estructura y Artefactos:
 libs/core/src/users-roles/entities/user.entity.ts:
 export enum ETenantUserRole {
-  TENANT_ADMIN = 'TENANT_ADMIN',
-  SUPERVISOR = 'SUPERVISOR',
-  CONSULTANT = 'CONSULTANT',
+TENANT_ADMIN = 'TENANT_ADMIN',
+SUPERVISOR = 'SUPERVISOR',
+CONSULTANT = 'CONSULTANT',
 }
 export class User { // Usuario del Tenant
-  constructor(
-    public readonly id: string, // UUID
-    public email: string,
-    public name: string,
-    public role: ETenantUserRole,
-    public isActive: boolean,
-    public hashedPassword?: string, // Solo en backend, no se expone
-    // ... otros campos como teamId, etc.
-  ) {}
-  // ... métodos ...
+constructor(
+public readonly id: string, // UUID
+public email: string,
+public name: string,
+public role: ETenantUserRole,
+public isActive: boolean,
+public hashedPassword?: string, // Solo en backend, no se expone
+// ... otros campos como teamId, etc.
+) {}
+// ... métodos ...
 }
 
 libs/core/src/users-roles/entities/platform-admin.entity.ts (Podría estar en core/tenancy):
@@ -710,20 +708,20 @@ Acción IA Nx: Crear subdirectorio.
 Estructura y Artefactos:
 libs/core/src/aiper-assistance/ports/conversation-analyzer.port.ts:
 export interface IConversationAnalysisInput {
-  text: string;
-  previousContext?: any; // Historial de conversación, perfil del lead
-  language?: string; // ej. 'pt-BR'
+text: string;
+previousContext?: any; // Historial de conversación, perfil del lead
+language?: string; // ej. 'pt-BR'
 }
 export interface IConversationAnalysisResult {
-  intent?: string;
-  sentiment?: 'POSITIVE' | 'NEGATIVE' | 'NEUTRAL';
-  entities?: Array<{ type: string; value: string }>;
-  summary?: string;
-  suggestedReply?: string;
-  leadQualificationHints?: any; // ej. { budgetMentioned: 500000, timeline: '3_MONTHS' }
+intent?: string;
+sentiment?: 'POSITIVE' | 'NEGATIVE' | 'NEUTRAL';
+entities?: Array<{ type: string; value: string }>;
+summary?: string;
+suggestedReply?: string;
+leadQualificationHints?: any; // ej. { budgetMentioned: 500000, timeline: '3_MONTHS' }
 }
 export interface IConversationAnalyzerPort {
-  analyze(input: IConversationAnalysisInput): Promise<IConversationAnalysisResult>;
+analyze(input: IConversationAnalysisInput): Promise<IConversationAnalysisResult>;
 }
 export const CONVERSATION_ANALYZER_PORT = Symbol('IConversationAnalyzerPort');
 
@@ -736,6 +734,7 @@ analytics-core: Podría definir cómo se calculan ciertos KPIs antes de ser alma
 notifications-core: Lógica para determinar a quién notificar sobre qué, independientemente del canal (el canal es infraestructura).
 (Continuará con la Parte III: DISEÑO DETALLADO DE LA CAPA DE APLICACIÓN (LIBS/APPLICATION/), mostrando cómo los Casos de Uso y Listeners de Eventos utilizan estos puertos de dominio y el TenantContextService en el próximo prompt).
 Esta estructura de dominio, ahora explícitamente consciente del modelo SaaS multi-tenant con aislamiento de DB, establece una fundación sólida. La clave es que los repositorios de infraestructura siempre operarán sobre la base de datos del tenant activo. ¿Continuamos con la Capa de Aplicación?
+
 ---
 
 PARTE II: DISEÑO DETALLADO DEL DOMINIO (LIBS/CORE/) (Continuación)
@@ -874,7 +873,7 @@ Lógica:
 Validar tenantId.
 Encriptar apiToken antes de guardarlo.
 Llamar a tenantConfigRepo.setWhatsAppApiCredentials(...).
-Llamar a adminApiAdapter.subscribeAppToWabaEvents(tenantId, wabaId, apiToken) (este método en el adaptador usaría el token del tenant para POST a /{tenant_waba_id}/subscribed_apps).
+Llamar a adminApiAdapter.subscribeAppToWabaEvents(tenantId, wabaId, apiToken) (este método en el adaptador usaría el token del tenant para POST a /{tenant*waba_id}/subscribed_apps).
 Actualizar Tenant.status a ACTIVE si es el último paso del onboarding.
 (Otros casos de uso: SuspendTenantUseCase, ChangeTenantPlanUseCase, etc.)
 III.C. Submódulo: whatsapp (libs/application/src/whatsapp/)
@@ -906,8 +905,8 @@ Artefactos:
 services/account-health-manager.service.ts:
 Interfaz IAccountHealthManagerServicePort:
 updatePhoneNumberStateFromWebhook(tenantId: string, phoneNumberId: string, qualityUpdate: TWebhookPhoneNumberQualityValue): Promise<void>
-updatePhoneNumberCapabilitiesFromWebhook(tenantId: string, phoneNumberId: string, capabilityUpdate: any /* TWebhookCapabilityUpdateValue */): Promise<void>
-processAccountViolation(tenantId: string, wabaId: string, violationInfo: any /* TViolationInfoValue */, phoneNumberInViolation?: string): Promise<void>
+updatePhoneNumberCapabilitiesFromWebhook(tenantId: string, phoneNumberId: string, capabilityUpdate: any /* TWebhookCapabilityUpdateValue _/): Promise<void>
+processAccountViolation(tenantId: string, wabaId: string, violationInfo: any /_ TViolationInfoValue \_/, phoneNumberInViolation?: string): Promise<void>
 processAccountRestriction(tenantId: string, wabaId: string, restrictionInfo: TAccountRestriction[], phoneNumberInViolation?: string): Promise<void>
 processMessageFailure(tenantId: string, senderPhoneNumberId: string, errors: TWebhookErrorObject[]): Promise<void>
 syncPhoneNumberStateFromApi(tenantId: string, wabaId: string, numberDetailsFromApi: WabaPhoneNumberDetailsFromApi): Promise<void>
@@ -960,7 +959,9 @@ Transaccionalidad: Para Casos de Uso que modifican múltiples entidades de domin
 Emisión de Eventos: Los Casos de Uso pueden emitir eventos de aplicación para desacoplar flujos secundarios.
 (Continuará con la Parte IV: DISEÑO DETALLADO DE LA CAPA DE INFRAESTRUCTURA, enfocándonos en los adaptadores (Persistencia, Cache, Colas, APIs Externas como WhatsApp y AI) y cómo implementan los puertos siendo tenant-aware, en el próximo prompt).
 Esta capa de aplicación, diseñada con Casos de Uso y Listeners conscientes del tenant, es la que realmente da vida a la lógica de negocio dentro de nuestra arquitectura SaaS. ¿Continuamos con la capa de Infraestructura?
+
 ---
+
 PARTE IV: DISEÑO DETALLADO DE LA CAPA DE INFRAESTRUCTURA (LIBS/INFRASTRUCTURE/) (Reafirmación y Refinamientos Clave para IA Experta en Nx)
 Esta capa es donde los conceptos abstractos de los puertos del Dominio y la Aplicación se materializan en código que interactúa con tecnologías concretas. La clave aquí es la implementación correcta del TenantContext para la selección dinámica de bases de datos y credenciales.
 IV.A. Submódulo: tenancy-persistence (libs/infrastructure/src/tenancy-persistence/)
@@ -1007,11 +1008,11 @@ Al inicio del método process(job):
 const { tenantId, ...actualPayload } = job.data;
 if (!tenantId) {
   this.logger.error(`[Job:${job.id}] Falta tenantId en el job data.`);
-  throw new Error('Missing tenantId for job processing'); // Hace que el job falle
+throw new Error('Missing tenantId for job processing'); // Hace que el job falle
 }
 // Establecer el contexto del tenant para esta ejecución del job
 // Esto dependerá de la implementación del TenantContextService (ej. si usa AsyncLocalStorage)
-// this.tenantContextService.runWithinContext(tenantId, async () => { /* ...lógica del job... */ });
+// this.tenantContextService.runWithinContext(tenantId, async () => { /_ ...lógica del job... _/ });
 // O si es un servicio request-scoped que se puede resolver con el tenantId:
 // const scopedUseCase = await this.moduleRef.resolve(SEND_WHATSAPP_MESSAGE_USE_CASE, contextIdConTenant);
 
@@ -1042,7 +1043,9 @@ Inyecta TenantContextService (opcionalmente, para añadir tenantId automáticame
 Configura Pino para salida JSON estructurada.
 Conclusión para la Capa de Infraestructura:
 La clave es la gestión dinámica de la conexión a la base de datos del tenant y el uso de las credenciales de API externas del tenant. El TenantContextService y el ITenantConfigRepositoryPort son fundamentales para esto. Los adaptadores deben ser "tontos" respecto a la lógica multi-tenant y simplemente operar con el contexto que se les proporciona.
+
 ---
+
 **PARTE V: DISEÑO DETALLADO DE LAS APLICACIONES (APPS/)**
 Las aplicaciones son los ejecutables que los usuarios finales (clientes de tenants, supervisores, consultores, administradores de plataforma) y otros sistemas consumen. Se construyen sobre las librerías core, application, infrastructure y shared.
 V.A. Aplicación: api-main (API Gateway Principal Multi-Tenant)
@@ -1144,7 +1147,9 @@ portal-public-template: Un template base Next.js que los tenants podrían usar (
 app-native-aggregator: La app móvil nativa (React Native o nativo puro) para consultores, como se describió, que consolida la comunicación de WhatsApp.
 (Continuará con la Sección 16: Configuración de Entorno y Despliegue - REVISADA FINAL, Sección 17: Roadmap - REVISADO FINAL y Sección 18: Glosario Técnico Detallado de Artefactos - COMPLETADO en el próximo prompt).
 Esta descripción de las aplicaciones establece sus roles y cómo interactúan con el backend y entre ellas, siempre bajo el paraguas multi-tenant. La separación clara de responsabilidades entre las PWAs de tenant y la PWA de administración de plataforma es clave. ¿Continuamos con las secciones finales?
+
 ---
+
 PARTE VI: CONSIDERACIONES CROSS-CUTTING AVANZADAS (Resumen)
 Aunque no se detallarán exhaustivamente en este prompt, es crucial tener en mente estos aspectos transversales que deben ser considerados e implementados progresivamente:
 Seguridad Avanzada:

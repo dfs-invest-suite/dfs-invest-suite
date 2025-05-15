@@ -5,7 +5,7 @@ import {
   UserId,
   IsoDateString,
   QueryInstanceId, // Usamos el Branded Type
-  CommandInstanceId,     // Para causationId
+  CommandInstanceId, // Para causationId
   DomainEventInstanceId, // Para causationId
 } from '@dfs-suite/shared-types';
 
@@ -15,7 +15,9 @@ import {
  */
 export interface IQueryMetadata {
   readonly correlationId: CorrelationId;
-  readonly causationId?: Maybe<CorrelationId | CommandInstanceId | DomainEventInstanceId>; // Tipado más específico
+  readonly causationId?: Maybe<
+    CorrelationId | CommandInstanceId | DomainEventInstanceId
+  >; // Tipado más específico
   readonly userId?: Maybe<UserId>;
   readonly timestamp: IsoDateString; // Estandarizado a IsoDateString
 }

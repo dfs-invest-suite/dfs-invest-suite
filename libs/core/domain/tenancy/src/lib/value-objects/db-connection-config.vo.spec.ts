@@ -1,6 +1,12 @@
 // libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.spec.ts
-import { ArgumentInvalidException, ArgumentNotProvidedException } from '@dfs-suite/shared-errors';
-import { DbConnectionConfigVO, DbConnectionConfigProps } from './db-connection-config.vo';
+import {
+  ArgumentInvalidException,
+  ArgumentNotProvidedException,
+} from '@dfs-suite/shared-errors';
+import {
+  DbConnectionConfigVO,
+  DbConnectionConfigProps,
+} from './db-connection-config.vo';
 
 describe('DbConnectionConfigVO', () => {
   const validConnectionString = 'postgresql://user:pass@host:port/dbname';
@@ -8,7 +14,9 @@ describe('DbConnectionConfigVO', () => {
 
   describe('creation', () => {
     it('should create a DbConnectionConfigVO with a valid connection string', () => {
-      const props: DbConnectionConfigProps = { connectionString: validConnectionString };
+      const props: DbConnectionConfigProps = {
+        connectionString: validConnectionString,
+      };
       const configVo = new DbConnectionConfigVO(props);
       expect(configVo).toBeInstanceOf(DbConnectionConfigVO);
       expect(configVo.connectionString).toBe(validConnectionString);
@@ -22,20 +30,32 @@ describe('DbConnectionConfigVO', () => {
 
     it('should throw ArgumentNotProvidedException if connection string is empty', () => {
       const props: DbConnectionConfigProps = { connectionString: '' };
-      expect(() => new DbConnectionConfigVO(props)).toThrow(ArgumentNotProvidedException);
-      expect(() => new DbConnectionConfigVO(props)).toThrow('Connection string cannot be empty.');
+      expect(() => new DbConnectionConfigVO(props)).toThrow(
+        ArgumentNotProvidedException
+      );
+      expect(() => new DbConnectionConfigVO(props)).toThrow(
+        'Connection string cannot be empty.'
+      );
     });
 
     it('should throw ArgumentNotProvidedException if connection string is only whitespace', () => {
       const props: DbConnectionConfigProps = { connectionString: '   ' };
       // Nota: Guard.isEmpty trimea, por lo que esto se considera vacío.
-      expect(() => new DbConnectionConfigVO(props)).toThrow(ArgumentNotProvidedException);
+      expect(() => new DbConnectionConfigVO(props)).toThrow(
+        ArgumentNotProvidedException
+      );
     });
 
     it('should throw ArgumentInvalidException if connection string is too short', () => {
-      const props: DbConnectionConfigProps = { connectionString: shortConnectionString };
-      expect(() => new DbConnectionConfigVO(props)).toThrow(ArgumentInvalidException);
-      expect(() => new DbConnectionConfigVO(props)).toThrow('Connection string seems too short to be valid.');
+      const props: DbConnectionConfigProps = {
+        connectionString: shortConnectionString,
+      };
+      expect(() => new DbConnectionConfigVO(props)).toThrow(
+        ArgumentInvalidException
+      );
+      expect(() => new DbConnectionConfigVO(props)).toThrow(
+        'Connection string seems too short to be valid.'
+      );
     });
   });
 
@@ -48,7 +68,9 @@ describe('DbConnectionConfigVO', () => {
 
     it('should not be equal to another DbConnectionConfigVO with a different connection string', () => {
       const configVo1 = DbConnectionConfigVO.create(validConnectionString);
-      const configVo2 = DbConnectionConfigVO.create('postgresql://another:string@host/db');
+      const configVo2 = DbConnectionConfigVO.create(
+        'postgresql://another:string@host/db'
+      );
       expect(configVo1.equals(configVo2)).toBe(false);
     });
 
@@ -61,7 +83,9 @@ describe('DbConnectionConfigVO', () => {
 
   describe('unpack', () => {
     it('should return the props object when unpacked', () => {
-      const props: DbConnectionConfigProps = { connectionString: validConnectionString };
+      const props: DbConnectionConfigProps = {
+        connectionString: validConnectionString,
+      };
       const configVo = new DbConnectionConfigVO(props);
       // Como DbConnectionConfigProps no es un primitivo, unpack() devuelve el objeto de props
       expect(configVo.unpack()).toEqual(props);

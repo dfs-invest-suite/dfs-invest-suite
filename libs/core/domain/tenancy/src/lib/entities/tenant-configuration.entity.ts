@@ -1,6 +1,9 @@
 // libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts
 // CAMBIO: Importar AggregateRoot en lugar de solo Entity
-import { AggregateRoot, CreateEntityProps } from '@dfs-suite/core-domain-shared-kernel-entities';
+import {
+  AggregateRoot,
+  CreateEntityProps,
+} from '@dfs-suite/core-domain-shared-kernel-entities';
 import { ArgumentNotProvidedException } from '@dfs-suite/shared-errors';
 import { AggregateId, TenantId } from '@dfs-suite/shared-types';
 import { Guard, UuidUtils } from '@dfs-suite/shared-utils';
@@ -26,15 +29,24 @@ export class TenantConfigurationEntity extends AggregateRoot<TenantConfiguration
     super(createEntityProps);
   }
 
-  public static create(props: CreateTenantConfigurationProps, id?: AggregateId): TenantConfigurationEntity {
+  public static create(
+    props: CreateTenantConfigurationProps,
+    id?: AggregateId
+  ): TenantConfigurationEntity {
     if (Guard.isEmpty(props.tenantId)) {
-      throw new ArgumentNotProvidedException('tenantId cannot be empty for TenantConfiguration.');
+      throw new ArgumentNotProvidedException(
+        'tenantId cannot be empty for TenantConfiguration.'
+      );
     }
     if (Guard.isEmpty(props.key?.trim())) {
-      throw new ArgumentNotProvidedException('Configuration key cannot be empty.');
+      throw new ArgumentNotProvidedException(
+        'Configuration key cannot be empty.'
+      );
     }
     if (Guard.isNil(props.value)) {
-      throw new ArgumentNotProvidedException('Configuration value cannot be null or undefined.');
+      throw new ArgumentNotProvidedException(
+        'Configuration value cannot be null or undefined.'
+      );
     }
 
     const configId = id || UuidUtils.generateAggregateId();
@@ -66,7 +78,9 @@ export class TenantConfigurationEntity extends AggregateRoot<TenantConfiguration
 
   public updateValue(newValue: string): void {
     if (Guard.isNil(newValue)) {
-      throw new ArgumentNotProvidedException('New configuration value cannot be null or undefined.');
+      throw new ArgumentNotProvidedException(
+        'New configuration value cannot be null or undefined.'
+      );
     }
     if (this.props.value === newValue) {
       return;
@@ -88,13 +102,19 @@ export class TenantConfigurationEntity extends AggregateRoot<TenantConfiguration
 
   public validate(): void {
     if (Guard.isEmpty(this.props.tenantId)) {
-      throw new ArgumentNotProvidedException('TenantConfigurationEntity: tenantId is required.');
+      throw new ArgumentNotProvidedException(
+        'TenantConfigurationEntity: tenantId is required.'
+      );
     }
     if (Guard.isEmpty(this.props.key)) {
-      throw new ArgumentNotProvidedException('TenantConfigurationEntity: key is required.');
+      throw new ArgumentNotProvidedException(
+        'TenantConfigurationEntity: key is required.'
+      );
     }
     if (Guard.isNil(this.props.value)) {
-      throw new ArgumentNotProvidedException('TenantConfigurationEntity: value is required (cannot be null/undefined).');
+      throw new ArgumentNotProvidedException(
+        'TenantConfigurationEntity: value is required (cannot be null/undefined).'
+      );
     }
   }
 }

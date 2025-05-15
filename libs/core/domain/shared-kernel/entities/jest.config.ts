@@ -1,4 +1,3 @@
-
 export default {
   displayName: 'entities',
   preset: '../../../../../jest.preset.js',

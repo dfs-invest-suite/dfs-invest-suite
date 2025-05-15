@@ -18,7 +18,8 @@ export const queryClientConfig = {
     queries: {
       staleTime: 1000 * 60 * 5,
       refetchOnWindowFocus: process.env.NODE_ENV === 'production',
-      retry: (failureCount: number, error: unknown) => { // CAMBIO: error de 'any' a 'unknown'
+      retry: (failureCount: number, error: unknown) => {
+        // CAMBIO: error de 'any' a 'unknown'
         // Verificar si es un error con estructura HTTP
         if (
           typeof error === 'object' &&

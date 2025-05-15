@@ -4,8 +4,8 @@ import { ArgumentInvalidException } from '@dfs-suite/shared-errors';
 
 export enum TenantStatusEnum {
   PENDING_SETUP = 'PENDING_SETUP', // El tenant está creado pero esperando configuración inicial (ej. DB, WhatsApp)
-  ACTIVE = 'ACTIVE',               // El tenant está completamente operativo.
-  SUSPENDED = 'SUSPENDED',         // El tenant ha sido suspendido temporalmente (ej. por pago, violación de términos).
+  ACTIVE = 'ACTIVE', // El tenant está completamente operativo.
+  SUSPENDED = 'SUSPENDED', // El tenant ha sido suspendido temporalmente (ej. por pago, violación de términos).
   // CONSIDERAR: ARCHIVED = 'ARCHIVED', // Para tenants que ya no están activos pero cuya data se quiere conservar.
   // CONSIDERAR: DELETED = 'DELETED',   // Si se implementa soft-delete para tenants.
 }
@@ -35,7 +35,9 @@ export class TenantStatusVO extends ValueObject<TenantStatusEnum> {
   protected validate(props: { value: TenantStatusEnum }): void {
     if (!Object.values(TenantStatusEnum).includes(props.value)) {
       throw new ArgumentInvalidException(
-        `Invalid tenant status: "${props.value}". Must be one of [${Object.values(TenantStatusEnum).join(', ')}]`
+        `Invalid tenant status: "${
+          props.value
+        }". Must be one of [${Object.values(TenantStatusEnum).join(', ')}]`
       );
     }
   }

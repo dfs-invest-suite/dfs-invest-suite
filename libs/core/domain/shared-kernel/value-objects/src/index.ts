@@ -1,6 +1,13 @@
 // libs/core/domain/shared-kernel/value-objects/src/index.ts
-export { ValueObject, type Primitives, type IDomainPrimitive } from './lib/value-object.base';
-export { IsoDateStringVO, type IsoDateStringVOProps } from './lib/iso-date-string.vo'; // NUEVA EXPORTACIÓN
+export {
+  ValueObject,
+  type Primitives,
+  type IDomainPrimitive,
+} from './lib/value-object.base';
+export {
+  IsoDateStringVO,
+  type IsoDateStringVOProps,
+} from './lib/iso-date-string.vo'; // NUEVA EXPORTACIÓN
 
 // libs/core/domain/shared-kernel/value-objects/src/index.ts
 /* SECCIÓN DE MEJORAS (Actualizada)

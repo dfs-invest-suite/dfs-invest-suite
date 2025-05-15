@@ -3,7 +3,10 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 import { IsoDateStringVO } from './iso-date-string.vo';
-import { ArgumentInvalidException, ArgumentNotProvidedException } from '@dfs-suite/shared-errors';
+import {
+  ArgumentInvalidException,
+  ArgumentNotProvidedException,
+} from '@dfs-suite/shared-errors';
 import { IsoDateString } from '@dfs-suite/shared-types'; // Correcta importación
 
 describe('IsoDateStringVO', () => {
@@ -29,7 +32,9 @@ describe('IsoDateStringVO', () => {
 
     it('should throw ArgumentInvalidException for an invalid format (no T)', () => {
       const invalidIso = '2023-10-27 10:30:00Z';
-      expect(() => IsoDateStringVO.create(invalidIso)).toThrow(ArgumentInvalidException);
+      expect(() => IsoDateStringVO.create(invalidIso)).toThrow(
+        ArgumentInvalidException
+      );
       expect(() => IsoDateStringVO.create(invalidIso)).toThrow(
         /Value "2023-10-27 10:30:00Z" is not a valid ISO 8601 date string format./
       );
@@ -48,7 +53,9 @@ describe('IsoDateStringVO', () => {
 
     it('should throw ArgumentNotProvidedException for an empty string (caught by ValueObjectBase)', () => {
       // ValueObjectBase.checkIfEmpty se llama primero y lanza ArgumentNotProvidedException
-      expect(() => IsoDateStringVO.create('')).toThrow(ArgumentNotProvidedException);
+      expect(() => IsoDateStringVO.create('')).toThrow(
+        ArgumentNotProvidedException
+      );
       // El mensaje viene de ValueObjectBase
       expect(() => IsoDateStringVO.create('')).toThrow(
         /IsoDateStringVO props cannot be empty/ // Ajustar si el mensaje de ValueObjectBase es diferente
@@ -65,11 +72,15 @@ describe('IsoDateStringVO', () => {
     });
 
     it('should throw ArgumentInvalidException if Date object is null', () => {
-      expect(() => IsoDateStringVO.fromDate(null as unknown as Date)).toThrow(ArgumentInvalidException);
+      expect(() => IsoDateStringVO.fromDate(null as unknown as Date)).toThrow(
+        ArgumentInvalidException
+      );
     });
 
     it('should throw ArgumentInvalidException if Date object is invalid (e.g., from new Date("invalid"))', () => {
-      expect(() => IsoDateStringVO.fromDate(new Date('invalid-date-string'))).toThrow(ArgumentInvalidException);
+      expect(() =>
+        IsoDateStringVO.fromDate(new Date('invalid-date-string'))
+      ).toThrow(ArgumentInvalidException);
     });
   });
 

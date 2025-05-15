@@ -21,6 +21,6 @@ export const UserIdSchema = UuidSchema.brand<'UserId'>();
 export const AggregateIdSchema = UuidSchema.brand<'AggregateId'>();
 
 export const IsoDateStringSchema = z
-    .string()
-    .datetime({ message: 'Invalid ISO date string format' })
-    .brand<'IsoDateString'>();
+  .string()
+  .datetime({ message: 'Invalid ISO date string format' })
+  .brand<'IsoDateString'>();

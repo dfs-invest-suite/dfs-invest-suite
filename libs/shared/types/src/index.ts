@@ -23,7 +23,10 @@
 
 // Estructuras de datos comunes para API y paginación
 export { type IApiResponse } from './lib/api-response.interface';
-export { type IPaginatedQueryParams, type IPaginated } from './lib/paginated.interface';
+export {
+  type IPaginatedQueryParams,
+  type IPaginated,
+} from './lib/paginated.interface';
 
 // Tipos primitivos "brandeados"
 export {

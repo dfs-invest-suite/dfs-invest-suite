@@ -3,7 +3,9 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 import { ArgumentNotProvidedException } from '@dfs-suite/shared-errors';
-import { TenantId /*, AggregateId -> No usado directamente */ } from '@dfs-suite/shared-types';
+import {
+  TenantId /*, AggregateId -> No usado directamente */,
+} from '@dfs-suite/shared-types';
 import { UuidUtils } from '@dfs-suite/shared-utils';
 import { TenantConfigurationEntity } from './tenant-configuration.entity';
 
@@ -58,44 +60,68 @@ describe('TenantConfigurationEntity', () => {
     });
 
     it('should set description to undefined if provided as null', () => {
-      const propsWithNullDesc = { ...validProps, description: null as unknown as undefined };
+      const propsWithNullDesc = {
+        ...validProps,
+        description: null as unknown as undefined,
+      };
       const config = TenantConfigurationEntity.create(propsWithNullDesc);
       expect(config.description).toBeUndefined();
     });
 
     it('should set description to undefined if provided as an empty or whitespace-only string', () => {
-      let config = TenantConfigurationEntity.create({ ...validProps, description: '' });
+      let config = TenantConfigurationEntity.create({
+        ...validProps,
+        description: '',
+      });
       expect(config.description).toBeUndefined();
-      config = TenantConfigurationEntity.create({ ...validProps, description: '   ' });
+      config = TenantConfigurationEntity.create({
+        ...validProps,
+        description: '   ',
+      });
       expect(config.description).toBeUndefined();
     });
 
     it('should throw ArgumentNotProvidedException if tenantId is empty', () => {
       const invalidProps = { ...validProps, tenantId: '' as TenantId };
-      expect(() => TenantConfigurationEntity.create(invalidProps)).toThrow(ArgumentNotProvidedException);
+      expect(() => TenantConfigurationEntity.create(invalidProps)).toThrow(
+        ArgumentNotProvidedException
+      );
     });
 
     it('should throw ArgumentNotProvidedException if key is empty', () => {
       const invalidProps = { ...validProps, key: '' };
-      expect(() => TenantConfigurationEntity.create(invalidProps)).toThrow(ArgumentNotProvidedException);
+      expect(() => TenantConfigurationEntity.create(invalidProps)).toThrow(
+        ArgumentNotProvidedException
+      );
     });
 
     it('should throw ArgumentNotProvidedException if key is only whitespace', () => {
       const invalidProps = { ...validProps, key: '   ' };
-      expect(() => TenantConfigurationEntity.create(invalidProps)).toThrow(ArgumentNotProvidedException);
+      expect(() => TenantConfigurationEntity.create(invalidProps)).toThrow(
+        ArgumentNotProvidedException
+      );
     });
 
     it('should throw ArgumentNotProvidedException if value is null', () => {
-      const propsWithNullValue = { ...validProps, value: null as unknown as string };
-      expect(() => TenantConfigurationEntity.create(propsWithNullValue)).toThrow(ArgumentNotProvidedException);
+      const propsWithNullValue = {
+        ...validProps,
+        value: null as unknown as string,
+      };
+      expect(() =>
+        TenantConfigurationEntity.create(propsWithNullValue)
+      ).toThrow(ArgumentNotProvidedException);
     });
 
     it('should throw ArgumentNotProvidedException if value is undefined', () => {
-      const propsWithUndefinedValue = { ...validProps, value: undefined as unknown as string };
-      expect(() => TenantConfigurationEntity.create(propsWithUndefinedValue)).toThrow(ArgumentNotProvidedException);
+      const propsWithUndefinedValue = {
+        ...validProps,
+        value: undefined as unknown as string,
+      };
+      expect(() =>
+        TenantConfigurationEntity.create(propsWithUndefinedValue)
+      ).toThrow(ArgumentNotProvidedException);
     });
   });
-
 
   describe('updateValue', () => {
     it('should update the value and updatedAt timestamp when new value is different', () => {
@@ -103,7 +129,9 @@ describe('TenantConfigurationEntity', () => {
       const initialUpdatedAt = config.updatedAt;
       const newValue = 'new_secret_value_for_api_key';
 
-      jest.useFakeTimers().setSystemTime(new Date(initialUpdatedAt).getTime() + 5000);
+      jest
+        .useFakeTimers()
+        .setSystemTime(new Date(initialUpdatedAt).getTime() + 5000);
       config.updateValue(newValue);
       jest.useRealTimers();
 
@@ -112,16 +140,18 @@ describe('TenantConfigurationEntity', () => {
     });
 
     it('should not update updatedAt timestamp if the new value is the same as the old value', () => {
-        const config = TenantConfigurationEntity.create(validProps);
-        const initialUpdatedAt = config.updatedAt;
-        config.updateValue(validProps.value);
-        expect(config.updatedAt).toBe(initialUpdatedAt);
+      const config = TenantConfigurationEntity.create(validProps);
+      const initialUpdatedAt = config.updatedAt;
+      config.updateValue(validProps.value);
+      expect(config.updatedAt).toBe(initialUpdatedAt);
     });
 
     it('should allow updating value to an empty string', () => {
       const config = TenantConfigurationEntity.create(validProps);
       const initialUpdatedAt = config.updatedAt;
-      jest.useFakeTimers().setSystemTime(new Date(initialUpdatedAt).getTime() + 5000);
+      jest
+        .useFakeTimers()
+        .setSystemTime(new Date(initialUpdatedAt).getTime() + 5000);
       config.updateValue('');
       jest.useRealTimers();
       expect(config.value).toBe('');
@@ -132,51 +162,61 @@ describe('TenantConfigurationEntity', () => {
       const config = TenantConfigurationEntity.create(validProps);
       // Usar un cast más específico que `any` si es posible, o mantener `any` si es la única forma
       // de probar la lógica de validación interna que espera un string.
-      expect(() => config.updateValue(null as unknown as string)).toThrow(ArgumentNotProvidedException);
+      expect(() => config.updateValue(null as unknown as string)).toThrow(
+        ArgumentNotProvidedException
+      );
     });
 
     it('should throw ArgumentNotProvidedException if new value for update is undefined', () => {
       const config = TenantConfigurationEntity.create(validProps);
-      expect(() => config.updateValue(undefined as unknown as string)).toThrow(ArgumentNotProvidedException);
+      expect(() => config.updateValue(undefined as unknown as string)).toThrow(
+        ArgumentNotProvidedException
+      );
     });
   });
 
   // ... (resto de los tests sin cambios)
   describe('updateDescription', () => {
     it('should not update updatedAt if the new description is undefined and old was also undefined', () => {
-        const configNoDesc = TenantConfigurationEntity.create({...validProps, description: undefined });
-        const initialUpdatedAtNoDesc = configNoDesc.updatedAt;
-        configNoDesc.updateDescription(undefined);
-        expect(configNoDesc.updatedAt).toBe(initialUpdatedAtNoDesc);
+      const configNoDesc = TenantConfigurationEntity.create({
+        ...validProps,
+        description: undefined,
+      });
+      const initialUpdatedAtNoDesc = configNoDesc.updatedAt;
+      configNoDesc.updateDescription(undefined);
+      expect(configNoDesc.updatedAt).toBe(initialUpdatedAtNoDesc);
     });
   });
 
   describe('validate (method of EntityBase, called by constructor)', () => {
     it('should have its specific validate method called by EntityBase constructor', () => {
-        const validateSpy = jest.spyOn(TenantConfigurationEntity.prototype, 'validate');
-        TenantConfigurationEntity.create(validProps);
-        expect(validateSpy).toHaveBeenCalled();
-        validateSpy.mockRestore();
+      const validateSpy = jest.spyOn(
+        TenantConfigurationEntity.prototype,
+        'validate'
+      );
+      TenantConfigurationEntity.create(validProps);
+      expect(validateSpy).toHaveBeenCalled();
+      validateSpy.mockRestore();
     });
 
     it('validate method should throw if key is empty after direct props manipulation (hypothetical)', () => {
-        expect(() => {
-            const invalidConfig = TenantConfigurationEntity.create(validProps);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (invalidConfig as any).props.key = '';
-            invalidConfig.validate();
-        }).toThrow('TenantConfigurationEntity: key is required.');
+      expect(() => {
+        const invalidConfig = TenantConfigurationEntity.create(validProps);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (invalidConfig as any).props.key = '';
+        invalidConfig.validate();
+      }).toThrow('TenantConfigurationEntity: key is required.');
     });
   });
 
   describe('getters', () => {
     it('should return correct values through getters', () => {
-        const config = TenantConfigurationEntity.create(validProps, mockConfigId);
-        expect(config.id).toBe(mockConfigId);
-        expect(config.tenantId).toBe(validProps.tenantId);
-        expect(config.key).toBe(validProps.key);
-        expect(config.value).toBe(validProps.value);
-        expect(config.description).toBe(validProps.description);
+      const config = TenantConfigurationEntity.create(validProps, mockConfigId);
+      expect(config.id).toBe(mockConfigId);
+      expect(config.tenantId).toBe(validProps.tenantId);
+      expect(config.key).toBe(validProps.key);
+      expect(config.value).toBe(validProps.value);
+      expect(config.description).toBe(validProps.description);
     });
   });
 });

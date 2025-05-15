@@ -3,7 +3,12 @@
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/core/domain/tenancy/src",
   "projectType": "library",
-  "tags": ["scope:core-domain", "type:domain-logic", "layer:domain", "domain:tenancy"],
+  "tags": [
+    "scope:core-domain",
+    "type:domain-logic",
+    "layer:domain",
+    "domain:tenancy"
+  ],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",

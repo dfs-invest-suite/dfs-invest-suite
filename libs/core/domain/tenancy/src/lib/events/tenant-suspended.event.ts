@@ -1,5 +1,8 @@
 // libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts
-import { DomainEventBase, DomainEventProps } from '@dfs-suite/core-domain-shared-kernel-events';
+import {
+  DomainEventBase,
+  DomainEventProps,
+} from '@dfs-suite/core-domain-shared-kernel-events';
 // AggregateId, CorrelationId, etc., se infieren a través de DomainEventProps
 
 /**

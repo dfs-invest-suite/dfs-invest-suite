@@ -7,9 +7,10 @@ import { IsoDateString as IsoDateStringType } from '@dfs-suite/shared-types';
 import { ArgumentInvalidException } from '@dfs-suite/shared-errors';
 import { Guard } from '@dfs-suite/shared-utils';
 
-const ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|([+-]\d{2}(:?\d{2})?))$/;
+const ISO_8601_REGEX =
+  /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|([+-]\d{2}(:?\d{2})?))$/;
 
-export type IsoDateStringVOProps = IDomainPrimitive<IsoDateStringType>
+export type IsoDateStringVOProps = IDomainPrimitive<IsoDateStringType>;
 
 /**
  * @class IsoDateStringVO
@@ -40,11 +41,14 @@ export class IsoDateStringVO extends ValueObject<IsoDateStringType> {
    * por el comportamiento de `new Date()` de JavaScript.
    */
   protected validate(props: { value: IsoDateStringType }): void {
-    if (Guard.isNil(props.value) || Guard.isEmpty(props.value)) { // isEmpty también trimea y verifica string vacío
+    if (Guard.isNil(props.value) || Guard.isEmpty(props.value)) {
+      // isEmpty también trimea y verifica string vacío
       // Esta validación es redundante si ValueObjectBase.checkIfEmpty ya lo hace,
       // pero se mantiene aquí para claridad del contrato específico de IsoDateStringVO.
       // Si checkIfEmpty de la base lanza ArgumentNotProvidedException, esta no se alcanzaría.
-      throw new ArgumentInvalidException('ISO date string cannot be empty or null/undefined.');
+      throw new ArgumentInvalidException(
+        'ISO date string cannot be empty or null/undefined.'
+      );
     }
     if (!ISO_8601_REGEX.test(props.value)) {
       throw new ArgumentInvalidException(
@@ -85,8 +89,14 @@ export class IsoDateStringVO extends ValueObject<IsoDateStringType> {
    * @returns {IsoDateStringVO} Una nueva instancia de IsoDateStringVO.
    */
   public static fromDate(dateObject: Date): IsoDateStringVO {
-    if (Guard.isNil(dateObject) || !(dateObject instanceof Date) || isNaN(dateObject.getTime())) {
-        throw new ArgumentInvalidException('A valid Date object must be provided to create IsoDateStringVO from Date.');
+    if (
+      Guard.isNil(dateObject) ||
+      !(dateObject instanceof Date) ||
+      isNaN(dateObject.getTime())
+    ) {
+      throw new ArgumentInvalidException(
+        'A valid Date object must be provided to create IsoDateStringVO from Date.'
+      );
     }
     const isoString = dateObject.toISOString() as IsoDateStringType;
     return new IsoDateStringVO({ value: isoString });

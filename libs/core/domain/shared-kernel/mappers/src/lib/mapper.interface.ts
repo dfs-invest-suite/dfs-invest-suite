@@ -2,7 +2,11 @@
 import { Entity } from '@dfs-suite/core-domain-shared-kernel-entities'; // Se resolverá
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export interface IMapper<DomainEntity extends Entity<any>, PersistenceModel, ResponseDto = any> {
+export interface IMapper<
+  DomainEntity extends Entity<any>,
+  PersistenceModel,
+  ResponseDto = any
+> {
   toDomain(persistenceModel: PersistenceModel): DomainEntity;
   toPersistence(domainEntity: DomainEntity): PersistenceModel;
   toResponse?(domainEntity: DomainEntity): ResponseDto;

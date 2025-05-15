@@ -67,12 +67,14 @@ monorepo/
 Las librerías de dominio contienen la lógica de negocio y son independientes de tecnologías específicas.
 
 #### Características Clave:
+
 - No dependen de ninguna otra capa
 - Contienen entidades, value objects, servicios de dominio, y definiciones de puertos (interfaces)
 - No incluyen implementaciones concretas de bases de datos, APIs externas, etc.
 - Generalmente no requieren dependencias de paquetes externos complejos
 
 #### Estructura Interna Recomendada:
+
 ```
 domain/
 ├── entities/        # Objetos con identidad
@@ -90,12 +92,14 @@ domain/
 Orquestan los casos de uso de la aplicación utilizando la lógica del dominio.
 
 #### Características Clave:
+
 - Implementan puertos de entrada (input ports)
 - Dependen solo del dominio
 - Coordinan flujos de trabajo utilizando servicios de dominio
 - Mantienen la independencia de tecnologías específicas
 
 #### Estructura Interna Recomendada:
+
 ```
 application/
 ├── use-cases/       # Implementación de casos de uso específicos
@@ -111,11 +115,13 @@ application/
 Contienen implementaciones concretas que conectan la aplicación con sistemas externos.
 
 #### Características Clave:
+
 - Implementan puertos de salida (output ports) del dominio
 - Contienen adaptadores para bases de datos, APIs externas, sistemas de mensajería, etc.
 - Dependen de frameworks y librerías específicas
 
 #### Estructura Interna Recomendada:
+
 ```
 infrastructure/
 ├── adapters/               # Implementaciones de puertos
@@ -133,12 +139,14 @@ infrastructure/
 Contienen código reutilizable en múltiples dominios.
 
 #### Características Clave:
+
 - Utilidades técnicas sin lógica de negocio específica
 - Componentes de UI reutilizables (en aplicaciones frontend)
 - Configuraciones comunes
 - No deben contener lógica de dominio específica
 
 #### Estructura Interna Recomendada:
+
 ```
 shared/
 ├── utils/                 # Utilidades genéricas
@@ -174,7 +182,12 @@ NX permite definir y hacer cumplir límites entre proyectos mediante etiquetas (
           },
           {
             "sourceTag": "type:infrastructure",
-            "onlyDependOnLibsWithTags": ["type:domain", "type:application", "type:infrastructure", "type:shared"]
+            "onlyDependOnLibsWithTags": [
+              "type:domain",
+              "type:application",
+              "type:infrastructure",
+              "type:shared"
+            ]
           },
           {
             "sourceTag": "type:shared",
@@ -182,7 +195,12 @@ NX permite definir y hacer cumplir límites entre proyectos mediante etiquetas (
           },
           {
             "sourceTag": "type:app",
-            "onlyDependOnLibsWithTags": ["type:domain", "type:application", "type:infrastructure", "type:shared"]
+            "onlyDependOnLibsWithTags": [
+              "type:domain",
+              "type:application",
+              "type:infrastructure",
+              "type:shared"
+            ]
           }
         ]
       }
@@ -221,7 +239,12 @@ Se pueden combinar múltiples dimensiones de tags para un control más granular:
           },
           {
             "sourceTag": "type:infrastructure",
-            "onlyDependOnLibsWithTags": ["type:domain", "type:application", "type:infrastructure", "type:shared"]
+            "onlyDependOnLibsWithTags": [
+              "type:domain",
+              "type:application",
+              "type:infrastructure",
+              "type:shared"
+            ]
           }
         ]
       }

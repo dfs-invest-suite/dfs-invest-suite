@@ -67,7 +67,7 @@ Thumbs.db
 
 # Custom Project Specific Ignores
 # ----------------------------------------------------------------------
-.docs/ # Ignorar la carpeta .docs
+.docs/
 
 # Next.js
 .next

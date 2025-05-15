@@ -18,9 +18,8 @@ jest.mock('framer-motion', () => {
         style,
         'data-testid': dataTestId, // Capturar el data-testid pasado como prop
         ...props
-      }:  
-      any,
-      ref: any  
+      }: any,
+      ref: any
     ) => (
       <div
         ref={ref}

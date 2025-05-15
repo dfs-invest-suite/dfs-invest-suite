@@ -19,7 +19,7 @@ export abstract class ExceptionBase extends Error {
     message: string,
     readonly cause?: Error,
     metadata?: ObjectLiteral,
-    correlationId?: CorrelationId,
+    correlationId?: CorrelationId
   ) {
     super(message);
     Object.setPrototypeOf(this, new.target.prototype);

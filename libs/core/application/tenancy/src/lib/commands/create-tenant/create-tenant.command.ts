@@ -1,5 +1,8 @@
 // libs/core/application/tenancy/src/lib/commands/create-tenant/create-tenant.command.ts
-import { CommandBase, ICommandMetadata } from '@dfs-suite/core-domain-shared-kernel-commands-queries';
+import {
+  CommandBase,
+  ICommandMetadata,
+} from '@dfs-suite/core-domain-shared-kernel-commands-queries';
 import { Maybe } from '@dfs-suite/shared-types';
 
 export interface CreateTenantCommandPayload {
@@ -8,12 +11,18 @@ export interface CreateTenantCommandPayload {
   readonly planId?: Maybe<string>;
 }
 
-export class CreateTenantCommand extends CommandBase implements CreateTenantCommandPayload {
+export class CreateTenantCommand
+  extends CommandBase
+  implements CreateTenantCommandPayload
+{
   readonly name: string;
   readonly ownerEmail: string;
   readonly planId?: Maybe<string>;
 
-  constructor(payload: CreateTenantCommandPayload, metadata?: Partial<ICommandMetadata>) {
+  constructor(
+    payload: CreateTenantCommandPayload,
+    metadata?: Partial<ICommandMetadata>
+  ) {
     super(metadata);
     this.name = payload.name;
     this.ownerEmail = payload.ownerEmail;

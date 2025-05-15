@@ -3,75 +3,76 @@ On branch main
 Your branch is up to date with 'origin/main'.
 
 Changes not staged for commit:
-  (use "git add/rm <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        deleted:    .docs/PROYETO-OFICIAL-DESARROLLO.md
-        modified:   .docs/comandos-nx.md
-        modified:   .nx/workspace-data/80a9aed0-0268-4c44-8f81-db4889a2eeaa.db
-        modified:   .nx/workspace-data/eslint-2654242865465226088.hash
-        modified:   .nx/workspace-data/file-map.json
-        modified:   .nx/workspace-data/jest-7930610538513362720.hash
-        modified:   .nx/workspace-data/lockfile.hash
-        modified:   .nx/workspace-data/nx_files.nxt
-        modified:   .nx/workspace-data/parsed-lock-file.json
-        modified:   .nx/workspace-data/project-graph.json
-        modified:   .nx/workspace-data/source-maps.json
-        modified:   .nx/workspace-data/webpack-5621830741124012108.hash
-        modified:   README.md
-        deleted:    apps/dfs-invest-suite-e2e/eslint.config.mjs
-        deleted:    apps/dfs-invest-suite-e2e/jest.config.ts
-        deleted:    apps/dfs-invest-suite-e2e/project.json
-        deleted:    apps/dfs-invest-suite-e2e/src/dfs-invest-suite/dfs-invest-suite.spec.ts
-        deleted:    apps/dfs-invest-suite-e2e/src/support/global-setup.ts
-        deleted:    apps/dfs-invest-suite-e2e/src/support/global-teardown.ts
-        deleted:    apps/dfs-invest-suite-e2e/src/support/test-setup.ts
-        deleted:    apps/dfs-invest-suite-e2e/tsconfig.json
-        deleted:    apps/dfs-invest-suite-e2e/tsconfig.spec.json
-        deleted:    apps/dfs-invest-suite/eslint.config.mjs
-        deleted:    apps/dfs-invest-suite/jest.config.ts
-        deleted:    apps/dfs-invest-suite/project.json
-        deleted:    apps/dfs-invest-suite/src/app/app.controller.spec.ts
-        deleted:    apps/dfs-invest-suite/src/app/app.controller.ts
-        deleted:    apps/dfs-invest-suite/src/app/app.module.ts
-        deleted:    apps/dfs-invest-suite/src/app/app.service.spec.ts
-        deleted:    apps/dfs-invest-suite/src/app/app.service.ts
-        deleted:    apps/dfs-invest-suite/src/assets/.gitkeep
-        deleted:    apps/dfs-invest-suite/src/main.ts
-        deleted:    apps/dfs-invest-suite/tsconfig.app.json
-        deleted:    apps/dfs-invest-suite/tsconfig.json
-        deleted:    apps/dfs-invest-suite/tsconfig.spec.json
-        deleted:    apps/dfs-invest-suite/webpack.config.js
-        modified:   eslint.config.mjs
-        modified:   nx.json
-        modified:   package.json
-        modified:   pnpm-lock.yaml
-        modified:   tsconfig.base.json
+(use "git add/rm <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+deleted: .docs/PROYETO-OFICIAL-DESARROLLO.md
+modified: .docs/comandos-nx.md
+modified: .nx/workspace-data/80a9aed0-0268-4c44-8f81-db4889a2eeaa.db
+modified: .nx/workspace-data/eslint-2654242865465226088.hash
+modified: .nx/workspace-data/file-map.json
+modified: .nx/workspace-data/jest-7930610538513362720.hash
+modified: .nx/workspace-data/lockfile.hash
+modified: .nx/workspace-data/nx_files.nxt
+modified: .nx/workspace-data/parsed-lock-file.json
+modified: .nx/workspace-data/project-graph.json
+modified: .nx/workspace-data/source-maps.json
+modified: .nx/workspace-data/webpack-5621830741124012108.hash
+modified: README.md
+deleted: apps/dfs-invest-suite-e2e/eslint.config.mjs
+deleted: apps/dfs-invest-suite-e2e/jest.config.ts
+deleted: apps/dfs-invest-suite-e2e/project.json
+deleted: apps/dfs-invest-suite-e2e/src/dfs-invest-suite/dfs-invest-suite.spec.ts
+deleted: apps/dfs-invest-suite-e2e/src/support/global-setup.ts
+deleted: apps/dfs-invest-suite-e2e/src/support/global-teardown.ts
+deleted: apps/dfs-invest-suite-e2e/src/support/test-setup.ts
+deleted: apps/dfs-invest-suite-e2e/tsconfig.json
+deleted: apps/dfs-invest-suite-e2e/tsconfig.spec.json
+deleted: apps/dfs-invest-suite/eslint.config.mjs
+deleted: apps/dfs-invest-suite/jest.config.ts
+deleted: apps/dfs-invest-suite/project.json
+deleted: apps/dfs-invest-suite/src/app/app.controller.spec.ts
+deleted: apps/dfs-invest-suite/src/app/app.controller.ts
+deleted: apps/dfs-invest-suite/src/app/app.module.ts
+deleted: apps/dfs-invest-suite/src/app/app.service.spec.ts
+deleted: apps/dfs-invest-suite/src/app/app.service.ts
+deleted: apps/dfs-invest-suite/src/assets/.gitkeep
+deleted: apps/dfs-invest-suite/src/main.ts
+deleted: apps/dfs-invest-suite/tsconfig.app.json
+deleted: apps/dfs-invest-suite/tsconfig.json
+deleted: apps/dfs-invest-suite/tsconfig.spec.json
+deleted: apps/dfs-invest-suite/webpack.config.js
+modified: eslint.config.mjs
+modified: nx.json
+modified: package.json
+modified: pnpm-lock.yaml
+modified: tsconfig.base.json
 
 Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        .docs/.BITACORA.md
-        .docs/.DEUDA-TECNICA.md
-        .docs/.PROYETO-OFICIAL-DESARROLLO.md
-        .docs/.ROADMAP.md
-        .docs/1-prompt-hidratacion.md
-        .docs/Arquitectura-hexagonal-2025.md
-        .nx/workspace-data/80a9aed0-0268-4c44-8f81-db4889a2eeaa.db-shm
-        .nx/workspace-data/80a9aed0-0268-4c44-8f81-db4889a2eeaa.db-wal
-        .nx/workspace-data/d/
-        apps/api-main-e2e/
-        apps/api-main/
-        eslint.config copy-1.mjs.md
-        eslint.config copy-2.mjs.md
-        libs/
+(use "git add <file>..." to include in what will be committed)
+.docs/.BITACORA.md
+.docs/.DEUDA-TECNICA.md
+.docs/.PROYETO-OFICIAL-DESARROLLO.md
+.docs/.ROADMAP.md
+.docs/1-prompt-hidratacion.md
+.docs/Arquitectura-hexagonal-2025.md
+.nx/workspace-data/80a9aed0-0268-4c44-8f81-db4889a2eeaa.db-shm
+.nx/workspace-data/80a9aed0-0268-4c44-8f81-db4889a2eeaa.db-wal
+.nx/workspace-data/d/
+apps/api-main-e2e/
+apps/api-main/
+eslint.config copy-1.mjs.md
+eslint.config copy-2.mjs.md
+libs/
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>
 
 ---
+
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=core-domain-shared-kernel-commands-queries --files="src/lib/commands-queries.ts,src/lib/commands-queries.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs
@@ -97,7 +98,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=core-domain-shared-kernel-entities --files="src/lib/entities.ts,src/lib/entities.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/core/domain/shared-kernel/entities/eslint.config.mjs
@@ -118,7 +119,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=core-domain-shared-kernel-events --files="src/lib/events.ts,src/lib/events.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/core/domain/shared-kernel/events/eslint.config.mjs
@@ -141,7 +142,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=core-domain-shared-kernel-mappers --files="src/lib/mappers.ts,src/lib/mappers.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/core/domain/shared-kernel/mappers/eslint.config.mjs
@@ -161,7 +162,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=core-domain-shared-kernel-ports --files="src/lib/ports.ts,src/lib/ports.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/core/domain/shared-kernel/ports/eslint.config.mjs
@@ -182,7 +183,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=core-domain-shared-kernel-value-objects --files="src/lib/value-objects.ts,src/lib/value-objects.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/core/domain/shared-kernel/value-objects/eslint.config.mjs
@@ -205,7 +206,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=shared-constants --files="src/lib/constants.ts,src/lib/constants.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/shared/constants/eslint.config.mjs
@@ -226,7 +227,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=shared-errors --files="src/lib/errors.ts,src/lib/errors.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/shared/errors/eslint.config.mjs
@@ -248,7 +249,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=shared-result --files="src/lib/result.ts,src/lib/result.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/shared/result/eslint.config.mjs
@@ -269,7 +270,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=shared-types --files="src/lib/types.ts,src/lib/types.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/shared/types/eslint.config.mjs
@@ -295,7 +296,7 @@ UPDATE tsconfig.base.json
 
 C:\Users\VAIO\apps\aaa-proyectos-propios\dfs-invest-flow-container\dfs-invest-suite-container\dfs-invest-suite>pnpm nx g @nx/workspace:remove --project=shared-utils --files="src/lib/utils.ts,src/lib/utils.spec.ts" --forceRemove
 
- NX  Generating @nx/workspace:remove
+NX Generating @nx/workspace:remove
 
 You have passed --forceRemove
 DELETE libs/shared/utils/eslint.config.mjs

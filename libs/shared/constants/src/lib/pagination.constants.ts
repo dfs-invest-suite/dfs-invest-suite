@@ -1,4 +1,3 @@
-
 // libs/shared/constants/src/lib/pagination.constants.ts
 export const DEFAULT_PAGE_LIMIT = 10;
 export const MAX_PAGE_LIMIT = 100;

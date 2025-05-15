@@ -5,7 +5,6 @@
   "projectType": "library",
   "tags": ["scope:shared", "type:constants", "layer:shared"],
   "targets": {
-
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
@@ -14,6 +13,5 @@
         "passWithNoTests": true
       }
     }
-
   }
 }

@@ -25,7 +25,10 @@ export type UserId = CreateDomainId<string, 'UserId'>;
 // --- IDs de Mensajería (Comandos, Queries, Eventos) ---
 export type CommandInstanceId = CreateDomainId<string, 'CommandInstanceId'>;
 export type QueryInstanceId = CreateDomainId<string, 'QueryInstanceId'>;
-export type DomainEventInstanceId = CreateDomainId<string, 'DomainEventInstanceId'>;
+export type DomainEventInstanceId = CreateDomainId<
+  string,
+  'DomainEventInstanceId'
+>;
 
 // --- IDs de Contexto y Trazabilidad ---
 export type CorrelationId = CreateDomainId<string, 'CorrelationId'>;

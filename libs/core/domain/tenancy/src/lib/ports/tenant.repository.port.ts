@@ -8,6 +8,10 @@ import { ExceptionBase } from '@dfs-suite/shared-errors';
 export const TENANT_REPOSITORY_PORT = Symbol('TENANT_REPOSITORY_PORT');
 
 export interface ITenantRepository extends IRepositoryPort<TenantEntity> {
-  findByName(name: string): Promise<Result<Maybe<TenantEntity>, ExceptionBase | Error>>;
-  findByOwnerUserId(ownerUserId: UserId): Promise<Result<TenantEntity[], ExceptionBase | Error>>;
+  findByName(
+    name: string
+  ): Promise<Result<Maybe<TenantEntity>, ExceptionBase | Error>>;
+  findByOwnerUserId(
+    ownerUserId: UserId
+  ): Promise<Result<TenantEntity[], ExceptionBase | Error>>;
 }

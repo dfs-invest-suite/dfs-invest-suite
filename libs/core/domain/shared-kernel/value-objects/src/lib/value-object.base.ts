@@ -8,7 +8,9 @@ export interface IDomainPrimitive<T extends Primitives | Date> {
   value: T;
 }
 
-type ValueObjectPropsType<P> = P extends Primitives | Date ? IDomainPrimitive<P> : P;
+type ValueObjectPropsType<P> = P extends Primitives | Date
+  ? IDomainPrimitive<P>
+  : P;
 
 export abstract class ValueObject<TProps> {
   protected readonly props: Readonly<ValueObjectPropsType<TProps>>;
@@ -30,7 +32,7 @@ export abstract class ValueObject<TProps> {
       return false;
     }
     if (this.constructor.name !== vo.constructor.name) {
-        return false;
+      return false;
     }
     return JSON.stringify(this.props) === JSON.stringify(vo.props);
   }
@@ -62,16 +64,19 @@ export abstract class ValueObject<TProps> {
       (this.isDomainPrimitive(props) && Guard.isEmpty(props.value))
     ) {
       throw new ArgumentNotProvidedException(
-        `${this.constructor.name} props cannot be empty`,
+        `${this.constructor.name} props cannot be empty`
       );
     }
   }
 
   private isDomainPrimitive(
-    obj: unknown,
+    obj: unknown
   ): obj is IDomainPrimitive<TProps & (Primitives | Date)> {
-     
-    return typeof obj === 'object' && obj !== null && Object.prototype.hasOwnProperty.call(obj, 'value');
+    return (
+      typeof obj === 'object' &&
+      obj !== null &&
+      Object.prototype.hasOwnProperty.call(obj, 'value')
+    );
   }
 }
 

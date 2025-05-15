@@ -2,13 +2,19 @@
 import { ExceptionBase } from '@dfs-suite/shared-errors'; // Cambiar a ExceptionBase
 import { CorrelationId, ObjectLiteral } from '@dfs-suite/shared-types';
 
-export const INVALID_TENANT_STATUS_TRANSITION = 'TENANCY.INVALID_TENANT_STATUS_TRANSITION';
+export const INVALID_TENANT_STATUS_TRANSITION =
+  'TENANCY.INVALID_TENANT_STATUS_TRANSITION';
 
 // Heredar directamente de ExceptionBase para poder definir su propio 'code'
 export class InvalidTenantStatusTransitionError extends ExceptionBase {
   public readonly code = INVALID_TENANT_STATUS_TRANSITION; // 'override' ya no es necesario si ExceptionBase.code es abstract
 
-  constructor(message: string, cause?: Error, metadata?: ObjectLiteral, correlationId?: CorrelationId) {
+  constructor(
+    message: string,
+    cause?: Error,
+    metadata?: ObjectLiteral,
+    correlationId?: CorrelationId
+  ) {
     super(message, cause, metadata, correlationId);
   }
 }

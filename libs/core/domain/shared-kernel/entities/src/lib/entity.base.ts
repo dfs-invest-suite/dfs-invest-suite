@@ -1,5 +1,9 @@
 // libs/core/domain/shared-kernel/entities/src/lib/entity.base.ts
-import { ArgumentInvalidException, ArgumentNotProvidedException, ArgumentOutOfRangeException } from '@dfs-suite/shared-errors';
+import {
+  ArgumentInvalidException,
+  ArgumentNotProvidedException,
+  ArgumentOutOfRangeException,
+} from '@dfs-suite/shared-errors';
 import { AggregateId, IsoDateString, Maybe } from '@dfs-suite/shared-types';
 import { Guard } from '@dfs-suite/shared-utils';
 
@@ -22,7 +26,12 @@ export abstract class Entity<EntityProps> {
   protected _updatedAt: Date;
   protected props: EntityProps;
 
-  constructor({ id, props, createdAt, updatedAt }: CreateEntityProps<EntityProps>) {
+  constructor({
+    id,
+    props,
+    createdAt,
+    updatedAt,
+  }: CreateEntityProps<EntityProps>) {
     this.validateId(id);
     this._id = id;
     this.validateProps(props); // Validar antes de asignar
@@ -88,21 +97,23 @@ export abstract class Entity<EntityProps> {
     const MAX_PROPS = 50; // Ejemplo, ajustar según necesidad
 
     if (Guard.isEmpty(props)) {
-      throw new ArgumentNotProvidedException('Entity props should not be empty');
+      throw new ArgumentNotProvidedException(
+        'Entity props should not be empty'
+      );
     }
     if (typeof props !== 'object' || props === null) {
       throw new ArgumentInvalidException('Entity props should be an object');
     }
     if (Object.keys(props as Record<string, unknown>).length > MAX_PROPS) {
       throw new ArgumentOutOfRangeException(
-        `Entity props should not have more than ${MAX_PROPS} properties`,
+        `Entity props should not have more than ${MAX_PROPS} properties`
       );
     }
   }
 
   private validateId(id: AggregateId): void {
     if (Guard.isEmpty(id)) {
-        throw new ArgumentNotProvidedException('Entity ID cannot be empty');
+      throw new ArgumentNotProvidedException('Entity ID cannot be empty');
     }
     // Aquí se podría añadir validación de formato de UUID si es necesario, usando UuidSchema de shared-validation-schemas
   }
