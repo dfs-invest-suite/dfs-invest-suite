@@ -1,0 +1,9 @@
+{
+  "name": "dev-hub",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/dev-hub",
+  "projectType": "application",
+  "tags": ["scope:app", "type:tooling", "layer:presentation", "app:dev-hub"],
+  "// targets": "to see all targets run: nx show project dev-hub --web",
+  "targets": {}
+}

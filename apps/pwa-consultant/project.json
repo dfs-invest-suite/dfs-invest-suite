@@ -1,0 +1,9 @@
+{
+  "name": "pwa-consultant",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pwa-consultant",
+  "projectType": "application",
+  "tags": ["scope:app", "type:pwa", "layer:presentation", "app:pwa-consultant"],
+  "// targets": "to see all targets run: nx show project pwa-consultant --web",
+  "targets": {}
+}

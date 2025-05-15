@@ -1,0 +1,14 @@
+{
+  "name": "guia-investidor",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/guia-investidor",
+  "projectType": "application",
+  "tags": [
+    "scope:app",
+    "type:portal",
+    "layer:presentation",
+    "app:guia-investidor"
+  ],
+  "// targets": "to see all targets run: nx show project guia-investidor --web",
+  "targets": {}
+}

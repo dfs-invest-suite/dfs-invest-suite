@@ -1,0 +1,9 @@
+{
+  "name": "portal-imoveis",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/portal-imoveis",
+  "projectType": "application",
+  "tags": ["scope:app", "type:pwa", "layer:presentation", "app:portal-imoveis"],
+  "// targets": "to see all targets run: nx show project portal-imoveis --web",
+  "targets": {}
+}
