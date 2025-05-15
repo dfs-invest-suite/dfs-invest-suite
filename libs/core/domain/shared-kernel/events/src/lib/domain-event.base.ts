@@ -1,47 +1,51 @@
-// libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
+// RUTA: libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
 // Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 
-import { UuidUtils, Guard } from '@dfs-suite/shared-utils';
-import { IDomainEvent, IDomainEventMetadata } from './domain-event.interface';
+import { ArgumentInvalidException } from '@dfs-suite/shared-errors';
 import {
   AggregateId,
-  CorrelationId,
-  IsoDateString,
-  Maybe,
-  UserId,
+  // CorrelationId, // No es necesario aquí si se usa IOperationMetadataOutput
   DomainEventInstanceId,
-  CommandInstanceId, // Para causationId
 } from '@dfs-suite/shared-types';
-import { ArgumentNotProvidedException, ArgumentInvalidException } from '@dfs-suite/shared-errors';
-// No importar createOperationMetadata para evitar ciclo.
+import {
+  createOperationMetadata,
+  Guard,
+  UuidUtils,
+} from '@dfs-suite/shared-utils'; // Importar createOperationMetadata de su nueva ubicación
+import { IDomainEvent, IDomainEventMetadata } from './domain-event.interface';
+// IsoDateStringSchema ya no es necesario aquí si la factoría lo maneja
 
 export type DomainEventProps<Payload extends Record<string, unknown>> = {
-  aggregateId: AggregateId;
-  payload: Payload;
-  metadata?: Partial<IDomainEventMetadata>; // Usar IDomainEventMetadata aquí
+  readonly aggregateId: AggregateId;
+  readonly payload: Payload;
+  readonly metadata?: Partial<IDomainEventMetadata>; // Partial de la interfaz específica del evento
 };
 
-export abstract class DomainEventBase<Payload extends Record<string, unknown> = Record<string, never>> implements IDomainEvent<Payload> {
-  public readonly id: DomainEventInstanceId;
-  public readonly aggregateId: AggregateId;
-  public readonly eventName: string;
-  public readonly metadata: Readonly<IDomainEventMetadata>;
-  public readonly payload: Readonly<Payload>;
+export abstract class DomainEventBase<
+  Payload extends Record<string, unknown> = Record<string, never>
+> implements IDomainEvent<Payload>
+{
+  readonly id: DomainEventInstanceId;
+  readonly eventName: string;
+  readonly aggregateId: AggregateId;
+  readonly payload: Readonly<Payload>;
+  readonly metadata: Readonly<IDomainEventMetadata>; // Sigue siendo IDomainEventMetadata
 
   protected constructor(props: DomainEventProps<Payload>) {
-    if (Guard.isNil(props) || Guard.isEmpty(props)) {
-      throw new ArgumentNotProvidedException('DomainEvent props should not be empty or null/undefined.');
+    if (Guard.isNil(props)) {
+      throw new ArgumentInvalidException('DomainEvent props cannot be empty');
+    }
+    if (Guard.isEmpty(props.aggregateId)) {
+      throw new ArgumentInvalidException(
+        'DomainEvent aggregateId cannot be empty'
+      );
     }
     if (Guard.isNil(props.payload)) {
-        throw new ArgumentNotProvidedException('DomainEvent payload cannot be null or undefined.');
-    }
-    if (typeof props.payload !== 'object' || Array.isArray(props.payload)) {
-        throw new ArgumentInvalidException('DomainEvent payload must be an object (and not an array).');
-    }
-    if (Guard.isNil(props.aggregateId) || Guard.isEmpty(props.aggregateId) ) {
-        throw new ArgumentNotProvidedException('DomainEvent aggregateId cannot be empty or null/undefined.');
+      throw new ArgumentInvalidException(
+        'DomainEvent payload cannot be null or undefined'
+      );
     }
 
     this.id = UuidUtils.generateDomainEventInstanceId();
@@ -49,43 +53,43 @@ export abstract class DomainEventBase<Payload extends Record<string, unknown> = 
     this.aggregateId = props.aggregateId;
     this.payload = Object.freeze({ ...props.payload });
 
-    // Lógica de metadata local para DomainEventBase
-    const providedCorrelationId = props.metadata?.correlationId;
-    const effectiveCorrelationId =
-      !Guard.isNil(providedCorrelationId) && !Guard.isEmpty(providedCorrelationId)
-        ? providedCorrelationId
-        : UuidUtils.generateCorrelationId();
-
-    const providedUserId = props.metadata?.userId;
-    if (!Guard.isNil(providedUserId) && Guard.isEmpty(providedUserId)) {
-      throw new ArgumentInvalidException(
-        'DomainEvent metadata.userId, if provided, cannot be an empty string.',
-        undefined,
-        { field: 'userId', providedUserId }
-      );
-    }
-
-    const providedCausationId = props.metadata?.causationId;
-     if (!Guard.isNil(providedCausationId) && Guard.isEmpty(providedCausationId as string)) { // Cast a string para isEmpty
-        throw new ArgumentInvalidException(
-            'DomainEvent metadata.causationId, if provided, cannot be an empty string.',
-            undefined,
-            { field: 'causationId', providedCausationId }
-        );
-    }
-
-    const effectiveTimestamp = props.metadata?.timestamp || (new Date().toISOString() as IsoDateString);
-    // Aquí también se podría validar el formato de effectiveTimestamp si viene de props.metadata
-
-    this.metadata = Object.freeze({
-      timestamp: effectiveTimestamp,
-      correlationId: effectiveCorrelationId,
-      causationId: providedCausationId,
-      userId: providedUserId,
-    });
+    // Usar la factoría para crear la metadata
+    // Se asume que IDomainEventMetadata es compatible con IOperationMetadataOutput
+    this.metadata = createOperationMetadata(
+      props.metadata
+    ) as IDomainEventMetadata;
   }
 }
-// libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
+// RUTA: libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Revertido el cambio temporal y uso de `createOperationMetadata` desde `@dfs-suite/shared-utils`.",
+    "justificacion": "Restaura la centralización de la lógica de creación de metadata y elimina la duplicación de código, ahora que la factoría está en una ubicación que no crea ciclos.",
+    "impacto": "Código más limpio, DRY, y los tests de `core-domain-tenancy` deberían seguir pasando."
+  },
+  {
+    "mejora": "Cast a `IDomainEventMetadata`.",
+    "justificacion": "Asegura que `this.metadata` tenga el tipo específico esperado por `IDomainEvent`, asumiendo compatibilidad estructural con `IOperationMetadataOutput`.",
+    "impacto": "Mantiene la seguridad de tipos."
+  }
+]
+*/
+
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {
+    "nota": "Verificar que `IDomainEventMetadata` sea estructuralmente compatible con `IOperationMetadataOutput` para que el cast sea seguro."
+  }
+]
+*/
+// RUTA: libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
+// ...
+// En el constructor:
+// const providedCorrelationId = props.metadata?.correlationId; // Accede a través de props.metadata
+// const providedUserId = props.metadata?.userId;
+// const providedCausationId = props.metadata?.causationId;
+// const effectiveTimestamp = props.metadata?.timestamp || (new Date().toISOString() as IsoDateString);
 /* SECCIÓN DE MEJORAS (Actualizada)
 [
   Mejora Aplicada: Lógica de `correlationId` ahora local y corregida.
@@ -231,8 +235,8 @@ export abstract class DomainEventBase<Payload extends Record<string, unknown> = 
   Nota 3 (Payload): Debe contener información relevante para los consumidores.
 ]
 */
-    // libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
-    /* SECCIÓN DE MEJORAS FUTURAS (Mismas que antes, excepto la Nota 4 que ya se aborda)
+// libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts
+/* SECCIÓN DE MEJORAS FUTURAS (Mismas que antes, excepto la Nota 4 que ya se aborda)
     [
       Mejora Propuesta 1 (Gestión de `userId` en Metadata): ...
     ]

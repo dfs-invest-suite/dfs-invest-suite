@@ -14,8 +14,9 @@ import {
   TrendingUp,
   Users,
   Zap,
+  type LucideProps, // Importar LucideProps para tipar Icon
 } from 'lucide-react';
-import Link from 'next/link'; // Importar Link de next/link
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 import {
@@ -30,6 +31,32 @@ import {
   CardTitle,
   cn,
 } from '@dfs-suite/ui-shared';
+
+// --- Tipos para los Sub-componentes del Dashboard ---
+interface KpiCardProps {
+  title: string;
+  value: string | number;
+  icon: React.ComponentType<LucideProps>; // Usar ComponentType para iconos Lucide
+  trend?: string;
+  description?: string;
+  unit?: string;
+  className?: string;
+}
+
+interface ActivityFeedItemProps {
+  icon: React.ComponentType<LucideProps>;
+  text: string;
+  time: string;
+  highlight?: boolean;
+}
+
+interface QuickActionButtonProps {
+  label: string;
+  icon: React.ComponentType<LucideProps>;
+  href?: string;
+  className?: string;
+  action?: () => void;
+}
 
 // --- Sub-componentes del Dashboard ---
 
@@ -73,7 +100,8 @@ const WelcomeHeader = () => {
   );
 };
 
-const KpiCard = ({
+const KpiCard: React.FC<KpiCardProps> = ({
+  // Tipado explícito con React.FC
   title,
   value,
   icon: Icon,
@@ -81,14 +109,6 @@ const KpiCard = ({
   description,
   unit,
   className,
-}: {
-  title: string;
-  value: string | number;
-  icon: React.ElementType;
-  trend?: string;
-  description?: string;
-  unit?: string;
-  className?: string;
 }) => (
   <Card
     className={cn(
@@ -124,16 +144,12 @@ const KpiCard = ({
   </Card>
 );
 
-const ActivityFeedItem = ({
+const ActivityFeedItem: React.FC<ActivityFeedItemProps> = ({
+  // Tipado explícito
   icon: Icon,
   text,
   time,
   highlight,
-}: {
-  icon: React.ElementType;
-  text: string;
-  time: string;
-  highlight?: boolean;
 }) => (
   <li
     className={cn(
@@ -158,19 +174,13 @@ const ActivityFeedItem = ({
   </li>
 );
 
-// MODIFICADO: QuickActionButton ahora usa next/link si href está presente
-const QuickActionButton = ({
+const QuickActionButton: React.FC<QuickActionButtonProps> = ({
+  // Tipado explícito
   label,
   icon: Icon,
   href,
   className,
   action,
-}: {
-  label: string;
-  icon: React.ElementType;
-  href?: string; // href es opcional
-  className?: string;
-  action?: () => void; // action es opcional
 }) => {
   const buttonContent = (
     <>
@@ -204,8 +214,9 @@ const QuickActionButton = ({
 
 // --- Componente Principal de la Página del Dashboard ---
 export default function DashboardPage() {
-  // Datos mock para los KPIs
-  const kpis = [
+  // Datos mock para los KPIs - Ahora usan los tipos definidos
+  const kpis: KpiCardProps[] = [
+    // Tipado explícito del array
     {
       title: 'Leads Nuevos Hoy',
       value: 12,
@@ -229,15 +240,15 @@ export default function DashboardPage() {
     },
     {
       title: 'Salud Cuenta WA Principal',
-      value: 'Buena',
+      value: 'Buena', // Podría ser un enum o tipo más específico
       icon: Zap,
       trend: '98%',
       description: 'Rating: VERDE',
     },
   ];
 
-  // Datos mock para el feed de actividad
-  const activityFeed = [
+  const activityFeed: ActivityFeedItemProps[] = [
+    // Tipado explícito del array
     {
       icon: Users,
       text: 'Nuevo lead "Ana Silva" asignado a Consultor X.',
@@ -258,6 +269,27 @@ export default function DashboardPage() {
       icon: Zap,
       text: 'Calidad del número (XX) XXXX-8888 mejoró a AMARILLO.',
       time: 'Hace 2 horas',
+    },
+  ];
+
+  const quickActions: QuickActionButtonProps[] = [
+    // Tipado explícito del array
+    { label: 'Gestionar Leads', icon: Users, href: '/dashboard/leads' },
+    {
+      label: 'Cuentas WhatsApp',
+      icon: MessageSquare,
+      href: '/dashboard/whatsapp/accounts',
+    },
+    {
+      label: 'Importar Leads',
+      icon: DownloadCloud,
+      href: '/dashboard/leads/import',
+    },
+    { label: 'Ver Analíticas', icon: BarChart3, href: '/dashboard/analytics' },
+    {
+      label: 'Configuración del Tenant',
+      icon: Settings,
+      href: '/dashboard/settings',
     },
   ];
 
@@ -299,7 +331,6 @@ export default function DashboardPage() {
               <Button
                 variant="link"
                 className="mt-4 text-primary"
-                // onClick={() => router.push('/dashboard/activity')} // Ejemplo de navegación futura
                 onClick={() => alert('Ir a toda la actividad (pendiente)')}
               >
                 Ver toda la actividad...
@@ -314,31 +345,9 @@ export default function DashboardPage() {
               <CardTitle className="text-foreground">Accesos Rápidos</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <QuickActionButton
-                label="Gestionar Leads"
-                icon={Users}
-                href="/dashboard/leads" // Ahora usará next/link
-              />
-              <QuickActionButton
-                label="Cuentas WhatsApp"
-                icon={MessageSquare}
-                href="/dashboard/whatsapp/accounts" // Ahora usará next/link
-              />
-              <QuickActionButton
-                label="Importar Leads"
-                icon={DownloadCloud}
-                href="/dashboard/leads/import" // Ahora usará next/link
-              />
-              <QuickActionButton
-                label="Ver Analíticas"
-                icon={BarChart3}
-                href="/dashboard/analytics" // Ahora usará next/link
-              />
-              <QuickActionButton
-                label="Configuración del Tenant"
-                icon={Settings}
-                href="/dashboard/settings" // Ahora usará next/link
-              />
+              {quickActions.map((actionItem) => (
+                <QuickActionButton key={actionItem.label} {...actionItem} />
+              ))}
             </CardContent>
           </Card>
         </section>
@@ -377,33 +386,29 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-/*_ SECCIÓN DE MEJORAS FUTURAS
-[
-  {
-    "mejora": "Mover subcomponentes a archivos dedicados",
-    "justificacion": "Para mejor organización y reutilización, `WelcomeHeader`, `KpiCard`, `ActivityFeedItem`, y `QuickActionButton` podrían moverse a `src/components/dashboard/`.",
-    "impacto": "Mayor modularidad del código del dashboard."
-  },
-  {
-    "mejora": "Obtención de datos reales",
-    "justificacion": "Reemplazar los datos mock de `kpis` y `activityFeed` con llamadas a `api-main` usando TanStack Query.",
-    "impacto": "Hacer el dashboard funcional y dinámico."
-  }
-]
-_*/
-
-/*_ NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "El componente `QuickActionButton` ahora renderiza un `next/link` cuando se proporciona `href`, utilizando la prop `asChild` del componente `Button` de `ui-shared` para una correcta integración semántica y de estilos."
-  },
-  {
-    "nota": "Si un `QuickActionButton` solo necesita ejecutar una función `action` (sin navegar), seguirá funcionando como un botón normal."
-  },
-  {
-    "nota": "El botón 'Ver toda la actividad...' es un ejemplo de cómo se podría usar la prop `action` o, si se prefiere, `href` para navegar (ej. `onClick={() => router.push('/dashboard/activity')}` si `router` se obtiene de `useRouter`)."
-  }
-]
-_*/
 // RUTA: apps/pwa-supervisor/src/app/(dashboard)/page.tsx
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Tipado explícito para subcomponentes y datos mock",
+    "justificacion": "Se definieron interfaces (`KpiCardProps`, `ActivityFeedItemProps`, `QuickActionButtonProps`) para las props de los subcomponentes y se tiparon los arrays de datos mock (`kpis`, `activityFeed`, `quickActions`). Los subcomponentes ahora usan `React.FC<PropsInterface>`. Esto ayuda a TypeScript a inferir mejor los tipos y debería reducir o eliminar las advertencias `no-unsafe-*` relacionadas con la propagación de props.",
+    "impacto": "Código más robusto y type-safe. Mejor DX al trabajar con estos componentes."
+  },
+  {
+    "mejora": "Importación de `LucideProps` para iconos",
+    "justificacion": "Se importó `LucideProps` para tipar correctamente la prop `icon` en los subcomponentes, asegurando que solo se pasen componentes de icono válidos.",
+    "impacto": "Mejora la seguridad de tipos para los iconos."
+  }
+]
+*/
+
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {
+    "nota": "Los datos mock seguirán siendo reemplazados por datos reales de la API. El tipado explícito facilitará esta transición."
+  },
+  {
+    "nota": "Mover los subcomponentes a archivos dedicados sigue siendo una mejora recomendada para la organización."
+  }
+]
+*/

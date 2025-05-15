@@ -445,3 +445,64 @@ Este archivo (`LIBRARY_CONFIG.md` o un nombre similar) debería existir en la ra
   - **Solución:** Ya te la proporcioné. Eliminar la importación `Guard as GuardType`.
 - **Tests:** `passWithNoTests` está en `false` en `project.json`, lo cual es bueno. Los tests para `command.base.spec.ts => evalúalas tu ia.
 ````
+
+Prompt: Desarrollo con Estricta Adherencia a Configuración ESLint Flat
+Compromiso con la Calidad de Código
+Como desarrolladora senior experta en React 15, arquitecturas monorepo NX, DDD y hexagonal, me comprometo a adherirme rigurosamente a las reglas de ESLint configuradas en este proyecto, siguiendo estos principios fundamentales:
+
+Estricta conformidad con la configuración flat de ESLint:
+
+Nunca modificaré ni flexibilizaré las reglas existentes
+No implementaré excepciones mediante comentarios // eslint-disable
+No introduciré configuraciones particulares a nivel de archivo
+Respetaré la configuración global tal como está definida
+
+Adaptación del código a las reglas, no las reglas al código:
+
+Refactorizaré código existente para cumplir con las reglas establecidas
+Desarrollaré nuevo código siguiendo estrictamente las convenciones definidas
+Implementaré soluciones que sean técnicamente óptimas dentro del marco de las reglas
+
+Enfoque Técnico para Adherencia a ESLint
+Prácticas de Codificación
+
+Estructuración de componentes según los patrones aprobados por las reglas
+Organización consistente de imports siguiendo el orden establecido
+Implementación de propTypes/TypeScript según las convenciones definidas
+Espaciado, indentación y formateo según reglas preestablecidas
+
+Proceso de Desarrollo
+
+Verificación constante de adherencia a reglas durante el desarrollo
+Refactorización proactiva de código que no cumpla con las reglas
+Documentación de patrones aprobados para mantener consistencia
+Integración de verificación de linting en el proceso de revisión de código
+
+Resolución de Conflictos
+
+En caso de conflicto entre prácticas de arquitectura y reglas de ESLint, siempre prevalecerán las reglas
+Buscaré implementaciones alternativas que mantengan la calidad técnica respetando las reglas
+Documentaré cualquier desafío encontrado y la solución implementada respetando las reglas
+
+Compromiso Específico para PWA-Supervisor
+Todo el código desarrollado para el proyecto PWA-Supervisor y la nivelación algorítmica:
+
+Pasará la validación de ESLint sin errores ni advertencias
+Mantendrá consistencia estilística con el resto del proyecto
+No introducirá excepciones o flexibilizaciones a las reglas
+Será un ejemplo de código limpio y conforme a estándares
+
+Beneficios Esperados
+
+Consistencia absoluta en todo el codebase
+Facilidad de mantenimiento a largo plazo
+Reducción de deuda técnica
+Facilidad para la incorporación de nuevos desarrolladores
+Mejora en la calidad general del código
+
+Solicitud de Información
+Para garantizar una perfecta adherencia a las reglas, necesitaré:
+
+Acceso a la configuración flat completa de ESLint del proyecto
+Ejemplos de código existente que cumpla perfectamente con las reglas
+Documentación sobre cualquier convención específica del proyecto que complemente las reglas de ESLint

@@ -3,75 +3,47 @@
   "compileOnSave": false,
   "compilerOptions": {
     // --- Configuración Base del Proyecto y Salida ---
-    "baseUrl": ".", // Establece la base para la resolución de módulos y paths
-    "rootDir": ".", // La raíz del código fuente del monorepo
-    "outDir": "dist/out-tsc", // Directorio de salida común para artefactos de transpilación (usado por tsconfig.lib/app.json)
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "dist/out-tsc",
 
     // --- Módulos y Resolución ---
-    "module": "esnext", // Permite usar la sintaxis de módulos ES más reciente.
-                        // Los proyectos individuales (libs/apps) pueden sobreescribir a "commonjs"
-                        // en sus tsconfig.lib.json o tsconfig.app.json si es necesario para su entorno de ejecución.
-    "moduleResolution": "bundler", // O "node". "bundler" es más moderno y se alinea con cómo los bundlers (Vite, Webpack, Parcel)
-                                  // resuelven módulos, especialmente para proyectos con "type": "module" en package.json
-                                  // o que usan condiciones de exportación. Si encuentras problemas, "node" es una alternativa segura.
-                                  // El snapshot tenía "node", así que lo mantendremos por consistencia si no hay problemas.
-                                  // CAMBIO PROPUESTO (considerar): "bundler" si todas tus herramientas soportan bien esta resolución.
-                                  // POR AHORA, MANTENEMOS "node" DEL SNAPSHOT para evitar cambios disruptivos si no son necesarios.
-                                  // "moduleResolution": "node",
-
-    "resolveJsonModule": true, // Permite importar archivos .json como módulos.
-    "isolatedModules": true,   // Mejora el rendimiento de transpilación con herramientas como SWC/esbuild/Babel
-                               // y asegura que cada archivo pueda ser transpilado de forma aislada.
-                               // Puede requerir que todos los archivos sean módulos (tengan import/export).
+    "module": "esnext",
+    "moduleResolution": "node", // CAMBIO: De "bundler" a "node" para consistencia y compatibilidad
+    "resolveJsonModule": true,
+    "isolatedModules": true,
 
     // --- Emisión de JavaScript y Mapas de Fuente ---
-    "sourceMap": true,         // Genera archivos .map para debugging.
-    "declaration": false,      // Las declaraciones (.d.ts) se generan a nivel de librería (tsconfig.lib.json).
-    "declarationMap": false,   // Los mapas para declaraciones también se manejan a nivel de librería.
-    "importHelpers": true,     // Importa helpers (ej. __extends, __assign) desde tslib en lugar de inyectarlos
-                               // en cada archivo, reduciendo el tamaño del bundle. (Asegúrate que tslib sea una dependencia).
+    "sourceMap": true,
+    "declaration": false,
+    "declarationMap": false,
+    "importHelpers": true,
 
     // --- Características de JavaScript y Entorno ---
-    "target": "es2021",        // La versión de ECMAScript a la que se compilará el código.
-                               // ES2021 es un buen balance entre modernidad y compatibilidad.
-    "lib": ["es2022", "dom"],  // Especifica las librerías de ambiente disponibles (APIs de JS y DOM).
-                               // "es2022" incluye características hasta ES2022. "dom" para PWAs.
+    "target": "es2021",
+    "lib": ["es2022", "dom"],
 
     // --- Interoperabilidad y Strictness ---
-    "esModuleInterop": true,   // Mejora la interoperabilidad con módulos CommonJS. Recomendado.
-    "allowSyntheticDefaultImports": true, // Permitir `import React from "react"` en lugar de `import * as React from "react"`.
-                                        // EsModuleInterop ya lo habilita, pero a veces se añade explícitamente.
-    "forceConsistentCasingInFileNames": true, // Previene problemas en sistemas case-insensitive.
-    "strict": true,            // Habilita todas las opciones de chequeo de tipos estrictos (muy recomendado).
-                               // Incluye noImplicitAny, strictNullChecks, etc.
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
 
-    // --- Chequeos Adicionales (Sub-opciones de "strict" o relacionadas) ---
-    // Estas son generalmente buenas prácticas y muchas ya están cubiertas por "strict": true
-    // "noImplicitAny": true, (cubierto por strict)
-    // "strictNullChecks": true, (cubierto por strict)
-    // "strictFunctionTypes": true, (cubierto por strict)
-    // "strictBindCallApply": true, (cubierto por strict)
-    // "strictPropertyInitialization": true, (cubierto por strict)
-    // "noImplicitThis": true, (cubierto por strict)
-    // "alwaysStrict": true, (cubierto por strict)
-
-    // --- Opciones de Calidad de Código Adicionales (Más allá de "strict") ---
-    "noUnusedLocals": true,                // Reporta locales no usados (bueno para limpieza).
-    "noUnusedParameters": true,            // Reporta parámetros no usados (bueno para limpieza).
-    "noImplicitReturns": true,             // Asegura que todas las rutas de código en funciones retornen un valor si la función lo espera.
-    "noFallthroughCasesInSwitch": true,    // Previene fallthroughs accidentales en switch.
-    // "noImplicitOverride": true,         // (TypeScript 5.0+) Requerir 'override' en métodos que sobreescriben. Ya estaba en tsconfig.json de libs.
-                                           // Moverlo aquí lo hace global.
+    // --- Opciones de Calidad de Código Adicionales ---
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true, // TypeScript 5.0+
+    "noPropertyAccessFromIndexSignature": true, // Buena práctica
 
     // --- Decoradores (Para NestJS) ---
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
 
-    // --- Paths (Alias de Módulo) ---
-    // Mantenidos exactamente como en tu snapshot, ya que son cruciales y específicos de tu estructura.
+    // --- Paths (Alias de Módulo - Solo los globales del monorepo) ---
     "paths": {
-      "@/components/*": ["libs/ui-shared/src/components/ui/*"],
-      "@/lib/utils": ["libs/ui-shared/src/lib/utils.ts"],
+      // ELIMINADOS: "@/*" ya que son específicos de pwa-supervisor
       "@dfs-suite/core-application-tenancy": [
         "libs/core/application/tenancy/src/index.ts"
       ],
@@ -108,45 +80,60 @@
     },
 
     // --- Optimización de Build y Chequeo ---
-    "skipLibCheck": true,        // No chequear tipos de archivos de declaración de librerías externas (.d.ts). Acelera la compilación.
-    "skipDefaultLibCheck": true, // Similar a skipLibCheck, para las librerías default (lib.d.ts).
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
 
-    // --- Opciones Avanzadas (Considerar si son necesarias) ---
-    // "allowUnreachableCode": false, // Por defecto es undefined (permite código inalcanzable sin error). Poner a false lo reporta.
-    // "noPropertyAccessFromIndexSignature": true, // Ya estaba en tsconfig.json de libs, buena opción a considerar globalmente.
-                                                // Hace que el acceso a propiedades a través de una firma de índice sea más explícito.
-    "allowJs": false, // No permitir archivos JavaScript en el proyecto (si todo es TypeScript).
-                      // El snapshot de pwa-supervisor/tsconfig.json tiene allowJs: true.
-                      // Si algunas apps lo necesitan, es mejor ponerlo en su tsconfig.app.json.
-                      // Mantenerlo false aquí como base estricta.
-
-    // "checkJs": false, // Si allowJs es true, esto habilitaría el chequeo de tipos en archivos JS.
-    "composite": false, // No es un proyecto 'composite' en la raíz. Las librerías individuales podrían serlo si se usa --build.
-    // "incremental": true // Habilitar builds incrementales. Nx maneja su propio caché.
-                           // La opción de Next.js en pwa-supervisor/tsconfig.json tiene incremental: true.
-
-    // --- Opciones de JSX (para React/Next.js) ---
-    // Esta configuración es mejor manejarla en los tsconfig.json específicos de las apps/libs de frontend
-    // ya que puede variar (ej. 'react-jsx' vs 'preserve').
-    // "jsx": "preserve", // Ejemplo, pero no lo ponemos en la base.
+    // --- Opciones Avanzadas ---
+    "allowJs": false,
+    "composite": false
+    // "incremental": true // Nx maneja su propio caché; Next.js lo habilita en su tsconfig
   },
-  "exclude": [ // Archivos y directorios a excluir de la compilación global
+  "exclude": [
     "node_modules",
     "tmp",
     "dist",
-    "apps/**/jest.config.ts", // Archivos de config de Jest de apps
-    "libs/**/jest.config.ts", // Archivos de config de Jest de libs
-    "apps/**/*.spec.ts",      // Archivos de test de apps
+    "apps/**/jest.config.ts",
+    "libs/**/jest.config.ts",
+    "apps/**/*.spec.ts",
     "apps/**/*.spec.tsx",
     "apps/**/*.test.ts",
     "apps/**/*.test.tsx",
-    "libs/**/*.spec.ts",      // Archivos de test de libs
+    "libs/**/*.spec.ts",
     "libs/**/*.spec.tsx",
     "libs/**/*.test.ts",
     "libs/**/*.test.tsx",
-    "**/*.stories.ts",        // Excluir archivos de Storybook
+    "**/*.stories.ts",
     "**/*.stories.tsx"
   ]
-  // "include": [] // No es necesario un 'include' global si los proyectos individuales especifican el suyo.
-                 // Si se añade, podría ser ["src", "apps", "libs"] pero es mejor que cada proyecto maneje su 'include'.
 }
+// tsconfig.base.json
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Cambio de `moduleResolution` a `node`",
+    "justificacion": "Se cambió `moduleResolution` de `bundler` a `node` para asegurar una mayor compatibilidad con las librerías que compilan a CommonJS (como la mayoría de las librerías de backend en este proyecto) y para resolver el error de TypeScript observado en `libs/core/domain/tenancy/tsconfig.lib.json`. Esto también alinea la configuración con el estado anterior del snapshot.",
+    "impacto": "Debería resolver el error de TSConfig. Mantiene la compatibilidad con las herramientas actuales."
+  },
+  {
+    "mejora": "Eliminación de paths `@/*` de `tsconfig.base.json`",
+    "justificacion": "Los alias de path que comienzan con `@/` (como `@/components/*` y `@/lib/utils`) son específicos de la aplicación `pwa-supervisor` y deben definirse únicamente en `apps/pwa-supervisor/tsconfig.json`. Mantenerlos en `tsconfig.base.json` es incorrecto y podría causar conflictos de resolución o confusión.",
+    "impacto": "Configuración de paths más limpia y correcta, evitando posibles colisiones de alias entre proyectos."
+  },
+  {
+    "mejora": "Adición de `noImplicitOverride` y `noPropertyAccessFromIndexSignature`",
+    "justificacion": "Estas opciones, previamente en algunos `tsconfig.json` de librerías, se han movido a `tsconfig.base.json` para aplicarlas globalmente, ya que son buenas prácticas generales para la calidad del código.",
+    "impacto": "Aplicación consistente de estas reglas de calidad en todo el monorepo."
+  }
+]
+*/
+
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {
+    "nota": "Si en el futuro se decide usar `type: \"module\"` en los `package.json` de las librerías de backend y transpilarlas a ESNext para Node.js, se podría reconsiderar el uso de `moduleResolution: \"bundler\"` o `\"nodenext\"`."
+  },
+  {
+    "nota": "Es crucial que `apps/pwa-supervisor/tsconfig.json` defina sus propios `paths` para los alias `@/`. Estos no deben ser heredados de `tsconfig.base.json`."
+  }
+]
+*/

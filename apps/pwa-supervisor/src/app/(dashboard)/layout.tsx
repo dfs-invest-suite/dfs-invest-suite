@@ -3,11 +3,8 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 import React from 'react';
-import { AppLayoutClient } from '../../components/layout/AppLayoutClient';
-// En un futuro, aquí se importaría la lógica para verificar la sesión del servidor
-// import { getServerSession } from 'next-auth'; // Ejemplo si se usa NextAuth
-// import { authOptions } from '../api/auth/[...nextauth]/route'; // Ejemplo
-// import { redirect } from 'next/navigation';
+import { AppLayoutClient } from '../../components/layout/AppLayoutClient'; // CAMBIO: Importar AppLayoutClient directamente aquí
+// import { redirect } from 'next/navigation'; // No se usa por ahora a nivel de servidor aquí
 
 // Simulación de datos del usuario y tenant para pasar a AppLayoutClient
 // Estos datos vendrían del `auth.store.ts` en el cliente o de la sesión del servidor.
@@ -23,7 +20,9 @@ const mockTenantBranding = {
   primaryColor: '#16a34a', // Ejemplo verde
 };
 
-export default async function DashboardLayout({
+// CAMBIO: Eliminada la palabra clave 'async'
+export default function DashboardLayout({
+  // Eliminado async
   children,
 }: {
   children: React.ReactNode;
@@ -33,17 +32,15 @@ export default async function DashboardLayout({
   // if (!session || !session.user) {
   //   redirect('/login'); // O la ruta de login de (auth)
   // }
-  // Por ahora, asumimos que el usuario está autenticado para el layout.
-  // La protección de rutas real se implementará con el `auth.store.ts` en AppLayoutClient
-  // y/o con middleware de Next.js.
 
-  // En un escenario real, aquí se podrían obtener datos iniciales del servidor
-  // para el tenant (ej. configuraciones de branding) si son necesarios antes del renderizado del cliente.
-  // Por ahora, pasaremos datos mockeados a AppLayoutClient.
+  // NOTA: AppLayoutClient es un Client Component y manejará la lógica de autenticación
+  // del lado del cliente usando el store de Zustand y AuthGuard.
+  // Este DashboardLayout (Server Component) solo pasa props iniciales si fuera necesario
+  // o maneja lógica de servidor que no dependa del estado del cliente.
 
   return (
     <AppLayoutClient
-      user={mockUser} // Se reemplazará con datos reales del auth.store
+      user={mockUser} // Se reemplazará con datos reales del auth.store o sesión
       tenantBranding={mockTenantBranding} // Se reemplazará con datos reales
     >
       {children}
@@ -51,31 +48,28 @@ export default async function DashboardLayout({
   );
 }
 
-/*_ SECCIÓN DE MEJORAS FUTURAS
+/*_ SECCIÓN DE MEJORAS
 [
   {
-    "mejora": "Verificación de Sesión del Lado del Servidor",
-    "justificacion": "Implementar una verificación de sesión real aquí (ej. usando NextAuth.js o una cookie de sesión validada) para proteger las rutas del dashboard a nivel de servidor antes de que se envíe cualquier HTML/JS al cliente.",
-    "impacto": "Seguridad mejorada. Evita el parpadeo de la UI si la redirección se hace solo en el cliente."
+    "mejora": "Eliminación de `async` innecesario",
+    "justificacion": "La función `DashboardLayout` no contenía operaciones `await`, por lo que marcarla como `async` era innecesario y causaba la advertencia de ESLint. Se ha removido la palabra clave `async`.",
+    "impacto": "Resuelve la advertencia de ESLint. Ningún cambio funcional."
   },
   {
-    "mejora": "Carga de Datos Iniciales del Tenant",
-    "justificacion": "Si hay datos globales del tenant (como configuraciones de branding o permisos) que se necesitan en todas las páginas del dashboard y pueden ser cargados por el servidor, se podrían obtener aquí y pasarlos a `AppLayoutClient` o a un contexto.",
-    "impacto": "Reduce la carga inicial en el cliente y puede mejorar el LCP."
+    "mejora": "Clarificación del rol de `DashboardLayout` vs `AppLayoutClient`",
+    "justificacion": "Se añadió un comentario para clarificar que `AppLayoutClient` es el responsable de la lógica de UI y autenticación del lado del cliente, mientras que `DashboardLayout` (Server Component) es para estructura y, potencialmente, fetching de datos iniciales del servidor o protección de rutas a nivel de servidor (post-MVP).",
+    "impacto": "Mejora la comprensión del código."
   }
 ]
-_*/
+*/
 
 /*_ NOTAS PARA IMPLEMENTACIÓN FUTURA
 [
   {
-    "nota": "`AppLayoutClient` aún no existe, se creará en la Tarea 0.1.6."
+    "nota": "La importación de `AppLayoutClient` se movió aquí, ya que es donde se usa. Anteriormente estaba implícito que se importaría en el archivo `AppLayout.tsx` (que es `AppLayoutClient`)."
   },
   {
-    "nota": "La redirección a `/login` si no está autenticado se manejará inicialmente en `AppLayoutClient` usando el estado de `auth.store.ts`. La protección a nivel de servidor es una mejora."
-  },
-  {
-    "nota": "Los datos `mockUser` y `mockTenantBranding` son temporales y se reemplazarán por datos dinámicos obtenidos del estado global (Zustand) y/o API."
+    "nota": "La verificación de sesión del lado del servidor sigue siendo una mejora futura importante."
   }
 ]
 _*/

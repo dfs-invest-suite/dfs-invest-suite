@@ -1,5 +1,8 @@
-// libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts
-import { DomainEventBase, DomainEventProps } from '@dfs-suite/core-domain-shared-kernel-events';
+// RUTA: libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts
+import {
+  DomainEventBase,
+  DomainEventProps,
+} from '@dfs-suite/core-domain-shared-kernel-events';
 // AggregateId, CorrelationId, etc., se infieren a través de DomainEventProps
 
 /**
@@ -23,6 +26,7 @@ export class TenantActivatedEvent extends DomainEventBase<TenantActivatedEventPa
     super(props);
   }
 }
+// RUTA: libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts
 
 /* SECCIÓN DE MEJORAS FUTURAS
 [

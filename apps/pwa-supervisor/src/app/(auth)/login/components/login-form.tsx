@@ -20,7 +20,7 @@ import {
 
 import { useLoginMutation, type AuthCredentials } from '@/hooks/api/useAuth';
 import {
-  useAuthActions, // Selector renombrado
+  useAuthActions,
   useAuthError,
   useAuthIsLoading,
   useIsAuthenticated,
@@ -31,13 +31,13 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
 
   const router = useRouter();
-  const searchParams = useSearchParams(); // Para obtener redirectUrl
+  const searchParams = useSearchParams();
   const loginMutation = useLoginMutation();
 
   const isAuthenticated = useIsAuthenticated();
-  const authIsLoading = useAuthIsLoading(); // Usar el selector directamente
-  const authError = useAuthError(); // Usar el selector directamente
-  const { setError: setAuthErrorInStore } = useAuthActions(); // Obtener la acción específica
+  const authIsLoading = useAuthIsLoading();
+  const authError = useAuthError();
+  const { setError: setAuthErrorInStore } = useAuthActions();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -47,24 +47,21 @@ export default function LoginForm() {
   }, [isAuthenticated, router, searchParams]);
 
   useEffect(() => {
-    // Limpiar error del store si el componente se desmonta o si el error cambia externamente
-    // y ya no es relevante para este formulario.
     return () => {
       if (authError) {
-        // Si había un error en el store al desmontar
-        setAuthErrorInStore(null); // Limpiarlo
+        setAuthErrorInStore(null);
       }
     };
   }, [authError, setAuthErrorInStore]);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  // MODIFICACIÓN: Eliminada la palabra clave 'async'
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!email || !password) {
       setAuthErrorInStore('Por favor, ingresa correo y contraseña.');
       return;
     }
     const credentials: AuthCredentials = { email, password };
-    // La mutación ya maneja setLoading y setError en el store a través de sus callbacks
     loginMutation.mutate(credentials);
   };
 
@@ -137,9 +134,6 @@ export default function LoginForm() {
 
       <div className="flex items-center justify-between">
         <div className="text-sm">
-          {/* <Link href="/forgot-password" className="font-medium text-sky-500 hover:text-sky-400">
-            ¿Olvidaste tu contraseña?
-          </Link> */}
           <span
             className="font-medium text-sky-500 hover:text-sky-400 cursor-pointer"
             onClick={() =>
@@ -164,32 +158,21 @@ export default function LoginForm() {
     </form>
   );
 }
-/*_ SECCIÓN DE MEJORAS FUTURAS
+// RUTA: apps/pwa-supervisor/src/app/(auth)/login/components/login-form.tsx
+/*_ SECCIÓN DE MEJORAS
 [
   {
-    "mejora": "Implementación de página y flujo de 'Olvidé mi contraseña'",
-    "justificacion": "Proporcionar una funcionalidad esencial para la recuperación de cuentas.",
-    "impacto": "Nuevas páginas, componentes, hooks de mutación y lógica en `api-main`."
-  },
-  {
-    "mejora": "Validación de formulario con Zod y React Hook Form",
-    "justificacion": "Para una validación más robusta y un mejor manejo del estado del formulario, en lugar de `useState` individuales.",
-    "impacto": "Refactorización del manejo del formulario."
+    "mejora": "Eliminación de `async` innecesario",
+    "justificacion": "La función `handleSubmit` no utiliza `await`, por lo que la palabra clave `async` no es necesaria y causaba un warning de ESLint (`@typescript-eslint/require-await`). La función `mutate` de TanStack Query es síncrona en su invocación y maneja la asincronía internamente.",
+    "impacto": "Resuelve la advertencia de linting. Ningún cambio funcional."
   }
 ]
-_*/
+*/
 
 /*_ NOTAS PARA IMPLEMENTACIÓN FUTURA
 [
   {
-    "nota": "Se utiliza `useSearchParams` para obtener el `redirectUrl` y redirigir al usuario a la página que intentaba acceder antes del login."
-  },
-  {
-    "nota": "Se utiliza el hook `useAuthActions` para obtener la acción `setError` del store, ahora llamada `setAuthErrorInStore` en el componente para evitar colisión de nombres."
-  },
-  {
-    "nota": "El enlace 'Olvidé mi contraseña' es un placeholder funcional que muestra una alerta, idealmente debería ser un `Link` a una ruta."
+    "nota": "Si en el futuro `handleSubmit` necesitara esperar alguna operación antes o después de llamar a `mutate` (ej. `await algunaOtraCosa()`), entonces `async` sería apropiado."
   }
 ]
-_*/
-// RUTA: apps/pwa-supervisor/src/app/(auth)/login/components/login-form.tsx
+*/

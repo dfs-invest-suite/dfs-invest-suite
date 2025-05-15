@@ -4,19 +4,19 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "moduleResolution": "node",
+    "moduleResolution": "node", // Mantener 'node' por consistencia con otros tsconfig.spec, aunque 'node16'/'nodenext' son más modernos
     "jsx": "react-jsx",
     "types": ["jest", "node", "@testing-library/jest-dom"]
   },
   "include": [
-    "jest.config.ts",
+    "jest.config.ts", // Config de Jest de la app
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
     "src/**/*.test.tsx",
     "src/**/*.spec.tsx",
     "src/**/*.d.ts",
-    "../specs/**/*.spec.tsx", // Para la carpeta specs
-    "../specs/**/*.spec.ts",
+    "specs/**/*.spec.tsx", // CORREGIDO: Ruta relativa a la raíz de pwa-supervisor
+    "specs/**/*.spec.ts", // CORREGIDO: Ruta relativa a la raíz de pwa-supervisor
     "src/test-setup.ts" // Si se crea un test-setup.ts en pwa-supervisor/src
   ],
   "exclude": [
@@ -25,3 +25,21 @@
     ".next" // Excluir .next de los tests
   ]
 }
+// RUTA: apps/pwa-supervisor/tsconfig.spec.json
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Ajuste de `moduleResolution`",
+    "justificacion": "Si el resto del proyecto usa 'node' para `moduleResolution` en los `tsconfig.spec.json`, mantener la consistencia es bueno. Si se decide modernizar, 'node16' o 'nodenext' serían opciones a considerar globalmente, pero requieren que el `package.json` tenga `type: module` o que se usen extensiones `.mts`/`.cts`.",
+    "impacto": "Mínimo si se mantiene 'node'. Mayor si se cambia globalmente."
+  }
+]
+*/
+
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {
+    "nota": "La corrección principal fue ajustar la ruta en `include` para la carpeta `specs` para que sea relativa al `tsconfig.spec.json` (es decir, `specs/` en lugar de `../specs/`)."
+  }
+]
+*/

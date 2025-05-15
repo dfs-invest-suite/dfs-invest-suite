@@ -7893,6 +7893,15 @@
         "hash": "sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew=="
       }
     },
+    "npm:framer-motion": {
+      "type": "npm",
+      "name": "npm:framer-motion",
+      "data": {
+        "version": "12.11.3",
+        "packageName": "framer-motion",
+        "hash": "sha512-ksUtDFBZtrbQFt4bEMFrFgo7camhmXcLeuylKQxEYSd9czkZ4tZmFROxWczWeu51WqC2m91ifpvgGCBLd0uviQ=="
+      }
+    },
     "npm:fresh@0.5.2": {
       "type": "npm",
       "name": "npm:fresh@0.5.2",
@@ -10645,6 +10654,24 @@
         "version": "3.0.1",
         "packageName": "mkdirp",
         "hash": "sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg=="
+      }
+    },
+    "npm:motion-dom": {
+      "type": "npm",
+      "name": "npm:motion-dom",
+      "data": {
+        "version": "12.11.2",
+        "packageName": "motion-dom",
+        "hash": "sha512-wZ396XNNTI9GOkyrr80wFSbZc1JbIHSHTbLdririSbkEgahWWKmsHzsxyxqBBvuBU/iaQWVu1YCjdpXYNfo2yQ=="
+      }
+    },
+    "npm:motion-utils": {
+      "type": "npm",
+      "name": "npm:motion-utils",
+      "data": {
+        "version": "12.9.4",
+        "packageName": "motion-utils",
+        "hash": "sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg=="
       }
     },
     "npm:ms@2.0.0": {
@@ -25888,6 +25915,31 @@
       "type": "static"
     },
     {
+      "source": "npm:framer-motion",
+      "target": "npm:motion-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:framer-motion",
+      "target": "npm:motion-utils",
+      "type": "static"
+    },
+    {
+      "source": "npm:framer-motion",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:framer-motion",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:framer-motion",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
       "source": "npm:front-matter",
       "target": "npm:js-yaml@3.14.1",
       "type": "static"
@@ -28965,6 +29017,11 @@
     {
       "source": "npm:mkdirp@0.5.6",
       "target": "npm:minimist",
+      "type": "static"
+    },
+    {
+      "source": "npm:motion-dom",
+      "target": "npm:motion-utils",
       "type": "static"
     },
     {

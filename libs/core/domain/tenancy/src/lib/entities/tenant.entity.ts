@@ -1,15 +1,32 @@
-// libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
-import { AggregateRoot, CreateEntityProps } from '@dfs-suite/core-domain-shared-kernel-entities';
-import { ArgumentInvalidException, ArgumentNotProvidedException } from '@dfs-suite/shared-errors';
-import { UserId, Maybe, AggregateId, TenantId } from '@dfs-suite/shared-types';
-import { UuidUtils, Guard } from '@dfs-suite/shared-utils';
-import { TenantStatusVO } from '../value-objects/tenant-status.vo';
-import { DbConnectionConfigVO } from '../value-objects/db-connection-config.vo';
-import { TenantCreatedEvent, ITenantCreatedEventPayload } from '../events/tenant-created.event'; // Corregido
-import { TenantActivatedEvent, TenantActivatedEventPayload } from '../events/tenant-activated.event';
-import { TenantSuspendedEvent, TenantSuspendedEventPayload } from '../events/tenant-suspended.event';
+// RUTA: libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
+import {
+  AggregateRoot,
+  CreateEntityProps,
+} from '@dfs-suite/core-domain-shared-kernel-entities';
+import {
+  ArgumentInvalidException,
+  ArgumentNotProvidedException,
+} from '@dfs-suite/shared-errors';
+import { Result, err, ok } from '@dfs-suite/shared-result';
+import { AggregateId, Maybe, TenantId, UserId } from '@dfs-suite/shared-types';
+import { Guard, UuidUtils } from '@dfs-suite/shared-utils';
+
+// Importaciones correctas desde los subdirectorios de la misma librería
 import { InvalidTenantStatusTransitionError } from '../errors/invalid-tenant-status-transition.error';
-import { Result, ok, err } from '@dfs-suite/shared-result';
+import {
+  TenantActivatedEvent,
+  TenantActivatedEventPayload,
+} from '../events/tenant-activated.event';
+import {
+  ITenantCreatedEventPayload,
+  TenantCreatedEvent,
+} from '../events/tenant-created.event';
+import {
+  TenantSuspendedEvent,
+  TenantSuspendedEventPayload,
+} from '../events/tenant-suspended.event';
+import { DbConnectionConfigVO } from '../value-objects/db-connection-config.vo';
+import { TenantStatusVO } from '../value-objects/tenant-status.vo';
 
 interface TenantProps {
   name: string;
@@ -30,12 +47,17 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
     super(createEntityProps);
   }
 
-  public static create(props: CreateTenantProps, id?: AggregateId | TenantId): TenantEntity {
+  public static create(
+    props: CreateTenantProps,
+    id?: AggregateId | TenantId
+  ): TenantEntity {
     if (Guard.isEmpty(props.name?.trim())) {
       throw new ArgumentNotProvidedException('Tenant name cannot be empty.');
     }
     if (Guard.isEmpty(props.ownerUserId)) {
-      throw new ArgumentNotProvidedException('Tenant ownerUserId cannot be empty.');
+      throw new ArgumentNotProvidedException(
+        'Tenant ownerUserId cannot be empty.'
+      );
     }
 
     const entityId = (id as AggregateId) || UuidUtils.generateAggregateId();
@@ -54,16 +76,16 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
       updatedAt: new Date(),
     });
 
-    const eventPayload: ITenantCreatedEventPayload = { // Corregido
-        name: tenant.props.name,
-        ownerUserId: tenant.props.ownerUserId,
-        status: initialStatus.value,
+    const eventPayload: ITenantCreatedEventPayload = {
+      name: tenant.props.name,
+      ownerUserId: tenant.props.ownerUserId,
+      status: initialStatus.value,
     };
     tenant.addEvent(
       new TenantCreatedEvent({
         aggregateId: entityId,
         payload: eventPayload,
-      }),
+      })
     );
     return tenant;
   }
@@ -84,18 +106,28 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
     return this.props.dbConnectionConfig;
   }
 
-  public activate(): Result<void, InvalidTenantStatusTransitionError | ArgumentInvalidException> {
+  public activate(): Result<
+    void,
+    InvalidTenantStatusTransitionError | ArgumentInvalidException
+  > {
     if (this.props.status.isActive()) {
       return ok(undefined);
     }
-    if (!this.props.status.isPendingSetup() && !this.props.status.isSuspended()) {
-      return err(new InvalidTenantStatusTransitionError(
-        `Cannot activate tenant from status "${this.props.status.value}". Allowed from: PENDING_SETUP, SUSPENDED.`
-      ));
+    if (
+      !this.props.status.isPendingSetup() &&
+      !this.props.status.isSuspended()
+    ) {
+      return err(
+        new InvalidTenantStatusTransitionError(
+          `Cannot activate tenant from status "${this.props.status.value}". Allowed from: PENDING_SETUP, SUSPENDED.`
+        )
+      );
     }
     this.props.status = TenantStatusVO.newActive();
     this.setUpdatedAt();
-    this.addEvent(new TenantActivatedEvent({ aggregateId: this.id, payload: {} as TenantActivatedEventPayload }));
+    const payload: TenantActivatedEventPayload =
+      {} as TenantActivatedEventPayload;
+    this.addEvent(new TenantActivatedEvent({ aggregateId: this.id, payload }));
     return ok(undefined);
   }
 
@@ -104,29 +136,43 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
       return ok(undefined);
     }
     if (!this.props.status.isActive()) {
-       return err(new InvalidTenantStatusTransitionError(
-        `Cannot suspend tenant from status "${this.props.status.value}". Allowed from: ACTIVE.`
-      ));
+      return err(
+        new InvalidTenantStatusTransitionError(
+          `Cannot suspend tenant from status "${this.props.status.value}". Allowed from: ACTIVE.`
+        )
+      );
     }
     this.props.status = TenantStatusVO.newSuspended();
     this.setUpdatedAt();
-    this.addEvent(new TenantSuspendedEvent({ aggregateId: this.id, payload: {} as TenantSuspendedEventPayload }));
+    const payload: TenantSuspendedEventPayload =
+      {} as TenantSuspendedEventPayload;
+    this.addEvent(new TenantSuspendedEvent({ aggregateId: this.id, payload }));
     return ok(undefined);
   }
 
-  public setDatabaseConfiguration(config: DbConnectionConfigVO): Result<void, ArgumentNotProvidedException> {
+  public setDatabaseConfiguration(
+    config: DbConnectionConfigVO
+  ): Result<void, ArgumentNotProvidedException> {
     if (Guard.isNil(config)) {
-        return err(new ArgumentNotProvidedException('Database configuration cannot be null or undefined.'));
+      return err(
+        new ArgumentNotProvidedException(
+          'Database configuration cannot be null or undefined.'
+        )
+      );
     }
     this.props.dbConnectionConfig = config;
     this.setUpdatedAt();
     return ok(undefined);
   }
 
-  public updateName(newName: string): Result<void, ArgumentNotProvidedException> {
+  public updateName(
+    newName: string
+  ): Result<void, ArgumentNotProvidedException> {
     const trimmedNewName = newName?.trim();
     if (Guard.isEmpty(trimmedNewName)) {
-      return err(new ArgumentNotProvidedException('New tenant name cannot be empty.'));
+      return err(
+        new ArgumentNotProvidedException('New tenant name cannot be empty.')
+      );
     }
     if (trimmedNewName === this.props.name) {
       return ok(undefined);
@@ -141,18 +187,44 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
       throw new ArgumentNotProvidedException('TenantEntity: name is required.');
     }
     if (Guard.isEmpty(this.props.ownerUserId)) {
-      throw new ArgumentNotProvidedException('TenantEntity: ownerUserId is required.');
+      throw new ArgumentNotProvidedException(
+        'TenantEntity: ownerUserId is required.'
+      );
     }
     if (!(this.props.status instanceof TenantStatusVO)) {
-        throw new ArgumentInvalidException('TenantEntity: status must be a valid TenantStatusVO.');
+      throw new ArgumentInvalidException(
+        'TenantEntity: status must be a valid TenantStatusVO.'
+      );
     }
-    if (this.props.dbConnectionConfig !== null &&
-        this.props.dbConnectionConfig !== undefined &&
-        !(this.props.dbConnectionConfig instanceof DbConnectionConfigVO)) {
-        throw new ArgumentInvalidException('TenantEntity: dbConnectionConfig must be a valid DbConnectionConfigVO if provided.');
+    if (
+      this.props.dbConnectionConfig !== null &&
+      this.props.dbConnectionConfig !== undefined &&
+      !(this.props.dbConnectionConfig instanceof DbConnectionConfigVO)
+    ) {
+      throw new ArgumentInvalidException(
+        'TenantEntity: dbConnectionConfig must be a valid DbConnectionConfigVO if provided.'
+      );
     }
   }
 }
+// RUTA: libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Corrección de imports de Eventos y Errores",
+    "justificacion": "Los eventos y errores específicos del dominio `Tenancy` ahora se importan correctamente desde sus respectivos subdirectorios (`../events/` y `../errors/`) dentro de la misma librería, en lugar de intentar definirlos o importarlos desde el propio archivo de la entidad.",
+    "impacto": "Resuelve los errores de TypeScript sobre declaraciones no exportadas y mejora la organización del código."
+  }
+]
+*/
+
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {
+    "nota": "Asegurarse de que los archivos `TenantActivatedEventPayload` y `TenantSuspendedEventPayload` (que podrían ser simplemente `export type ... = Record<string, never>;`) existan y se exporten desde `../events/tenant-activated.event.ts` y `../events/tenant-suspended.event.ts` respectivamente, o que los eventos no esperen un payload específico si se usa `Record<string, never>` directamente en `DomainEventBase`."
+  }
+]
+*/
 
 /* SECCIÓN DE MEJORAS FUTURAS
 // (Mismas que la versión anterior)

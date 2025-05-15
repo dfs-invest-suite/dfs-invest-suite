@@ -1,14 +1,12 @@
-// libs/ui-shared/src/components/ui/button.tsx
-import { Slot } from '@radix-ui/react-slot'; // Para la prop asChild
-import { cva, type VariantProps } from 'class-variance-authority'; // Importa cva Y VariantProps
+// RUTA: libs/ui-shared/src/components/ui/button.tsx
+import { Slot } from '@radix-ui/react-slot';
+import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
-import { cn } from '../../lib/utils';
 
-// 1. Definición de las variantes del botón
-const buttonVariants = cva(
+import { cn } from '../../lib/utils'; // Path desde src/components/ui/ a src/lib/
+
+export const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-  // (El string de clases base tuyo era un poco diferente, este es el más estándar de Shadcn, ajústalo si es necesario)
-  // El tuyo: "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
@@ -23,10 +21,10 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
-        default: 'h-10 px-4 py-2', // Ajustado al estándar Shadcn
+        default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-md px-3',
         lg: 'h-11 rounded-md px-8',
-        icon: 'h-10 w-10', // Ajustado al estándar Shadcn
+        icon: 'h-10 w-10',
       },
     },
     defaultVariants: {
@@ -36,21 +34,18 @@ const buttonVariants = cva(
   }
 );
 
-// 2. Definición de la interfaz de Props del Botón
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>, // Props estándar de un botón HTML
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  // Props generadas por cva (variant, size)
-  asChild?: boolean; // Prop opcional para polimorfismo con Slot
+  asChild?: boolean;
 }
 
-// 3. Implementación del Componente con React.forwardRef
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button';
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))} // Pasa variant y size a buttonVariants
+        className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
@@ -59,4 +54,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = 'Button';
 
-export { Button, buttonVariants }; // Exporta el componente y las variantes
+export { Button, buttonVariants };
+// RUTA: libs/ui-shared/src/components/ui/button.tsx
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Código de componente restaurado y path de `cn` verificado.",
+    "justificacion": "Asegura que el componente `Button` esté correctamente definido y pueda importar sus dependencias.",
+    "impacto": "Permite que los tests y la aplicación utilicen este componente."
+  }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

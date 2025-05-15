@@ -4,8 +4,8 @@
   "compilerOptions": {
     "outDir": "../../../../../dist/out-tsc",
     "module": "commonjs",
-    "moduleResolution": "node",
-    "types": ["jest", "node", "@testing-library/jest-dom"]
+    "moduleResolution": "node", // O "node10" como estaba, "node" es más genérico
+    "types": ["jest", "node"] // "@testing-library/jest-dom" no es necesario para libs de backend
   },
   "include": [
     "jest.config.ts",
@@ -15,3 +15,14 @@
   ],
   "exclude": ["node_modules", "dist"]
 }
+// RUTA: libs/core/domain/shared-kernel/commands-queries/tsconfig.spec.json
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Restauración a JSON válido",
+    "justificacion": "El archivo contenía código de test en lugar de una configuración JSON válida. Se restauró a una estructura tsconfig.spec.json estándar.",
+    "impacto": "Permitirá que Jest y TypeScript procesen correctamente los tests de esta librería."
+  }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

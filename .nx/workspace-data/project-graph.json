@@ -1376,6 +1376,45 @@
             "configurations": {},
             "parallelism": true
           },
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "apps/api-main",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
           "test": {
             "metadata": {
               "technologies": [
@@ -9322,6 +9361,15 @@
         "hash": "sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew=="
       }
     },
+    "npm:framer-motion": {
+      "type": "npm",
+      "name": "npm:framer-motion",
+      "data": {
+        "version": "12.11.3",
+        "packageName": "framer-motion",
+        "hash": "sha512-ksUtDFBZtrbQFt4bEMFrFgo7camhmXcLeuylKQxEYSd9czkZ4tZmFROxWczWeu51WqC2m91ifpvgGCBLd0uviQ=="
+      }
+    },
     "npm:fresh@0.5.2": {
       "type": "npm",
       "name": "npm:fresh@0.5.2",
@@ -12074,6 +12122,24 @@
         "version": "3.0.1",
         "packageName": "mkdirp",
         "hash": "sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg=="
+      }
+    },
+    "npm:motion-dom": {
+      "type": "npm",
+      "name": "npm:motion-dom",
+      "data": {
+        "version": "12.11.2",
+        "packageName": "motion-dom",
+        "hash": "sha512-wZ396XNNTI9GOkyrr80wFSbZc1JbIHSHTbLdririSbkEgahWWKmsHzsxyxqBBvuBU/iaQWVu1YCjdpXYNfo2yQ=="
+      }
+    },
+    "npm:motion-utils": {
+      "type": "npm",
+      "name": "npm:motion-utils",
+      "data": {
+        "version": "12.9.4",
+        "packageName": "motion-utils",
+        "hash": "sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg=="
       }
     },
     "npm:ms@2.0.0": {
@@ -16304,11 +16370,6 @@
       },
       {
         "source": "core-domain-shared-kernel-commands-queries",
-        "target": "shared-validation-schemas",
-        "type": "static"
-      },
-      {
-        "source": "core-domain-shared-kernel-commands-queries",
         "target": "shared-constants",
         "type": "static"
       }
@@ -16362,7 +16423,7 @@
     "core-domain-shared-kernel-events": [
       {
         "source": "core-domain-shared-kernel-events",
-        "target": "shared-utils",
+        "target": "shared-errors",
         "type": "static"
       },
       {
@@ -16372,7 +16433,7 @@
       },
       {
         "source": "core-domain-shared-kernel-events",
-        "target": "shared-errors",
+        "target": "shared-utils",
         "type": "static"
       }
     ],
@@ -16528,12 +16589,12 @@
       },
       {
         "source": "pwa-supervisor",
-        "target": "npm:@nx/next",
+        "target": "npm:globals",
         "type": "static"
       },
       {
         "source": "pwa-supervisor",
-        "target": "npm:react",
+        "target": "npm:@nx/next",
         "type": "static"
       },
       {
@@ -16543,12 +16604,17 @@
       },
       {
         "source": "pwa-supervisor",
-        "target": "npm:lucide-react",
+        "target": "npm:next",
         "type": "static"
       },
       {
         "source": "pwa-supervisor",
-        "target": "npm:next",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "pwa-supervisor",
+        "target": "npm:lucide-react",
         "type": "static"
       },
       {
@@ -16579,6 +16645,11 @@
       {
         "source": "pwa-supervisor",
         "target": "npm:zustand",
+        "type": "static"
+      },
+      {
+        "source": "pwa-supervisor",
+        "target": "npm:@testing-library/jest-dom",
         "type": "static"
       },
       {
@@ -16622,6 +16693,16 @@
       {
         "source": "shared-utils",
         "target": "shared-types",
+        "type": "static"
+      },
+      {
+        "source": "shared-utils",
+        "target": "shared-errors",
+        "type": "static"
+      },
+      {
+        "source": "shared-utils",
+        "target": "shared-validation-schemas",
         "type": "static"
       },
       {
@@ -16683,17 +16764,22 @@
       },
       {
         "source": "ui-shared",
+        "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "ui-shared",
         "target": "npm:@radix-ui/react-slot",
         "type": "static"
       },
       {
         "source": "ui-shared",
-        "target": "npm:@radix-ui/react-label",
+        "target": "npm:framer-motion",
         "type": "static"
       },
       {
         "source": "ui-shared",
-        "target": "npm:@testing-library/react",
+        "target": "npm:@radix-ui/react-label",
         "type": "static"
       },
       {
@@ -16704,6 +16790,11 @@
       {
         "source": "ui-shared",
         "target": "npm:tailwind-merge",
+        "type": "static"
+      },
+      {
+        "source": "ui-shared",
+        "target": "npm:@testing-library/jest-dom",
         "type": "static"
       },
       {
@@ -28820,6 +28911,33 @@
         "type": "static"
       }
     ],
+    "npm:framer-motion": [
+      {
+        "source": "npm:framer-motion",
+        "target": "npm:motion-dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:framer-motion",
+        "target": "npm:motion-utils",
+        "type": "static"
+      },
+      {
+        "source": "npm:framer-motion",
+        "target": "npm:tslib",
+        "type": "static"
+      },
+      {
+        "source": "npm:framer-motion",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "npm:framer-motion",
+        "target": "npm:react-dom",
+        "type": "static"
+      }
+    ],
     "npm:front-matter": [
       {
         "source": "npm:front-matter",
@@ -32213,6 +32331,13 @@
       {
         "source": "npm:mkdirp@0.5.6",
         "target": "npm:minimist",
+        "type": "static"
+      }
+    ],
+    "npm:motion-dom": [
+      {
+        "source": "npm:motion-dom",
+        "target": "npm:motion-utils",
         "type": "static"
       }
     ],
@@ -37409,829 +37534,6 @@
     ]
   },
   "version": "6.0",
-  "errors": [
-    {
-      "stack": " - apps/api-main/eslint.config.mjs: ReferenceError: javascript is not defined\n    at file:///C:/Users/VAIO/apps/aaa-proyectos-propios/dfs-invest-flow-container/dfs-invest-suite-container/dfs-invest-suite/apps/api-main/eslint.config.mjs?mtime=1747264261314:1:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async dynamicImportConfig (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\config\\config-loader.js:181:17)\n    at async loadConfigFile (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\config\\config-loader.js:271:9)\n    at async ConfigLoader.calculateConfigArray (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\config\\config-loader.js:584:23)\n    at async #calculateConfigArray (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\config\\config-loader.js:765:23)\n    at async ESLint.calculateConfigForFile (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\eslint\\eslint.js:1081:4)\n    at async ESLint.isPathIgnored (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\eslint\\eslint.js:1121:18)\n    at async C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\@nx+eslint@21.0.3_@babel+tr_09308e3878dff4cd30112a0e49a243db\\node_modules\\@nx\\eslint\\src\\plugins\\plugin.js:129:19",
-      "message": "An error occurred while processing files for the @nx/eslint/plugin plugin (Defined at nx.json#plugins[1])\n.\n  - apps/api-main/eslint.config.mjs: javascript is not defined",
-      "errors": [
-        [
-          "apps/api-main/eslint.config.mjs",
-          {
-            "stack": "ReferenceError: javascript is not defined\n    at file:///C:/Users/VAIO/apps/aaa-proyectos-propios/dfs-invest-flow-container/dfs-invest-suite-container/dfs-invest-suite/apps/api-main/eslint.config.mjs?mtime=1747264261314:1:1\n    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)\n    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)\n    at async dynamicImportConfig (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\config\\config-loader.js:181:17)\n    at async loadConfigFile (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\config\\config-loader.js:271:9)\n    at async ConfigLoader.calculateConfigArray (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\config\\config-loader.js:584:23)\n    at async #calculateConfigArray (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\config\\config-loader.js:765:23)\n    at async ESLint.calculateConfigForFile (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\eslint\\eslint.js:1081:4)\n    at async ESLint.isPathIgnored (C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\eslint@9.26.0_jiti@2.4.2\\node_modules\\eslint\\lib\\eslint\\eslint.js:1121:18)\n    at async C:\\Users\\VAIO\\apps\\aaa-proyectos-propios\\dfs-invest-flow-container\\dfs-invest-suite-container\\dfs-invest-suite\\node_modules\\.pnpm\\@nx+eslint@21.0.3_@babel+tr_09308e3878dff4cd30112a0e49a243db\\node_modules\\@nx\\eslint\\src\\plugins\\plugin.js:129:19",
-            "message": "javascript is not defined"
-          }
-        ]
-      ],
-      "partialResults": [
-        [
-          "apps/api-main-e2e/eslint.config.mjs",
-          {
-            "projects": {
-              "apps/api-main-e2e": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "apps/api-main-e2e"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "apps/pwa-supervisor/eslint.config.mjs",
-          {
-            "projects": {
-              "apps/pwa-supervisor": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "apps/pwa-supervisor"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/core/application/tenancy/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/core/application/tenancy": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/core/application/tenancy"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/core/domain/shared-kernel/commands-queries": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/core/domain/shared-kernel/commands-queries"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/core/domain/shared-kernel/entities": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/core/domain/shared-kernel/entities"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/core/domain/shared-kernel/events/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/core/domain/shared-kernel/events": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/core/domain/shared-kernel/events"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/core/domain/shared-kernel/mappers": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/core/domain/shared-kernel/mappers"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/core/domain/shared-kernel/ports": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/core/domain/shared-kernel/ports"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/core/domain/shared-kernel/value-objects": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/core/domain/shared-kernel/value-objects"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/core/domain/tenancy/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/core/domain/tenancy": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/core/domain/tenancy"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/shared/constants/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/shared/constants": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/shared/constants"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/shared/errors/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/shared/errors": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/shared/errors"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/shared/result/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/shared/result": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/shared/result"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/shared/types/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/shared/types": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/shared/types"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/shared/utils/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/shared/utils": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/shared/utils"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/shared/validation-schemas/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/shared/validation-schemas": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/shared/validation-schemas"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "libs/ui-shared/eslint.config.mjs",
-          {
-            "projects": {
-              "libs/ui-shared": {
-                "targets": {
-                  "lint": {
-                    "command": "eslint .",
-                    "cache": true,
-                    "options": {
-                      "cwd": "libs/ui-shared"
-                    },
-                    "inputs": [
-                      "default",
-                      "^default",
-                      "{workspaceRoot}/eslint.config.mjs",
-                      "{projectRoot}/eslint.config.mjs",
-                      "{workspaceRoot}/tools/eslint-rules/**/*",
-                      {
-                        "externalDependencies": [
-                          "eslint"
-                        ]
-                      }
-                    ],
-                    "outputs": [
-                      "{options.outputFile}"
-                    ],
-                    "metadata": {
-                      "technologies": [
-                        "eslint"
-                      ],
-                      "description": "Runs ESLint on project",
-                      "help": {
-                        "command": "pnpm exec eslint --help",
-                        "example": {
-                          "options": {
-                            "max-warnings": 0
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        ],
-        [
-          "eslint.config.mjs",
-          {
-            "projects": {}
-          }
-        ]
-      ],
-      "name": "AggregateCreateNodesError",
-      "pluginIndex": 1
-    }
-  ],
-  "computedAt": 1747265460757
+  "errors": [],
+  "computedAt": 1747323923374
 }

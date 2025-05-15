@@ -1,20 +1,22 @@
-// apps/api-main-e2e/src/support/global-teardown.ts
-// import { killPort } from '@nx/node/utils'; // Si no se usa, no es necesario.
-
+// RUTA: apps/api-main-e2e/src/support/global-teardown.ts
 // eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace globalThis {
-   
   var __TEARDOWN_MESSAGE__: string;
 }
 
-// La función no necesita ser async si no contiene 'await'
 export default function (): void {
-  // Put clean up logic here (e.g. stopping services, docker-compose, etc.).
-  // Hint: `globalThis` is shared between setup and teardown.
-  // const port = process.env.PORT ? Number(process.env.PORT) : 3000;
-  // await killPort(port); // Si se usa killPort, la función debe ser async y killPort debe estar importado.
-
   if (typeof globalThis.__TEARDOWN_MESSAGE__ === 'string') {
-    console.log(globalThis.__TEARDOWN_MESSAGE__);
+    console.info(globalThis.__TEARDOWN_MESSAGE__); // CAMBIO a console.info
   }
 }
+// RUTA: apps/api-main-e2e/src/support/global-teardown.ts
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Uso de `console.info` para mensaje de teardown.",
+    "justificacion": "Alinea el uso de `console` con las reglas de ESLint permitidas y es más apropiado para un mensaje informativo.",
+    "impacto": "Resuelve el warning `no-console`."
+  }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

@@ -5,40 +5,54 @@
 
 import nxPlugin from '@nx/eslint-plugin';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
-import * as tsParser from '@typescript-eslint/parser'; // <--- IMPORTACIÓN AÑADIDA
+import * as tsParser from '@typescript-eslint/parser';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import globals from 'globals';
-import { dirname } from 'path';
+import { dirname, resolve as pathResolve } from 'path'; // Añadido pathResolve
 import { fileURLToPath } from 'url';
 import baseConfig from '../../eslint.config.mjs';
 
-// const currentDir = dirname(fileURLToPath(import.meta.url)); // No es necesario si monorepoRoot se calcula desde currentDir del archivo config
-const monorepoRoot = dirname(dirname(dirname(fileURLToPath(import.meta.url))));
+const currentDir = dirname(fileURLToPath(import.meta.url));
+const monorepoRoot = pathResolve(currentDir, '../../'); // Ajustado para subir dos niveles
+
+const uiSharedGlobalIgnores = [
+  '**/node_modules/**',
+  '**/dist/**',
+  'libs/ui-shared/jest.config.ts',
+  'libs/ui-shared/tailwind.config.js',
+  'libs/ui-shared/postcss.config.js',
+  'libs/ui-shared/index.ts', // El index.ts de la raíz de la lib
+];
 
 const uiSharedConfig = [
+  {
+    files: ['libs/ui-shared/**/*.{ts,tsx,js,jsx}'],
+    ignores: uiSharedGlobalIgnores,
+  },
   ...baseConfig,
   {
-    files: ['libs/ui-shared/src/**/*.{ts,tsx}'],
+    files: [
+      'libs/ui-shared/src/components/**/*.{ts,tsx}',
+      'libs/ui-shared/src/lib/**/*.{ts,tsx}',
+    ],
     ignores: [
-      '**/node_modules/**',
-      '**/dist/**',
-      'libs/ui-shared/jest.config.ts',
+      // uiSharedGlobalIgnores ya cubre node_modules y dist
+      'libs/ui-shared/src/**/*.spec.{ts,tsx}',
+      'libs/ui-shared/src/**/*.test.{ts,tsx}',
       'libs/ui-shared/src/test-setup.ts',
-      'libs/ui-shared/src/**/*.spec.tsx',
-      'libs/ui-shared/src/**/*.test.tsx',
-      'libs/ui-shared/src/index.ts',
-      'libs/ui-shared/index.ts',
+      'libs/ui-shared/src/index.ts', // El index.ts dentro de src/
     ],
     languageOptions: {
-      parser: tsParser, // Ahora definido
+      parser: tsParser,
       parserOptions: {
         project: [
-          `${monorepoRoot}/libs/ui-shared/tsconfig.lib.json`,
-          `${monorepoRoot}/tsconfig.base.json`,
+          pathResolve(monorepoRoot, 'libs/ui-shared/tsconfig.lib.json'),
+          pathResolve(monorepoRoot, 'tsconfig.base.json'),
         ],
         tsconfigRootDir: monorepoRoot,
+        ecmaFeatures: { jsx: true }, // Asegurar que JSX está habilitado
       },
       globals: { ...globals.browser },
     },
@@ -47,12 +61,12 @@ const uiSharedConfig = [
       react: reactPlugin,
       'react-hooks': reactHooksPlugin,
       'jsx-a11y': jsxA11yPlugin,
-      '@nx': nxPlugin, // Añadir @nx plugin aquí también si se usan sus reglas
+      '@nx': nxPlugin,
     },
     rules: {
       ...tsPlugin.configs['recommended-type-checked'].rules,
       ...reactPlugin.configs.recommended.rules,
-      ...reactPlugin.configs['jsx-runtime'].rules,
+      ...reactPlugin.configs['jsx-runtime'].rules, // Para nuevo JSX transform
       ...reactHooksPlugin.configs.recommended.rules,
       ...jsxA11yPlugin.configs.recommended.rules,
       '@typescript-eslint/no-misused-promises': [
@@ -63,58 +77,55 @@ const uiSharedConfig = [
         'error',
         { ignoreVoid: true },
       ],
-      'react/prop-types': 'off',
-      // Regla de Nx para module boundaries, si aplica a nivel de librería.
-      // Usualmente se define en el raíz, pero si es necesario para este proyecto específico:
-      // '@nx/enforce-module-boundaries': ['error', { /* ... tus depConstraints para ui-shared ... */ }],
+      'react/prop-types': 'off', // Común en proyectos TypeScript con React
     },
-    settings: { react: { version: 'detect' } },
+    settings: { react: { version: 'detect' } }, // AÑADIDO AQUÍ
   },
   {
     files: [
-      'libs/ui-shared/src/**/*.spec.tsx',
-      'libs/ui-shared/src/**/*.test.tsx',
+      'libs/ui-shared/src/**/*.spec.{ts,tsx}',
+      'libs/ui-shared/src/**/*.test.{ts,tsx}',
     ],
-    ignores: ['**/node_modules/**', '**/dist/**'],
+    // ignores: uiSharedGlobalIgnores, // Ya cubierto por el ignore global de este config
     languageOptions: {
-      parser: tsParser, // Ahora definido
+      parser: tsParser,
       parserOptions: {
         project: [
-          `${monorepoRoot}/libs/ui-shared/tsconfig.spec.json`,
-          `${monorepoRoot}/tsconfig.base.json`,
+          pathResolve(monorepoRoot, 'libs/ui-shared/tsconfig.spec.json'),
+          pathResolve(monorepoRoot, 'tsconfig.base.json'),
         ],
         tsconfigRootDir: monorepoRoot,
+        ecmaFeatures: { jsx: true },
       },
       globals: { ...globals.jest, ...globals.browser },
     },
-    plugins: { '@typescript-eslint': tsPlugin, react: reactPlugin },
+    plugins: { '@typescript-eslint': tsPlugin, react: reactPlugin }, // Solo los necesarios para tests
     rules: {
       ...tsPlugin.configs['recommended-type-checked'].rules,
-      ...reactPlugin.configs.recommended.rules,
+      ...reactPlugin.configs.recommended.rules, // Para asegurar que las reglas de React se apliquen a tests también
       ...reactPlugin.configs['jsx-runtime'].rules,
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
+      '@typescript-eslint/no-unsafe-argument': 'off',
     },
+    settings: { react: { version: 'detect' } }, // AÑADIDO AQUÍ también para tests
   },
   {
-    files: ['libs/ui-shared/src/index.ts'],
-    ignores: ['**/node_modules/**', '**/dist/**'],
+    files: ['libs/ui-shared/src/index.ts'], // El index.ts dentro de src
+    // ignores: uiSharedGlobalIgnores, // Ya cubierto
     languageOptions: {
-      parser: tsParser, // Ahora definido
+      parser: tsParser,
       parserOptions: {
-        // Para index.ts que solo re-exportan, usualmente no se necesita `project`
-        // o uno muy básico si es solo para que el parser TS funcione.
-        // Si tiene alias que resolver, entonces sí necesitaría tsconfig.base.json
-        project: [`${monorepoRoot}/tsconfig.base.json`],
+        project: [pathResolve(monorepoRoot, 'tsconfig.base.json')],
         tsconfigRootDir: monorepoRoot,
       },
     },
     plugins: { '@typescript-eslint': tsPlugin },
     rules: {
-      ...tsPlugin.configs.recommended.rules,
+      ...tsPlugin.configs.recommended.rules, // Reglas base de TS, no type-checked
       '@typescript-eslint/no-misused-promises': 'off',
       '@typescript-eslint/no-floating-promises': 'off',
     },
@@ -122,3 +133,4 @@ const uiSharedConfig = [
 ];
 
 export default uiSharedConfig;
+// RUTA: libs/ui-shared/eslint.config.mjs

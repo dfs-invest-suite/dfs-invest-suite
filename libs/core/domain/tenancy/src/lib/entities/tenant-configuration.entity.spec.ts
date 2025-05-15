@@ -162,7 +162,7 @@ describe('TenantConfigurationEntity', () => {
     it('validate method should throw if key is empty after direct props manipulation (hypothetical)', () => {
         expect(() => {
             const invalidConfig = TenantConfigurationEntity.create(validProps);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (invalidConfig as any).props.key = '';
             invalidConfig.validate();
         }).toThrow('TenantConfigurationEntity: key is required.');

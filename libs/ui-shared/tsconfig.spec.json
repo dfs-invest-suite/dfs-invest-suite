@@ -8,11 +8,18 @@
   },
   "include": [
     "jest.config.ts",
-    "src/**/*.spec.ts",
-    "src/**/*.test.ts",
-    "src/**/*.spec.tsx", // Asegura que esto capture los tests en subdirectorios
-    "src/**/*.test.tsx",
+    "src/components/ui/**/*.spec.ts",
+    "src/components/ui/**/*.test.ts",
+    "src/components/ui/**/*.spec.tsx",
+    "src/components/ui/**/*.test.tsx",
+    "src/lib/**/*.spec.ts", // Para tests de utils en lib (si los hay)
+    "src/lib/**/*.test.ts",
+    "src/lib/**/*.spec.tsx",
+    "src/lib/**/*.test.tsx",
     "src/test-setup.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }
+// RUTA: libs/ui-shared/tsconfig.spec.json
+/* SECCIÓN DE MEJORAS: (Igual que antes) */
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

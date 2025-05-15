@@ -2,12 +2,6 @@
   "version": "6.0",
   "nxVersion": "21.0.3",
   "pathMappings": {
-    "@/components/*": [
-      "libs/ui-shared/src/components/ui/*"
-    ],
-    "@/lib/utils": [
-      "libs/ui-shared/src/lib/utils.ts"
-    ],
     "@dfs-suite/core-application-tenancy": [
       "libs/core/application/tenancy/src/index.ts"
     ],
@@ -103,151 +97,87 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "coverage/libs/core/domain/shared-kernel/events/prettify.css",
-        "hash": "8163588510556258587"
+        "file": "coverage/libs/core/domain/tenancy/prettify.js",
+        "hash": "15884788582061322779"
       },
       {
-        "file": ".docs/1.3.PWA-SUPERVISOR.md",
-        "hash": "10659582386587268451"
+        "file": ".docs/Guía Arquitectónica y de Implementación para la IA Experta en NX.md",
+        "hash": "3244421341483603138"
       },
       {
-        "file": "coverage/libs/core/domain/shared-kernel/mappers/index.html",
-        "hash": "4765766491281468613"
+        "file": "coverage/libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.ts.html",
+        "hash": "86194179034940191"
       },
       {
-        "file": "coverage/libs/core/domain/shared-kernel/value-objects/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/entities/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": ".docs/page.module.css",
-        "hash": "4786619528779355986"
-      },
-      {
-        "file": ".docs/1.4.PWA-CONSULTANT.md",
-        "hash": "3243457788968660985"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "3719944644258228693"
-      },
-      {
-        "file": ".docs/0.PROYETO-OFICIAL-DESARROLLO.md",
-        "hash": "16973195435290149200"
-      },
-      {
-        "file": ".docs/4.DEUDA-TECNICA.md",
-        "hash": "9580742508877002215"
-      },
-      {
-        "file": "coverage/apps/api-main/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "coverage/libs/shared/constants/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts.html",
-        "hash": "9617050968271969477"
-      },
-      {
-        "file": "coverage/apps/api-main/index.html",
-        "hash": "12880180641799041805"
-      },
-      {
-        "file": "components.json",
-        "hash": "1784723684728134693"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/value-objects/index.html",
-        "hash": "2243753241498981547"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/mappers/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts.html",
-        "hash": "11770124060254185790"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/ports/block-navigation.js",
+        "file": "coverage/libs/shared/constants/block-navigation.js",
         "hash": "1801078621803424330"
       },
       {
-        "file": "coverage/libs/shared/validation-schemas/index.html",
-        "hash": "6927515661723275724"
+        "file": "coverage/libs/core/domain/shared-kernel/value-objects/favicon.png",
+        "hash": "13402560043085226048"
       },
       {
-        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/query.base.ts.html",
-        "hash": "9292037487919241970"
+        "file": ".docs/A.REGLA-LINTERS-CONFIGURACION.md",
+        "hash": "8320713327817059454"
       },
       {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/events/index.html",
-        "hash": "11500970420525844943"
+        "file": "coverage/libs/core/domain/shared-kernel/ports/index.html",
+        "hash": "5643759725167485924"
+      },
+      {
+        "file": "coverage/libs/shared/constants/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/index.html",
+        "hash": "4133834697057526449"
+      },
+      {
+        "file": "coverage/libs/core/application/tenancy/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/libs/shared/validation-schemas/prettify.css",
+        "hash": "8163588510556258587"
       },
       {
         "file": "coverage/libs/core/domain/tenancy/src/index.html",
         "hash": "16815300913974116217"
       },
       {
-        "file": "coverage/libs/core/domain/shared-kernel/mappers/favicon.png",
-        "hash": "13402560043085226048"
+        "file": "coverage/libs/core/domain/tenancy/value-objects/index.html",
+        "hash": "11098573269397319291"
       },
       {
-        "file": "coverage/libs/core/domain/shared-kernel/ports/favicon.png",
-        "hash": "13402560043085226048"
+        "file": "coverage/libs/core/domain/shared-kernel/entities/prettify.css",
+        "hash": "8163588510556258587"
       },
       {
-        "file": "tsconfig.json",
-        "hash": "15904257995032004510"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/events/index.html",
-        "hash": "7776277560512826118"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/mappers/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/entities/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/events/sorter.js",
+        "file": "coverage/libs/core/domain/shared-kernel/ports/sorter.js",
         "hash": "17053119163225536857"
-      },
-      {
-        "file": "coverage/apps/api-main/block-navigation.js",
-        "hash": "1801078621803424330"
       },
       {
         "file": "pnpm-workspace.yaml",
         "hash": "12453027730966252881"
       },
       {
-        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/block-navigation.js",
-        "hash": "1801078621803424330"
+        "file": "coverage/apps/api-main/sorter.js",
+        "hash": "17053119163225536857"
       },
       {
-        "file": ".docs/5.1.roadmap-verificar-borrar.md",
-        "hash": "16588574480953946481"
+        "file": "coverage/libs/core/domain/shared-kernel/value-objects/index.html",
+        "hash": "16246123117723909207"
       },
       {
-        "file": ".docs/WHATSAPP-INFORMACION.md",
-        "hash": "15484222024536211472"
+        "file": "coverage/libs/core/domain/shared-kernel/ports/base.css",
+        "hash": "6204767174569381253"
       },
       {
-        "file": "coverage/libs/shared/constants/prettify.js",
+        "file": "coverage/libs/core/domain/tenancy/src/lib/errors/tenant-already-exists.error.ts.html",
+        "hash": "13913253430170966571"
+      },
+      {
+        "file": "coverage/libs/shared/errors/prettify.js",
         "hash": "15884788582061322779"
       },
       {
@@ -255,24 +185,508 @@
         "hash": "2015606138501500538"
       },
       {
-        "file": "coverage/libs/shared/validation-schemas/prettify.js",
+        "file": ".docs/proyecto.tecnico.md",
+        "hash": "5850052459918988761"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "1175402053210905073"
+      },
+      {
+        "file": ".docs/2.CONVENCIONES-DE-DESARROLLO.md",
+        "hash": "11002417764216586860"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts.html",
+        "hash": "16060700862501742454"
+      },
+      {
+        "file": ".docs/...INTRO-DFS-SUITE-ES.md",
+        "hash": "6942902315512328526"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/ports/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": ".docs/...listado-de-dependencias.md",
+        "hash": "15737687156438680783"
+      },
+      {
+        "file": "coverage/libs/shared/types/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "package.json",
+        "hash": "8429591409244007068"
+      },
+      {
+        "file": ".docs/1.4.PWA-CONSULTANT.md",
+        "hash": "3243457788968660985"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/mappers/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/errors/invalid-tenant-status-transition.error.ts.html",
+        "hash": "5265085139499000392"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts.html",
+        "hash": "11770124060254185790"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/value-objects/index.html",
+        "hash": "2243753241498981547"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/events/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "static/styles.js",
+        "hash": "14014564280230879614"
+      },
+      {
+        "file": "scripts/ejecuta.ts",
+        "hash": "3581558311956854225"
+      },
+      {
+        "file": "coverage/libs/shared/types/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": "coverage/libs/shared/utils/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/entities/prettify.js",
         "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/apps/api-main/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/events/index.html",
+        "hash": "11500970420525844943"
+      },
+      {
+        "file": "nx.json",
+        "hash": "3971821767367882110"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/entities/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "coverage/apps/api-main/index.html",
+        "hash": "12880180641799041805"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "14688272390704683536"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1880664178033616490"
+      },
+      {
+        "file": ".docs/eslint-rais-actual.md",
+        "hash": "1823280293927401582"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/entities/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/mappers/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/libs/shared/constants/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": ".docs/Arquitectura-hexagonal-2025.md",
+        "hash": "609726058992439065"
+      },
+      {
+        "file": "components.json",
+        "hash": "1784723684728134693"
+      },
+      {
+        "file": ".docs/EXPLICACION-COMPONENTES.md",
+        "hash": "8730553876379619473"
+      },
+      {
+        "file": "coverage/libs/shared/errors/index.html",
+        "hash": "7149675888446393579"
+      },
+      {
+        "file": ".docs/resumen-dfs-invest-flow-1.0.md",
+        "hash": "2156687276783297710"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/ports/index.html",
+        "hash": "16334459068560126060"
+      },
+      {
+        "file": "coverage/libs/shared/types/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/libs/shared/result/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": ".docs/7.PLAN-DE-MEJORAS-FASE-0.md",
+        "hash": "9126645460575190149"
+      },
+      {
+        "file": "coverage/apps/api-main/app.controller.ts.html",
+        "hash": "4152679893857030264"
+      },
+      {
+        "file": "coverage/libs/core/application/tenancy/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/query.base.ts.html",
+        "hash": "9292037487919241970"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "coverage/libs/shared/utils/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/libs/shared/validation-schemas/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/mappers/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/libs/shared/types/index.html",
+        "hash": "174816698997663187"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "15904257995032004510"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "15255107291123918229"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": ".docs/10.RESUMEN-ARCHIVOS-FASE-0.md",
+        "hash": "13152051509036466661"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/value-objects/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": ".docs/..comandos-nx.md",
+        "hash": "3611085418897297206"
+      },
+      {
+        "file": ".docs/0...prompt-hidratacion.md",
+        "hash": "9506197078669389244"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/value-objects/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/entities/tenant-configuration.entity.ts.html",
+        "hash": "15292617402982169406"
+      },
+      {
+        "file": "coverage/libs/shared/utils/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "coverage/libs/shared/constants/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": ".docs/page.module.css",
+        "hash": "4786619528779355986"
+      },
+      {
+        "file": ".github/instructions/nx.instructions.md",
+        "hash": "15641374832889458075"
+      },
+      {
+        "file": "coverage/libs/shared/validation-schemas/index.html",
+        "hash": "6927515661723275724"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/entities/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": "coverage/libs/shared/types/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/value-objects/db-connection-config.vo.ts.html",
+        "hash": "263745241289813868"
+      },
+      {
+        "file": ".docs/1.1.ARQUITECTURA-PROYECTO.md",
+        "hash": "4090461428276247917"
+      },
+      {
+        "file": "coverage/libs/core/application/tenancy/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": "coverage/libs/shared/errors/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/value-objects/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/apps/api-main/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "dependency-graph.html",
+        "hash": "12560290355241016586"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/entities/index.html",
+        "hash": "16982517784119159057"
+      },
+      {
+        "file": ".docs/5.ROADMAP.md",
+        "hash": "7000731980495026802"
+      },
+      {
+        "file": "coverage/apps/api-main/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/value-objects/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/apps/api-main/app.service.ts.html",
+        "hash": "18314696034740203617"
+      },
+      {
+        "file": "coverage/libs/shared/result/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
       },
       {
         "file": "coverage/libs/core/domain/shared-kernel/events/base.css",
         "hash": "6204767174569381253"
       },
       {
-        "file": "coverage/libs/shared/constants/base.css",
-        "hash": "6204767174569381253"
+        "file": ".docs/WHATSAPP-INFORMACION.md",
+        "hash": "15484222024536211472"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/libs/shared/validation-schemas/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/events/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": ".docs/6.PLAN-MEJORAS-DETALLADO-F0.md",
+        "hash": "885781633749132600"
+      },
+      {
+        "file": "coverage/libs/shared/result/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/ports/tenant-configuration.repository.port.ts.html",
+        "hash": "696672455897179098"
+      },
+      {
+        "file": ".docs/4.DEUDA-TECNICA.md",
+        "hash": "9580742508877002215"
+      },
+      {
+        "file": "static/runtime.js",
+        "hash": "2507934080332224618"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/events/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": ".docs/mejoras-futuras.md",
+        "hash": "16625039011129785983"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/events/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": ".docs/1.5.APP-WHATSAPP.md",
+        "hash": "11532984355549567107"
+      },
+      {
+        "file": ".docs/A.1.PROMPT-ENTREGAS-ARTEFACTOS.md",
+        "hash": "1523571019712328193"
+      },
+      {
+        "file": ".docs/z.pwa-supervisor.md",
+        "hash": "2299474907101283319"
+      },
+      {
+        "file": ".docs/8.PROTOCOLO-ANALISIS-SNAPSHOT.md",
+        "hash": "7596795257419893676"
+      },
+      {
+        "file": "static/main.js",
+        "hash": "4754919107653109548"
+      },
+      {
+        "file": "coverage/libs/shared/errors/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/apps/api-main/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/events/block-navigation.js",
+        "hash": "1801078621803424330"
       },
       {
         "file": "coverage/libs/core/domain/shared-kernel/entities/favicon.png",
         "hash": "13402560043085226048"
       },
       {
-        "file": ".docs/1.5.APP-WHATSAPP.md",
-        "hash": "11532984355549567107"
+        "file": "coverage/libs/core/domain/shared-kernel/value-objects/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": ".docs/3.BITACORA.md",
+        "hash": "6799206595013425308"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": ".docs/1.0.DOCUMENTO-TECNICO-PROYECTO.md",
+        "hash": "5004004224552608043"
+      },
+      {
+        "file": "static/favicon.ico",
+        "hash": "9303420814833116677"
+      },
+      {
+        "file": ".docs/directivas-v2.0.1.md",
+        "hash": "16985608459039549285"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/ports/tenant.repository.port.ts.html",
+        "hash": "1914024629528232233"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts.html",
+        "hash": "9617050968271969477"
+      },
+      {
+        "file": "coverage/libs/core/application/tenancy/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/value-objects/tenant-status.vo.ts.html",
+        "hash": "10347744278144600117"
+      },
+      {
+        "file": "coverage/libs/shared/constants/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": ".docs/CAGADAZO.md",
+        "hash": "1773354174811884039"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": ".docs/anti-ban-whatsapp-integration.md",
+        "hash": "4892578990885613634"
+      },
+      {
+        "file": "coverage/libs/shared/errors/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "README.md",
+        "hash": "17771209280525194413"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/ports/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/libs/shared/constants/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/mappers/index.html",
+        "hash": "4765766491281468613"
+      },
+      {
+        "file": "coverage/libs/shared/result/base.css",
+        "hash": "6204767174569381253"
       },
       {
         "file": "coverage/libs/core/domain/shared-kernel/commands-queries/prettify.js",
@@ -283,199 +697,195 @@
         "hash": "1801078621803424330"
       },
       {
-        "file": "coverage/libs/shared/errors/index.html",
-        "hash": "7149675888446393579"
+        "file": "coverage/libs/core/domain/shared-kernel/mappers/sorter.js",
+        "hash": "17053119163225536857"
       },
       {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/errors/index.html",
-        "hash": "2433926815492345104"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts.html",
-        "hash": "2896621125859294496"
-      },
-      {
-        "file": "coverage/apps/api-main/app.service.ts.html",
-        "hash": "18314696034740203617"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/value-objects/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/block-navigation.js",
+        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/block-navigation.js",
         "hash": "1801078621803424330"
       },
       {
-        "file": "coverage/libs/shared/types/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts.html",
-        "hash": "16974694491123707433"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/errors/tenant-already-exists.error.ts.html",
-        "hash": "13913253430170966571"
-      },
-      {
-        "file": "coverage/libs/shared/validation-schemas/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": ".docs/...INTRO-DFS-SUITE-ES.md",
-        "hash": "6942902315512328526"
-      },
-      {
-        "file": "coverage/libs/shared/types/index.html",
-        "hash": "174816698997663187"
-      },
-      {
-        "file": "coverage/libs/shared/result/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "eslint",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/events/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": ".env.example",
-        "hash": "9701414843099447202"
-      },
-      {
-        "file": "coverage/libs/shared/utils/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/entities/index.html",
-        "hash": "7303927569202999244"
-      },
-      {
-        "file": "README.md",
-        "hash": "17771209280525194413"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/value-objects/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "coverage/libs/core/application/tenancy/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/entities/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "coverage/libs/shared/types/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/shared/utils/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "package.json",
-        "hash": "9520776935409794625"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/index.html",
-        "hash": "4133834697057526449"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/value-objects/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "scripts/ejecuta.ts",
-        "hash": "3581558311956854225"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.ts.html",
-        "hash": "86194179034940191"
-      },
-      {
-        "file": ".docs/z.pwa-supervisor.md",
-        "hash": "2299474907101283319"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/mappers/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/shared/result/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/apps/api-main/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": ".docs/5.ROADMAP.md",
-        "hash": "7000731980495026802"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": "coverage/libs/shared/errors/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "coverage/libs/shared/utils/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/shared/types/favicon.png",
-        "hash": "13402560043085226048"
+        "file": "metadata.factory.spec.ts",
+        "hash": "665591762243932963"
       },
       {
         "file": "coverage/libs/shared/errors/sort-arrow-sprite.png",
         "hash": "254831142482329146"
       },
       {
-        "file": "coverage/libs/shared/validation-schemas/favicon.png",
-        "hash": "13402560043085226048"
+        "file": ".docs/0.PROYETO-OFICIAL-DESARROLLO.md",
+        "hash": "16973195435290149200"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "3719944644258228693"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/ports/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/ports/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/libs/shared/result/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/entities/index.html",
+        "hash": "7303927569202999244"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts.html",
+        "hash": "16974694491123707433"
+      },
+      {
+        "file": "coverage/libs/shared/utils/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": ".docs/5.1.roadmap-verificar-borrar.md",
+        "hash": "16588574480953946481"
+      },
+      {
+        "file": "coverage/libs/shared/result/index.html",
+        "hash": "2387681732684498102"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/events/index.html",
+        "hash": "7776277560512826118"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/value-objects/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/ports/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "coverage/libs/shared/errors/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "coverage/libs/shared/types/prettify.css",
+        "hash": "8163588510556258587"
+      },
+      {
+        "file": "coverage/libs/core/application/tenancy/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/libs/shared/result/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/libs/shared/errors/sorter.js",
+        "hash": "17053119163225536857"
       },
       {
         "file": "coverage/libs/shared/validation-schemas/base.css",
         "hash": "6204767174569381253"
       },
       {
-        "file": "coverage/libs/shared/result/favicon.png",
-        "hash": "13402560043085226048"
+        "file": "coverage/libs/shared/constants/index.html",
+        "hash": "18133721714558735531"
       },
       {
-        "file": "coverage/libs/core/domain/tenancy/index.html",
-        "hash": "9334254993452576004"
+        "file": "coverage/libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.ts.html",
+        "hash": "16003879775812134771"
       },
       {
-        "file": "coverage/libs/shared/validation-schemas/prettify.css",
+        "file": "coverage/libs/core/domain/tenancy/src/index.ts.html",
+        "hash": "2749174958832964347"
+      },
+      {
+        "file": "coverage/libs/shared/utils/prettify.css",
         "hash": "8163588510556258587"
       },
       {
-        "file": ".docs/proyecto.tecnico.md",
-        "hash": "5850052459918988761"
+        "file": "coverage/libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts.html",
+        "hash": "2896621125859294496"
       },
       {
-        "file": "coverage/libs/shared/result/sort-arrow-sprite.png",
+        "file": "coverage/libs/shared/validation-schemas/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/apps/api-main/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": ".docs/1.3.PWA-SUPERVISOR.md",
+        "hash": "4318121414669849896"
+      },
+      {
+        "file": "coverage/libs/core/application/tenancy/index.html",
+        "hash": "13538075446814869865"
+      },
+      {
+        "file": "project-graph.json",
+        "hash": "14953505518814022067"
+      },
+      {
+        "file": "coverage/apps/api-main/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/libs/shared/utils/favicon.png",
+        "hash": "13402560043085226048"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/mappers/base.css",
+        "hash": "6204767174569381253"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/src/lib/errors/index.html",
+        "hash": "2433926815492345104"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/mappers/block-navigation.js",
+        "hash": "1801078621803424330"
+      },
+      {
+        "file": "coverage/libs/shared/utils/prettify.js",
+        "hash": "15884788582061322779"
+      },
+      {
+        "file": "coverage/libs/core/domain/shared-kernel/mappers/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": "coverage/libs/core/domain/tenancy/entities/index.html",
+        "hash": "6233056002662157376"
+      },
+      {
+        "file": "coverage/libs/core/application/tenancy/sorter.js",
+        "hash": "17053119163225536857"
+      },
+      {
+        "file": "static/environment.js",
+        "hash": "17454648232443084945"
+      },
+      {
+        "file": "coverage/libs/shared/constants/sort-arrow-sprite.png",
+        "hash": "254831142482329146"
+      },
+      {
+        "file": ".docs/9.FASE-0-MEJORAS-POR-ARCHIVO.md",
+        "hash": "3204459403597584719"
+      },
+      {
+        "file": "coverage/libs/shared/validation-schemas/sort-arrow-sprite.png",
         "hash": "254831142482329146"
       },
       {
@@ -483,127 +893,15 @@
         "hash": "17053119163225536857"
       },
       {
-        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/apps/api-main/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts.html",
-        "hash": "16060700862501742454"
-      },
-      {
-        "file": "coverage/libs/core/application/tenancy/block-navigation.js",
+        "file": "coverage/libs/core/domain/shared-kernel/entities/block-navigation.js",
         "hash": "1801078621803424330"
       },
       {
-        "file": ".docs/6.PLAN-MEJORAS-DETALLADO-F0.md",
-        "hash": "885781633749132600"
+        "file": ".env.example",
+        "hash": "9701414843099447202"
       },
       {
-        "file": "nx",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/libs/shared/utils/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.ts.html",
-        "hash": "16003879775812134771"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "13316126776302798895"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/mappers/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/value-objects/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/shared/utils/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/shared/errors/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/mappers/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/ports/index.html",
-        "hash": "5643759725167485924"
-      },
-      {
-        "file": "coverage/libs/shared/utils/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": ".docs/..comandos-nx.md",
-        "hash": "15802261431177259539"
-      },
-      {
-        "file": ".docs/1.6.DEV-HUB.md",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/ports/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/ports/tenant-configuration.repository.port.ts.html",
-        "hash": "696672455897179098"
-      },
-      {
-        "file": "coverage/apps/api-main/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "pnpm",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "coverage/libs/shared/result/index.html",
-        "hash": "2387681732684498102"
-      },
-      {
-        "file": "coverage/libs/core/application/tenancy/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/shared/constants/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/entities/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/index.ts.html",
-        "hash": "2749174958832964347"
-      },
-      {
-        "file": "coverage/apps/api-main/app.controller.ts.html",
-        "hash": "4152679893857030264"
-      },
-      {
-        "file": "coverage/libs/shared/types/sort-arrow-sprite.png",
+        "file": "coverage/libs/core/application/tenancy/sort-arrow-sprite.png",
         "hash": "254831142482329146"
       },
       {
@@ -611,880 +909,43 @@
         "hash": "17053119163225536857"
       },
       {
-        "file": "coverage/libs/core/application/tenancy/base.css",
-        "hash": "6204767174569381253"
+        "file": "coverage/libs/core/domain/tenancy/index.html",
+        "hash": "9334254993452576004"
       },
       {
-        "file": "coverage/libs/shared/types/block-navigation.js",
-        "hash": "1801078621803424330"
+        "file": ".docs/A.2.PROMPT-RESOLUCON-ERRORES.md",
+        "hash": "12766608075111552579"
       },
       {
-        "file": ".docs/10.RESUMEN-ARCHIVOS-FASE-0.md",
-        "hash": "13152051509036466661"
+        "file": ".docs/1.6.DEV-HUB.md",
+        "hash": "3244421341483603138"
       },
       {
-        "file": "coverage/libs/core/application/tenancy/index.html",
-        "hash": "13538075446814869865"
+        "file": "coverage/libs/shared/types/prettify.js",
+        "hash": "15884788582061322779"
       },
       {
-        "file": ".npmrc",
-        "hash": "1880664178033616490"
+        "file": "pnpm-lock.yaml",
+        "hash": "9937292985485309118"
+      },
+      {
+        "file": "static/styles.css",
+        "hash": "5914149691291306583"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "4293740186988868824"
       },
       {
         "file": "jest.config.ts",
         "hash": "12630965493391364343"
       },
       {
-        "file": ".docs/directivas-v2.0.1.md",
-        "hash": "16985608459039549285"
-      },
-      {
-        "file": ".docs/9.FASE-0-MEJORAS-POR-ARCHIVO.md",
-        "hash": "3204459403597584719"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/entities/tenant-configuration.entity.ts.html",
-        "hash": "15292617402982169406"
-      },
-      {
-        "file": "coverage/libs/core/application/tenancy/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": ".docs/2.CONVENCIONES-DE-DESARROLLO.md",
-        "hash": "11002417764216586860"
-      },
-      {
-        "file": "coverage/libs/shared/constants/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/libs/shared/types/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/shared/constants/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/ports/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/value-objects/db-connection-config.vo.ts.html",
-        "hash": "263745241289813868"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "326730363576691202"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "pnpm-lock.yaml",
-        "hash": "4418317252329671034"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/ports/tenant.repository.port.ts.html",
-        "hash": "1914024629528232233"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/value-objects/index.html",
-        "hash": "16246123117723909207"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/value-objects/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "14688272390704683536"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/entities/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/libs/shared/errors/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/ports/index.html",
-        "hash": "16334459068560126060"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "nx copy.json.md",
-        "hash": "3971821767367882110"
-      },
-      {
-        "file": "coverage/libs/shared/utils/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "coverage/libs/shared/errors/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": ".docs/anti-ban-whatsapp-integration.md",
-        "hash": "4892578990885613634"
-      },
-      {
-        "file": "nx.json",
-        "hash": "3971821767367882110"
-      },
-      {
-        "file": ".docs/mejoras-futuras.md",
-        "hash": "16625039011129785983"
-      },
-      {
-        "file": ".docs/resumen-dfs-invest-flow-1.0.md",
-        "hash": "2156687276783297710"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/entities/index.html",
-        "hash": "6233056002662157376"
-      },
-      {
-        "file": "coverage/libs/shared/errors/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/value-objects/tenant-status.vo.ts.html",
-        "hash": "10347744278144600117"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/value-objects/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/ports/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/value-objects/index.html",
-        "hash": "11098573269397319291"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/ports/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/apps/api-main/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": "coverage/libs/shared/result/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": ".docs/0...prompt-hidratacion.md",
-        "hash": "14243815696281008439"
-      },
-      {
-        "file": "coverage/libs/shared/constants/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/events/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": ".docs/1.1.ARQUITECTURA-PROYECTO.md",
-        "hash": "4090461428276247917"
-      },
-      {
-        "file": "coverage/libs/shared/validation-schemas/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/ports/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": "coverage/libs/core/application/tenancy/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": ".docs/7.PLAN-DE-MEJORAS-FASE-0.md",
-        "hash": "9126645460575190149"
-      },
-      {
-        "file": ".docs/Guía Arquitectónica y de Implementación para la IA Experta en NX.md",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/src/lib/errors/invalid-tenant-status-transition.error.ts.html",
-        "hash": "5265085139499000392"
-      },
-      {
-        "file": "coverage/libs/shared/constants/index.html",
-        "hash": "18133721714558735531"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "1175402053210905073"
-      },
-      {
-        "file": ".github/instructions/nx.instructions.md",
-        "hash": "15641374832889458075"
-      },
-      {
-        "file": ".docs/CAGADAZO.md",
-        "hash": "1773354174811884039"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/events/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "coverage/apps/api-main/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": ".docs/1.0.DOCUMENTO-TECNICO-PROYECTO.md",
-        "hash": "5004004224552608043"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/entities/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/libs/core/domain/tenancy/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": ".docs/Arquitectura-hexagonal-2025.md",
-        "hash": "609726058992439065"
-      },
-      {
-        "file": ".docs/3.BITACORA.md",
-        "hash": "6799206595013425308"
-      },
-      {
         "file": "coverage/libs/core/domain/shared-kernel/events/favicon.png",
         "hash": "13402560043085226048"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/entities/index.html",
-        "hash": "16982517784119159057"
-      },
-      {
-        "file": "coverage/libs/shared/errors/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": ".docs/...listado-de-dependencias.md",
-        "hash": "15737687156438680783"
-      },
-      {
-        "file": ".docs/eslint-rais-actual.md",
-        "hash": "1823280293927401582"
-      },
-      {
-        "file": "coverage/libs/shared/result/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/commands-queries/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "4637156562308165301"
-      },
-      {
-        "file": "coverage/libs/core/application/tenancy/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": ".docs/8.PROTOCOLO-ANALISIS-SNAPSHOT.md",
-        "hash": "674171411989465345"
-      },
-      {
-        "file": "coverage/libs/core/domain/shared-kernel/mappers/sorter.js",
-        "hash": "17053119163225536857"
       }
     ],
     "projectFileMap": {
-      "shared-validation-schemas": [
-        {
-          "file": "libs/shared/validation-schemas/eslint.config.mjs",
-          "hash": "5870933911915264065",
-          "deps": [
-            "npm:@typescript-eslint/eslint-plugin"
-          ]
-        },
-        {
-          "file": "libs/shared/validation-schemas/jest.config.ts",
-          "hash": "8276306826133071129"
-        },
-        {
-          "file": "libs/shared/validation-schemas/project.json",
-          "hash": "16392947727805009298"
-        },
-        {
-          "file": "libs/shared/validation-schemas/shared-validation-schemas.project.json.md",
-          "hash": "1392215392390040747"
-        },
-        {
-          "file": "libs/shared/validation-schemas/src/index.ts",
-          "hash": "15565758283779638183"
-        },
-        {
-          "file": "libs/shared/validation-schemas/src/lib/common.schemas.ts",
-          "hash": "6210178156976755181",
-          "deps": [
-            "shared-constants"
-          ]
-        },
-        {
-          "file": "libs/shared/validation-schemas/src/lib/pagination.schemas.ts",
-          "hash": "5292961961500766769",
-          "deps": [
-            "shared-constants"
-          ]
-        },
-        {
-          "file": "libs/shared/validation-schemas/src/lib/zod.instance.ts",
-          "hash": "16157890692859986938",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "libs/shared/validation-schemas/tsconfig.json",
-          "hash": "17877419432731693806"
-        },
-        {
-          "file": "libs/shared/validation-schemas/tsconfig.lib.json",
-          "hash": "4239166633880504652"
-        },
-        {
-          "file": "libs/shared/validation-schemas/tsconfig.spec.json",
-          "hash": "15103555855642735866"
-        }
-      ],
-      "shared-types": [
-        {
-          "file": "libs/shared/types/eslint.config.mjs",
-          "hash": "2354409148292287780"
-        },
-        {
-          "file": "libs/shared/types/jest.config.ts",
-          "hash": "16163362919612580295"
-        },
-        {
-          "file": "libs/shared/types/project.json",
-          "hash": "3195070544824459304"
-        },
-        {
-          "file": "libs/shared/types/src/index.ts",
-          "hash": "8009372804872761018"
-        },
-        {
-          "file": "libs/shared/types/src/lib/api-response.interface.ts",
-          "hash": "12163190414362665549"
-        },
-        {
-          "file": "libs/shared/types/src/lib/brand.type.ts",
-          "hash": "12057631739754552936"
-        },
-        {
-          "file": "libs/shared/types/src/lib/maybe.type.ts",
-          "hash": "321190837005194403"
-        },
-        {
-          "file": "libs/shared/types/src/lib/object-literal.type.ts",
-          "hash": "12130679675297870943"
-        },
-        {
-          "file": "libs/shared/types/src/lib/paginated.interface.ts",
-          "hash": "17284968405573204699"
-        },
-        {
-          "file": "libs/shared/types/src/lib/primitive-types.ts",
-          "hash": "17980774692264665609"
-        },
-        {
-          "file": "libs/shared/types/tsconfig.json",
-          "hash": "15630330521791096201"
-        },
-        {
-          "file": "libs/shared/types/tsconfig.lib.json",
-          "hash": "7287962477065492198"
-        },
-        {
-          "file": "libs/shared/types/tsconfig.spec.json",
-          "hash": "1127123692419667363"
-        },
-        {
-          "file": "libs/shared/types/types.project.json.md",
-          "hash": "169691797980117768"
-        }
-      ],
-      "core-domain-shared-kernel-commands-queries": [
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/commands-queries.project.json.md",
-          "hash": "5388027313499087591"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
-          "hash": "16585758520623612183"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-          "hash": "12264213429035048273"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/project.json",
-          "hash": "5036513281134657036"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/index.ts",
-          "hash": "11951715054356925630"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command-handler.interface.ts",
-          "hash": "8647801117582176961",
-          "deps": [
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.spec.ts",
-          "hash": "17132173636213991478",
-          "deps": [
-            "shared-utils",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.ts",
-          "hash": "17572823577472457931",
-          "deps": [
-            "shared-utils",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.interface.ts",
-          "hash": "8186990346415561695",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/metadata.factory.spec.ts",
-          "hash": "11768748389715177193",
-          "deps": [
-            "shared-utils",
-            "shared-validation-schemas",
-            "shared-types",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/metadata.factory.ts",
-          "hash": "16592713681106019228",
-          "deps": [
-            "shared-utils",
-            "shared-types",
-            "shared-errors",
-            "shared-validation-schemas"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/paginated-query.base.ts",
-          "hash": "13747595712691830691",
-          "deps": [
-            "shared-types",
-            "shared-constants"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query-handler.interface.ts",
-          "hash": "16529284111713786990",
-          "deps": [
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query.base.ts",
-          "hash": "4446862500833011334",
-          "deps": [
-            "shared-utils",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query.interface.ts",
-          "hash": "9282109363569931304",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.json",
-          "hash": "11198281965836123432"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.lib.json",
-          "hash": "3617061716003816438"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.spec.json",
-          "hash": "13084928260493907476"
-        }
-      ],
-      "shared-errors": [
-        {
-          "file": "libs/shared/errors/errores.project.json.md",
-          "hash": "11048975492910665607"
-        },
-        {
-          "file": "libs/shared/errors/eslint.config.mjs",
-          "hash": "3529468024425055113"
-        },
-        {
-          "file": "libs/shared/errors/jest.config.ts",
-          "hash": "4901145136255232051"
-        },
-        {
-          "file": "libs/shared/errors/project.json",
-          "hash": "9527570897600468579"
-        },
-        {
-          "file": "libs/shared/errors/src/index.ts",
-          "hash": "4997326369855812725"
-        },
-        {
-          "file": "libs/shared/errors/src/lib/exception.base.ts",
-          "hash": "12442054849016033202",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/shared/errors/src/lib/exception.codes.ts",
-          "hash": "18174183035627135127"
-        },
-        {
-          "file": "libs/shared/errors/src/lib/generic.exceptions.ts",
-          "hash": "4445496848400588805",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/shared/errors/tsconfig.json",
-          "hash": "10439673020789910070"
-        },
-        {
-          "file": "libs/shared/errors/tsconfig.lib.json",
-          "hash": "13492241498187088270"
-        },
-        {
-          "file": "libs/shared/errors/tsconfig.spec.json",
-          "hash": "7550541361315801767"
-        }
-      ],
-      "shared-utils": [
-        {
-          "file": "libs/shared/utils/eslint.config.mjs",
-          "hash": "15536645171868176584",
-          "deps": [
-            "npm:@typescript-eslint/eslint-plugin"
-          ]
-        },
-        {
-          "file": "libs/shared/utils/jest.config.ts",
-          "hash": "3439586481535294978"
-        },
-        {
-          "file": "libs/shared/utils/project.json",
-          "hash": "5236808892030540498"
-        },
-        {
-          "file": "libs/shared/utils/src/index.ts",
-          "hash": "5184080166991938690"
-        },
-        {
-          "file": "libs/shared/utils/src/lib/guard.ts",
-          "hash": "1575115371281862334",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/shared/utils/src/lib/uuid.utils.spec.ts",
-          "hash": "12621490806890642386",
-          "deps": [
-            "shared-constants",
-            "npm:uuid"
-          ]
-        },
-        {
-          "file": "libs/shared/utils/src/lib/uuid.utils.ts",
-          "hash": "18273871913313676661",
-          "deps": [
-            "npm:uuid",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/shared/utils/tsconfig.json",
-          "hash": "8990199382609902236"
-        },
-        {
-          "file": "libs/shared/utils/tsconfig.lib.json",
-          "hash": "18115756040657092998"
-        },
-        {
-          "file": "libs/shared/utils/tsconfig.spec.json",
-          "hash": "12377858088203616784"
-        },
-        {
-          "file": "libs/shared/utils/utils.project.json.md",
-          "hash": "17823575714773670544"
-        }
-      ],
-      "core-domain-tenancy": [
-        {
-          "file": "libs/core/domain/tenancy/eslint.config.mjs",
-          "hash": "15872373987943413713"
-        },
-        {
-          "file": "libs/core/domain/tenancy/jest.config.ts",
-          "hash": "12074460860088778811"
-        },
-        {
-          "file": "libs/core/domain/tenancy/mejoras.project.json.md",
-          "hash": "8320979601055412084"
-        },
-        {
-          "file": "libs/core/domain/tenancy/project.json",
-          "hash": "9433867092347827941"
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/index.ts",
-          "hash": "13863746038949718308"
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.spec.ts",
-          "hash": "6364957484735752108",
-          "deps": [
-            "shared-errors",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts",
-          "hash": "17755445720775924199",
-          "deps": [
-            "core-domain-shared-kernel-entities",
-            "shared-errors",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.spec.ts",
-          "hash": "415660729359845074",
-          "deps": [
-            "shared-errors",
-            "shared-utils",
-            "shared-types",
-            "shared-result"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts",
-          "hash": "4488956673490725666",
-          "deps": [
-            "core-domain-shared-kernel-entities",
-            "shared-errors",
-            "shared-types",
-            "shared-utils",
-            "shared-result"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/errors/invalid-tenant-status-transition.error.ts",
-          "hash": "10491467348895150766",
-          "deps": [
-            "shared-errors",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/errors/tenant-already-exists.error.ts",
-          "hash": "7898384571335655926",
-          "deps": [
-            "shared-errors",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts",
-          "hash": "10923011510934406482",
-          "deps": [
-            "core-domain-shared-kernel-events"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts",
-          "hash": "15047225336084198922",
-          "deps": [
-            "core-domain-shared-kernel-events",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts",
-          "hash": "786616574409418041",
-          "deps": [
-            "core-domain-shared-kernel-events"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/ports/tenant-configuration.repository.port.ts",
-          "hash": "13751384175432241750",
-          "deps": [
-            "core-domain-shared-kernel-ports",
-            "shared-types",
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/ports/tenant.repository.port.ts",
-          "hash": "8449090872325504129",
-          "deps": [
-            "core-domain-shared-kernel-ports",
-            "shared-types",
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/services/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.spec.ts",
-          "hash": "13359903794088403118",
-          "deps": [
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.ts",
-          "hash": "727590962577547882",
-          "deps": [
-            "core-domain-shared-kernel-value-objects",
-            "shared-errors",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.spec.ts",
-          "hash": "10393759206029967426",
-          "deps": [
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.ts",
-          "hash": "16581122424988651434",
-          "deps": [
-            "core-domain-shared-kernel-value-objects",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/tsconfig.json",
-          "hash": "7846400365888195640"
-        },
-        {
-          "file": "libs/core/domain/tenancy/tsconfig.lib.json",
-          "hash": "5419457303262888731"
-        },
-        {
-          "file": "libs/core/domain/tenancy/tsconfig.spec.json",
-          "hash": "4164763362289325525"
-        }
-      ],
-      "core-domain-shared-kernel-events": [
-        {
-          "file": "libs/core/domain/shared-kernel/events/eslint.config.mjs",
-          "hash": "16585758520623612183"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/events.project.json.md",
-          "hash": "15500507602660212470"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/jest.config.ts",
-          "hash": "1373867930247459879"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/project.json",
-          "hash": "7580681388156747649"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/index.ts",
-          "hash": "16286929567134592486"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event-emitter.interface.ts",
-          "hash": "11027953315729463461"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event-handler.interface.ts",
-          "hash": "3249864380453994435"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts",
-          "hash": "11857353837423879238",
-          "deps": [
-            "shared-utils",
-            "shared-types",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.interface.ts",
-          "hash": "15632706270650695226",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/tsconfig.json",
-          "hash": "7464751594463448890"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/tsconfig.lib.json",
-          "hash": "12621438852216795570"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/tsconfig.spec.json",
-          "hash": "12671384051532635711"
-        }
-      ],
       "core-domain-shared-kernel-value-objects": [
         {
           "file": "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
@@ -1539,51 +1000,716 @@
         {
           "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.spec.json",
           "hash": "9663143277105169041"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/value-objects/value-objects.project.json.md",
-          "hash": "16619873488053266894"
         }
       ],
-      "core-domain-shared-kernel-mappers": [
+      "shared-errors": [
         {
-          "file": "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
-          "hash": "6986245952543171013"
+          "file": "libs/shared/errors/eslint.config.mjs",
+          "hash": "3529468024425055113"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-          "hash": "14952385245368114106"
+          "file": "libs/shared/errors/jest.config.ts",
+          "hash": "4901145136255232051"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/mappers.project.json.md",
-          "hash": "2825063586518446478"
+          "file": "libs/shared/errors/project.json",
+          "hash": "9527570897600468579"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/project.json",
-          "hash": "3835645932156169022"
+          "file": "libs/shared/errors/src/index.ts",
+          "hash": "4997326369855812725"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/src/index.ts",
-          "hash": "10776726551422275590"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/src/lib/mapper.interface.ts",
-          "hash": "9286511292617927576",
+          "file": "libs/shared/errors/src/lib/exception.base.ts",
+          "hash": "12442054849016033202",
           "deps": [
-            "core-domain-shared-kernel-entities"
+            "shared-types"
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.json",
+          "file": "libs/shared/errors/src/lib/exception.codes.ts",
+          "hash": "18174183035627135127"
+        },
+        {
+          "file": "libs/shared/errors/src/lib/generic.exceptions.ts",
+          "hash": "4445496848400588805",
+          "deps": [
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/shared/errors/tsconfig.json",
+          "hash": "10439673020789910070"
+        },
+        {
+          "file": "libs/shared/errors/tsconfig.lib.json",
+          "hash": "13492241498187088270"
+        },
+        {
+          "file": "libs/shared/errors/tsconfig.spec.json",
+          "hash": "7550541361315801767"
+        }
+      ],
+      "core-domain-shared-kernel-ports": [
+        {
+          "file": "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+          "hash": "6986245952543171013"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/jest.config.ts",
+          "hash": "9245328252104699384"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/project.json",
+          "hash": "15582840113106905819"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/src/index.ts",
+          "hash": "14423377919037296960"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/src/lib/logger.port.ts",
+          "hash": "600591199813144840",
+          "deps": [
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/src/lib/repository.port.ts",
+          "hash": "415668819055338347",
+          "deps": [
+            "shared-types",
+            "core-domain-shared-kernel-entities",
+            "shared-result",
+            "shared-errors"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/ports/tsconfig.json",
           "hash": "7464751594463448890"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.lib.json",
+          "file": "libs/core/domain/shared-kernel/ports/tsconfig.lib.json",
           "hash": "12621438852216795570"
         },
         {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.spec.json",
+          "file": "libs/core/domain/shared-kernel/ports/tsconfig.spec.json",
           "hash": "12671384051532635711"
+        }
+      ],
+      "shared-constants": [
+        {
+          "file": "libs/shared/constants/eslint.config.mjs",
+          "hash": "7236874755749772245"
+        },
+        {
+          "file": "libs/shared/constants/jest.config.ts",
+          "hash": "14103391121622483189"
+        },
+        {
+          "file": "libs/shared/constants/project.json",
+          "hash": "9111611977463942458"
+        },
+        {
+          "file": "libs/shared/constants/src/index.ts",
+          "hash": "1966939580897998723"
+        },
+        {
+          "file": "libs/shared/constants/src/lib/pagination.constants.ts",
+          "hash": "11088418582991883481"
+        },
+        {
+          "file": "libs/shared/constants/src/lib/regex.constants.ts",
+          "hash": "11718818667460377747"
+        },
+        {
+          "file": "libs/shared/constants/tsconfig.json",
+          "hash": "2529090776914967885"
+        },
+        {
+          "file": "libs/shared/constants/tsconfig.lib.json",
+          "hash": "4672722969021694637"
+        },
+        {
+          "file": "libs/shared/constants/tsconfig.spec.json",
+          "hash": "14749275675582993112"
+        }
+      ],
+      "shared-types": [
+        {
+          "file": "libs/shared/types/eslint.config.mjs",
+          "hash": "2354409148292287780"
+        },
+        {
+          "file": "libs/shared/types/jest.config.ts",
+          "hash": "16163362919612580295"
+        },
+        {
+          "file": "libs/shared/types/project.json",
+          "hash": "3195070544824459304"
+        },
+        {
+          "file": "libs/shared/types/src/index.ts",
+          "hash": "8009372804872761018"
+        },
+        {
+          "file": "libs/shared/types/src/lib/api-response.interface.ts",
+          "hash": "12163190414362665549"
+        },
+        {
+          "file": "libs/shared/types/src/lib/brand.type.ts",
+          "hash": "12057631739754552936"
+        },
+        {
+          "file": "libs/shared/types/src/lib/maybe.type.ts",
+          "hash": "321190837005194403"
+        },
+        {
+          "file": "libs/shared/types/src/lib/object-literal.type.ts",
+          "hash": "12130679675297870943"
+        },
+        {
+          "file": "libs/shared/types/src/lib/paginated.interface.ts",
+          "hash": "17284968405573204699"
+        },
+        {
+          "file": "libs/shared/types/src/lib/primitive-types.ts",
+          "hash": "17980774692264665609"
+        },
+        {
+          "file": "libs/shared/types/tsconfig.json",
+          "hash": "15630330521791096201"
+        },
+        {
+          "file": "libs/shared/types/tsconfig.lib.json",
+          "hash": "7287962477065492198"
+        },
+        {
+          "file": "libs/shared/types/tsconfig.spec.json",
+          "hash": "1127123692419667363"
+        }
+      ],
+      "core-domain-shared-kernel-entities": [
+        {
+          "file": "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+          "hash": "16585758520623612183"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/jest.config.ts",
+          "hash": "4056537276816096924"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/project.json",
+          "hash": "21969991786952002"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/src/index.ts",
+          "hash": "6765042081146218763"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts",
+          "hash": "7953191470495176489",
+          "deps": [
+            "core-domain-shared-kernel-events"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/src/lib/entity.base.ts",
+          "hash": "8665362913831453240",
+          "deps": [
+            "shared-errors",
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/entities/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        }
+      ],
+      "shared-validation-schemas": [
+        {
+          "file": "libs/shared/validation-schemas/eslint.config.mjs",
+          "hash": "5870933911915264065",
+          "deps": [
+            "npm:@typescript-eslint/eslint-plugin"
+          ]
+        },
+        {
+          "file": "libs/shared/validation-schemas/jest.config.ts",
+          "hash": "8276306826133071129"
+        },
+        {
+          "file": "libs/shared/validation-schemas/project.json",
+          "hash": "16392947727805009298"
+        },
+        {
+          "file": "libs/shared/validation-schemas/src/index.ts",
+          "hash": "15565758283779638183"
+        },
+        {
+          "file": "libs/shared/validation-schemas/src/lib/common.schemas.ts",
+          "hash": "6210178156976755181",
+          "deps": [
+            "shared-constants"
+          ]
+        },
+        {
+          "file": "libs/shared/validation-schemas/src/lib/pagination.schemas.ts",
+          "hash": "5292961961500766769",
+          "deps": [
+            "shared-constants"
+          ]
+        },
+        {
+          "file": "libs/shared/validation-schemas/src/lib/zod.instance.ts",
+          "hash": "16157890692859986938",
+          "deps": [
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "libs/shared/validation-schemas/tsconfig.json",
+          "hash": "17877419432731693806"
+        },
+        {
+          "file": "libs/shared/validation-schemas/tsconfig.lib.json",
+          "hash": "4239166633880504652"
+        },
+        {
+          "file": "libs/shared/validation-schemas/tsconfig.spec.json",
+          "hash": "15103555855642735866"
+        }
+      ],
+      "api-main-e2e": [
+        {
+          "file": "apps/api-main-e2e/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "apps/api-main-e2e/jest.config.ts",
+          "hash": "636907849276366521"
+        },
+        {
+          "file": "apps/api-main-e2e/project.json",
+          "hash": "14575865874565132550"
+        },
+        {
+          "file": "apps/api-main-e2e/src/api-main/api-main.e2e-spec.ts",
+          "hash": "110394728024017389",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/api-main-e2e/src/support/global-setup.ts",
+          "hash": "10817858795115919263",
+          "deps": [
+            "npm:@nx/node"
+          ]
+        },
+        {
+          "file": "apps/api-main-e2e/src/support/global-teardown.ts",
+          "hash": "3393231379578123345"
+        },
+        {
+          "file": "apps/api-main-e2e/src/support/test-setup.ts",
+          "hash": "7729441222723227831",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/api-main-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "apps/api-main-e2e/tsconfig.spec.json",
+          "hash": "14954872453723519891"
+        }
+      ],
+      "shared-result": [
+        {
+          "file": "libs/shared/result/eslint.config.mjs",
+          "hash": "13655064194008023973"
+        },
+        {
+          "file": "libs/shared/result/jest.config.ts",
+          "hash": "12840828713548891948"
+        },
+        {
+          "file": "libs/shared/result/project.json",
+          "hash": "12036590874798196985"
+        },
+        {
+          "file": "libs/shared/result/src/index.ts",
+          "hash": "11287092583336290759"
+        },
+        {
+          "file": "libs/shared/result/src/lib/result.type.ts",
+          "hash": "7777601133905326088"
+        },
+        {
+          "file": "libs/shared/result/src/lib/result.utils.ts",
+          "hash": "16135982259122937571"
+        },
+        {
+          "file": "libs/shared/result/tsconfig.json",
+          "hash": "2513879178253761494"
+        },
+        {
+          "file": "libs/shared/result/tsconfig.lib.json",
+          "hash": "4260782727414610407"
+        },
+        {
+          "file": "libs/shared/result/tsconfig.spec.json",
+          "hash": "8700875010668543835"
+        }
+      ],
+      "pwa-supervisor": [
+        {
+          "file": "apps/pwa-supervisor/.swcrc",
+          "hash": "2742566327615098680"
+        },
+        {
+          "file": "apps/pwa-supervisor/.vscode/mcp.json",
+          "hash": "4638218546451306383"
+        },
+        {
+          "file": "apps/pwa-supervisor/.vscode/settings.json",
+          "hash": "454011832105997850"
+        },
+        {
+          "file": "apps/pwa-supervisor/eslint.config.mjs",
+          "hash": "17449366963511482131",
+          "deps": [
+            "npm:@eslint/compat",
+            "npm:@eslint/eslintrc",
+            "npm:@eslint/js",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:globals"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/index.d.ts",
+          "hash": "13855355123009723075"
+        },
+        {
+          "file": "apps/pwa-supervisor/jest.config.ts",
+          "hash": "16442267392159774088"
+        },
+        {
+          "file": "apps/pwa-supervisor/next-env.d.ts",
+          "hash": "1320675027584673186"
+        },
+        {
+          "file": "apps/pwa-supervisor/next.config.js",
+          "hash": "8798890847922092010",
+          "deps": [
+            "npm:@nx/next"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/postcss.config.js",
+          "hash": "777543951391523066"
+        },
+        {
+          "file": "apps/pwa-supervisor/project.json",
+          "hash": "18332760147402004307"
+        },
+        {
+          "file": "apps/pwa-supervisor/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/pwa-supervisor/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/pwa-supervisor/specs/index.spec.tsx",
+          "hash": "18005188087094059086",
+          "deps": [
+            "npm:@testing-library/react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/(auth)/layout.tsx",
+          "hash": "6437847770557076349",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/(auth)/login/components/login-form.tsx",
+          "hash": "1836960786666594846",
+          "deps": [
+            "npm:lucide-react",
+            "npm:next",
+            "npm:react",
+            "ui-shared"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/(auth)/login/page.tsx",
+          "hash": "6117061216404360449"
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/(dashboard)/layout.tsx",
+          "hash": "16177535875681366907",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/(dashboard)/page.tsx",
+          "hash": "59480235794037700",
+          "deps": [
+            "npm:lucide-react",
+            "npm:next",
+            "npm:react",
+            "ui-shared"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/api/hello/route.ts",
+          "hash": "2636897916320341110"
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/app-specific-styles.css",
+          "hash": "9542269589437775954"
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/globals.css",
+          "hash": "14335344405078308520"
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/layout.tsx",
+          "hash": "10990486045572701713"
+        },
+        {
+          "file": "apps/pwa-supervisor/src/app/page.tsx",
+          "hash": "8590900964845623842",
+          "deps": [
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/components/auth/AuthGuard.tsx",
+          "hash": "15918712595767391925",
+          "deps": [
+            "npm:next",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/components/layout/AppLayout.tsx",
+          "hash": "6556755626199150414",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/components/layout/MobileNav.tsx",
+          "hash": "6408461480265816641",
+          "deps": [
+            "ui-shared",
+            "npm:lucide-react",
+            "npm:next",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/components/layout/Sidebar.tsx",
+          "hash": "17208515368575301559",
+          "deps": [
+            "ui-shared",
+            "npm:lucide-react",
+            "npm:next",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/components/layout/TopNav.tsx",
+          "hash": "3884453369070949086",
+          "deps": [
+            "ui-shared",
+            "npm:lucide-react",
+            "npm:next-themes",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/components/providers/index.tsx",
+          "hash": "878992137502866843",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-query-devtools",
+            "npm:next-themes",
+            "npm:react",
+            "npm:react-hot-toast"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/components/providers/theme-provider.tsx",
+          "hash": "11544256414150290146",
+          "deps": [
+            "npm:next-themes"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/hooks/api/useAuth.ts",
+          "hash": "2301967718992613158",
+          "deps": [
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/lib/config/queryClient.ts",
+          "hash": "6280640185108057491",
+          "deps": [
+            "npm:@tanstack/react-query"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/store/auth.store.ts",
+          "hash": "17519116307386326220",
+          "deps": [
+            "npm:zustand"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/store/notification.store.ts",
+          "hash": "7437026642188218645",
+          "deps": [
+            "npm:zustand"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/store/ui.store.ts",
+          "hash": "13475063490570125799",
+          "deps": [
+            "npm:zustand"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/src/test-setup.ts",
+          "hash": "8444205131630819495",
+          "deps": [
+            "npm:@testing-library/jest-dom"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/tailwind.config.js",
+          "hash": "12281046042607558559",
+          "deps": [
+            "npm:@nx/next",
+            "npm:tailwindcss-animate"
+          ]
+        },
+        {
+          "file": "apps/pwa-supervisor/tsconfig.app.json",
+          "hash": "6491331945698404564"
+        },
+        {
+          "file": "apps/pwa-supervisor/tsconfig.json",
+          "hash": "12980426926077816950"
+        },
+        {
+          "file": "apps/pwa-supervisor/tsconfig.spec.json",
+          "hash": "6269341456568591713"
+        }
+      ],
+      "api-main": [
+        {
+          "file": "apps/api-main/eslint.config.mjs",
+          "hash": "17734434927823282842",
+          "deps": [
+            "npm:@typescript-eslint/eslint-plugin"
+          ]
+        },
+        {
+          "file": "apps/api-main/jest.config.ts",
+          "hash": "10458881430985674183"
+        },
+        {
+          "file": "apps/api-main/project.json",
+          "hash": "12150343753858563848"
+        },
+        {
+          "file": "apps/api-main/src/app/app.controller.spec.ts",
+          "hash": "7647647754668916054",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api-main/src/app/app.controller.ts",
+          "hash": "15276891910009544695",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api-main/src/app/app.module.ts",
+          "hash": "11673476679848632172",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api-main/src/app/app.service.spec.ts",
+          "hash": "13111976464657524091",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api-main/src/app/app.service.ts",
+          "hash": "9967902337593410053",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api-main/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/api-main/src/main.ts",
+          "hash": "1521849095824523532",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/api-main/tsconfig.app.json",
+          "hash": "11728618664080294556"
+        },
+        {
+          "file": "apps/api-main/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/api-main/tsconfig.spec.json",
+          "hash": "6622138706846345436"
+        },
+        {
+          "file": "apps/api-main/webpack.config.js",
+          "hash": "15325509280123933812",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
         }
       ],
       "core-application-tenancy": [
@@ -1667,13 +1793,13 @@
         },
         {
           "file": "libs/core/application/tenancy/src/lib/use-cases/activate-tenant/activate-tenant.use-case.ts",
-          "hash": "16810144802870900258",
+          "hash": "10940102825593309768",
           "deps": [
             "core-domain-shared-kernel-commands-queries",
-            "shared-result",
-            "shared-errors",
-            "core-domain-tenancy",
             "core-domain-shared-kernel-ports",
+            "core-domain-tenancy",
+            "shared-errors",
+            "shared-result",
             "shared-types",
             "shared-utils"
           ]
@@ -1696,10 +1822,6 @@
           "hash": "7637135161675821920"
         },
         {
-          "file": "libs/core/application/tenancy/tenancy.project.json.md",
-          "hash": "4073005674384757309"
-        },
-        {
           "file": "libs/core/application/tenancy/tsconfig.json",
           "hash": "7846400365888195640"
         },
@@ -1712,37 +1834,34 @@
           "hash": "4164763362289325525"
         }
       ],
-      "core-domain-shared-kernel-entities": [
+      "core-domain-shared-kernel-events": [
         {
-          "file": "libs/core/domain/shared-kernel/entities/entities.project.json.md",
-          "hash": "7758314969599001301"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+          "file": "libs/core/domain/shared-kernel/events/eslint.config.mjs",
           "hash": "16585758520623612183"
         },
         {
-          "file": "libs/core/domain/shared-kernel/entities/jest.config.ts",
-          "hash": "4056537276816096924"
+          "file": "libs/core/domain/shared-kernel/events/jest.config.ts",
+          "hash": "1373867930247459879"
         },
         {
-          "file": "libs/core/domain/shared-kernel/entities/project.json",
-          "hash": "21969991786952002"
+          "file": "libs/core/domain/shared-kernel/events/project.json",
+          "hash": "7580681388156747649"
         },
         {
-          "file": "libs/core/domain/shared-kernel/entities/src/index.ts",
-          "hash": "6765042081146218763"
+          "file": "libs/core/domain/shared-kernel/events/src/index.ts",
+          "hash": "8804237432015127082"
         },
         {
-          "file": "libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts",
-          "hash": "7306792788983270753",
-          "deps": [
-            "core-domain-shared-kernel-events"
-          ]
+          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event-emitter.interface.ts",
+          "hash": "11027953315729463461"
         },
         {
-          "file": "libs/core/domain/shared-kernel/entities/src/lib/entity.base.ts",
-          "hash": "8665362913831453240",
+          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event-handler.interface.ts",
+          "hash": "3249864380453994435"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts",
+          "hash": "16206355615765542155",
           "deps": [
             "shared-errors",
             "shared-types",
@@ -1750,15 +1869,22 @@
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.json",
+          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.interface.ts",
+          "hash": "18297993612396496645",
+          "deps": [
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/events/tsconfig.json",
           "hash": "7464751594463448890"
         },
         {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.lib.json",
+          "file": "libs/core/domain/shared-kernel/events/tsconfig.lib.json",
           "hash": "12621438852216795570"
         },
         {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.spec.json",
+          "file": "libs/core/domain/shared-kernel/events/tsconfig.spec.json",
           "hash": "12671384051532635711"
         }
       ],
@@ -1773,7 +1899,7 @@
         },
         {
           "file": "libs/ui-shared/eslint.config.mjs",
-          "hash": "11690646529664022089",
+          "hash": "15860323129084774928",
           "deps": [
             "npm:@nx/eslint-plugin",
             "npm:@typescript-eslint/eslint-plugin",
@@ -1785,12 +1911,8 @@
           ]
         },
         {
-          "file": "libs/ui-shared/index.ts",
-          "hash": "3244421341483603138"
-        },
-        {
           "file": "libs/ui-shared/jest.config.ts",
-          "hash": "6146186372864889080"
+          "hash": "15502235928303002316"
         },
         {
           "file": "libs/ui-shared/postcss.config.js",
@@ -1809,11 +1931,33 @@
           ]
         },
         {
+          "file": "libs/ui-shared/src/components/ui/button.spec.tsx",
+          "hash": "9776371032578305718",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
           "file": "libs/ui-shared/src/components/ui/button.tsx",
-          "hash": "6684271722623084534",
+          "hash": "6288249177431871670",
           "deps": [
             "npm:@radix-ui/react-slot",
             "npm:class-variance-authority",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/card-hover.spec.tsx",
+          "hash": "12105345185277279282",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/card-hover.tsx",
+          "hash": "596077890851454492",
+          "deps": [
+            "npm:framer-motion",
             "npm:react"
           ]
         },
@@ -1842,25 +1986,11 @@
         },
         {
           "file": "libs/ui-shared/src/index.ts",
-          "hash": "14921794339732294936"
-        },
-        {
-          "file": "libs/ui-shared/src/lib/components/ui/button.spec.tsx",
-          "hash": "18095300931859418917",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/lib/components/ui/card-hover.spec.tsx",
-          "hash": "11911594223215135704",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
+          "hash": "9048689747870941734"
         },
         {
           "file": "libs/ui-shared/src/lib/utils.ts",
-          "hash": "12943371769277685894",
+          "hash": "6076888439179101538",
           "deps": [
             "npm:clsx",
             "npm:tailwind-merge"
@@ -1872,7 +2002,10 @@
         },
         {
           "file": "libs/ui-shared/src/test-setup.ts",
-          "hash": "13963272133352277452"
+          "hash": "13963272133352277452",
+          "deps": [
+            "npm:@testing-library/jest-dom"
+          ]
         },
         {
           "file": "libs/ui-shared/tailwind.config.js",
@@ -1893,508 +2026,367 @@
         },
         {
           "file": "libs/ui-shared/tsconfig.spec.json",
-          "hash": "8881341007496128098"
+          "hash": "15301054844205297937"
         }
       ],
-      "api-main": [
+      "shared-utils": [
         {
-          "file": "apps/api-main/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "apps/api-main/jest.config.ts",
-          "hash": "10458881430985674183"
-        },
-        {
-          "file": "apps/api-main/project.json",
-          "hash": "12150343753858563848"
-        },
-        {
-          "file": "apps/api-main/src/app/app.controller.spec.ts",
-          "hash": "7647647754668916054",
+          "file": "libs/shared/utils/eslint.config.mjs",
+          "hash": "15536645171868176584",
           "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/app/app.module.ts",
-          "hash": "11673476679848632172",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/app/app.service.spec.ts",
-          "hash": "13111976464657524091",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/app/app.service.ts",
-          "hash": "9967902337593410053",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/api-main/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/api-main/src/main.ts",
-          "hash": "1521849095824523532",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core"
-          ]
-        },
-        {
-          "file": "apps/api-main/tsconfig.app.json",
-          "hash": "11728618664080294556"
-        },
-        {
-          "file": "apps/api-main/tsconfig.json",
-          "hash": "3490524966360018312"
-        },
-        {
-          "file": "apps/api-main/tsconfig.spec.json",
-          "hash": "6622138706846345436"
-        },
-        {
-          "file": "apps/api-main/webpack.config.js",
-          "hash": "15325509280123933812",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
-        }
-      ],
-      "pwa-supervisor": [
-        {
-          "file": "apps/pwa-supervisor/.swcrc",
-          "hash": "2742566327615098680"
-        },
-        {
-          "file": "apps/pwa-supervisor/.vscode/mcp.json",
-          "hash": "4638218546451306383"
-        },
-        {
-          "file": "apps/pwa-supervisor/.vscode/settings.json",
-          "hash": "454011832105997850"
-        },
-        {
-          "file": "apps/pwa-supervisor/eslint.config.mjs",
-          "hash": "11283138330488659496",
-          "deps": [
-            "npm:@eslint/compat",
-            "npm:@eslint/eslintrc",
-            "npm:@eslint/js",
             "npm:@typescript-eslint/eslint-plugin"
           ]
         },
         {
-          "file": "apps/pwa-supervisor/index.d.ts",
-          "hash": "13855355123009723075"
+          "file": "libs/shared/utils/jest.config.ts",
+          "hash": "3439586481535294978"
         },
         {
-          "file": "apps/pwa-supervisor/jest.config.ts",
-          "hash": "1957376159276281832"
+          "file": "libs/shared/utils/project.json",
+          "hash": "10371419597559920987"
         },
         {
-          "file": "apps/pwa-supervisor/next-env.d.ts",
-          "hash": "1320675027584673186"
+          "file": "libs/shared/utils/src/index.ts",
+          "hash": "14848164323152774511"
         },
         {
-          "file": "apps/pwa-supervisor/next.config.js",
-          "hash": "8798890847922092010",
-          "deps": [
-            "npm:@nx/next"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/postcss.config.js",
-          "hash": "777543951391523066"
-        },
-        {
-          "file": "apps/pwa-supervisor/project.json",
-          "hash": "18332760147402004307"
-        },
-        {
-          "file": "apps/pwa-supervisor/public/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/pwa-supervisor/public/favicon.ico",
-          "hash": "9303420814833116677"
-        },
-        {
-          "file": "apps/pwa-supervisor/specs/index.spec.tsx",
-          "hash": "2873936096691223229",
-          "deps": [
-            "npm:react",
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/(auth)/layout.tsx",
-          "hash": "17636366789923192297"
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/(auth)/login/components/login-form.tsx",
-          "hash": "17974927151049273910",
-          "deps": [
-            "npm:lucide-react",
-            "npm:next",
-            "npm:react",
-            "ui-shared"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/(auth)/login/page.tsx",
-          "hash": "3526831632170297073"
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/(dashboard)/layout.tsx",
-          "hash": "7903102673002675438",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/(dashboard)/page.tsx",
-          "hash": "16532319177830089384",
-          "deps": [
-            "npm:lucide-react",
-            "npm:next",
-            "npm:react",
-            "ui-shared"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/api/hello/route.ts",
-          "hash": "2636897916320341110"
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/app-specific-styles.css",
-          "hash": "9542269589437775954"
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/globals.css",
-          "hash": "14335344405078308520"
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/layout.tsx",
-          "hash": "12851321721826164916",
-          "deps": [
-            "npm:next",
-            "ui-shared"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/app/page.tsx",
-          "hash": "8590900964845623842",
-          "deps": [
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/components/auth/AuthGuard.tsx",
-          "hash": "15918712595767391925",
-          "deps": [
-            "npm:next",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/components/layout/AppLayout.tsx",
-          "hash": "6556755626199150414",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/components/layout/MobileNav.tsx",
-          "hash": "6408461480265816641",
-          "deps": [
-            "ui-shared",
-            "npm:lucide-react",
-            "npm:next",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/components/layout/Sidebar.tsx",
-          "hash": "17208515368575301559",
-          "deps": [
-            "ui-shared",
-            "npm:lucide-react",
-            "npm:next",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/components/layout/TopNav.tsx",
-          "hash": "3884453369070949086",
-          "deps": [
-            "ui-shared",
-            "npm:lucide-react",
-            "npm:next-themes",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/components/providers/index.tsx",
-          "hash": "13375583793307102546",
-          "deps": [
-            "npm:@tanstack/react-query",
-            "npm:@tanstack/react-query-devtools",
-            "npm:next-themes",
-            "npm:react",
-            "npm:react-hot-toast"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/components/providers/theme-provider.tsx",
-          "hash": "11544256414150290146"
-        },
-        {
-          "file": "apps/pwa-supervisor/src/hooks/api/useAuth.ts",
-          "hash": "9977411688445073997"
-        },
-        {
-          "file": "apps/pwa-supervisor/src/lib/config/queryClient.ts",
-          "hash": "264935057372331231",
-          "deps": [
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/store/auth.store.ts",
-          "hash": "17519116307386326220",
-          "deps": [
-            "npm:zustand"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/src/store/notification.store.ts",
-          "hash": "7437026642188218645"
-        },
-        {
-          "file": "apps/pwa-supervisor/src/store/ui.store.ts",
-          "hash": "13475063490570125799"
-        },
-        {
-          "file": "apps/pwa-supervisor/tailwind.config.js",
-          "hash": "12281046042607558559",
-          "deps": [
-            "npm:@nx/next",
-            "npm:tailwindcss-animate"
-          ]
-        },
-        {
-          "file": "apps/pwa-supervisor/tsconfig.app.json",
-          "hash": "6491331945698404564"
-        },
-        {
-          "file": "apps/pwa-supervisor/tsconfig.json",
-          "hash": "876260486674943625"
-        },
-        {
-          "file": "apps/pwa-supervisor/tsconfig.spec.json",
-          "hash": "17599157409854625275"
-        }
-      ],
-      "core-domain-shared-kernel-ports": [
-        {
-          "file": "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
-          "hash": "6986245952543171013"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/jest.config.ts",
-          "hash": "9245328252104699384"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/ports.project.json.md",
-          "hash": "8810707073087393878"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/project.json",
-          "hash": "15582840113106905819"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/src/index.ts",
-          "hash": "14423377919037296960"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/src/lib/logger.port.ts",
-          "hash": "600591199813144840",
+          "file": "libs/shared/utils/src/lib/guard.ts",
+          "hash": "1575115371281862334",
           "deps": [
             "shared-types"
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/ports/src/lib/repository.port.ts",
-          "hash": "415668819055338347",
+          "file": "libs/shared/utils/src/lib/metadata.factory.ts",
+          "hash": "1527887950294024782",
           "deps": [
+            "shared-errors",
             "shared-types",
+            "shared-validation-schemas"
+          ]
+        },
+        {
+          "file": "libs/shared/utils/src/lib/uuid.utils.spec.ts",
+          "hash": "12621490806890642386",
+          "deps": [
+            "shared-constants",
+            "npm:uuid"
+          ]
+        },
+        {
+          "file": "libs/shared/utils/src/lib/uuid.utils.ts",
+          "hash": "18273871913313676661",
+          "deps": [
+            "npm:uuid",
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.json",
+          "hash": "8990199382609902236"
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.lib.json",
+          "hash": "18115756040657092998"
+        },
+        {
+          "file": "libs/shared/utils/tsconfig.spec.json",
+          "hash": "12377858088203616784"
+        }
+      ],
+      "core-domain-tenancy": [
+        {
+          "file": "libs/core/domain/tenancy/eslint.config.mjs",
+          "hash": "10251180898652408314",
+          "deps": [
+            "npm:@typescript-eslint/eslint-plugin"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/jest.config.ts",
+          "hash": "7140418305373413897"
+        },
+        {
+          "file": "libs/core/domain/tenancy/project.json",
+          "hash": "9433867092347827941"
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/index.ts",
+          "hash": "13863746038949718308"
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.spec.ts",
+          "hash": "12566997151838971223",
+          "deps": [
+            "shared-errors",
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts",
+          "hash": "17755445720775924199",
+          "deps": [
             "core-domain-shared-kernel-entities",
+            "shared-errors",
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.spec.ts",
+          "hash": "5164749225661364799",
+          "deps": [
+            "shared-errors",
+            "shared-result",
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts",
+          "hash": "4471300330462145135",
+          "deps": [
+            "core-domain-shared-kernel-entities",
+            "shared-errors",
+            "shared-result",
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/errors/invalid-tenant-status-transition.error.ts",
+          "hash": "10491467348895150766",
+          "deps": [
+            "shared-errors",
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/errors/tenant-already-exists.error.ts",
+          "hash": "7898384571335655926",
+          "deps": [
+            "shared-errors",
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts",
+          "hash": "17798994262476062702",
+          "deps": [
+            "core-domain-shared-kernel-events"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts",
+          "hash": "15047225336084198922",
+          "deps": [
+            "core-domain-shared-kernel-events",
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts",
+          "hash": "786616574409418041",
+          "deps": [
+            "core-domain-shared-kernel-events"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/ports/tenant-configuration.repository.port.ts",
+          "hash": "13751384175432241750",
+          "deps": [
+            "core-domain-shared-kernel-ports",
+            "shared-types",
             "shared-result",
             "shared-errors"
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.json",
+          "file": "libs/core/domain/tenancy/src/lib/ports/tenant.repository.port.ts",
+          "hash": "8449090872325504129",
+          "deps": [
+            "core-domain-shared-kernel-ports",
+            "shared-types",
+            "shared-result",
+            "shared-errors"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/services/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.spec.ts",
+          "hash": "13359903794088403118",
+          "deps": [
+            "shared-errors"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.ts",
+          "hash": "727590962577547882",
+          "deps": [
+            "core-domain-shared-kernel-value-objects",
+            "shared-errors",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.spec.ts",
+          "hash": "10393759206029967426",
+          "deps": [
+            "shared-errors"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.ts",
+          "hash": "16581122424988651434",
+          "deps": [
+            "core-domain-shared-kernel-value-objects",
+            "shared-errors"
+          ]
+        },
+        {
+          "file": "libs/core/domain/tenancy/tsconfig.json",
+          "hash": "14172727696983024506"
+        },
+        {
+          "file": "libs/core/domain/tenancy/tsconfig.lib.json",
+          "hash": "5910479368944422634"
+        },
+        {
+          "file": "libs/core/domain/tenancy/tsconfig.spec.json",
+          "hash": "15586879747349902948"
+        }
+      ],
+      "core-domain-shared-kernel-commands-queries": [
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+          "hash": "16585758520623612183"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
+          "hash": "12264213429035048273"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/project.json",
+          "hash": "5036513281134657036"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/index.ts",
+          "hash": "10389525085745769874"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command-handler.interface.ts",
+          "hash": "8647801117582176961",
+          "deps": [
+            "shared-result",
+            "shared-errors"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.spec.ts",
+          "hash": "7205080171132510322",
+          "deps": [
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.ts",
+          "hash": "5148833049566927191",
+          "deps": [
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.interface.ts",
+          "hash": "8186990346415561695",
+          "deps": [
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/paginated-query.base.ts",
+          "hash": "13747595712691830691",
+          "deps": [
+            "shared-types",
+            "shared-constants"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query-handler.interface.ts",
+          "hash": "16529284111713786990",
+          "deps": [
+            "shared-result",
+            "shared-errors"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query.base.ts",
+          "hash": "3192839637742861372",
+          "deps": [
+            "shared-types",
+            "shared-utils"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query.interface.ts",
+          "hash": "9282109363569931304",
+          "deps": [
+            "shared-types"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.json",
+          "hash": "11198281965836123432"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.lib.json",
+          "hash": "3617061716003816438"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.spec.json",
+          "hash": "135530883858487133"
+        }
+      ],
+      "core-domain-shared-kernel-mappers": [
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+          "hash": "6986245952543171013"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/jest.config.ts",
+          "hash": "14952385245368114106"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/project.json",
+          "hash": "3835645932156169022"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/src/index.ts",
+          "hash": "10776726551422275590"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/src/lib/mapper.interface.ts",
+          "hash": "9286511292617927576",
+          "deps": [
+            "core-domain-shared-kernel-entities"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.json",
           "hash": "7464751594463448890"
         },
         {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.lib.json",
+          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.lib.json",
           "hash": "12621438852216795570"
         },
         {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.spec.json",
+          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.spec.json",
           "hash": "12671384051532635711"
-        }
-      ],
-      "shared-constants": [
-        {
-          "file": "libs/shared/constants/constants.projects.json.md",
-          "hash": "15522663503325869288"
-        },
-        {
-          "file": "libs/shared/constants/eslint.config.mjs",
-          "hash": "7236874755749772245"
-        },
-        {
-          "file": "libs/shared/constants/jest.config.ts",
-          "hash": "14103391121622483189"
-        },
-        {
-          "file": "libs/shared/constants/project.json",
-          "hash": "9111611977463942458"
-        },
-        {
-          "file": "libs/shared/constants/src/index.ts",
-          "hash": "1966939580897998723"
-        },
-        {
-          "file": "libs/shared/constants/src/lib/pagination.constants.ts",
-          "hash": "11088418582991883481"
-        },
-        {
-          "file": "libs/shared/constants/src/lib/regex.constants.ts",
-          "hash": "11718818667460377747"
-        },
-        {
-          "file": "libs/shared/constants/tsconfig.json",
-          "hash": "2529090776914967885"
-        },
-        {
-          "file": "libs/shared/constants/tsconfig.lib.json",
-          "hash": "4672722969021694637"
-        },
-        {
-          "file": "libs/shared/constants/tsconfig.spec.json",
-          "hash": "14749275675582993112"
-        }
-      ],
-      "shared-result": [
-        {
-          "file": "libs/shared/result/eslint.config.mjs",
-          "hash": "13655064194008023973"
-        },
-        {
-          "file": "libs/shared/result/jest.config.ts",
-          "hash": "12840828713548891948"
-        },
-        {
-          "file": "libs/shared/result/project.json",
-          "hash": "12036590874798196985"
-        },
-        {
-          "file": "libs/shared/result/result.project.json.md",
-          "hash": "17469239128325310896"
-        },
-        {
-          "file": "libs/shared/result/src/index.ts",
-          "hash": "11287092583336290759"
-        },
-        {
-          "file": "libs/shared/result/src/lib/result.type.ts",
-          "hash": "7777601133905326088"
-        },
-        {
-          "file": "libs/shared/result/src/lib/result.utils.ts",
-          "hash": "16135982259122937571"
-        },
-        {
-          "file": "libs/shared/result/tsconfig.json",
-          "hash": "2513879178253761494"
-        },
-        {
-          "file": "libs/shared/result/tsconfig.lib.json",
-          "hash": "4260782727414610407"
-        },
-        {
-          "file": "libs/shared/result/tsconfig.spec.json",
-          "hash": "8700875010668543835"
-        }
-      ],
-      "api-main-e2e": [
-        {
-          "file": "apps/api-main-e2e/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "apps/api-main-e2e/jest.config copy.ts.md",
-          "hash": "17175941424402260095"
-        },
-        {
-          "file": "apps/api-main-e2e/jest.config.ts",
-          "hash": "636907849276366521"
-        },
-        {
-          "file": "apps/api-main-e2e/project.json",
-          "hash": "14575865874565132550"
-        },
-        {
-          "file": "apps/api-main-e2e/src/api-main/api-main.e2e-spec.ts",
-          "hash": "110394728024017389",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/api-main-e2e/src/support/global-setup.ts",
-          "hash": "10817858795115919263",
-          "deps": [
-            "npm:@nx/node"
-          ]
-        },
-        {
-          "file": "apps/api-main-e2e/src/support/global-teardown.ts",
-          "hash": "9231394515157491711"
-        },
-        {
-          "file": "apps/api-main-e2e/src/support/test-setup.ts",
-          "hash": "7729441222723227831",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/api-main-e2e/tsconfig.json",
-          "hash": "15443990093475294480"
-        },
-        {
-          "file": "apps/api-main-e2e/tsconfig.spec.json",
-          "hash": "14954872453723519891"
         }
       ]
     }

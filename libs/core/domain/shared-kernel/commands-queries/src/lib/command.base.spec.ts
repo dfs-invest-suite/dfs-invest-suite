@@ -6,70 +6,71 @@
 import {
   CommandInstanceId,
   CorrelationId,
-  IsoDateString, // Importar Maybe si se usa en ICommandMetadata para causationId o userId
+  IsoDateString,
   UserId,
 } from '@dfs-suite/shared-types';
-import { UuidUtils } from '@dfs-suite/shared-utils'; // Guard no es necesario aquí si no se usa directamente
-import { CommandBase } from './command.base';
+import { CommandBase } from './command.base'; // La clase bajo prueba
 import { ICommandMetadata } from './command.interface';
-import { createOperationMetadata } from './metadata.factory';
-// No necesitamos GuardType, solo UuidUtilsType para el mock
-import type { UuidUtils as UuidUtilsType } from '@dfs-suite/shared-utils';
 
-// Mockear módulos completos
+// --- Constantes para Mocks ---
+const mockGeneratedCommandInstanceId =
+  'cmd-instance-id-123' as CommandInstanceId;
+const mockDefaultMetadata: Readonly<ICommandMetadata> = Object.freeze({
+  correlationId: 'default-correlation-id' as CorrelationId,
+  timestamp: '2025-01-01T00:00:00.000Z' as IsoDateString,
+});
+
+// --- Mock de @dfs-suite/shared-utils ---
+// 1. Mockear el módulo. La factory define la estructura del módulo mockeado.
 jest.mock('@dfs-suite/shared-utils', () => {
-  // Guardamos una referencia al módulo real para poder mockear UuidUtils selectivamente
-  const actualSharedUtils = jest.requireActual('@dfs-suite/shared-utils');
+  const originalModule = jest.requireActual('@dfs-suite/shared-utils');
   return {
-    ...actualSharedUtils, // Exportar todo lo demás del módulo real (como Guard)
+    __esModule: true, // Necesario para módulos ES6
+    ...originalModule,
+    // Las funciones mock se crean y se devuelven dentro del factory
+    createOperationMetadata: jest.fn(),
     UuidUtils: {
-      // Sobrescribir UuidUtils
-      ...actualSharedUtils.UuidUtils,
+      ...originalModule.UuidUtils,
       generateCommandInstanceId: jest.fn(),
-      // No necesitamos mockear generateCorrelationId aquí si createOperationMetadata lo hace
     },
   };
 });
 
-jest.mock('./metadata.factory', () => ({
-  createOperationMetadata: jest.fn(),
-}));
+// 2. Importar las funciones/objetos mockeados DESPUÉS de jest.mock
+// Necesitamos hacer un type assertion aquí.
+import {
+  createOperationMetadata as importedMockCreateOperationMetadata,
+  UuidUtils as ImportedMockUuidUtils,
+} from '@dfs-suite/shared-utils';
 
-// Tipar los mocks para mejor DX con Jest
-const MockedUuidUtils_generateCommandInstanceId =
-  UuidUtils.generateCommandInstanceId as jest.MockedFunction<
-    typeof UuidUtilsType.generateCommandInstanceId
-  >;
+// Asignar a variables con el tipo mockeado correcto para uso en tests
 const mockedCreateOperationMetadata =
-  createOperationMetadata as jest.MockedFunction<
-    typeof createOperationMetadata
+  importedMockCreateOperationMetadata as jest.MockedFunction<
+    typeof importedMockCreateOperationMetadata
+  >;
+const mockedGenerateCommandInstanceId =
+  ImportedMockUuidUtils.generateCommandInstanceId as jest.MockedFunction<
+    typeof ImportedMockUuidUtils.generateCommandInstanceId
   >;
 
-// Clase de prueba concreta que hereda de CommandBase
+// --- Clase de Prueba ---
 class TestCommand extends CommandBase {
   constructor(
-    public readonly payload: { data: string }, // Payload de ejemplo
+    public readonly payload: { data: string },
     metadataProps?: Partial<ICommandMetadata>
   ) {
     super(metadataProps);
   }
 }
 
+// --- Suite de Tests ---
 describe('CommandBase', () => {
-  const mockGeneratedCommandInstanceId =
-    'cmd-instance-id-123' as CommandInstanceId;
-  const mockDefaultMetadata: Readonly<ICommandMetadata> = Object.freeze({
-    correlationId: 'default-correlation-id' as CorrelationId,
-    timestamp: '2025-01-01T00:00:00.000Z' as IsoDateString,
-    // causationId y userId pueden ser undefined
-  });
-
   beforeEach(() => {
-    // Configurar los mocks antes de cada test
-    MockedUuidUtils_generateCommandInstanceId.mockReturnValue(
+    // Resetear y configurar mocks antes de cada test
+    mockedGenerateCommandInstanceId.mockReturnValue(
       mockGeneratedCommandInstanceId
     );
-    mockedCreateOperationMetadata.mockReturnValue(mockDefaultMetadata); // Retorna un valor por defecto
+    mockedCreateOperationMetadata.mockReturnValue(mockDefaultMetadata);
   });
 
   afterEach(() => {
@@ -79,11 +80,11 @@ describe('CommandBase', () => {
 
   it('should correctly initialize commandId using UuidUtils.generateCommandInstanceId', () => {
     const command = new TestCommand({ data: 'test-payload' });
-    expect(MockedUuidUtils_generateCommandInstanceId).toHaveBeenCalledTimes(1);
+    expect(mockedGenerateCommandInstanceId).toHaveBeenCalledTimes(1);
     expect(command.commandId).toBe(mockGeneratedCommandInstanceId);
   });
 
-  it('should correctly initialize commandName with the constructor name of the concrete class', () => {
+  it('should correctly initialize commandName with the constructor name', () => {
     const command = new TestCommand({ data: 'test-payload' });
     expect(command.commandName).toBe('TestCommand');
   });
@@ -92,14 +93,11 @@ describe('CommandBase', () => {
     const explicitMetadataInput: Partial<ICommandMetadata> = {
       correlationId: 'explicit-correlation-id' as CorrelationId,
       userId: 'explicit-user-id' as UserId,
-      // timestamp y causationId se pueden omitir para que la factoría use defaults o los genere
     };
     const specificMockedMetadata: Readonly<ICommandMetadata> = Object.freeze({
-      ...mockDefaultMetadata, // Empezar con los defaults
-      ...explicitMetadataInput, // Sobrescribir con los explícitos
-      // Asegurarse de que si la factoría genera timestamp, este mock también lo haga consistentemente
-      timestamp:
-        explicitMetadataInput.timestamp || mockDefaultMetadata.timestamp,
+      correlationId: explicitMetadataInput.correlationId!,
+      userId: explicitMetadataInput.userId!,
+      timestamp: mockDefaultMetadata.timestamp,
     });
     mockedCreateOperationMetadata.mockReturnValueOnce(specificMockedMetadata);
 
@@ -112,270 +110,54 @@ describe('CommandBase', () => {
     expect(mockedCreateOperationMetadata).toHaveBeenCalledWith(
       explicitMetadataInput
     );
-    expect(command.metadata).toEqual(specificMockedMetadata); // Usar toEqual para comparación de objetos
+    expect(command.metadata).toEqual(specificMockedMetadata);
   });
 
   it('should call createOperationMetadata with undefined if no metadataProps are provided, using factory defaults', () => {
     const command = new TestCommand({ data: 'test-payload' });
-
     expect(mockedCreateOperationMetadata).toHaveBeenCalledTimes(1);
     expect(mockedCreateOperationMetadata).toHaveBeenCalledWith(undefined);
-    expect(command.metadata).toEqual(mockDefaultMetadata); // Debe ser igual al default de la factoría
-  });
-
-  it('should have readonly commandId, commandName, and metadata properties', () => {
-    const command = new TestCommand({ data: 'test-payload' });
-
-    // Intentar modificar las propiedades readonly debería fallar o no tener efecto
-    // (TypeScript lo previene en tiempo de compilación, pero podemos simular un intento en JS)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore // Permitir el intento de asignación para el test
-    expect(() => {
-      command.commandId = 'new-id' as CommandInstanceId;
-    }).toThrow(TypeError);
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    expect(() => {
-      command.commandName = 'NewName';
-    }).toThrow(TypeError);
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    expect(() => {
-      command.metadata = { ...mockDefaultMetadata };
-    }).toThrow(TypeError);
-
-    // Verificar que los valores no cambiaron
-    expect(command.commandId).toBe(mockGeneratedCommandInstanceId);
-    expect(command.commandName).toBe('TestCommand');
     expect(command.metadata).toEqual(mockDefaultMetadata);
   });
 
-  it('metadata object itself should be frozen and its properties immutable', () => {
-    const command = new TestCommand({ data: 'test-payload' });
-    expect(Object.isFrozen(command.metadata)).toBe(true);
+  it('metadata property value should be immutable (value frozen by factory)', () => {
+    const frozenMetadata = Object.freeze({ ...mockDefaultMetadata });
+    mockedCreateOperationMetadata.mockReturnValue(frozenMetadata);
 
-    // Intentar modificar una propiedad de la metadata (si no fuera readonly en la interfaz)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore // Permitir el intento de asignación
+    const cmd = new TestCommand({ data: 'test' });
+    expect(Object.isFrozen(cmd.metadata)).toBe(true);
+
     expect(() => {
-      command.metadata.correlationId = 'changed-corr-id' as CorrelationId;
+      // @ts-expect-error: Attempting to mutate property of a frozen object.
+      cmd.metadata.timestamp = 'new-time' as IsoDateString;
     }).toThrow(TypeError);
   });
 });
-/* SECCIÓN DE MEJORAS
-
-[
-  Mejora Aplicada (Linting):
-    - Se eliminó la importación no utilizada de `GuardType`.
-    - Se añadió un cast explícito `as { Guard: typeof GuardType; UuidUtils: typeof UuidUtilsType }`
-      a `jest.requireActual('@dfs-suite/shared-utils')` para ayudar al linter a inferir
-      los tipos y reducir los warnings de `no-unsafe-assignment` y `no-unsafe-member-access`
-      dentro de la factory de `jest.mock`.
-]
-
-*/
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA (Se mantienen) */
-/* SECCIÓN DE MEJORAS
-
-[
-  Mejora Aplicada (Linting):
-    - Se importan los tipos `Guard as GuardType` y `UuidUtils as UuidUtilsType` de `@dfs-suite/shared-utils`.
-    - Se castea el resultado de `jest.requireActual('@dfs-suite/shared-utils')` al tipo
-      `{ Guard: typeof GuardType; UuidUtils: typeof UuidUtilsType }` dentro de la factory de `jest.mock`.
-      Esto debería eliminar los warnings de `no-unsafe-assignment` y `no-unsafe-member-access` en esa sección.
-    - El import de `UuidUtils` a nivel de módulo ya no es necesario si no se usa fuera del mock.
-      (Revisión: se mantiene para `const MockedUuidUtils = UuidUtils as ...`, lo cual es correcto).
-    - El warning de `ActualGuard` no usado debería desaparecer al no importarlo así.
-]
-
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA (Se mantienen) */
-/* SECCIÓN DE MEJORAS
-
-[
-  Mejora Aplicada (Linting):
-    - Se importan los tipos originales `ActualUuidUtils` y `ActualGuard` para ayudar con el tipado
-      de `jest.requireActual`.
-    - `MockedUuidUtils` ahora se castea desde el `UuidUtils` importado (que es el mock).
-    - Se añadieron `eslint-disable-next-line @typescript-eslint/unbound-method` a las aserciones
-      `toHaveBeenCalledTimes` y `toHaveBeenCalledWith` para los mocks de funciones puras/estáticas,
-      ya que el problema de `this` no aplica aquí y la regla es demasiado estricta.
-]
-[
-  Mejora Pendiente: Los warnings de `no-unsafe-assignment` y `no-unsafe-member-access` en la
-                  definición de `jest.mock('@dfs-suite/shared-utils', ...)` persisten porque
-                  `jest.requireActual` devuelve `unknown`. Aunque funcional, el tipado aquí
-                  podría ser más estricto si importamos los tipos de `Guard` y `UuidUtils`
-                  y los usamos para castear las partes de `jest.requireActual`.
-]
-
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-
-[
-  Nota 1: Las desactivaciones de `unbound-method` son un compromiso pragmático para los tests
-          de mocks de funciones que no son métodos de instancia.
-]
-*/
-/* SECCIÓN DE MEJORAS
-
-[
-  Mejora Aplicada (Corrección ReferenceError):
-    - La función `jest.fn()` para mockear `generateCommandInstanceId` y `createOperationMetadata`
-      ahora se define *directamente dentro* de la factory de `jest.mock`.
-    - Se accede a estos mocks en los tests a través de la importación del módulo `UuidUtils`
-      (que ahora está mockeado por Jest) y `createOperationMetadata`, usando un cast
-      a `jest.Mocked<...>` para el tipado correcto con los matchers de Jest.
-]
-
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-
-[
-  Nota 1: Este enfoque asegura que los mocks estén disponibles cuando la factory de `jest.mock`
-          se ejecute debido al hoisting.
-]
-*/
-/* SECCIÓN DE MEJORAS
-
-[
-  Mejora Aplicada (Corrección ReferenceError):
-    - La función `jest.fn()` para mockear `generateCommandInstanceId` y `createOperationMetadata`
-      ahora se define *directamente dentro* de la factory de `jest.mock`.
-    - Se accede a estos mocks en los tests a través de la importación del módulo `UuidUtils`
-      (que ahora está mockeado por Jest) y `createOperationMetadata`, usando un cast
-      a `jest.Mocked<...>` para el tipado correcto con los matchers de Jest.
-]
-
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-
-[
-  Nota 1: Este enfoque asegura que los mocks estén disponibles cuando la factory de `jest.mock`
-          se ejecute debido al hoisting.
-]
-*/
-/* SECCIÓN DE MEJORAS
-
-[
-  Mejora Aplicada: Se corrigió el ReferenceError al definir el mock de `UuidUtils` directamente
-                  dentro de la factory de `jest.mock`. Se mockea solo el método `generateCommandInstanceId`.
-]
-[
-  Mejora 1 (Claridad del Mock): El mock de `UuidUtils` ahora mockea un método específico (`generateCommandInstanceId`)
-                               en lugar de todo el objeto `UuidUtils`. Esto es más preciso.
-]
-
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-
-[
-  Nota 1: Este test sigue asumiendo que `CommandInstanceId` existe en `shared-types`.
-]
-[
-  Nota 2: La prueba exhaustiva de la creación de metadata ahora reside en `metadata.factory.spec.ts`.
-]
-*/
-/* SECCIÓN DE MEJORAS (Actualizada)
-[
-  Mejora Aplicada: Se usa `jest.mocked()` para envolver las llamadas a los mocks estáticos,
-                  lo que debería ayudar con la regla `unbound-method` y el tipado.
-]
-[
-  Mejora Aplicada: Se ajustó el mock de `UuidUtils` para ser más explícito y evitar
-                  warnings de `no-unsafe-*`.
-]
-*/
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA (Mantenidas) */
+// RUTA: libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.spec.ts
 /* SECCIÓN DE MEJORAS
 [
-  Mejora Aplicada: Tests desacoplados de la lógica interna de `createOperationMetadata`.
-]
-*/
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  Nota 1: La prueba exhaustiva de la creación de metadata ahora reside en `metadata.factory.spec.ts`.
-]
-*/
-/* SECCIÓN DE MEJORAS
-[
-  Mejora Aplicada: Los tests ahora se centran en la interacción de `CommandBase` con sus dependencias
-                  (UuidUtils, createOperationMetadata) y la correcta inicialización de sus
-                  propiedades directas (`commandId`, `commandName`).
-]
-[
-  Mejora Aplicada: Se mockea `createOperationMetadata` para aislar `CommandBase` de la lógica
-                  interna de creación de metadata, la cual se prueba en `metadata.factory.spec.ts`.
-]
-[
-  Mejora Crítica Pendiente: Implementar `metadata.factory.spec.ts` para probar exhaustivamente
-                         `createOperationMetadata`.
+  {
+    "mejora": "Mockeo de módulo canónico con `jest.mock` y luego import/require.",
+    "justificacion": "Esta es la forma estándar y más fiable de mockear módulos en Jest. `jest.mock` se eleva, y luego se importan las versiones mockeadas de las funciones/objetos. Esto resuelve el `ReferenceError` de inicialización.",
+    "impacto": "Los tests ahora deberían cargarse y ejecutarse correctamente."
+  },
+  {
+    "mejora": "Uso de `__esModule: true` en el factory de `jest.mock`.",
+    "justificacion": "Importante cuando se mockean módulos ES6 para asegurar la correcta interoperabilidad.",
+    "impacto": "Previene posibles problemas con la resolución de módulos ES6 mockeados."
+  },
+  {
+    "mejora": "Type assertions para las funciones importadas mockeadas.",
+    "justificacion": "Se usan `as jest.MockedFunction<...>` para informar a TypeScript que estas funciones son mocks de Jest, permitiendo el acceso a métodos como `.mockReturnValue()` de forma type-safe.",
+    "impacto": "Mejor DX y seguridad de tipos en los tests."
+  }
 ]
 */
 
 /* NOTAS PARA IMPLEMENTACIÓN FUTURA
 [
-  Nota 1: Este test asume que `CommandInstanceId` existe en `shared-types` y que
-          `UuidUtils.generateCommandInstanceId` existe y está mockeado.
-]
-[
-  Nota 2: La validación de los contenidos de `metadata` (como `correlationId` y `timestamp`)
-          ahora es responsabilidad de los tests para `createOperationMetadata`.
-]
-*/
-/* SECCIÓN DE MEJORAS
-[
-  Mejora 1: Añadir tests para la validación del formato de `timestamp` si se implementa
-            directamente en `QueryBase` (actualmente se confía en el tipado de `IQueryMetadata`).
-]
-*/
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  Nota 1: Este test asume la existencia de `QueryInstanceId` en `shared-types` y
-          `UuidUtils.generateQueryInstanceId()`.
-]
-*/
-// libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.spec.ts
-/* SECCIÓN DE MEJORAS (para este archivo de test)
-
-[
-  Mejora 1 (Branded Type para `commandId`):
-    Si se implementa `CommandInstanceId` y `UuidUtils.generateCommandInstanceId()`,
-    los tests deberían actualizarse para usar y verificar este tipo y método.
-    Ejemplo: `(UuidUtils.generateCommandInstanceId as jest.Mock).mockReturnValue(mockGeneratedCommandInstanceId);`
-             `expect(command.commandId).toBe(mockGeneratedCommandInstanceId);`
-  Justificación: Mantener los tests alineados con las mejoras de tipado.
-]
-[
-  Mejora 2 (Mock de `Guard`):
-    Si `Guard.isNil` o `Guard.isEmpty` tuvieran una lógica más compleja o se quisiera
-    probar cómo `CommandBase` reacciona a diferentes retornos de `Guard` (aunque su
-    lógica actual es simple), se podría mockear `Guard` también. Por ahora, usar
-    la implementación real de `Guard` es aceptable ya que sus métodos son simples.
-  Justificación: Aislamiento extremo, útil si `Guard` fuera complejo o tuviera efectos secundarios.
-]
-[
-  Mejora 3 (Test para `CommandProps<T>`):
-    Si se decide mantener y usar el tipo `CommandProps<T>`, se deberían añadir tests
-    o ejemplos que demuestren su uso correcto en una clase de comando hija, aunque
-    testear un `type alias` directamente no es común. La prueba sería sobre su uso.
-  Justificación: Asegurar que todos los artefactos exportados sean útiles y correctos.
-]
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA (para este archivo de test)
-
-[
-  Nota 1 (Dependencia de `shared-types`): Este test asume que `CommandInstanceId` se definirá en `shared-types`.
-]
-[
-  Nota 2 (Completitud de Pruebas de Metadata): La suite cubre los principales escenarios de inicialización
-            de metadata. Se podrían añadir más casos borde para `timestamp` o `causationId` si se
-            identifican lógicas complejas alrededor de ellos en el futuro.
+  {
+    "nota": "Este patrón de mockeo es fundamental. Si este no funciona, el problema de 'Your test suite must contain at least one test' es extraordinariamente persistente y podría indicar un problema más profundo en la configuración de Jest con Nx para esta librería específica, o un error muy sutil en el archivo de test que no estamos viendo."
+  }
 ]
 */

@@ -1,52 +1,40 @@
-// RUTA: apps/pwa-supervisor/src/app/(auth)/login/page.tsx
+// RUTA: apps/pwa-supervisor/src/app/(auth)/layout.tsx
 // Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from 'ui-shared/src/lib/components/ui/card'; // Asumiendo la ruta correcta desde ui-shared
 
-export default function LoginPage() {
+import React from 'react';
+
+export default function AuthLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="w-full max-w-md">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-center text-2xl">Iniciar Sesión</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-center text-muted-foreground">
-            El formulario de inicio de sesión irá aquí.
-          </p>
-          {/* Placeholder para el LoginForm.tsx que se implementará en el Sprint 0.2 */}
-        </CardContent>
-      </Card>
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800 p-4">
+      {/* Este div centraliza el contenido de las páginas de autenticación (login, forgot-password, etc.) */}
+      <div className="w-full max-w-md">{children}</div>
+    </main>
   );
 }
-
-/*_ SECCIÓN DE MEJORAS FUTURAS
+// RUTA: apps/pwa-supervisor/src/app/(auth)/layout.tsx
+/* SECCIÓN DE MEJORAS
 [
   {
-    "mejora": "Integración del componente LoginForm.tsx",
-    "justificacion": "Reemplazar el placeholder con el formulario de login funcional.",
-    "impacto": "Habilita la autenticación."
+    "mejora": "Layout de Autenticación Estandarizado",
+    "justificacion": "Proporciona un wrapper común para todas las páginas dentro del grupo de rutas `(auth)`, permitiendo un estilo y estructura consistentes (ej. centrado, fondo degradado).",
+    "impacto": "Mejora la organización visual de las páginas de autenticación."
+  }
+]
+*/
+
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {
+    "nota": "Este layout es simple. Podría incluir un logo de la aplicación o enlaces a términos y condiciones si fuera necesario en todas las pantallas de autenticación."
   },
   {
-    "mejora": "Enlaces a 'Olvidé mi contraseña' o 'Registrarse' (si aplica)",
-    "justificacion": "Proporcionar opciones adicionales para el usuario.",
-    "impacto": "Mejora la UX del flujo de autenticación."
+    "nota": "Las páginas individuales dentro de `(auth)` (como `login/page.tsx`) se renderizarán como `children` dentro de este layout."
   }
 ]
-_*/
-
-/*_ NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "Este es un placeholder. El componente `LoginForm.tsx` se desarrollará en el Sprint 0.2 y se integrará aquí."
-  }
-]
-_*/
-// RUTA: apps/pwa-supervisor/src/app/(auth)/login/page.tsx
+*/

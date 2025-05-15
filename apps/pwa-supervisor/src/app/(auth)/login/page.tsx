@@ -1,32 +1,36 @@
-// apps/pwa-supervisor/src/app/(auth)/login/page.tsx
-import LoginForm from './components/login-form';
-// Podrías importar un componente de Layout específico para páginas de autenticación si es necesario
-// import AuthLayout from '@/components/layouts/auth-layout'; // Suponiendo que lo creas en ui-shared
+// RUTA: apps/pwa-supervisor/src/app/(auth)/login/page.tsx // <<< ¡ESTA RUTA ES DEL SNAPSHOT ANTERIOR, NO DEL LAYOUT!
+// Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
+// Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
+// Propiedad Intelectual: MetaShark (I.S.)
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from 'ui-shared/src/lib/components/ui/card'; // Asumiendo la ruta correcta desde ui-shared
 
 export default function LoginPage() {
+  // ESTO ES UNA PÁGINA, NO UN LAYOUT
   return (
-    // <AuthLayout> // Envolvería el contenido para un layout de auth consistente
-    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800 p-4">
-      <div className="w-full max-w-md space-y-8">
-        <div>
-          {/* Placeholder para el Logo */}
-          <div className="mx-auto h-16 w-auto text-center text-6xl mb-6">
-            <span className="text-sky-400">DFS</span>
-            <span className="text-slate-300">Invest</span>
-          </div>
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-slate-100">
-            Bienvenido, Supervisor
-          </h2>
-          <p className="mt-2 text-center text-sm text-slate-400">
-            Accede a tu panel de control del tenant.
+    <div className="w-full max-w-md">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-center text-2xl">Iniciar Sesión</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-center text-muted-foreground">
+            El formulario de inicio de sesión irá aquí.
           </p>
-        </div>
-        <LoginForm />
-        <p className="mt-10 text-center text-sm text-slate-500">
-          ¿No tienes acceso? Contacta al administrador de tu plataforma.
-        </p>
-      </div>
+          {/* Placeholder para el LoginForm.tsx que se implementará en el Sprint 0.2 */}
+        </CardContent>
+      </Card>
     </div>
-    // </AuthLayout>
   );
 }
+/*_ SECCIÓN DE MEJORAS FUTURAS
+// ...
+_*/
+/*_ NOTAS PARA IMPLEMENTACIÓN FUTURA
+// ...
+_*/
+// RUTA: apps/pwa-supervisor/src/app/(auth)/login/page.tsx // <<< ¡ESTA RUTA ES DEL SNAPSHOT ANTERIOR, NO DEL LAYOUT!

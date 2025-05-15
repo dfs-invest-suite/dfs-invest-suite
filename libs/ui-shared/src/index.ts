@@ -10,8 +10,9 @@ export * from './lib/utils';
 export * from './components/ui/alert';
 export * from './components/ui/button';
 export * from './components/ui/card';
+export * from './components/ui/card-hover'; // Exportación añadida
 export * from './components/ui/input';
 export * from './components/ui/label';
-// Asegúrate de añadir exportaciones para DropdownMenu, etc., cuando los crees aquí.
-// export * from './components/ui/dropdown-menu';
 // RUTA: libs/ui-shared/src/index.ts
+/* SECCIÓN DE MEJORAS: (Igual que antes) */
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

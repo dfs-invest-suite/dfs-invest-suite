@@ -9,40 +9,46 @@
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "strict": true, // Ya heredado, pero explícito es ok
+    "forceConsistentCasingInFileNames": true, // Ya heredado
     "noEmit": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
+    "resolveJsonModule": true, // Ya heredado
+    "isolatedModules": true, // Ya heredado
     "incremental": true,
     "plugins": [{ "name": "next" }],
-    "types": ["jest", "node"],
+    "types": ["jest", "node"], // "node" es importante para Next.js App Router
     "baseUrl": "./", // BaseUrl local para los paths de esta app
     "paths": {
+      // Paths específicos de esta app
       "@/app/*": ["src/app/*"],
       "@/components/*": ["src/components/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/lib/*": ["src/lib/*"],
       "@/store/*": ["src/store/*"],
-      "@/styles/*": ["src/styles/*"],
-      "@/themes/*": ["src/themes/*"], // Si tienes este directorio
-      "@/types/*": ["src/types/*"], // Si tienes este directorio
+      "@/styles/*": ["src/styles/*"], // Si tienes este directorio
+      "@/themes/*": ["src/themes/*"],
+      "@/types/*": ["src/types/*"],
       "@/public/*": ["public/*"]
     }
   },
-  "files": [], // Usualmente vacío, Nx y los tsconfig referenciados manejan los archivos
-  "include": [], // No es necesario un include global aquí si app y spec lo definen
+  "files": [],
+  "include": [
+    // Los archivos específicos ya están en tsconfig.app.json y tsconfig.spec.json
+    // Este include puede ser más general para el editor.
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts", // Añadido para tipos generados por Next.js
+    "index.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist",
-    ".next",
+    ".next/cache", // Excluir explícitamente .next/cache
     "coverage",
-    "specs", // Excluir la carpeta specs del contexto general
-    "jest.config.ts",
-    "**/*.spec.ts", // Excluir tests del contexto general de la app
-    "**/*.spec.tsx",
-    "**/*.test.ts",
-    "**/*.test.tsx"
+    "specs",
+    "jest.config.ts"
+    // No es necesario excluir **/*.spec.ts aquí si tsconfig.app.json lo hace
   ],
   "references": [
     { "path": "./tsconfig.app.json" },

@@ -1,17 +1,17 @@
-// RUTA: libs/ui-shared/src/lib/components/ui/button.spec.tsx
+// RUTA: libs/ui-shared/src/components/ui/button.spec.tsx
 // Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Button } from './button'; // Ajusta la ruta si es necesario
+import { Button } from './button'; // Importa desde la misma carpeta
 
 describe('Button Component', () => {
   it('should render with default props', () => {
     render(<Button>Click Me</Button>);
     const buttonElement = screen.getByRole('button', { name: /click me/i });
     expect(buttonElement).toBeInTheDocument();
-    expect(buttonElement).toHaveClass('bg-primary text-primary-foreground'); // Asumiendo variante default
+    expect(buttonElement).toHaveClass('bg-primary text-primary-foreground');
   });
 
   it('should render with a different variant', () => {
@@ -27,7 +27,7 @@ describe('Button Component', () => {
     render(<Button size="lg">Large Button</Button>);
     const buttonElement = screen.getByRole('button', { name: /large button/i });
     expect(buttonElement).toBeInTheDocument();
-    expect(buttonElement).toHaveClass('h-11 px-8'); // Clase de tamaño 'lg' de Shadcn
+    expect(buttonElement).toHaveClass('h-11 px-8');
   });
 
   it('should call onClick handler when clicked', () => {
@@ -55,34 +55,17 @@ describe('Button Component', () => {
     const linkElement = screen.getByRole('link', { name: /link button/i });
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toHaveAttribute('href', '/test');
-    // El elemento 'a' debería tener las clases del botón
     expect(linkElement).toHaveClass('bg-primary');
   });
 });
-
-/*_ SECCIÓN DE MEJORAS FUTURAS
+// RUTA: libs/ui-shared/src/components/ui/button.spec.tsx
+/* SECCIÓN DE MEJORAS
 [
   {
-    "mejora": "Pruebas para todas las variantes y tamaños",
-    "justificacion": "Asegurar que todas las combinaciones de variantes y tamaños definidos en `buttonVariants` se rendericen correctamente y apliquen las clases CSS esperadas.",
-    "impacto": "Mayor cobertura de las opciones de estilo del botón."
-  },
-  {
-    "mejora": "Pruebas de accesibilidad (a11y)",
-    "justificacion": "Usar `jest-axe` para verificar que el componente renderizado cumple con los estándares básicos de accesibilidad.",
-    "impacto": "Asegura que los componentes sean accesibles para todos los usuarios."
+    "mejora": "Ubicación y path de import corregidos.",
+    "justificacion": "El test ahora está junto al componente y el import es relativo a su nueva ubicación.",
+    "impacto": "Permite que Jest encuentre y ejecute el test correctamente."
   }
 ]
-_*/
-
-/*_ NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "Este test asume las clases CSS que Shadcn/UI y `cva` aplican para las variantes y tamaños. Estas clases podrían necesitar ajustes si la implementación de `buttonVariants` cambia."
-  },
-  {
-    "nota": "Se usa `screen.getByRole` que es una buena práctica de Testing Library para seleccionar elementos de forma accesible."
-  }
-]
-_*/
-// RUTA: libs/ui-shared/src/lib/components/ui/button.spec.tsx
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

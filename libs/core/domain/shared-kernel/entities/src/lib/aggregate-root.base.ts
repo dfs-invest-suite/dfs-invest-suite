@@ -1,23 +1,23 @@
-// libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts
-import { Entity, CreateEntityProps } from './entity.base';
+// RUTA: libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts
 import { IDomainEvent } from '@dfs-suite/core-domain-shared-kernel-events';
+import { CreateEntityProps, Entity } from './entity.base';
 
-export abstract class AggregateRoot<AggregateProps> extends Entity<AggregateProps> {
-  // CORRECCIÓN: Tipar _domainEvents para que acepte cualquier payload compatible con IDomainEvent
+export abstract class AggregateRoot<
+  AggregateProps
+> extends Entity<AggregateProps> {
   private _domainEvents: IDomainEvent<Record<string, unknown>>[] = [];
 
   constructor(createProps: CreateEntityProps<AggregateProps>) {
     super(createProps);
   }
 
-  get domainEvents(): readonly IDomainEvent<Record<string, unknown>>[] { // Devolver el tipo más genérico
+  get domainEvents(): readonly IDomainEvent<Record<string, unknown>>[] {
     return Object.freeze([...this._domainEvents]);
   }
 
-  // El parámetro domainEvent ya es del tipo correcto por inferencia de la clase de evento concreta
-  protected addEvent(domainEvent: IDomainEvent<any>): void { // Usar 'any' para el payload aquí es aceptable
-                                                             // o IDomainEvent<Record<string, unknown>>
-    this.validate();
+  protected addEvent(domainEvent: IDomainEvent<Record<string, unknown>>): void {
+    // CAMBIO: any a Record<string, unknown>
+    this.validate(); // Asegurar que el agregado siga siendo válido después del cambio que generó el evento
     this._domainEvents.push(domainEvent);
   }
 
@@ -25,12 +25,25 @@ export abstract class AggregateRoot<AggregateProps> extends Entity<AggregateProp
     this._domainEvents = [];
   }
 
-  public getAndClearDomainEvents(): readonly IDomainEvent<Record<string, unknown>>[] {
+  public getAndClearDomainEvents(): readonly IDomainEvent<
+    Record<string, unknown>
+  >[] {
     const events = [...this._domainEvents];
     this.clearEvents();
     return Object.freeze(events);
   }
 }
+// RUTA: libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Tipado de payload de evento en `addEvent`",
+    "justificacion": "Se cambió el tipo del payload del evento de `any` a `Record<string, unknown>` en el método `addEvent`. Esto es más seguro que `any` y sigue siendo lo suficientemente genérico para una clase base, ya que `DomainEventBase` usa `Record<string, never>` como default para eventos sin payload.",
+    "impacto": "Resuelve el warning `no-explicit-any` y mejora ligeramente la seguridad de tipos."
+  }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */
 
 /* SECCIÓN DE MEJORAS FUTURAS
 [
