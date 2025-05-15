@@ -1,45 +1,50 @@
-// RUTA: apps/pwa-supervisor/tsconfig.spec.json
+// apps/pwa-supervisor/tsconfig.spec.json
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "composite": true, // Añadido
+    "declaration": true, // Añadido (Jest no lo usa, pero TS lo puede requerir para composite)
+    "declarationMap": true, // Añadido
+    "outDir": "../../dist/out-tsc/apps/pwa-supervisor/spec", // Un outDir más específico
     "module": "commonjs",
-    "moduleResolution": "node", // Mantener 'node' por consistencia con otros tsconfig.spec, aunque 'node16'/'nodenext' son más modernos
+    "moduleResolution": "node",
     "jsx": "react-jsx",
-    "types": ["jest", "node", "@testing-library/jest-dom"]
+    "types": ["jest", "node", "@testing-library/jest-dom"],
+    "noEmit": false // CAMBIO: Aunque los tests no emiten, para satisfacer 'references'.
+    // Jest se encarga de la transpilación en memoria.
   },
   "include": [
-    "jest.config.ts", // Config de Jest de la app
+    "jest.config.ts",
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
     "src/**/*.test.tsx",
     "src/**/*.spec.tsx",
     "src/**/*.d.ts",
-    "specs/**/*.spec.tsx", // CORREGIDO: Ruta relativa a la raíz de pwa-supervisor
-    "specs/**/*.spec.ts", // CORREGIDO: Ruta relativa a la raíz de pwa-supervisor
-    "src/test-setup.ts" // Si se crea un test-setup.ts en pwa-supervisor/src
+    "specs/**/*.spec.tsx",
+    "specs/**/*.spec.ts",
+    "src/test-setup.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    ".next" // Excluir .next de los tests
-  ]
+  "exclude": ["node_modules", "dist", ".next"]
 }
-// RUTA: apps/pwa-supervisor/tsconfig.spec.json
+// apps/pwa-supervisor/tsconfig.spec.json
 /* SECCIÓN DE MEJORAS
 [
   {
-    "mejora": "Ajuste de `moduleResolution`",
-    "justificacion": "Si el resto del proyecto usa 'node' para `moduleResolution` en los `tsconfig.spec.json`, mantener la consistencia es bueno. Si se decide modernizar, 'node16' o 'nodenext' serían opciones a considerar globalmente, pero requieren que el `package.json` tenga `type: module` o que se usen extensiones `.mts`/`.cts`.",
-    "impacto": "Mínimo si se mantiene 'node'. Mayor si se cambia globalmente."
+    "mejora": "Añadido `composite: true`, `declaration: true`, `declarationMap: true` y cambiado `noEmit: false`.",
+    "justificacion": "Misma justificación que para `tsconfig.app.json`. Satisface los requisitos de TypeScript para proyectos referenciados.",
+    "impacto": "Debería resolver los errores de TypeScript relacionados con las `references` a `tsconfig.spec.json`."
+  },
+  {
+    "mejora": "Ajuste de `outDir` para ser más específico.",
+    "justificacion": "Consistencia con el cambio en `tsconfig.app.json`.",
+    "impacto": "Mejor organización si se emitieran archivos."
   }
 ]
 */
-
 /* NOTAS PARA IMPLEMENTACIÓN FUTURA
 [
   {
-    "nota": "La corrección principal fue ajustar la ruta en `include` para la carpeta `specs` para que sea relativa al `tsconfig.spec.json` (es decir, `specs/` en lugar de `../specs/`)."
+    "nota": "Jest transpilará los tests en memoria usando `babel-jest` (según `apps/pwa-supervisor/jest.config.ts`), por lo que las opciones de emisión aquí son principalmente para satisfacer las `project references` de TypeScript y el análisis del editor."
   }
 ]
 */

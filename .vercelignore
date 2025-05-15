@@ -1,0 +1,29 @@
+# Ignorar archivos y directorios comunes que Vercel ya maneja o no necesita
+node_modules
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.env
+.env.*
+!.env.example
+!.env.production.local # Si usas variables de entorno específicas de Vercel para producción
+
+# Directorios de otras apps/libs si por alguna razón se copian dentro
+# (aunque con la configuración de Root Directory esto es menos probable que sea necesario)
+# ../../apps/api-main
+# ../../libs/*
+
+# Archivos de test si no son necesarios para el build (usualmente no lo son)
+# y si causaran algún problema (poco común)
+# **/*.spec.tsx
+# **/*.test.tsx
+# specs/
+
+# Artefactos de build locales si no es el Output Directory configurado en Vercel
+.next/cache # Vercel usa su propio caché
+
+# Documentación que no forma parte del build de la PWA
+.docs/
+# README.md # (Si el README de la app no es parte del contenido estático)

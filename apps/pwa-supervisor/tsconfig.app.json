@@ -1,37 +1,63 @@
-// RUTA: apps/pwa-supervisor/tsconfig.app.json
+// apps/pwa-supervisor/tsconfig.app.json
 // Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 {
-  "extends": "./tsconfig.json", // Hereda del tsconfig.json local de la app
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc", // Estándar Nx, aunque Next.js no lo use directamente para build final
-    "module": "esnext", // Para Next.js
-    "lib": ["dom", "dom.iterable", "esnext"], // APIs de navegador y ES moderno
-    "noEmit": true // Next.js maneja la transpilación y emisión
-    // "jsx": "preserve" // Ya heredado de tsconfig.json
-    // "target": "es5", // Next.js puede transpilar a ES5 para navegadores antiguos si es necesario
-    // pero es mejor dejar que el target base (ej. es2021) sea el de desarrollo
+    "composite": true, // Añadido
+    "declaration": true, // Añadido para satisfacer 'composite' (aunque Next.js no lo use para el build final de la app)
+    "declarationMap": true, // Recomendado con declaration
+    "outDir": "../../dist/out-tsc/apps/pwa-supervisor/app", // Un outDir más específico es bueno para composite
+    "module": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "noEmit": false // CAMBIO: Quitar noEmit o ponerlo a false para satisfacer 'references'.
+    // Next.js ignorará esto para su propio proceso de build, pero TS lo necesita para las referencias.
+    // Es un poco una peculiaridad de las 'project references'.
+    // Alternativamente, si queremos mantener noEmit:true (que tiene sentido para apps Next.js)
+    // podríamos eliminar la "reference" a este archivo desde el tsconfig.json padre
+    // y confiar en los "include" del tsconfig.json padre,
+    // pero las "references" son generalmente la forma moderna.
   },
   "include": [
-    // Archivos que forman el código fuente de la aplicación
-    "next-env.d.ts", // Tipos globales de Next.js
-    ".next/types/**/*.ts", // Tipos generados por Next.js durante el dev/build
-    "src/**/*.ts", // Todos los archivos .ts en src/
-    "src/**/*.tsx", // Todos los archivos .tsx en src/
-    "index.d.ts" // El archivo index.d.ts en la raíz de pwa-supervisor
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "index.d.ts"
   ],
   "exclude": [
-    // Excluir explícitamente de este contexto de "código de app"
     "node_modules",
     "dist",
-    ".next/cache", // Excluir el caché de Next.js
+    ".next/cache",
     "jest.config.ts",
-    "specs", // Excluir completamente la carpeta specs del código fuente de la app
+    "specs",
     "src/**/*.spec.ts",
     "src/**/*.spec.tsx",
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
-    "src/test-setup.ts" // Si existiera un test-setup.ts específico para la app
+    "src/test-setup.ts"
   ]
 }
+// apps/pwa-supervisor/tsconfig.app.json
+/* SECCIÓN DE MEJORAS
+[
+  {
+    "mejora": "Añadido `composite: true`, `declaration: true`, `declarationMap: true` y cambiado `noEmit: false`.",
+    "justificacion": "Estas opciones son necesarias para que `tsconfig.app.json` pueda ser correctamente referenciado por `apps/pwa-supervisor/tsconfig.json` usando la propiedad `references`. `composite` habilita la construcción incremental, `declaration` (y `declarationMap`) son a menudo requeridos por `composite`, y los proyectos referenciados usualmente no deben tener `noEmit: true` desde la perspectiva de TypeScript puro, aunque Next.js tenga su propio manejo de emisión.",
+    "impacto": "Debería resolver los errores de TypeScript relacionados con las `references` a `tsconfig.app.json`."
+  },
+  {
+    "mejora": "Ajuste de `outDir` para ser más específico.",
+    "justificacion": "Cuando se usa `composite: true`, tener un `outDir` más específico por cada proyecto referenciado puede ayudar a evitar conflictos si se emitieran archivos, aunque para una app Next.js no es el `outDir` final.",
+    "impacto": "Mejor organización si TypeScript emitiera archivos (lo cual Next.js usualmente previene para el código de la app)."
+  }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {
+    "nota": "La interacción de `noEmit: true` (deseable para apps Next.js para que Next.js maneje la emisión) y `references` (que a menudo esperan que los proyectos referenciados puedan emitir declaraciones) es a veces confusa. Poner `noEmit: false` aquí es para satisfacer el chequeo de `references` de TypeScript. Next.js tiene su propia lógica de build que no se verá afectada negativamente por esto en el `tsconfig.app.json`."
+  }
+]
+*/

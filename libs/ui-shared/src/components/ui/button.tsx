@@ -1,11 +1,12 @@
-// RUTA: libs/ui-shared/src/components/ui/button.tsx
+// libs/ui-shared/src/components/ui/button.tsx
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
-import { cn } from '../../lib/utils'; // Path desde src/components/ui/ a src/lib/
+import { cn } from '../../lib/utils';
 
 export const buttonVariants = cva(
+  // EXPORTADO DIRECTAMENTE AQUÍ
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
@@ -37,6 +38,7 @@ export const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  // Sigue usando buttonVariants
   asChild?: boolean;
 }
 
@@ -45,7 +47,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : 'button';
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, className }))} // Sigue usando buttonVariants
         ref={ref}
         {...props}
       />
@@ -54,15 +56,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = 'Button';
 
-export { Button, buttonVariants };
-// RUTA: libs/ui-shared/src/components/ui/button.tsx
+// Exportar solo Button aquí. buttonVariants ya se exportó arriba.
+export { Button };
+// libs/ui-shared/src/components/ui/button.tsx
 /* SECCIÓN DE MEJORAS
 [
   {
-    "mejora": "Código de componente restaurado y path de `cn` verificado.",
-    "justificacion": "Asegura que el componente `Button` esté correctamente definido y pueda importar sus dependencias.",
-    "impacto": "Permite que los tests y la aplicación utilicen este componente."
+    "mejora": "Resolución definitiva de exportación duplicada de `buttonVariants`.",
+    "justificacion": "`buttonVariants` ahora se declara con `export const` directamente en su definición. La exportación nombrada al final del archivo (`export { Button, buttonVariants }`) se modificó para exportar solo `Button`, ya que `buttonVariants` ya está exportado. Esto elimina la duplicación.",
+    "impacto": "Debería resolver el error `Module parse failed: Duplicate export 'buttonVariants'`."
   }
 ]
 */
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {
+    "nota": "Este es el patrón más común y directo para exportar tanto la constante de variantes como el componente en archivos de este tipo."
+  }
+]
+*/

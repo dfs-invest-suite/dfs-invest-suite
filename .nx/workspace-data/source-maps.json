@@ -1,0 +1,2638 @@
+{
+  "apps/api-main": {
+    "root": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.cache": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.dependsOn": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.inputs": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.outputs": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.executor": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.cwd": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.options.args": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.command": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.metadata.technologies": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.technologies.0": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.description": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.help": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.help.command": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.help.example": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.continuous": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.options": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.executor": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.options.cwd": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.options.args": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.options.command": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.technologies": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.technologies.0": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.description": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.help": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.help.command": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.help.example": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build-deps": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build-deps.dependsOn": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/api-main/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.lint": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "apps/api-main/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.test": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.metadata": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.cache": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.inputs": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.outputs": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.executor": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.cwd": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.env": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.command": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.technologies": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.technologies.0": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.description": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help.command": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help.example": [
+      "apps/api-main/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "name": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:app": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.args": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.continuous": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.dependsOn": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.runBuildTargetDependencies": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "apps/api-main/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "apps/api-main-e2e": {
+    "root": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "apps/api-main-e2e/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "implicitDependencies": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "implicitDependencies.api-main": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.executor": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.outputs": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.options": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.dependsOn": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.options.jestConfig": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.e2e.options.passWithNoTests": [
+      "apps/api-main-e2e/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "apps/pwa-supervisor": {
+    "root": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/pwa-supervisor/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.dev": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.continuous": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.executor": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.cwd": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.command": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.continuous": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.dependsOn": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.executor": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.cwd": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.command": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.continuous": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.dependsOn": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.cwd": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.command": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/pwa-supervisor/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "name": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:app": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:pwa": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:presentation": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.app:pwa-supervisor": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.outputPath": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.dev": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.dev": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.dev": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.export": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.export.executor": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.export.options": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.export.options.buildTarget": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/application/tenancy": {
+    "root": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/application/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-application": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:application-logic": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:application": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.feature:tenancy": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/application/tenancy/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/domain/shared-kernel/commands-queries": {
+    "root": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-domain": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:shared-kernel": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/domain/shared-kernel/commands-queries/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/domain/shared-kernel/entities": {
+    "root": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-domain": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:shared-kernel": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/domain/shared-kernel/entities/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/domain/shared-kernel/events": {
+    "root": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/domain/shared-kernel/events/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-domain": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:shared-kernel": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/domain/shared-kernel/events/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/domain/shared-kernel/mappers": {
+    "root": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-domain": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:shared-kernel": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/domain/shared-kernel/mappers/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/domain/shared-kernel/ports": {
+    "root": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-domain": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:shared-kernel": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/domain/shared-kernel/ports/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/domain/shared-kernel/value-objects": {
+    "root": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-domain": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:shared-kernel": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:domain": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/core/domain/shared-kernel/value-objects/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/core/domain/tenancy": {
+    "root": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/core/domain/tenancy/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:core-domain": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:domain-logic": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:domain": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.domain:tenancy": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/core/domain/tenancy/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared/constants": {
+    "root": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/shared/constants/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:shared": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:constants": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:shared": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/shared/constants/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared/errors": {
+    "root": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/shared/errors/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:shared": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:errors": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:shared": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/shared/errors/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared/result": {
+    "root": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/shared/result/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:shared": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:functional": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:shared": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/shared/result/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared/types": {
+    "root": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/shared/types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:shared": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:types": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:shared": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/shared/types/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared/utils": {
+    "root": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/shared/utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:shared": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:utils": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:shared": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/shared/utils/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared/validation-schemas": {
+    "root": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "libs/shared/validation-schemas/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:shared": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:validation": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:shared": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/shared/validation-schemas/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/ui-shared": {
+    "root": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/ui-shared/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:shared": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:ui": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:shared": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "libs/ui-shared/project.json",
+      "nx/core/project-json"
+    ]
+  }
+}

@@ -1,49 +1,35 @@
-// tsconfig.base.json
 {
   "compileOnSave": false,
   "compilerOptions": {
-    // --- Configuración Base del Proyecto y Salida ---
     "baseUrl": ".",
     "rootDir": ".",
     "outDir": "dist/out-tsc",
-
-    // --- Módulos y Resolución ---
     "module": "esnext",
-    "moduleResolution": "node", // CAMBIO: De "bundler" a "node" para consistencia y compatibilidad
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-
-    // --- Emisión de JavaScript y Mapas de Fuente ---
     "sourceMap": true,
     "declaration": false,
     "declarationMap": false,
     "importHelpers": true,
-
-    // --- Características de JavaScript y Entorno ---
     "target": "es2021",
-    "lib": ["es2022", "dom"],
-
-    // --- Interoperabilidad y Strictness ---
+    "lib": [
+      "es2022",
+      "dom"
+    ],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-
-    // --- Opciones de Calidad de Código Adicionales ---
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true, // TypeScript 5.0+
-    "noPropertyAccessFromIndexSignature": true, // Buena práctica
-
-    // --- Decoradores (Para NestJS) ---
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-
-    // --- Paths (Alias de Módulo - Solo los globales del monorepo) ---
     "paths": {
-      // ELIMINADOS: "@/*" ya que son específicos de pwa-supervisor
       "@dfs-suite/core-application-tenancy": [
         "libs/core/application/tenancy/src/index.ts"
       ],
@@ -68,25 +54,32 @@
       "@dfs-suite/core-domain-tenancy": [
         "libs/core/domain/tenancy/src/index.ts"
       ],
-      "@dfs-suite/shared-constants": ["libs/shared/constants/src/index.ts"],
-      "@dfs-suite/shared-errors": ["libs/shared/errors/src/index.ts"],
-      "@dfs-suite/shared-result": ["libs/shared/result/src/index.ts"],
-      "@dfs-suite/shared-types": ["libs/shared/types/src/index.ts"],
-      "@dfs-suite/shared-utils": ["libs/shared/utils/src/index.ts"],
+      "@dfs-suite/shared-constants": [
+        "libs/shared/constants/src/index.ts"
+      ],
+      "@dfs-suite/shared-errors": [
+        "libs/shared/errors/src/index.ts"
+      ],
+      "@dfs-suite/shared-result": [
+        "libs/shared/result/src/index.ts"
+      ],
+      "@dfs-suite/shared-types": [
+        "libs/shared/types/src/index.ts"
+      ],
+      "@dfs-suite/shared-utils": [
+        "libs/shared/utils/src/index.ts"
+      ],
       "@dfs-suite/shared-validation-schemas": [
         "libs/shared/validation-schemas/src/index.ts"
       ],
-      "@dfs-suite/ui-shared": ["libs/ui-shared/src/index.ts"]
+      "@dfs-suite/ui-shared": [
+        "libs/ui-shared/src"
+      ]
     },
-
-    // --- Optimización de Build y Chequeo ---
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-
-    // --- Opciones Avanzadas ---
     "allowJs": false,
     "composite": false
-    // "incremental": true // Nx maneja su propio caché; Next.js lo habilita en su tsconfig
   },
   "exclude": [
     "node_modules",
@@ -106,34 +99,3 @@
     "**/*.stories.tsx"
   ]
 }
-// tsconfig.base.json
-/* SECCIÓN DE MEJORAS
-[
-  {
-    "mejora": "Cambio de `moduleResolution` a `node`",
-    "justificacion": "Se cambió `moduleResolution` de `bundler` a `node` para asegurar una mayor compatibilidad con las librerías que compilan a CommonJS (como la mayoría de las librerías de backend en este proyecto) y para resolver el error de TypeScript observado en `libs/core/domain/tenancy/tsconfig.lib.json`. Esto también alinea la configuración con el estado anterior del snapshot.",
-    "impacto": "Debería resolver el error de TSConfig. Mantiene la compatibilidad con las herramientas actuales."
-  },
-  {
-    "mejora": "Eliminación de paths `@/*` de `tsconfig.base.json`",
-    "justificacion": "Los alias de path que comienzan con `@/` (como `@/components/*` y `@/lib/utils`) son específicos de la aplicación `pwa-supervisor` y deben definirse únicamente en `apps/pwa-supervisor/tsconfig.json`. Mantenerlos en `tsconfig.base.json` es incorrecto y podría causar conflictos de resolución o confusión.",
-    "impacto": "Configuración de paths más limpia y correcta, evitando posibles colisiones de alias entre proyectos."
-  },
-  {
-    "mejora": "Adición de `noImplicitOverride` y `noPropertyAccessFromIndexSignature`",
-    "justificacion": "Estas opciones, previamente en algunos `tsconfig.json` de librerías, se han movido a `tsconfig.base.json` para aplicarlas globalmente, ya que son buenas prácticas generales para la calidad del código.",
-    "impacto": "Aplicación consistente de estas reglas de calidad en todo el monorepo."
-  }
-]
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "Si en el futuro se decide usar `type: \"module\"` en los `package.json` de las librerías de backend y transpilarlas a ESNext para Node.js, se podría reconsiderar el uso de `moduleResolution: \"bundler\"` o `\"nodenext\"`."
-  },
-  {
-    "nota": "Es crucial que `apps/pwa-supervisor/tsconfig.json` defina sus propios `paths` para los alias `@/`. Estos no deben ser heredados de `tsconfig.base.json`."
-  }
-]
-*/

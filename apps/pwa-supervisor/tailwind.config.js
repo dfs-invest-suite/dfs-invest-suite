@@ -3,53 +3,31 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
-const { join } = require('path');
+const { join, resolve } = require('path'); // Importar resolve
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  presets: [require('../../libs/ui-shared/tailwind.config.js')],
+  presets: [
+    require(resolve(__dirname, '../../libs/ui-shared/tailwind.config.js')), // Usar resolve para asegurar path absoluto al preset
+  ],
   darkMode: 'class',
   content: [
     join(
-      __dirname,
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
+      __dirname, // Directorio actual (apps/pwa-supervisor)
+      'src/{app,pages,components,layouts}/**/*!(*.stories|*.spec).{ts,tsx,html,css}' // Patrones más comunes y explícitos
     ),
-    join(
+    // Path explícito y absoluto a ui-shared
+    resolve(
       __dirname,
-      '../../libs/ui-shared/src/**/*!(*.stories|*.spec).{ts,tsx,html}'
+      '../../libs/ui-shared/src/**/*!(*.stories|*.spec).{ts,tsx,html,css}'
     ),
-    ...createGlobPatternsForDependencies(__dirname),
+    ...createGlobPatternsForDependencies(__dirname), // Mantener por si acaso, pero el explícito es más fuerte
   ],
   theme: {
     extend: {
       // Extensiones específicas para pwa-supervisor pueden ir aquí
+      // si necesitas sobrescribir o añadir algo al tema de ui-shared.
     },
   },
   plugins: [require('tailwindcss-animate')],
 };
-// apps/pwa-supervisor/tailwind.config.js
-/* SECCIÓN DE MEJORAS
-[
-  {
-    "mejora": "Uso de `presets` de Tailwind CSS para heredar de `ui-shared`.",
-    "justificacion": "Asegura que `pwa-supervisor` herede toda la configuración de `theme` y `plugins` de `ui-shared`, haciendo disponibles las variables CSS y definiciones de tema.",
-    "impacto": "Debería resolver clases desconocidas si están definidas en `ui-shared`."
-  },
-  {
-    "mejora": "Inclusión explícita de `ui-shared` en `content`.",
-    "justificacion": "Garantiza que Tailwind escanee los archivos de `ui-shared` en busca de clases utilizadas.",
-    "impacto": "Mejora la detección de clases de `ui-shared` para la purga de CSS."
-  }
-]
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "El archivo `libs/ui-shared/tailwind.config.js` debe existir y estar correctamente configurado."
-  },
-  {
-    "nota": "El archivo `libs/ui-shared/src/styles/globals.css` (que define las variables CSS como `--background`, `--border`) debe ser importado correctamente en `apps/pwa-supervisor/src/app/globals.css`."
-  }
-]
-*/

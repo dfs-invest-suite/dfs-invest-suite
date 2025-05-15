@@ -3,386 +3,248 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 
-'use client';
-
 import {
-  Activity,
-  BarChart3,
-  DownloadCloud,
-  MessageSquare,
-  Settings,
-  TrendingUp,
-  Users,
-  Zap,
-  type LucideProps, // Importar LucideProps para tipar Icon
-} from 'lucide-react';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
   Button,
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
-  cn,
+  Input,
 } from '@dfs-suite/ui-shared';
+import { Home, Mail, MapPin, Phone, Search, Users } from 'lucide-react';
 
-// --- Tipos para los Sub-componentes del Dashboard ---
-interface KpiCardProps {
-  title: string;
-  value: string | number;
-  icon: React.ComponentType<LucideProps>; // Usar ComponentType para iconos Lucide
-  trend?: string;
-  description?: string;
-  unit?: string;
-  className?: string;
-}
-
-interface ActivityFeedItemProps {
-  icon: React.ComponentType<LucideProps>;
-  text: string;
-  time: string;
-  highlight?: boolean;
-}
-
-interface QuickActionButtonProps {
-  label: string;
-  icon: React.ComponentType<LucideProps>;
-  href?: string;
-  className?: string;
-  action?: () => void;
-}
-
-// --- Sub-componentes del Dashboard ---
-
-const WelcomeHeader = () => {
-  const [currentTime, setCurrentTime] = useState('');
-  const [greeting, setGreeting] = useState('');
-
-  useEffect(() => {
-    const updateDateTime = () => {
-      const now = new Date();
-      setCurrentTime(
-        now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })
-      );
-      const hours = now.getHours();
-      if (hours < 12) setGreeting('Buenos días');
-      else if (hours < 18) setGreeting('Buenas tardes');
-      else setGreeting('Buenas noches');
-    };
-    updateDateTime();
-    const timerId = setInterval(updateDateTime, 60000);
-    return () => clearInterval(timerId);
-  }, []);
-
-  return (
-    <div className="mb-8 p-6 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow-xl transition-all hover:shadow-2xl transform hover:-translate-y-1">
-      <h1 className="text-4xl font-bold">{greeting}, Supervisor!</h1>
-      <p className="text-lg opacity-90">
-        Hoy es{' '}
-        {new Date().toLocaleDateString('es-ES', {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })}{' '}
-        - {currentTime}
-      </p>
-      <p className="mt-2 text-sm opacity-80">
-        Aquí tienes un resumen de la actividad de tu tenant.
-      </p>
-    </div>
-  );
-};
-
-const KpiCard: React.FC<KpiCardProps> = ({
-  // Tipado explícito con React.FC
+// Placeholder simple para los componentes de item que no vamos a replicar en detalle
+const PlaceholderItemCard = ({
   title,
-  value,
-  icon: Icon,
-  trend,
   description,
-  unit,
-  className,
+  imgSrc,
+}: {
+  title: string;
+  description?: string;
+  imgSrc?: string;
 }) => (
-  <Card
-    className={cn(
-      'shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105',
-      className
-    )}
-  >
-    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-      <CardTitle className="text-sm font-medium text-muted-foreground">
-        {title}
-      </CardTitle>
-      <Icon className="h-5 w-5 text-sky-500" />
+  <Card className="w-full">
+    <CardHeader>
+      <CardTitle>{title}</CardTitle>
     </CardHeader>
     <CardContent>
-      <div className="text-3xl font-bold text-foreground">
-        {value}
-        {unit && <span className="text-sm font-normal ml-1">{unit}</span>}
-      </div>
-      {trend && (
-        <p
-          className={cn(
-            'text-xs',
-            trend.startsWith('+') ? 'text-green-500' : 'text-red-500'
-          )}
-        >
-          {trend}
-        </p>
+      {imgSrc && (
+        <img
+          src={imgSrc}
+          alt={title}
+          className="mb-2 h-32 w-full object-cover"
+        />
       )}
       {description && (
-        <p className="text-xs text-muted-foreground mt-1">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       )}
+      <Button variant="link" className="p-0 h-auto mt-2">
+        Saiba Mais
+      </Button>
     </CardContent>
   </Card>
 );
 
-const ActivityFeedItem: React.FC<ActivityFeedItemProps> = ({
-  // Tipado explícito
-  icon: Icon,
-  text,
-  time,
-  highlight,
-}) => (
-  <li
-    className={cn(
-      'flex items-start space-x-3 py-3 px-1 hover:bg-accent/50 dark:hover:bg-accent/20 rounded-md transition-colors',
-      highlight && 'bg-primary/10 dark:bg-primary/20'
-    )}
-  >
-    <div
-      className={cn(
-        'p-1.5 rounded-full mt-0.5',
-        highlight
-          ? 'bg-primary text-primary-foreground'
-          : 'bg-muted text-muted-foreground'
-      )}
-    >
-      <Icon className="h-4 w-4" />
-    </div>
-    <div>
-      <p className="text-sm text-foreground">{text}</p>
-      <p className="text-xs text-muted-foreground">{time}</p>
-    </div>
-  </li>
-);
-
-const QuickActionButton: React.FC<QuickActionButtonProps> = ({
-  // Tipado explícito
-  label,
-  icon: Icon,
-  href,
-  className,
-  action,
-}) => {
-  const buttonContent = (
-    <>
-      <Icon className="mr-3 h-6 w-6 text-primary group-hover:text-primary/80 transition-colors" />
-      <span className="text-foreground group-hover:text-primary/90">
-        {label}
-      </span>
-    </>
-  );
-
-  const commonButtonClasses = cn(
-    'w-full justify-start text-left h-auto p-4 group transform transition-all hover:scale-105 hover:shadow-md',
-    'hover:bg-accent/50 dark:hover:bg-accent/20 hover:border-primary/50',
-    className
-  );
-
-  if (href) {
-    return (
-      <Button asChild variant="outline" className={commonButtonClasses}>
-        <Link href={href}>{buttonContent}</Link>
-      </Button>
-    );
-  }
-
-  return (
-    <Button variant="outline" className={commonButtonClasses} onClick={action}>
-      {buttonContent}
-    </Button>
-  );
-};
-
-// --- Componente Principal de la Página del Dashboard ---
 export default function DashboardPage() {
-  // Datos mock para los KPIs - Ahora usan los tipos definidos
-  const kpis: KpiCardProps[] = [
-    // Tipado explícito del array
-    {
-      title: 'Leads Nuevos Hoy',
-      value: 12,
-      icon: Users,
-      trend: '+2 vs ayer',
-      description: 'Asignados automáticamente',
-    },
-    {
-      title: 'Mensajes WA Recibidos',
-      value: 87,
-      icon: MessageSquare,
-      trend: '+15%',
-      description: 'Últimas 24h',
-    },
-    {
-      title: 'Tareas Pendientes',
-      value: 5,
-      icon: Activity,
-      trend: '2 Vencen Hoy',
-      description: 'Para todos los consultores',
-    },
-    {
-      title: 'Salud Cuenta WA Principal',
-      value: 'Buena', // Podría ser un enum o tipo más específico
-      icon: Zap,
-      trend: '98%',
-      description: 'Rating: VERDE',
-    },
-  ];
-
-  const activityFeed: ActivityFeedItemProps[] = [
-    // Tipado explícito del array
-    {
-      icon: Users,
-      text: 'Nuevo lead "Ana Silva" asignado a Consultor X.',
-      time: 'Hace 5 min',
-      highlight: true,
-    },
-    {
-      icon: MessageSquare,
-      text: 'Mensaje de "Pedro Costa": "Tengo una pregunta sobre la SPE Alfa".',
-      time: 'Hace 23 min',
-    },
-    {
-      icon: TrendingUp,
-      text: 'Lead "Carlos Paz" movido a "Contactado".',
-      time: 'Hace 1 hora',
-    },
-    {
-      icon: Zap,
-      text: 'Calidad del número (XX) XXXX-8888 mejoró a AMARILLO.',
-      time: 'Hace 2 horas',
-    },
-  ];
-
-  const quickActions: QuickActionButtonProps[] = [
-    // Tipado explícito del array
-    { label: 'Gestionar Leads', icon: Users, href: '/dashboard/leads' },
-    {
-      label: 'Cuentas WhatsApp',
-      icon: MessageSquare,
-      href: '/dashboard/whatsapp/accounts',
-    },
-    {
-      label: 'Importar Leads',
-      icon: DownloadCloud,
-      href: '/dashboard/leads/import',
-    },
-    { label: 'Ver Analíticas', icon: BarChart3, href: '/dashboard/analytics' },
-    {
-      label: 'Configuración del Tenant',
-      icon: Settings,
-      href: '/dashboard/settings',
-    },
-  ];
-
   return (
-    <div className="space-y-8">
-      <WelcomeHeader />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Simulación de la barra social y menú superior (muy simplificado) */}
+      <header className="bg-slate-800 text-white p-2 text-xs">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <span className="flex items-center">
+              <Phone size={14} className="mr-1" /> (48) 99198-8535
+            </span>
+            <a href="#" className="hover:underline flex items-center">
+              <Users size={14} className="mr-1" /> Central do Cliente
+            </a>
+          </div>
+          <div className="flex items-center space-x-2">
+            <span>Favoritos (0)</span>
+            <Input
+              type="text"
+              placeholder="Código o nome..."
+              className="h-6 text-xs bg-slate-700 border-slate-600 placeholder-slate-400"
+            />
+          </div>
+        </div>
+      </header>
 
-      <section aria-labelledby="kpi-title">
-        <h2
-          id="kpi-title"
-          className="text-2xl font-semibold text-foreground mb-4"
-        >
-          Indicadores Clave
+      <nav className="bg-green-800 text-white p-4 sticky top-0 z-40">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="text-2xl font-bold">DFS INVESTIMENTOS</div>
+          <div className="hidden md:flex space-x-4">
+            {['Trabalhe Conosco', 'Blog', 'Quem Somos', 'Empreendimentos'].map(
+              (item) => (
+                <a key={item} href="#" className="hover:text-amber-400">
+                  {item}
+                </a>
+              )
+            )}
+            <a href="#" className="hover:text-amber-400 flex items-center">
+              <Home size={16} className="mr-1" /> Início
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Simulación del Banner Principal */}
+      <div
+        className="relative h-[50vh] bg-gray-500 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://img.apresenta.me/M7UtVksvyNIzNjY3SU00T05MTjIzi09NT8zN1Lc0MjDRL0rNy0tMss1UMzUxN7VNBgA.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="relative z-10 flex flex-col items-center justify-end h-full pb-10 text-center text-white">
+          <div className="bg-black bg-opacity-50 p-6 rounded">
+            <h1 className="text-4xl font-bold leading-tight">
+              <b>Quer investir em imóveis</b>
+              <br />e não sabe por onde
+              <br />
+              <b>COMEÇAR?</b>
+            </h1>
+            <h2 className="mt-2 text-lg uppercase tracking-widest">
+              A <b>DFS</b> investimentos vai lhe mostrar
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      {/* Simulación de la Barra de Búsqueda */}
+      <div className="bg-white bg-opacity-80 dark:bg-slate-800 dark:bg-opacity-90 p-4 -mt-16 relative z-20 container mx-auto max-w-4xl rounded shadow-lg">
+        <div className="flex space-x-2 mb-2">
+          <Button
+            variant="secondary"
+            className="bg-green-700 hover:bg-green-800 text-white"
+          >
+            Venda
+          </Button>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+          <Input
+            type="text"
+            placeholder="Tipo do imóvel..."
+            className="bg-white dark:bg-slate-700"
+          />
+          <Input
+            type="text"
+            placeholder="Localização..."
+            className="bg-white dark:bg-slate-700"
+          />
+          <Input
+            type="text"
+            placeholder="Código, nome, endereço..."
+            className="bg-white dark:bg-slate-700"
+          />
+        </div>
+        <Button className="w-full mt-4 bg-amber-500 hover:bg-amber-600 text-black">
+          <Search size={18} className="mr-2" /> Buscar
+        </Button>
+      </div>
+
+      {/* Simulación Sección Oportunidades */}
+      <section className="container mx-auto py-12 px-4">
+        <h2 className="text-3xl font-bold text-center text-green-800 dark:text-green-400 mb-8 uppercase">
+          Oportunidades
         </h2>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {kpis.map((kpi) => (
-            <KpiCard key={kpi.title} {...kpi} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <PlaceholderItemCard
+            title="Parkside Itacorubi"
+            description="Localizado estrategicamente..."
+            imgSrc="https://img.apresenta.me/M7YtVksvyNIzTU0xT04zMLc0MbIwi89JLMhMzsssKtA3tTQwsrDUT8-LTMnJLE2yzVQzNTE3tU0GAA.jpg"
+          />
+          <PlaceholderItemCard
+            title="Lumina"
+            description="A 700m do mar, investimento estratégico!"
+            imgSrc="https://img.apresenta.me/M7YtVksvyNJLtDCwNE8xNTM2TjE3i89JLMhMzsssKtA3NzQ1NjA01E-Py0zJySxNss1UMzUxN7VNBgA.jpg"
+          />
+          <PlaceholderItemCard
+            title="Dália"
+            description="A 50m da praia, em Canasvieiras."
+            imgSrc="https://img.apresenta.me/M7YtVksvyNIzMU1KMkpMTUs2TTE3i89JLMhMzsssKtA3MzExMTA01E-Py0zJySxNss1UMzUxN7VNBgA.jpg"
+          />
+          <PlaceholderItemCard
+            title="Campeche 135"
+            description="A 900m da praia, no bairro que mais valoriza!"
+            imgSrc="https://img.apresenta.me/M7YtVksvyNJLSjM1MzEzS7Q0MbIwi89JLMhMzsssKtA3MDQ2NTY01E-Py0zJySxNss1UMzUxN7VNBgA.jpg"
+          />
         </div>
       </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <section aria-labelledby="activity-title" className="lg:col-span-2">
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-foreground">
-                Actividad Reciente
-              </CardTitle>
-              <CardDescription>
-                Últimos eventos y comunicaciones importantes.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="divide-y divide-border">
-                {activityFeed.map((item, index) => (
-                  <ActivityFeedItem key={index} {...item} />
-                ))}
-              </ul>
-              <Button
-                variant="link"
-                className="mt-4 text-primary"
-                onClick={() => alert('Ir a toda la actividad (pendiente)')}
-              >
-                Ver toda la actividad...
-              </Button>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section aria-labelledby="actions-title">
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-foreground">Accesos Rápidos</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              {quickActions.map((actionItem) => (
-                <QuickActionButton key={actionItem.label} {...actionItem} />
-              ))}
-            </CardContent>
-          </Card>
-        </section>
-      </div>
-
-      <section>
-        <Alert
-          variant="destructive"
-          className="hover:shadow-lg transition-shadow"
-        >
-          <Zap className="h-4 w-4" />
-          <AlertTitle>¡Atención!</AlertTitle>
-          <AlertDescription>
-            El número +55 XX XXXX-YYYY tiene una calificación de calidad BAJA.
-            Se recomienda pausar envíos masivos.
-          </AlertDescription>
-        </Alert>
-      </section>
-
-      <section aria-labelledby="chart-title">
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-foreground">
-              Rendimiento de Leads (Últimos 7 días)
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="h-64 bg-muted/50 rounded-md flex items-center justify-center">
-              <p className="text-muted-foreground">
-                (Espacio para Gráfico - ej. Recharts o Chart.js)
-              </p>
+      {/* Simulación Footer Simplificado */}
+      <footer className="bg-green-900 text-white p-10">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="font-bold text-lg mb-2 text-amber-400">
+              DFS Investimentos
+            </h3>
+            <img
+              src="https://img.apresenta.me/M7UtVkvPK9BLtLQwjC9KLcnPT4vPT8-PiU9NT8zNjC8pza9MzNFPz0zLy0_2zVQzNTE3tU0GAA.png"
+              alt="Logo DFS Footer"
+              className="w-32 mb-4"
+            />
+            <div className="flex space-x-2">
+              {/* Social icons placeholders */}
+              <div className="w-8 h-8 bg-amber-400 rounded-full"></div>
+              <div className="w-8 h-8 bg-amber-400 rounded-full"></div>
+              <div className="w-8 h-8 bg-amber-400 rounded-full"></div>
             </div>
-          </CardContent>
-        </Card>
-      </section>
+          </div>
+          <div>
+            <h3 className="font-bold text-lg mb-2 text-amber-400">
+              Contato rápido
+            </h3>
+            <Input
+              type="text"
+              placeholder="Nome"
+              className="mb-2 bg-green-800 border-green-700 placeholder-gray-300"
+            />
+            <Input
+              type="email"
+              placeholder="E-mail"
+              className="mb-2 bg-green-800 border-green-700 placeholder-gray-300"
+            />
+            <Input
+              type="tel"
+              placeholder="Telefone"
+              className="mb-2 bg-green-800 border-green-700 placeholder-gray-300"
+            />
+            <Button className="bg-amber-500 hover:bg-amber-600 text-green-900 w-full">
+              Enviar
+            </Button>
+          </div>
+          <div>
+            <h3 className="font-bold text-lg mb-2 text-amber-400">Contatos</h3>
+            <p className="flex items-center mb-1">
+              <Phone size={16} className="mr-2 text-amber-400" /> (48)
+              99198-8535
+            </p>
+            <p className="flex items-center">
+              <Mail size={16} className="mr-2 text-amber-400" />{' '}
+              dfs.investimentos.imobiliarios@gmail.com
+            </p>
+          </div>
+          <div>
+            <h3 className="font-bold text-lg mb-2 text-amber-400">
+              Onde Estamos
+            </h3>
+            <p className="flex items-start">
+              <MapPin
+                size={20}
+                className="mr-2 mt-1 text-amber-400 flex-shrink-0"
+              />{' '}
+              Rua João Pio Duarte Silva, 1350, Loja 04, Córrego Grande,
+              Florianópolis, SC, Brasil
+            </p>
+            <p className="mt-2">CRECI: 6869-J</p>
+          </div>
+        </div>
+        <div className="text-center mt-10 pt-5 border-t border-green-700 text-sm text-gray-300">
+          Facilitado por Apresenta.me ~ Copyright © 2025
+        </div>
+      </footer>
     </div>
   );
 }
@@ -390,25 +252,27 @@ export default function DashboardPage() {
 /* SECCIÓN DE MEJORAS
 [
   {
-    "mejora": "Tipado explícito para subcomponentes y datos mock",
-    "justificacion": "Se definieron interfaces (`KpiCardProps`, `ActivityFeedItemProps`, `QuickActionButtonProps`) para las props de los subcomponentes y se tiparon los arrays de datos mock (`kpis`, `activityFeed`, `quickActions`). Los subcomponentes ahora usan `React.FC<PropsInterface>`. Esto ayuda a TypeScript a inferir mejor los tipos y debería reducir o eliminar las advertencias `no-unsafe-*` relacionadas con la propagación de props.",
-    "impacto": "Código más robusto y type-safe. Mejor DX al trabajar con estos componentes."
+    "mejora": "Réplica estructural básica de la página dfsinvestimentos.com.br",
+    "justificacion": "Se ha creado una estructura JSX en `(dashboard)/page.tsx` que imita las secciones principales (header, banner, búsqueda, oportunidades, footer) del HTML proporcionado. Se utilizan componentes de `ui-shared` y clases de Tailwind para aproximar el diseño, sin intentar una copia pixel-perfect ni replicar funcionalidades JavaScript complejas.",
+    "impacto": "Permitirá verificar si los estilos base de Tailwind y `ui-shared` se aplican correctamente a un HTML más complejo y si el error `border-border` se resuelve o cambia. También ayudará a ver si el 404 en `/dashboard` estaba relacionado con un contenido mínimo o un error de renderizado simple."
   },
   {
-    "mejora": "Importación de `LucideProps` para iconos",
-    "justificacion": "Se importó `LucideProps` para tipar correctamente la prop `icon` en los subcomponentes, asegurando que solo se pasen componentes de icono válidos.",
-    "impacto": "Mejora la seguridad de tipos para los iconos."
+    "mejora": "Uso de componentes `PlaceholderItemCard`",
+    "justificacion": "Para simular la lista de 'Oportunidades' sin necesidad de recrear completamente la lógica de esos cards, se usa un componente placeholder simple.",
+    "impacto": "Simplifica el HTML manteniendo una estructura visual similar."
   }
 ]
 */
-
 /* NOTAS PARA IMPLEMENTACIÓN FUTURA
 [
   {
-    "nota": "Los datos mock seguirán siendo reemplazados por datos reales de la API. El tipado explícito facilitará esta transición."
+    "nota": "Este código es una aproximación visual y estructural. No incluye la lógica de los menús desplegables, carruseles, validaciones de formulario, ni ninguna interacción JavaScript avanzada del sitio original. El objetivo es probar el renderizado y los estilos base."
   },
   {
-    "nota": "Mover los subcomponentes a archivos dedicados sigue siendo una mejora recomendada para la organización."
+    "nota": "Las imágenes y los iconos se han referenciado directamente o se han usado placeholders de `lucide-react`. Los colores se han intentado aproximar con clases de Tailwind o colores directos donde las variables de `ui-shared` podrían no coincidir exactamente con los del sitio original (ej. `bg-green-800`, `text-amber-400`)."
+  },
+  {
+    "nota": "Si el error `Cannot apply unknown utility class: border-border` persiste, el problema es definitivamente con la configuración de Tailwind y cómo `pwa-supervisor` está (o no está) heredando o procesando las definiciones de `ui-shared`."
   }
 ]
 */

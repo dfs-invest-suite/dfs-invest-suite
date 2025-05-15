@@ -7,7 +7,7 @@
   1. Importar los estilos globales de ui-shared (que contienen las variables CSS para el tema).
      Se usa una ruta relativa desde este archivo hasta el globals.css de ui-shared.
 */
-@import '../../../../libs/ui-shared/src/styles/globals.css';
+@import '../../../../libs/ui-shared/src/styles/globals.css'; /* <- RUTA CRÍTICA */
 
 /*
   2. Importar las directivas base, componentes y utilidades de Tailwind CSS.
@@ -25,28 +25,8 @@
 */
 @layer base {
   body {
-    /* font-sans ya se aplica a través de la variable CSS --font-sans en RootLayout y
-       la configuración de Tailwind de ui-shared. */
-    @apply bg-background text-foreground; /* Estas clases usarán las variables CSS del tema actual */
+    @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
-
-/* SECCIÓN DE MEJORAS
-[
-  {
-    "mejora": "Corrección de la ruta de importación de CSS",
-    "justificacion": "Se utiliza una ruta relativa (`../../../../libs/ui-shared/src/styles/globals.css`) para importar el `globals.css` de `ui-shared`, lo cual es más robusto para la resolución de CSS en el contexto de Next.js y PostCSS.",
-    "impacto": "Debería resolver el error `Can't resolve 'libs/ui-shared/src/styles/globals.css'` que aparecía en el log del build de Next.js."
-  }
-]
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "Verificar que el archivo `libs/ui-shared/src/styles/globals.css` exista y defina correctamente las variables CSS del tema."
-  }
-]
-*/
