@@ -638,109 +638,35 @@
         "root": "apps/aiper-assistance",
         "targets": {
           "lint": {
-            "cache": true,
-            "options": {
-              "cwd": "apps/aiper-assistance",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{projectRoot}/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "pnpm exec eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
+            "executor": "@nx/eslint:lint",
+            "options": {},
             "configurations": {},
             "parallelism": true
           },
           "test": {
-            "options": {
-              "cwd": "apps/aiper-assistance",
-              "env": {
-                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-              },
-              "command": "jest"
-            },
-            "metadata": {
-              "technologies": [
-                "jest"
-              ],
-              "description": "Run Jest Tests",
-              "help": {
-                "command": "pnpm exec jest --help",
-                "example": {
-                  "options": {
-                    "coverage": true
-                  }
-                }
-              }
-            },
-            "cache": true,
-            "inputs": [
-              "default",
-              "^production",
-              "{workspaceRoot}\\jest.preset.js",
-              {
-                "externalDependencies": [
-                  "jest"
-                ]
-              }
-            ],
+            "executor": "@nx/jest:jest",
             "outputs": [
-              "{workspaceRoot}\\coverage\\apps\\aiper-assistance"
+              "{workspaceRoot}/coverage/{projectRoot}"
             ],
-            "executor": "nx:run-commands",
+            "options": {
+              "jestConfig": "apps/aiper-assistance/jest.config.ts"
+            },
             "configurations": {},
             "parallelism": true
           },
           "build": {
-            "options": {
-              "cwd": "apps/aiper-assistance",
-              "tty": false,
-              "command": "next build"
-            },
-            "dependsOn": [
-              "^build"
-            ],
-            "cache": true,
-            "inputs": [
-              "default",
-              "^production",
-              {
-                "externalDependencies": [
-                  "next"
-                ]
-              }
-            ],
+            "executor": "@nx/next:build",
             "outputs": [
-              "{workspaceRoot}/apps/aiper-assistance/.next",
-              "{workspaceRoot}/apps/aiper-assistance/.next/!(cache)"
+              "{options.outputPath}"
             ],
-            "executor": "nx:run-commands",
-            "configurations": {},
+            "defaultConfiguration": "production",
+            "options": {
+              "outputPath": "dist/apps/aiper-assistance"
+            },
+            "configurations": {
+              "development": {},
+              "production": {}
+            },
             "parallelism": true
           },
           "dev": {
@@ -799,11 +725,31 @@
             },
             "configurations": {},
             "parallelism": true
+          },
+          "serve": {
+            "executor": "@nx/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+              "buildTarget": "aiper-assistance:build",
+              "dev": true
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "aiper-assistance:build:development",
+                "dev": true
+              },
+              "production": {
+                "buildTarget": "aiper-assistance:build:production",
+                "dev": false
+              }
+            },
+            "parallelism": true,
+            "continuous": true
           }
         },
         "name": "aiper-assistance",
         "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "apps/aiper-assistance",
+        "sourceRoot": "apps/aiper-assistance/src",
         "projectType": "application",
         "tags": [
           "scope:app",
@@ -1923,6 +1869,189 @@
           "scope:shared",
           "type:utils",
           "layer:shared"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "web3-portal": {
+      "name": "web3-portal",
+      "type": "app",
+      "data": {
+        "root": "apps/web3-portal",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "apps/web3-portal",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "apps/web3-portal",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\apps\\web3-portal"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "build": {
+            "options": {
+              "cwd": "apps/web3-portal",
+              "tty": false,
+              "command": "next build"
+            },
+            "dependsOn": [
+              "^build"
+            ],
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              {
+                "externalDependencies": [
+                  "next"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/apps/web3-portal/.next",
+              "{workspaceRoot}/apps/web3-portal/.next/!(cache)"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "dev": {
+            "continuous": true,
+            "options": {
+              "cwd": "apps/web3-portal",
+              "command": "next dev"
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "start": {
+            "continuous": true,
+            "options": {
+              "cwd": "apps/web3-portal",
+              "command": "next start"
+            },
+            "dependsOn": [
+              "build"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "serve-static": {
+            "continuous": true,
+            "options": {
+              "cwd": "apps/web3-portal",
+              "command": "next start"
+            },
+            "dependsOn": [
+              "build"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "build-deps": {
+            "dependsOn": [
+              "^build"
+            ],
+            "configurations": {},
+            "options": {},
+            "parallelism": true,
+            "executor": "nx:noop"
+          },
+          "watch-deps": {
+            "continuous": true,
+            "dependsOn": [
+              "build-deps"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "pnpm exec nx watch --projects web3-portal --includeDependentProjects -- pnpm exec nx build-deps web3-portal"
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "web3-portal",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "apps/web3-portal",
+        "projectType": "application",
+        "tags": [
+          "scope:app",
+          "type:pwa",
+          "layer:presentation",
+          "feature:web3"
         ],
         "implicitDependencies": []
       }
@@ -8609,6 +8738,15 @@
         "version": "4.9.0",
         "packageName": "cron-parser",
         "hash": "sha512-p0SaNjrHOnQeR8/VnfGbmg9te2kfyYSQ7Sc/j/6DtPL3JQvKxmjO9TSjNFpujqV3vEYYBvNNvXSxzyksBWAx1Q=="
+      }
+    },
+    "npm:cross-env": {
+      "type": "npm",
+      "name": "npm:cross-env",
+      "data": {
+        "version": "7.0.3",
+        "packageName": "cross-env",
+        "hash": "sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw=="
       }
     },
     "npm:cross-spawn": {
@@ -17790,6 +17928,43 @@
       {
         "source": "shared-utils",
         "target": "npm:uuid",
+        "type": "static"
+      }
+    ],
+    "web3-portal": [
+      {
+        "source": "web3-portal",
+        "target": "npm:@eslint/eslintrc",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:@eslint/js",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:@eslint/compat",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:@nx/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:@nx/next",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:@testing-library/react",
         "type": "static"
       }
     ],
@@ -27128,6 +27303,13 @@
       {
         "source": "npm:cron-parser",
         "target": "npm:luxon",
+        "type": "static"
+      }
+    ],
+    "npm:cross-env": [
+      {
+        "source": "npm:cross-env",
+        "target": "npm:cross-spawn",
         "type": "static"
       }
     ],
@@ -38671,5 +38853,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1747351063184
+  "computedAt": 1747373222871
 }

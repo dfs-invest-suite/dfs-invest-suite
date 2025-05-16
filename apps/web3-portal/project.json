@@ -1,0 +1,9 @@
+{
+  "name": "web3-portal",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web3-portal",
+  "projectType": "application",
+  "tags": ["scope:app", "type:pwa", "layer:presentation", "feature:web3"],
+  "// targets": "to see all targets run: nx show project web3-portal --web",
+  "targets": {}
+}

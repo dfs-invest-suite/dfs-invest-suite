@@ -1,9 +1,9 @@
 {
-  "15944782132668497075": {
+  "10997277703461210898": {
     "build": {
       "command": "next build",
       "options": {
-        "cwd": "apps/pwa-supervisor",
+        "cwd": "apps/aiper-assistance",
         "tty": false
       },
       "dependsOn": [
@@ -20,22 +20,22 @@
         }
       ],
       "outputs": [
-        "{workspaceRoot}/apps/pwa-supervisor/.next",
-        "{workspaceRoot}/apps/pwa-supervisor/.next/!(cache)"
+        "{workspaceRoot}/apps/aiper-assistance/.next",
+        "{workspaceRoot}/apps/aiper-assistance/.next/!(cache)"
       ]
     },
     "dev": {
       "continuous": true,
       "command": "next dev",
       "options": {
-        "cwd": "apps/pwa-supervisor"
+        "cwd": "apps/aiper-assistance"
       }
     },
     "start": {
       "continuous": true,
       "command": "next start",
       "options": {
-        "cwd": "apps/pwa-supervisor"
+        "cwd": "apps/aiper-assistance"
       },
       "dependsOn": [
         "build"
@@ -45,7 +45,7 @@
       "continuous": true,
       "command": "next start",
       "options": {
-        "cwd": "apps/pwa-supervisor"
+        "cwd": "apps/aiper-assistance"
       },
       "dependsOn": [
         "build"
@@ -61,335 +61,10 @@
       "dependsOn": [
         "build-deps"
       ],
-      "command": "pnpm exec nx watch --projects pwa-supervisor --includeDependentProjects -- pnpm exec nx build-deps pwa-supervisor"
+      "command": "pnpm exec nx watch --projects aiper-assistance --includeDependentProjects -- pnpm exec nx build-deps aiper-assistance"
     }
   },
-  "5116155114627492121": {
-    "build": {
-      "command": "next build",
-      "options": {
-        "cwd": "portal-imoveis",
-        "tty": false
-      },
-      "dependsOn": [
-        "^build"
-      ],
-      "cache": true,
-      "inputs": [
-        "default",
-        "^production",
-        {
-          "externalDependencies": [
-            "next"
-          ]
-        }
-      ],
-      "outputs": [
-        "{workspaceRoot}/portal-imoveis/.next",
-        "{workspaceRoot}/portal-imoveis/.next/!(cache)"
-      ]
-    },
-    "dev": {
-      "continuous": true,
-      "command": "next dev",
-      "options": {
-        "cwd": "portal-imoveis"
-      }
-    },
-    "start": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "portal-imoveis"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "serve-static": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "portal-imoveis"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "build-deps": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "watch-deps": {
-      "continuous": true,
-      "dependsOn": [
-        "build-deps"
-      ],
-      "command": "pnpm exec nx watch --projects portal-imoveis --includeDependentProjects -- pnpm exec nx build-deps portal-imoveis"
-    }
-  },
-  "17941015018589200148": {
-    "build": {
-      "command": "next build",
-      "options": {
-        "cwd": "pwa-consultant",
-        "tty": false
-      },
-      "dependsOn": [
-        "^build"
-      ],
-      "cache": true,
-      "inputs": [
-        "default",
-        "^production",
-        {
-          "externalDependencies": [
-            "next"
-          ]
-        }
-      ],
-      "outputs": [
-        "{workspaceRoot}/pwa-consultant/.next",
-        "{workspaceRoot}/pwa-consultant/.next/!(cache)"
-      ]
-    },
-    "dev": {
-      "continuous": true,
-      "command": "next dev",
-      "options": {
-        "cwd": "pwa-consultant"
-      }
-    },
-    "start": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "pwa-consultant"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "serve-static": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "pwa-consultant"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "build-deps": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "watch-deps": {
-      "continuous": true,
-      "dependsOn": [
-        "build-deps"
-      ],
-      "command": "pnpm exec nx watch --projects pwa-consultant --includeDependentProjects -- pnpm exec nx build-deps pwa-consultant"
-    }
-  },
-  "5975599770505643661": {
-    "build": {
-      "command": "next build",
-      "options": {
-        "cwd": "dev-hub",
-        "tty": false
-      },
-      "dependsOn": [
-        "^build"
-      ],
-      "cache": true,
-      "inputs": [
-        "default",
-        "^production",
-        {
-          "externalDependencies": [
-            "next"
-          ]
-        }
-      ],
-      "outputs": [
-        "{workspaceRoot}/dev-hub/.next",
-        "{workspaceRoot}/dev-hub/.next/!(cache)"
-      ]
-    },
-    "dev": {
-      "continuous": true,
-      "command": "next dev",
-      "options": {
-        "cwd": "dev-hub"
-      }
-    },
-    "start": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "dev-hub"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "serve-static": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "dev-hub"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "build-deps": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "watch-deps": {
-      "continuous": true,
-      "dependsOn": [
-        "build-deps"
-      ],
-      "command": "pnpm exec nx watch --projects dev-hub --includeDependentProjects -- pnpm exec nx build-deps dev-hub"
-    }
-  },
-  "13406723359255999696": {
-    "build": {
-      "command": "next build",
-      "options": {
-        "cwd": "apps/portal-imoveis",
-        "tty": false
-      },
-      "dependsOn": [
-        "^build"
-      ],
-      "cache": true,
-      "inputs": [
-        "default",
-        "^production",
-        {
-          "externalDependencies": [
-            "next"
-          ]
-        }
-      ],
-      "outputs": [
-        "{workspaceRoot}/apps/portal-imoveis/.next",
-        "{workspaceRoot}/apps/portal-imoveis/.next/!(cache)"
-      ]
-    },
-    "dev": {
-      "continuous": true,
-      "command": "next dev",
-      "options": {
-        "cwd": "apps/portal-imoveis"
-      }
-    },
-    "start": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "apps/portal-imoveis"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "serve-static": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "apps/portal-imoveis"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "build-deps": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "watch-deps": {
-      "continuous": true,
-      "dependsOn": [
-        "build-deps"
-      ],
-      "command": "pnpm exec nx watch --projects portal-imoveis --includeDependentProjects -- pnpm exec nx build-deps portal-imoveis"
-    }
-  },
-  "8206521533290246351": {
-    "build": {
-      "command": "next build",
-      "options": {
-        "cwd": "apps/pwa-consultant",
-        "tty": false
-      },
-      "dependsOn": [
-        "^build"
-      ],
-      "cache": true,
-      "inputs": [
-        "default",
-        "^production",
-        {
-          "externalDependencies": [
-            "next"
-          ]
-        }
-      ],
-      "outputs": [
-        "{workspaceRoot}/apps/pwa-consultant/.next",
-        "{workspaceRoot}/apps/pwa-consultant/.next/!(cache)"
-      ]
-    },
-    "dev": {
-      "continuous": true,
-      "command": "next dev",
-      "options": {
-        "cwd": "apps/pwa-consultant"
-      }
-    },
-    "start": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "apps/pwa-consultant"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "serve-static": {
-      "continuous": true,
-      "command": "next start",
-      "options": {
-        "cwd": "apps/pwa-consultant"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "build-deps": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "watch-deps": {
-      "continuous": true,
-      "dependsOn": [
-        "build-deps"
-      ],
-      "command": "pnpm exec nx watch --projects pwa-consultant --includeDependentProjects -- pnpm exec nx build-deps pwa-consultant"
-    }
-  },
-  "14851124174775530686": {
+  "12746931317652917086": {
     "build": {
       "command": "next build",
       "options": {
@@ -454,7 +129,7 @@
       "command": "pnpm exec nx watch --projects dev-hub --includeDependentProjects -- pnpm exec nx build-deps dev-hub"
     }
   },
-  "8758645254788908327": {
+  "10905522980327802514": {
     "build": {
       "command": "next build",
       "options": {
@@ -519,11 +194,11 @@
       "command": "pnpm exec nx watch --projects guia-investidor --includeDependentProjects -- pnpm exec nx build-deps guia-investidor"
     }
   },
-  "12595548405858216758": {
+  "17839192778595919301": {
     "build": {
       "command": "next build",
       "options": {
-        "cwd": "apps/guia-investidor",
+        "cwd": "apps/portal-imoveis",
         "tty": false
       },
       "dependsOn": [
@@ -540,22 +215,22 @@
         }
       ],
       "outputs": [
-        "{workspaceRoot}/apps/guia-investidor/.next",
-        "{workspaceRoot}/apps/guia-investidor/.next/!(cache)"
+        "{workspaceRoot}/apps/portal-imoveis/.next",
+        "{workspaceRoot}/apps/portal-imoveis/.next/!(cache)"
       ]
     },
     "dev": {
       "continuous": true,
       "command": "next dev",
       "options": {
-        "cwd": "apps/guia-investidor"
+        "cwd": "apps/portal-imoveis"
       }
     },
     "start": {
       "continuous": true,
       "command": "next start",
       "options": {
-        "cwd": "apps/guia-investidor"
+        "cwd": "apps/portal-imoveis"
       },
       "dependsOn": [
         "build"
@@ -565,7 +240,7 @@
       "continuous": true,
       "command": "next start",
       "options": {
-        "cwd": "apps/guia-investidor"
+        "cwd": "apps/portal-imoveis"
       },
       "dependsOn": [
         "build"
@@ -581,10 +256,205 @@
       "dependsOn": [
         "build-deps"
       ],
-      "command": "pnpm exec nx watch --projects guia-investidor --includeDependentProjects -- pnpm exec nx build-deps guia-investidor"
+      "command": "pnpm exec nx watch --projects portal-imoveis --includeDependentProjects -- pnpm exec nx build-deps portal-imoveis"
     }
   },
-  "18118513015897282244": {
+  "14186184483742900827": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/pwa-consultant",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/pwa-consultant/.next",
+        "{workspaceRoot}/apps/pwa-consultant/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/pwa-consultant"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/pwa-consultant"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/pwa-consultant"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects pwa-consultant --includeDependentProjects -- pnpm exec nx build-deps pwa-consultant"
+    }
+  },
+  "2005709654953303784": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/pwa-supervisor",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/pwa-supervisor/.next",
+        "{workspaceRoot}/apps/pwa-supervisor/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/pwa-supervisor"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/pwa-supervisor"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/pwa-supervisor"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects pwa-supervisor --includeDependentProjects -- pnpm exec nx build-deps pwa-supervisor"
+    }
+  },
+  "17213236870742731158": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/web3-portal",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/web3-portal/.next",
+        "{workspaceRoot}/apps/web3-portal/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/web3-portal"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/web3-portal"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/web3-portal"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects web3-portal --includeDependentProjects -- pnpm exec nx build-deps web3-portal"
+    }
+  },
+  "10430465422798202104": {
     "build": {
       "command": "next build",
       "options": {
@@ -647,6 +517,396 @@
         "build-deps"
       ],
       "command": "pnpm exec nx watch --projects aiper-assistance --includeDependentProjects -- pnpm exec nx build-deps aiper-assistance"
+    }
+  },
+  "5203010605148246211": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/dev-hub",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/dev-hub/.next",
+        "{workspaceRoot}/apps/dev-hub/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/dev-hub"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/dev-hub"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/dev-hub"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects dev-hub --includeDependentProjects -- pnpm exec nx build-deps dev-hub"
+    }
+  },
+  "8851806102298486295": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/guia-investidor",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/guia-investidor/.next",
+        "{workspaceRoot}/apps/guia-investidor/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/guia-investidor"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/guia-investidor"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/guia-investidor"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects guia-investidor --includeDependentProjects -- pnpm exec nx build-deps guia-investidor"
+    }
+  },
+  "3502169269259081073": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/portal-imoveis",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/portal-imoveis/.next",
+        "{workspaceRoot}/apps/portal-imoveis/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/portal-imoveis"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/portal-imoveis"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/portal-imoveis"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects portal-imoveis --includeDependentProjects -- pnpm exec nx build-deps portal-imoveis"
+    }
+  },
+  "7373771306742919691": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/pwa-consultant",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/pwa-consultant/.next",
+        "{workspaceRoot}/apps/pwa-consultant/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/pwa-consultant"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/pwa-consultant"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/pwa-consultant"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects pwa-consultant --includeDependentProjects -- pnpm exec nx build-deps pwa-consultant"
+    }
+  },
+  "171797688183767572": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/pwa-supervisor",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/pwa-supervisor/.next",
+        "{workspaceRoot}/apps/pwa-supervisor/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/pwa-supervisor"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/pwa-supervisor"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/pwa-supervisor"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects pwa-supervisor --includeDependentProjects -- pnpm exec nx build-deps pwa-supervisor"
+    }
+  },
+  "11516521291202804221": {
+    "build": {
+      "command": "next build",
+      "options": {
+        "cwd": "apps/web3-portal",
+        "tty": false
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": [
+            "next"
+          ]
+        }
+      ],
+      "outputs": [
+        "{workspaceRoot}/apps/web3-portal/.next",
+        "{workspaceRoot}/apps/web3-portal/.next/!(cache)"
+      ]
+    },
+    "dev": {
+      "continuous": true,
+      "command": "next dev",
+      "options": {
+        "cwd": "apps/web3-portal"
+      }
+    },
+    "start": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/web3-portal"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "serve-static": {
+      "continuous": true,
+      "command": "next start",
+      "options": {
+        "cwd": "apps/web3-portal"
+      },
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "build-deps": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "watch-deps": {
+      "continuous": true,
+      "dependsOn": [
+        "build-deps"
+      ],
+      "command": "pnpm exec nx watch --projects web3-portal --includeDependentProjects -- pnpm exec nx build-deps web3-portal"
     }
   }
 }

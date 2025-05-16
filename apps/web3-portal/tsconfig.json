@@ -23,14 +23,13 @@
     "types": ["jest", "node"]
   },
   "include": [
-    "**/*.js",
-    "**/*.jsx",
     "**/*.ts",
     "**/*.tsx",
-    "../../apps/aiper-assistance/.next/types/**/*.ts",
-    "../../dist/apps/aiper-assistance/.next/types/**/*.ts",
-    "next-env.d.ts",
-    ".next/types/**/*.ts"
+    "**/*.js",
+    "**/*.jsx",
+    "../../apps/web3-portal/.next/types/**/*.ts",
+    "../../dist/apps/web3-portal/.next/types/**/*.ts",
+    "next-env.d.ts"
   ],
   "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
 }

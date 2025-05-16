@@ -1,4 +1,45 @@
 {
+  "823808639083653614": {
+    "targets": {
+      "test": {
+        "command": "jest",
+        "options": {
+          "cwd": "apps/aiper-assistance",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+          }
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests",
+          "help": {
+            "command": "pnpm exec jest --help",
+            "example": {
+              "options": {
+                "coverage": true
+              }
+            }
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          "{workspaceRoot}\\jest.preset.js",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}\\coverage\\apps\\aiper-assistance"
+        ]
+      }
+    }
+  },
   "11358809923824502142": {
     "targets": {
       "test": {
@@ -40,6 +81,170 @@
       }
     }
   },
+  "13205666401753526794": {
+    "targets": {
+      "test": {
+        "command": "jest",
+        "options": {
+          "cwd": "apps/dev-hub",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+          }
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests",
+          "help": {
+            "command": "pnpm exec jest --help",
+            "example": {
+              "options": {
+                "coverage": true
+              }
+            }
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          "{workspaceRoot}\\jest.preset.js",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}\\coverage\\apps\\dev-hub"
+        ]
+      }
+    }
+  },
+  "14209680151063058421": {
+    "targets": {
+      "test": {
+        "command": "jest",
+        "options": {
+          "cwd": "apps/guia-investidor",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+          }
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests",
+          "help": {
+            "command": "pnpm exec jest --help",
+            "example": {
+              "options": {
+                "coverage": true
+              }
+            }
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          "{workspaceRoot}\\jest.preset.js",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}\\coverage\\apps\\guia-investidor"
+        ]
+      }
+    }
+  },
+  "5693170194285916510": {
+    "targets": {
+      "test": {
+        "command": "jest",
+        "options": {
+          "cwd": "apps/portal-imoveis",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+          }
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests",
+          "help": {
+            "command": "pnpm exec jest --help",
+            "example": {
+              "options": {
+                "coverage": true
+              }
+            }
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          "{workspaceRoot}\\jest.preset.js",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}\\coverage\\apps\\portal-imoveis"
+        ]
+      }
+    }
+  },
+  "16537538099219815892": {
+    "targets": {
+      "test": {
+        "command": "jest",
+        "options": {
+          "cwd": "apps/pwa-consultant",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+          }
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests",
+          "help": {
+            "command": "pnpm exec jest --help",
+            "example": {
+              "options": {
+                "coverage": true
+              }
+            }
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          "{workspaceRoot}\\jest.preset.js",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}\\coverage\\apps\\pwa-consultant"
+        ]
+      }
+    }
+  },
   "1760285025643945201": {
     "targets": {
       "test": {
@@ -77,6 +282,47 @@
         ],
         "outputs": [
           "{workspaceRoot}\\coverage\\apps\\pwa-supervisor"
+        ]
+      }
+    }
+  },
+  "3124951293813537740": {
+    "targets": {
+      "test": {
+        "command": "jest",
+        "options": {
+          "cwd": "apps/web3-portal",
+          "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+          }
+        },
+        "metadata": {
+          "technologies": [
+            "jest"
+          ],
+          "description": "Run Jest Tests",
+          "help": {
+            "command": "pnpm exec jest --help",
+            "example": {
+              "options": {
+                "coverage": true
+              }
+            }
+          }
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          "{workspaceRoot}\\jest.preset.js",
+          {
+            "externalDependencies": [
+              "jest"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}\\coverage\\apps\\web3-portal"
         ]
       }
     }
@@ -692,334 +938,6 @@
         ],
         "outputs": [
           "{workspaceRoot}\\coverage\\libs\\ui-shared"
-        ]
-      }
-    }
-  },
-  "16657352151405208210": {
-    "targets": {
-      "test": {
-        "command": "jest",
-        "options": {
-          "cwd": "portal-imoveis",
-          "env": {
-            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-          }
-        },
-        "metadata": {
-          "technologies": [
-            "jest"
-          ],
-          "description": "Run Jest Tests",
-          "help": {
-            "command": "pnpm exec jest --help",
-            "example": {
-              "options": {
-                "coverage": true
-              }
-            }
-          }
-        },
-        "cache": true,
-        "inputs": [
-          "default",
-          "^production",
-          "{workspaceRoot}\\jest.preset.js",
-          {
-            "externalDependencies": [
-              "jest"
-            ]
-          }
-        ],
-        "outputs": [
-          "{workspaceRoot}\\coverage\\portal-imoveis"
-        ]
-      }
-    }
-  },
-  "3370488758800190994": {
-    "targets": {
-      "test": {
-        "command": "jest",
-        "options": {
-          "cwd": "pwa-consultant",
-          "env": {
-            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-          }
-        },
-        "metadata": {
-          "technologies": [
-            "jest"
-          ],
-          "description": "Run Jest Tests",
-          "help": {
-            "command": "pnpm exec jest --help",
-            "example": {
-              "options": {
-                "coverage": true
-              }
-            }
-          }
-        },
-        "cache": true,
-        "inputs": [
-          "default",
-          "^production",
-          "{workspaceRoot}\\jest.preset.js",
-          {
-            "externalDependencies": [
-              "jest"
-            ]
-          }
-        ],
-        "outputs": [
-          "{workspaceRoot}\\coverage\\pwa-consultant"
-        ]
-      }
-    }
-  },
-  "14606057640606844291": {
-    "targets": {
-      "test": {
-        "command": "jest",
-        "options": {
-          "cwd": "dev-hub",
-          "env": {
-            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-          }
-        },
-        "metadata": {
-          "technologies": [
-            "jest"
-          ],
-          "description": "Run Jest Tests",
-          "help": {
-            "command": "pnpm exec jest --help",
-            "example": {
-              "options": {
-                "coverage": true
-              }
-            }
-          }
-        },
-        "cache": true,
-        "inputs": [
-          "default",
-          "^production",
-          "{workspaceRoot}\\jest.preset.js",
-          {
-            "externalDependencies": [
-              "jest"
-            ]
-          }
-        ],
-        "outputs": [
-          "{workspaceRoot}\\coverage\\dev-hub"
-        ]
-      }
-    }
-  },
-  "5693170194285916510": {
-    "targets": {
-      "test": {
-        "command": "jest",
-        "options": {
-          "cwd": "apps/portal-imoveis",
-          "env": {
-            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-          }
-        },
-        "metadata": {
-          "technologies": [
-            "jest"
-          ],
-          "description": "Run Jest Tests",
-          "help": {
-            "command": "pnpm exec jest --help",
-            "example": {
-              "options": {
-                "coverage": true
-              }
-            }
-          }
-        },
-        "cache": true,
-        "inputs": [
-          "default",
-          "^production",
-          "{workspaceRoot}\\jest.preset.js",
-          {
-            "externalDependencies": [
-              "jest"
-            ]
-          }
-        ],
-        "outputs": [
-          "{workspaceRoot}\\coverage\\apps\\portal-imoveis"
-        ]
-      }
-    }
-  },
-  "16537538099219815892": {
-    "targets": {
-      "test": {
-        "command": "jest",
-        "options": {
-          "cwd": "apps/pwa-consultant",
-          "env": {
-            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-          }
-        },
-        "metadata": {
-          "technologies": [
-            "jest"
-          ],
-          "description": "Run Jest Tests",
-          "help": {
-            "command": "pnpm exec jest --help",
-            "example": {
-              "options": {
-                "coverage": true
-              }
-            }
-          }
-        },
-        "cache": true,
-        "inputs": [
-          "default",
-          "^production",
-          "{workspaceRoot}\\jest.preset.js",
-          {
-            "externalDependencies": [
-              "jest"
-            ]
-          }
-        ],
-        "outputs": [
-          "{workspaceRoot}\\coverage\\apps\\pwa-consultant"
-        ]
-      }
-    }
-  },
-  "13205666401753526794": {
-    "targets": {
-      "test": {
-        "command": "jest",
-        "options": {
-          "cwd": "apps/dev-hub",
-          "env": {
-            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-          }
-        },
-        "metadata": {
-          "technologies": [
-            "jest"
-          ],
-          "description": "Run Jest Tests",
-          "help": {
-            "command": "pnpm exec jest --help",
-            "example": {
-              "options": {
-                "coverage": true
-              }
-            }
-          }
-        },
-        "cache": true,
-        "inputs": [
-          "default",
-          "^production",
-          "{workspaceRoot}\\jest.preset.js",
-          {
-            "externalDependencies": [
-              "jest"
-            ]
-          }
-        ],
-        "outputs": [
-          "{workspaceRoot}\\coverage\\apps\\dev-hub"
-        ]
-      }
-    }
-  },
-  "14209680151063058421": {
-    "targets": {
-      "test": {
-        "command": "jest",
-        "options": {
-          "cwd": "apps/guia-investidor",
-          "env": {
-            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-          }
-        },
-        "metadata": {
-          "technologies": [
-            "jest"
-          ],
-          "description": "Run Jest Tests",
-          "help": {
-            "command": "pnpm exec jest --help",
-            "example": {
-              "options": {
-                "coverage": true
-              }
-            }
-          }
-        },
-        "cache": true,
-        "inputs": [
-          "default",
-          "^production",
-          "{workspaceRoot}\\jest.preset.js",
-          {
-            "externalDependencies": [
-              "jest"
-            ]
-          }
-        ],
-        "outputs": [
-          "{workspaceRoot}\\coverage\\apps\\guia-investidor"
-        ]
-      }
-    }
-  },
-  "18024499915884302593": {
-    "targets": {
-      "test": {
-        "command": "jest",
-        "options": {
-          "cwd": "apps/aiper-assistance",
-          "env": {
-            "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
-          }
-        },
-        "metadata": {
-          "technologies": [
-            "jest"
-          ],
-          "description": "Run Jest Tests",
-          "help": {
-            "command": "pnpm exec jest --help",
-            "example": {
-              "options": {
-                "coverage": true
-              }
-            }
-          }
-        },
-        "cache": true,
-        "inputs": [
-          "default",
-          "^production",
-          "{workspaceRoot}\\jest.preset.js",
-          {
-            "externalDependencies": [
-              "jest"
-            ]
-          }
-        ],
-        "outputs": [
-          "{workspaceRoot}\\coverage\\apps\\aiper-assistance"
         ]
       }
     }

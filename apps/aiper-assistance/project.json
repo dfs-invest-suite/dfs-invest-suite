@@ -1,7 +1,7 @@
 {
   "name": "aiper-assistance",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/aiper-assistance",
+  "sourceRoot": "apps/aiper-assistance/src",
   "projectType": "application",
   "tags": [
     "scope:app",
@@ -9,6 +9,42 @@
     "layer:presentation",
     "app:aiper-assistance"
   ],
-  "// targets": "to see all targets run: nx show project aiper-assistance --web",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/aiper-assistance"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "aiper-assistance:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "aiper-assistance:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "aiper-assistance:build:production",
+          "dev": false
+        }
+      }
+    },
+    "lint": { "executor": "@nx/eslint:lint" },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": { "jestConfig": "apps/aiper-assistance/jest.config.ts" }
+    }
+  }
 }

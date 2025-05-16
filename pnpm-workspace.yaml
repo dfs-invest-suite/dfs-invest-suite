@@ -2,4 +2,8 @@ onlyBuiltDependencies:
   - '@nestjs/core'
   - '@parcel/watcher'
   - '@swc/core'
+  - '@tailwindcss/oxide'
+  - esbuild
   - nx
+  - sharp
+  - unrs-resolver

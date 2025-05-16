@@ -1,8 +1,53 @@
 {
   "name": "@dfs-invest-suite/source",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {},
+  "version": "0.1.0",
+  "description": "Suite de inversión multi-tenant DFS Invest.",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Raz Podesta",
+    "email": "raz.podesta@metashark.tech",
+    "url": "https://github.com/razpodesta"
+  },
+  "contributors": [
+    {
+      "name": "L.I.A Legacy",
+      "email": "lia.legacy@metashark.tech"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/razpodesta/dfs-invest-suite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/razpodesta/dfs-invest-suite/issues"
+  },
+  "homepage": "https://dfs-invest-suite.metashark.tech",
+  "scripts": {
+    "graph": "pnpm nx graph",
+    "reset": "pnpm nx reset",
+    "format:check": "pnpm prettier --check .",
+    "format:write": "pnpm prettier --write .",
+    "lint:all": "pnpm nx run-many --target=lint --all",
+    "lint:all:fix": "pnpm nx run-many --target=lint --all --fix",
+    "test:all": "pnpm nx run-many --target=test --all",
+    "test:all:coverage": "pnpm nx run-many --target=test --all --coverage",
+    "build:all:prod": "pnpm nx run-many --target=build --all --configuration=production --skip-nx-cache",
+    "affected:lint": "pnpm nx affected --target=lint",
+    "affected:test": "pnpm nx affected --target=test",
+    "affected:build:prod": "pnpm nx affected --target=build --configuration=production --skip-nx-cache",
+    "build:pwa-supervisor:prod": "cross-env NODE_ENV=production pnpm nx build pwa-supervisor --configuration=production --skip-nx-cache",
+    "build:aiper-assistance:prod": "cross-env NODE_ENV=production pnpm nx build aiper-assistance --configuration=production --skip-nx-cache",
+    "build:pwa-consultant:prod": "cross-env NODE_ENV=production pnpm nx build pwa-consultant --configuration=production --skip-nx-cache",
+    "build:dev-hub:prod": "cross-env NODE_ENV=production pnpm nx build dev-hub --configuration=production --skip-nx-cache",
+    "build:guia-investidor:prod": "cross-env NODE_ENV=production pnpm nx build guia-investidor --configuration=production --skip-nx-cache",
+    "build:portal-imoveis:prod": "cross-env NODE_ENV=production pnpm nx build portal-imoveis --configuration=production --skip-nx-cache",
+    "build:web3-hub:prod": "cross-env NODE_ENV=production pnpm nx build web3-hub --configuration=production --skip-nx-cache",
+    "build:api-main:prod": "cross-env NODE_ENV=production pnpm nx build api-main --configuration=production --skip-nx-cache",
+    "serve:pwa-supervisor": "pnpm nx serve pwa-supervisor",
+    "serve:aiper-assistance": "pnpm nx serve aiper-assistance",
+    "serve:api-main": "pnpm nx serve api-main",
+    "approve-builds": "pnpm approve-builds"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
@@ -67,6 +112,7 @@
     "@typescript-eslint/parser": "^8.32.0",
     "autoprefixer": "^10.4.21",
     "babel-jest": "^29.7.0",
+    "cross-env": "^7.0.3",
     "eslint": "^9.8.0",
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.0.0",

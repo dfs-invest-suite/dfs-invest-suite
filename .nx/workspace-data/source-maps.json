@@ -381,6 +381,272 @@
       "nx/core/project-json"
     ]
   },
+  "apps/aiper-assistance": {
+    "root": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/aiper-assistance/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.dev": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.continuous": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.executor": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.cwd": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.command": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.continuous": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.dependsOn": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.executor": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.cwd": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.command": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.continuous": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.dependsOn": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.cwd": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.command": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/aiper-assistance/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "name": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:app": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:pwa": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:presentation": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.app:aiper-assistance": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.dev": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.dev": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.dev": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "apps/aiper-assistance/project.json",
+      "nx/core/project-json"
+    ]
+  },
   "apps/api-main-e2e": {
     "root": [
       "apps/api-main-e2e/project.json",
@@ -2094,6 +2360,332 @@
     ],
     "targets.lint.outputs": [
       "apps/pwa-supervisor/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "apps/web3-portal": {
+    "root": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "apps/web3-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.test": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.cache": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.inputs": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.outputs": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.executor": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.cwd": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.env": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.command": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.technologies": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.technologies.0": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.description": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help.command": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help.example": [
+      "apps/web3-portal/jest.config.ts",
+      "@nx/jest/plugin"
+    ],
+    "targets.build": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.dependsOn": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.cache": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.inputs": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.outputs": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.executor": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.cwd": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.tty": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.command": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.continuous": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.executor": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.cwd": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.command": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.continuous": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.dependsOn": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.executor": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.cwd": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.command": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.continuous": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.dependsOn": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.cwd": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.command": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build-deps": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build-deps.dependsOn": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/web3-portal/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "name": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:app": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:pwa": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.layer:presentation": [
+      "apps/web3-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.feature:web3": [
+      "apps/web3-portal/project.json",
       "nx/core/project-json"
     ]
   },
@@ -3936,332 +4528,6 @@
     ],
     "targets.test.options.passWithNoTests": [
       "libs/ui-shared/project.json",
-      "nx/core/project-json"
-    ]
-  },
-  "apps/aiper-assistance": {
-    "root": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "targets": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.cache": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.inputs": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.outputs": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.executor": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.cwd": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.options.command": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.technologies.0": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.description": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.command": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.lint.metadata.help.example": [
-      "apps/aiper-assistance/eslint.config.mjs",
-      "@nx/eslint/plugin"
-    ],
-    "targets.test": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.cache": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.inputs": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.outputs": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.executor": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.cwd": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.env": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.options.command": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.technologies.0": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.description": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.command": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.test.metadata.help.example": [
-      "apps/aiper-assistance/jest.config.ts",
-      "@nx/jest/plugin"
-    ],
-    "targets.build": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.options": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.dependsOn": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.cache": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.inputs": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.outputs": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.executor": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.options.cwd": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.options.tty": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build.options.command": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.continuous": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.options": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.executor": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.options.cwd": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.dev.options.command": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.continuous": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.options": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.dependsOn": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.executor": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.options.cwd": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.start.options.command": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.continuous": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.options": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.dependsOn": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.executor": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.options.cwd": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.serve-static.options.command": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build-deps": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.build-deps.dependsOn": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.continuous": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.dependsOn": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.executor": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.options": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "targets.watch-deps.options.command": [
-      "apps/aiper-assistance/next.config.js",
-      "@nx/next/plugin"
-    ],
-    "name": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "$schema": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "sourceRoot": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "projectType": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "// targets": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "tags": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.scope:app": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.type:pwa": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.layer:presentation": [
-      "apps/aiper-assistance/project.json",
-      "nx/core/project-json"
-    ],
-    "tags.app:aiper-assistance": [
-      "apps/aiper-assistance/project.json",
       "nx/core/project-json"
     ]
   }
