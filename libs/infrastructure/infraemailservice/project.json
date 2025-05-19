@@ -1,0 +1,14 @@
+{
+  "name": "infraemailservice",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infraemailservice/src",
+  "projectType": "library",
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:email"
+  ],
+  "// targets": "to see all targets run: nx show project infraemailservice --web",
+  "targets": {}
+}

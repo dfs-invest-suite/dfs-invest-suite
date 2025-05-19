@@ -1,0 +1,14 @@
+{
+  "name": "infrasecurity",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infrasecurity/src",
+  "projectType": "library",
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:security"
+  ],
+  "// targets": "to see all targets run: nx show project infrasecurity --web",
+  "targets": {}
+}

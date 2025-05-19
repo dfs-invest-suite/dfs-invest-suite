@@ -1,0 +1,14 @@
+{
+  "name": "coapbilling",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapbilling/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "domain:billing"
+  ],
+  "// targets": "to see all targets run: nx show project coapbilling --web",
+  "targets": {}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "coapusersroles",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapusersroles/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "domain:users-roles"
+  ],
+  "// targets": "to see all targets run: nx show project coapusersroles --web",
+  "targets": {}
+}

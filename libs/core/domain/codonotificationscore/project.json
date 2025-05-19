@@ -1,0 +1,14 @@
+{
+  "name": "codonotificationscore",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/codonotificationscore/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:domain-logic",
+    "layer:domain",
+    "domain:notifications"
+  ],
+  "// targets": "to see all targets run: nx show project codonotificationscore --web",
+  "targets": {}
+}

@@ -1,33 +1,26 @@
-// RUTA: libs/ui-shared/tsconfig.lib.json
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "declaration": true,
-    "declarationMap": true,
-    "module": "esnext",
     "types": [
       "node",
       "@nx/react/typings/cssmodule.d.ts",
-      "@nx/react/typings/image.d.ts"
+      "@nx/react/typings/image.d.ts",
+      "vite/client"
     ]
   },
-  "include": [
-    "src/index.ts",
-    "src/lib/**/*.ts",
-    "src/lib/**/*.tsx",
-    "src/components/**/*.ts",
-    "src/components/**/*.tsx",
-    "src/styles/**/*.css"
-  ],
   "exclude": [
-    "node_modules",
-    "dist",
-    "jest.config.ts",
     "**/*.spec.ts",
     "**/*.test.ts",
     "**/*.spec.tsx",
     "**/*.test.tsx",
-    "src/test-setup.ts"
-  ]
+    "**/*.spec.js",
+    "**/*.test.js",
+    "**/*.spec.jsx",
+    "**/*.test.jsx",
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ],
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"]
 }

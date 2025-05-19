@@ -1,0 +1,14 @@
+// RUTA: libs/ui-shared/tsconfig.json
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx", // Específico de UI-shared
+    "esModuleInterop": true // Asegurar esto
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    { "path": "./tsconfig.lib.json" },
+    { "path": "./tsconfig.spec.json" }
+  ]
+}

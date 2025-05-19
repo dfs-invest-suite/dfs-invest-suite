@@ -1,0 +1,14 @@
+{
+  "name": "cdskentities",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/shared-kernel/cdskentities/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:shared-kernel",
+    "layer:domain",
+    "kernel:entities"
+  ],
+  "// targets": "to see all targets run: nx show project cdskentities --web",
+  "targets": {}
+}

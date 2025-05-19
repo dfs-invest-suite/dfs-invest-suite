@@ -1,0 +1,14 @@
+{
+  "name": "infraaiproviders",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infraaiproviders/src",
+  "projectType": "library",
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:llm"
+  ],
+  "// targets": "to see all targets run: nx show project infraaiproviders --web",
+  "targets": {}
+}

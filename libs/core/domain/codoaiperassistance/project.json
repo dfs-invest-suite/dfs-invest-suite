@@ -1,0 +1,14 @@
+{
+  "name": "codoaiperassistance",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/codoaiperassistance/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:domain-logic",
+    "layer:domain",
+    "domain:aiper-assistance"
+  ],
+  "// targets": "to see all targets run: nx show project codoaiperassistance --web",
+  "targets": {}
+}

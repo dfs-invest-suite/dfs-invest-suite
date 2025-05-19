@@ -1,0 +1,14 @@
+{
+  "name": "coapanalyticsservice",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapanalyticsservice/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "feature:analytics"
+  ],
+  "// targets": "to see all targets run: nx show project coapanalyticsservice --web",
+  "targets": {}
+}

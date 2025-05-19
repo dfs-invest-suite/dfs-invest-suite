@@ -1,0 +1,14 @@
+{
+  "name": "cdskcommandsqueries",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/shared-kernel/cdskcommandsqueries/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:shared-kernel",
+    "layer:domain",
+    "kernel:commands-queries"
+  ],
+  "// targets": "to see all targets run: nx show project cdskcommandsqueries --web",
+  "targets": {}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "coapeducacontent",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapeducacontent/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "domain:educa-content"
+  ],
+  "// targets": "to see all targets run: nx show project coapeducacontent --web",
+  "targets": {}
+}

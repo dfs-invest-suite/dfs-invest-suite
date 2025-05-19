@@ -1,0 +1,14 @@
+{
+  "name": "codocampaigns",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/codocampaigns/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:domain-logic",
+    "layer:domain",
+    "domain:campaigns"
+  ],
+  "// targets": "to see all targets run: nx show project codocampaigns --web",
+  "targets": {}
+}

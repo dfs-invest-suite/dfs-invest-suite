@@ -1,0 +1,9 @@
+{
+  "name": "shutils",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/shutils/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:utility", "layer:shared"],
+  "// targets": "to see all targets run: nx show project shutils --web",
+  "targets": {}
+}

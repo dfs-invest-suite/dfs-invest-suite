@@ -1,0 +1,9 @@
+{
+  "name": "codotenancy",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/codotenancy/src",
+  "projectType": "library",
+  "tags": ["scope:core", "type:domain-logic", "layer:domain", "domain:tenancy"],
+  "// targets": "to see all targets run: nx show project codotenancy --web",
+  "targets": {}
+}

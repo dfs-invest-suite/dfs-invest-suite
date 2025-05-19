@@ -1,0 +1,14 @@
+{
+  "name": "codoportalcontent",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/codoportalcontent/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:domain-logic",
+    "layer:domain",
+    "domain:portal-content"
+  ],
+  "// targets": "to see all targets run: nx show project codoportalcontent --web",
+  "targets": {}
+}

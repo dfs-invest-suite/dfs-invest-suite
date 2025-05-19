@@ -27,39 +27,138 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "paths": {
-      "@dfs-suite/core-application-tenancy": [
-        "libs/core/application/tenancy/src/index.ts"
+      // Shared Libs
+      "@dfs-suite/shconstants": ["libs/shared/shconstants/src/index.ts"],
+      "@dfs-suite/sherrors": ["libs/shared/sherrors/src/index.ts"],
+      "@dfs-suite/shresult": ["libs/shared/shresult/src/index.ts"],
+      "@dfs-suite/shtypes": ["libs/shared/shtypes/src/index.ts"],
+      "@dfs-suite/shutils": ["libs/shared/shutils/src/index.ts"],
+      "@dfs-suite/shvalidationschemas": [
+        "libs/shared/shvalidationschemas/src/index.ts"
       ],
-      "@dfs-suite/core-domain-shared-kernel-commands-queries": [
-        "libs/core/domain/shared-kernel/commands-queries/src/index.ts"
+      // UI Shared Lib
+      "@dfs-suite/ui-shared": ["libs/ui-shared/src/index.ts"],
+      // Core Domain Shared Kernel Libs
+      "@dfs-suite/cdskcommandsqueries": [
+        "libs/core/domain/shared-kernel/cdskcommandsqueries/src/index.ts"
       ],
-      "@dfs-suite/core-domain-shared-kernel-entities": [
-        "libs/core/domain/shared-kernel/entities/src/index.ts"
+      "@dfs-suite/cdskentities": [
+        "libs/core/domain/shared-kernel/cdskentities/src/index.ts"
       ],
-      "@dfs-suite/core-domain-shared-kernel-events": [
-        "libs/core/domain/shared-kernel/events/src/index.ts"
+      "@dfs-suite/cdskevents": [
+        "libs/core/domain/shared-kernel/cdskevents/src/index.ts"
       ],
-      "@dfs-suite/core-domain-shared-kernel-mappers": [
-        "libs/core/domain/shared-kernel/mappers/src/index.ts"
+      "@dfs-suite/cdskmappers": [
+        "libs/core/domain/shared-kernel/cdskmappers/src/index.ts"
       ],
-      "@dfs-suite/core-domain-shared-kernel-ports": [
-        "libs/core/domain/shared-kernel/ports/src/index.ts"
+      "@dfs-suite/cdskports": [
+        "libs/core/domain/shared-kernel/cdskports/src/index.ts"
       ],
-      "@dfs-suite/core-domain-shared-kernel-value-objects": [
-        "libs/core/domain/shared-kernel/value-objects/src/index.ts"
+      "@dfs-suite/cdskvalueobjects": [
+        "libs/core/domain/shared-kernel/cdskvalueobjects/src/index.ts"
       ],
-      "@dfs-suite/core-domain-tenancy": [
-        "libs/core/domain/tenancy/src/index.ts"
+      // Core Domain Specific Libs
+      "@dfs-suite/codoaiperassistance": [
+        "libs/core/domain/codoaiperassistance/src/index.ts"
       ],
-      "@dfs-suite/shared-constants": ["libs/shared/constants/src/index.ts"],
-      "@dfs-suite/shared-errors": ["libs/shared/errors/src/index.ts"],
-      "@dfs-suite/shared-result": ["libs/shared/result/src/index.ts"],
-      "@dfs-suite/shared-types": ["libs/shared/types/src/index.ts"],
-      "@dfs-suite/shared-utils": ["libs/shared/utils/src/index.ts"],
-      "@dfs-suite/shared-validation-schemas": [
-        "libs/shared/validation-schemas/src/index.ts"
+      "@dfs-suite/codoanalyticscore": [
+        "libs/core/domain/codoanalyticscore/src/index.ts"
       ],
-      "@dfs-suite/ui-shared": ["libs/ui-shared/src/index.ts"] // <--- AJUSTE AQUÍ
+      "@dfs-suite/codoantiban": ["libs/core/domain/codoantiban/src/index.ts"],
+      "@dfs-suite/codobilling": ["libs/core/domain/codobilling/src/index.ts"],
+      "@dfs-suite/codocampaigns": [
+        "libs/core/domain/codocampaigns/src/index.ts"
+      ],
+      "@dfs-suite/codoeducacontent": [
+        "libs/core/domain/codoeducacontent/src/index.ts"
+      ],
+      "@dfs-suite/codoleadsflow": [
+        "libs/core/domain/codoleadsflow/src/index.ts"
+      ],
+      "@dfs-suite/codomessagetemplaterecord": [
+        "libs/core/domain/codomessagetemplaterecord/src/index.ts"
+      ],
+      "@dfs-suite/codonotificationscore": [
+        "libs/core/domain/codonotificationscore/src/index.ts"
+      ],
+      "@dfs-suite/codoportalcontent": [
+        "libs/core/domain/codoportalcontent/src/index.ts"
+      ],
+      "@dfs-suite/codotenancy": ["libs/core/domain/codotenancy/src/index.ts"],
+      "@dfs-suite/codousersroles": [
+        "libs/core/domain/codousersroles/src/index.ts"
+      ],
+      "@dfs-suite/codowhatsapp": ["libs/core/domain/codowhatsapp/src/index.ts"],
+      // Core Application Libs
+      "@dfs-suite/coapaiperassistance": [
+        "libs/core/application/coapaiperassistance/src/index.ts"
+      ],
+      "@dfs-suite/coapanalyticsservice": [
+        "libs/core/application/coapanalyticsservice/src/index.ts"
+      ],
+      "@dfs-suite/coapantiban": [
+        "libs/core/application/coapantiban/src/index.ts"
+      ],
+      "@dfs-suite/coapbilling": [
+        "libs/core/application/coapbilling/src/index.ts"
+      ],
+      "@dfs-suite/coapcampaigns": [
+        "libs/core/application/coapcampaigns/src/index.ts"
+      ],
+      "@dfs-suite/coapeducacontent": [
+        "libs/core/application/coapeducacontent/src/index.ts"
+      ],
+      "@dfs-suite/coapleadsflow": [
+        "libs/core/application/coapleadsflow/src/index.ts"
+      ],
+      "@dfs-suite/coapnotificationsservice": [
+        "libs/core/application/coapnotificationsservice/src/index.ts"
+      ],
+      "@dfs-suite/coapportalcontent": [
+        "libs/core/application/coapportalcontent/src/index.ts"
+      ],
+      "@dfs-suite/coaptenancy": [
+        "libs/core/application/coaptenancy/src/index.ts"
+      ],
+      "@dfs-suite/coapusersroles": [
+        "libs/core/application/coapusersroles/src/index.ts"
+      ],
+      "@dfs-suite/coapwhatsapp": [
+        "libs/core/application/coapwhatsapp/src/index.ts"
+      ],
+      // Infrastructure Libs
+      "@dfs-suite/infraaiproviders": [
+        "libs/infrastructure/infraaiproviders/src/index.ts"
+      ],
+      "@dfs-suite/infracache": ["libs/infrastructure/infracache/src/index.ts"],
+      "@dfs-suite/infraemailservice": [
+        "libs/infrastructure/infraemailservice/src/index.ts"
+      ],
+      "@dfs-suite/infraobservability": [
+        "libs/infrastructure/infraobservability/src/index.ts"
+      ], // ÚNICA y CORRECTA entrada
+      "@dfs-suite/infrapaymentgateway": [
+        "libs/infrastructure/infrapaymentgateway/src/index.ts"
+      ],
+      "@dfs-suite/infrapersistence": [
+        "libs/infrastructure/infrapersistence/src/index.ts"
+      ],
+      "@dfs-suite/infraqueue": ["libs/infrastructure/infraqueue/src/index.ts"],
+      "@dfs-suite/infrasecurity": [
+        "libs/infrastructure/infrasecurity/src/index.ts"
+      ],
+      "@dfs-suite/infrastorageservice": [
+        "libs/infrastructure/infrastorageservice/src/index.ts"
+      ],
+      "@dfs-suite/infratenancypersistence": [
+        "libs/infrastructure/infratenancypersistence/src/index.ts"
+      ],
+      "@dfs-suite/infrawhatsappadminapi": [
+        "libs/infrastructure/infrawhatsappadminapi/src/index.ts"
+      ],
+      "@dfs-suite/infrawhatsappcloudapi": [
+        "libs/infrastructure/infrawhatsappcloudapi/src/index.ts"
+      ]
     },
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,

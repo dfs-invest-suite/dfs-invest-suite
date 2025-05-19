@@ -1,0 +1,14 @@
+{
+  "name": "codoleadsflow",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/codoleadsflow/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:domain-logic",
+    "layer:domain",
+    "domain:leads-flow"
+  ],
+  "// targets": "to see all targets run: nx show project codoleadsflow --web",
+  "targets": {}
+}

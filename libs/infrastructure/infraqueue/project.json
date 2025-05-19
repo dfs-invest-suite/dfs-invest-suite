@@ -1,0 +1,14 @@
+{
+  "name": "infraqueue",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infraqueue/src",
+  "projectType": "library",
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:bullmq"
+  ],
+  "// targets": "to see all targets run: nx show project infraqueue --web",
+  "targets": {}
+}

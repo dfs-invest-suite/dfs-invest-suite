@@ -1,0 +1,14 @@
+{
+  "name": "infracache",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infracache/src",
+  "projectType": "library",
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:redis"
+  ],
+  "// targets": "to see all targets run: nx show project infracache --web",
+  "targets": {}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "codomessagetemplaterecord",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/codomessagetemplaterecord/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:domain-logic",
+    "layer:domain",
+    "domain:message-template-record"
+  ],
+  "// targets": "to see all targets run: nx show project codomessagetemplaterecord --web",
+  "targets": {}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "infrapaymentgateway",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infrapaymentgateway/src",
+  "projectType": "library",
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:payment"
+  ],
+  "// targets": "to see all targets run: nx show project infrapaymentgateway --web",
+  "targets": {}
+}

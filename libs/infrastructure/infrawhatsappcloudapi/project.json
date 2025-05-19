@@ -1,0 +1,14 @@
+{
+  "name": "infrawhatsappcloudapi",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infrawhatsappcloudapi/src",
+  "projectType": "library",
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:whatsapp"
+  ],
+  "// targets": "to see all targets run: nx show project infrawhatsappcloudapi --web",
+  "targets": {}
+}

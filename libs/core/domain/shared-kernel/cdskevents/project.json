@@ -1,0 +1,9 @@
+{
+  "name": "cdskevents",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/domain/shared-kernel/cdskevents/src",
+  "projectType": "library",
+  "tags": ["scope:core", "type:shared-kernel", "layer:domain", "kernel:events"],
+  "// targets": "to see all targets run: nx show project cdskevents --web",
+  "targets": {}
+}

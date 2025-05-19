@@ -1,0 +1,14 @@
+{
+  "name": "coapportalcontent",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapportalcontent/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "domain:portal-content"
+  ],
+  "// targets": "to see all targets run: nx show project coapportalcontent --web",
+  "targets": {}
+}

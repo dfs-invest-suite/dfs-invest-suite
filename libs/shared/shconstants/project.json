@@ -1,0 +1,9 @@
+{
+  "name": "shconstants",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/shconstants/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:constants", "layer:shared"],
+  "// targets": "to see all targets run: nx show project shconstants --web",
+  "targets": {}
+}

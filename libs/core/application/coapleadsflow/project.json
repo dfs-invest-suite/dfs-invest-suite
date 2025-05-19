@@ -1,0 +1,14 @@
+{
+  "name": "coapleadsflow",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapleadsflow/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "domain:leads-flow"
+  ],
+  "// targets": "to see all targets run: nx show project coapleadsflow --web",
+  "targets": {}
+}

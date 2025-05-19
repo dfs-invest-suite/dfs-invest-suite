@@ -1,0 +1,14 @@
+{
+  "name": "coapaiperassistance",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapaiperassistance/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "domain:aiper-assistance"
+  ],
+  "// targets": "to see all targets run: nx show project coapaiperassistance --web",
+  "targets": {}
+}

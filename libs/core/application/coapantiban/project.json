@@ -1,0 +1,14 @@
+{
+  "name": "coapantiban",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapantiban/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "domain:anti-ban"
+  ],
+  "// targets": "to see all targets run: nx show project coapantiban --web",
+  "targets": {}
+}

@@ -2,50 +2,155 @@
   "version": "6.0",
   "nxVersion": "21.0.3",
   "pathMappings": {
-    "@dfs-suite/core-application-tenancy": [
-      "libs/core/application/tenancy/src/index.ts"
+    "@dfs-suite/shconstants": [
+      "libs/shared/shconstants/src/index.ts"
     ],
-    "@dfs-suite/core-domain-shared-kernel-commands-queries": [
-      "libs/core/domain/shared-kernel/commands-queries/src/index.ts"
+    "@dfs-suite/sherrors": [
+      "libs/shared/sherrors/src/index.ts"
     ],
-    "@dfs-suite/core-domain-shared-kernel-entities": [
-      "libs/core/domain/shared-kernel/entities/src/index.ts"
+    "@dfs-suite/shresult": [
+      "libs/shared/shresult/src/index.ts"
     ],
-    "@dfs-suite/core-domain-shared-kernel-events": [
-      "libs/core/domain/shared-kernel/events/src/index.ts"
+    "@dfs-suite/shtypes": [
+      "libs/shared/shtypes/src/index.ts"
     ],
-    "@dfs-suite/core-domain-shared-kernel-mappers": [
-      "libs/core/domain/shared-kernel/mappers/src/index.ts"
+    "@dfs-suite/shutils": [
+      "libs/shared/shutils/src/index.ts"
     ],
-    "@dfs-suite/core-domain-shared-kernel-ports": [
-      "libs/core/domain/shared-kernel/ports/src/index.ts"
-    ],
-    "@dfs-suite/core-domain-shared-kernel-value-objects": [
-      "libs/core/domain/shared-kernel/value-objects/src/index.ts"
-    ],
-    "@dfs-suite/core-domain-tenancy": [
-      "libs/core/domain/tenancy/src/index.ts"
-    ],
-    "@dfs-suite/shared-constants": [
-      "libs/shared/constants/src/index.ts"
-    ],
-    "@dfs-suite/shared-errors": [
-      "libs/shared/errors/src/index.ts"
-    ],
-    "@dfs-suite/shared-result": [
-      "libs/shared/result/src/index.ts"
-    ],
-    "@dfs-suite/shared-types": [
-      "libs/shared/types/src/index.ts"
-    ],
-    "@dfs-suite/shared-utils": [
-      "libs/shared/utils/src/index.ts"
-    ],
-    "@dfs-suite/shared-validation-schemas": [
-      "libs/shared/validation-schemas/src/index.ts"
+    "@dfs-suite/shvalidationschemas": [
+      "libs/shared/shvalidationschemas/src/index.ts"
     ],
     "@dfs-suite/ui-shared": [
       "libs/ui-shared/src/index.ts"
+    ],
+    "@dfs-suite/cdskcommandsqueries": [
+      "libs/core/domain/shared-kernel/cdskcommandsqueries/src/index.ts"
+    ],
+    "@dfs-suite/cdskentities": [
+      "libs/core/domain/shared-kernel/cdskentities/src/index.ts"
+    ],
+    "@dfs-suite/cdskevents": [
+      "libs/core/domain/shared-kernel/cdskevents/src/index.ts"
+    ],
+    "@dfs-suite/cdskmappers": [
+      "libs/core/domain/shared-kernel/cdskmappers/src/index.ts"
+    ],
+    "@dfs-suite/cdskports": [
+      "libs/core/domain/shared-kernel/cdskports/src/index.ts"
+    ],
+    "@dfs-suite/cdskvalueobjects": [
+      "libs/core/domain/shared-kernel/cdskvalueobjects/src/index.ts"
+    ],
+    "@dfs-suite/codoaiperassistance": [
+      "libs/core/domain/codoaiperassistance/src/index.ts"
+    ],
+    "@dfs-suite/codoanalyticscore": [
+      "libs/core/domain/codoanalyticscore/src/index.ts"
+    ],
+    "@dfs-suite/codoantiban": [
+      "libs/core/domain/codoantiban/src/index.ts"
+    ],
+    "@dfs-suite/codobilling": [
+      "libs/core/domain/codobilling/src/index.ts"
+    ],
+    "@dfs-suite/codocampaigns": [
+      "libs/core/domain/codocampaigns/src/index.ts"
+    ],
+    "@dfs-suite/codoeducacontent": [
+      "libs/core/domain/codoeducacontent/src/index.ts"
+    ],
+    "@dfs-suite/codoleadsflow": [
+      "libs/core/domain/codoleadsflow/src/index.ts"
+    ],
+    "@dfs-suite/codomessagetemplaterecord": [
+      "libs/core/domain/codomessagetemplaterecord/src/index.ts"
+    ],
+    "@dfs-suite/codonotificationscore": [
+      "libs/core/domain/codonotificationscore/src/index.ts"
+    ],
+    "@dfs-suite/codoportalcontent": [
+      "libs/core/domain/codoportalcontent/src/index.ts"
+    ],
+    "@dfs-suite/codotenancy": [
+      "libs/core/domain/codotenancy/src/index.ts"
+    ],
+    "@dfs-suite/codousersroles": [
+      "libs/core/domain/codousersroles/src/index.ts"
+    ],
+    "@dfs-suite/codowhatsapp": [
+      "libs/core/domain/codowhatsapp/src/index.ts"
+    ],
+    "@dfs-suite/coapaiperassistance": [
+      "libs/core/application/coapaiperassistance/src/index.ts"
+    ],
+    "@dfs-suite/coapanalyticsservice": [
+      "libs/core/application/coapanalyticsservice/src/index.ts"
+    ],
+    "@dfs-suite/coapantiban": [
+      "libs/core/application/coapantiban/src/index.ts"
+    ],
+    "@dfs-suite/coapbilling": [
+      "libs/core/application/coapbilling/src/index.ts"
+    ],
+    "@dfs-suite/coapcampaigns": [
+      "libs/core/application/coapcampaigns/src/index.ts"
+    ],
+    "@dfs-suite/coapeducacontent": [
+      "libs/core/application/coapeducacontent/src/index.ts"
+    ],
+    "@dfs-suite/coapleadsflow": [
+      "libs/core/application/coapleadsflow/src/index.ts"
+    ],
+    "@dfs-suite/coapnotificationsservice": [
+      "libs/core/application/coapnotificationsservice/src/index.ts"
+    ],
+    "@dfs-suite/coapportalcontent": [
+      "libs/core/application/coapportalcontent/src/index.ts"
+    ],
+    "@dfs-suite/coaptenancy": [
+      "libs/core/application/coaptenancy/src/index.ts"
+    ],
+    "@dfs-suite/coapusersroles": [
+      "libs/core/application/coapusersroles/src/index.ts"
+    ],
+    "@dfs-suite/coapwhatsapp": [
+      "libs/core/application/coapwhatsapp/src/index.ts"
+    ],
+    "@dfs-suite/infraaiproviders": [
+      "libs/infrastructure/infraaiproviders/src/index.ts"
+    ],
+    "@dfs-suite/infracache": [
+      "libs/infrastructure/infracache/src/index.ts"
+    ],
+    "@dfs-suite/infraemailservice": [
+      "libs/infrastructure/infraemailservice/src/index.ts"
+    ],
+    "@dfs-suite/infraobservability": [
+      "libs/infrastructure/infraobservability/src/index.ts"
+    ],
+    "@dfs-suite/infrapaymentgateway": [
+      "libs/infrastructure/infrapaymentgateway/src/index.ts"
+    ],
+    "@dfs-suite/infrapersistence": [
+      "libs/infrastructure/infrapersistence/src/index.ts"
+    ],
+    "@dfs-suite/infraqueue": [
+      "libs/infrastructure/infraqueue/src/index.ts"
+    ],
+    "@dfs-suite/infrasecurity": [
+      "libs/infrastructure/infrasecurity/src/index.ts"
+    ],
+    "@dfs-suite/infrastorageservice": [
+      "libs/infrastructure/infrastorageservice/src/index.ts"
+    ],
+    "@dfs-suite/infratenancypersistence": [
+      "libs/infrastructure/infratenancypersistence/src/index.ts"
+    ],
+    "@dfs-suite/infrawhatsappadminapi": [
+      "libs/infrastructure/infrawhatsappadminapi/src/index.ts"
+    ],
+    "@dfs-suite/infrawhatsappcloudapi": [
+      "libs/infrastructure/infrawhatsappcloudapi/src/index.ts"
     ]
   },
   "nxJsonPlugins": [
@@ -92,66 +197,312 @@
         "buildDepsTargetName": "build-deps",
         "typecheckTargetName": "typecheck"
       }
+    },
+    {
+      "name": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
     }
   ],
   "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "static/runtime.js",
+        "hash": "12948695002603102697"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "15904257995032004510"
+      },
+      {
+        "file": "project-graph-despues-limpieza.json",
+        "hash": "15225831250387007030"
+      },
+      {
+        "file": "static/environment.js",
+        "hash": "3744888822665143214"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13772762848121229944"
+      },
+      {
+        "file": "static/main.js",
+        "hash": "13466073545778635666"
+      },
+      {
+        "file": "project-graph.json",
+        "hash": "60075120034675247"
+      },
+      {
+        "file": "package.json",
+        "hash": "12626206149993841690"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "16378750861203669088"
+      },
+      {
+        "file": "package copy.json",
+        "hash": "8091084440105246356"
+      },
+      {
+        "file": "pnpm",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "static/favicon.ico",
+        "hash": "9303420814833116677"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": ".github/instructions/nx.instructions.md",
+        "hash": "8794530091646052069"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "13852605215639941163"
+      },
+      {
+        "file": ".env.example",
+        "hash": "9701414843099447202"
+      },
+      {
+        "file": ".vercelignore",
+        "hash": "11039824168913323036"
+      },
+      {
+        "file": "nx.json",
+        "hash": "4623778605038397166"
+      },
+      {
+        "file": "static/styles.css",
+        "hash": "8991366033343630201"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "4920893152903406923"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "9932403079654918373"
+      },
+      {
+        "file": "components.json",
+        "hash": "1784723684728134693"
+      },
+      {
+        "file": "README.md",
+        "hash": "10841274974903266604"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1880664178033616490"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "static/styles.js",
+        "hash": "13859495920378584409"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "15255107291123918229"
+      },
+      {
+        "file": "scripts/ejecuta.ts",
+        "hash": "8638839745248006799"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "15433239985705963422"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "3719944644258228693"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "12630965493391364343"
+      }
+    ],
     "projectFileMap": {
-      "shared-types": [
+      "infraemailservice": [
         {
-          "file": "libs/shared/types/eslint.config.mjs",
-          "hash": "13654028738421981601",
-          "deps": [
-            "npm:@typescript-eslint/eslint-plugin",
-            "npm:@typescript-eslint/parser"
-          ]
+          "file": "libs/infrastructure/infraemailservice/README.md",
+          "hash": "7411564185043914380"
         },
         {
-          "file": "libs/shared/types/jest.config.ts",
-          "hash": "12788551170805114606"
+          "file": "libs/infrastructure/infraemailservice/eslint.config.mjs",
+          "hash": "16759498837230279251"
         },
         {
-          "file": "libs/shared/types/project.json",
-          "hash": "3195070544824459304"
+          "file": "libs/infrastructure/infraemailservice/jest.config.ts",
+          "hash": "2225259725187615726"
         },
         {
-          "file": "libs/shared/types/src/index.ts",
-          "hash": "13197956626166217118"
+          "file": "libs/infrastructure/infraemailservice/project.json",
+          "hash": "11720169431160506800"
         },
         {
-          "file": "libs/shared/types/src/lib/api-response.interface.ts",
-          "hash": "12163190414362665549"
+          "file": "libs/infrastructure/infraemailservice/src/index.ts",
+          "hash": "15935143447030168562"
         },
         {
-          "file": "libs/shared/types/src/lib/brand.type.ts",
-          "hash": "12057631739754552936"
+          "file": "libs/infrastructure/infraemailservice/src/lib/infraemailservice.spec.ts",
+          "hash": "5079417288231986886"
         },
         {
-          "file": "libs/shared/types/src/lib/maybe.type.ts",
-          "hash": "321190837005194403"
+          "file": "libs/infrastructure/infraemailservice/src/lib/infraemailservice.ts",
+          "hash": "119907803165229407"
         },
         {
-          "file": "libs/shared/types/src/lib/object-literal.type.ts",
-          "hash": "12130679675297870943"
+          "file": "libs/infrastructure/infraemailservice/tsconfig.json",
+          "hash": "9505886339790543345"
         },
         {
-          "file": "libs/shared/types/src/lib/paginated.interface.ts",
-          "hash": "17284968405573204699"
+          "file": "libs/infrastructure/infraemailservice/tsconfig.lib.json",
+          "hash": "5554291030212586824"
         },
         {
-          "file": "libs/shared/types/src/lib/primitive-types.ts",
-          "hash": "10605133690791372977"
+          "file": "libs/infrastructure/infraemailservice/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "codoanalyticscore": [
+        {
+          "file": "libs/core/domain/codoanalyticscore/README.md",
+          "hash": "8428418569856968290"
         },
         {
-          "file": "libs/shared/types/tsconfig.json",
-          "hash": "15630330521791096201"
+          "file": "libs/core/domain/codoanalyticscore/eslint.config.mjs",
+          "hash": "15872373987943413713"
         },
         {
-          "file": "libs/shared/types/tsconfig.lib.json",
-          "hash": "7287962477065492198"
+          "file": "libs/core/domain/codoanalyticscore/jest.config.ts",
+          "hash": "17342880698420754416"
         },
         {
-          "file": "libs/shared/types/tsconfig.spec.json",
-          "hash": "1127123692419667363"
+          "file": "libs/core/domain/codoanalyticscore/project.json",
+          "hash": "12356178855609827280"
+        },
+        {
+          "file": "libs/core/domain/codoanalyticscore/src/index.ts",
+          "hash": "8881933666347901179"
+        },
+        {
+          "file": "libs/core/domain/codoanalyticscore/src/lib/codoanalyticscore.spec.ts",
+          "hash": "8400638954071430611"
+        },
+        {
+          "file": "libs/core/domain/codoanalyticscore/src/lib/codoanalyticscore.ts",
+          "hash": "18388193445843013712"
+        },
+        {
+          "file": "libs/core/domain/codoanalyticscore/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codoanalyticscore/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codoanalyticscore/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "infraobservability": [
+        {
+          "file": "libs/infrastructure/infraobservability/README.md",
+          "hash": "2139309633487214495"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/jest.config.ts",
+          "hash": "958399097553505360"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/project.json",
+          "hash": "9112928470108870148"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/src/index.ts",
+          "hash": "4018367707491233694"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/src/lib/infraobservability.spec.ts",
+          "hash": "13855667286802467357"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/src/lib/infraobservability.ts",
+          "hash": "9446087056200271158"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/tsconfig.lib.json",
+          "hash": "14739979745370535789"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "shconstants": [
+        {
+          "file": "libs/shared/shconstants/README.md",
+          "hash": "6948933044917103916"
+        },
+        {
+          "file": "libs/shared/shconstants/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/shared/shconstants/project.json",
+          "hash": "4799723227539185388"
+        },
+        {
+          "file": "libs/shared/shconstants/src/index.ts",
+          "hash": "738596789197053820"
+        },
+        {
+          "file": "libs/shared/shconstants/src/lib/pagination.constants.ts",
+          "hash": "4241819518145727497"
+        },
+        {
+          "file": "libs/shared/shconstants/src/lib/regex.constants.ts",
+          "hash": "13777699820830252905"
+        },
+        {
+          "file": "libs/shared/shconstants/tsconfig.json",
+          "hash": "5570827049353035218"
+        },
+        {
+          "file": "libs/shared/shconstants/tsconfig.lib.json",
+          "hash": "4893581457354688082"
         }
       ],
       "dev-hub": [
@@ -237,6 +588,306 @@
           "hash": "13752930008724566565"
         }
       ],
+      "codoleadsflow": [
+        {
+          "file": "libs/core/domain/codoleadsflow/README.md",
+          "hash": "9769262175145763054"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/jest.config.ts",
+          "hash": "9578084486662141888"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/project.json",
+          "hash": "2968844948167551788"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/index.ts",
+          "hash": "11643355990597929713"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/codoleadsflow.spec.ts",
+          "hash": "2926417555519776735"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/codoleadsflow.ts",
+          "hash": "14080642356599570722"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "coaptenancy": [
+        {
+          "file": "libs/core/application/coaptenancy/README.md",
+          "hash": "9652586869029703695"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/jest.config.ts",
+          "hash": "13665572187888196865"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/project.json",
+          "hash": "14144597211889668673"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/index.ts",
+          "hash": "8342667085706132065"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/commands/activate-tenant/activate-tenant.command.ts",
+          "hash": "8506182013429707355"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/commands/create-tenant/create-tenant.command.ts",
+          "hash": "16108873294802179807"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/commands/set-tenant-db-config/set-tenant-db-config.command.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/dtos/tenant-details.dto.ts",
+          "hash": "10333126179050768369"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/dtos/tenant-summary.dto.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/ports/database-provisioning.service.port.ts",
+          "hash": "12114197149972059131"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/ports/user-provisioning.service.port.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/queries/get-tenant-details/get-tenant-details.query-handler.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/queries/get-tenant-details/get-tenant-details.query.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/queries/list-tenants/list-tenants.query-handler.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/queries/list-tenants/list-tenants.query.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/use-cases/activate-tenant/activate-tenant.use-case.ts",
+          "hash": "10940102825593309768"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts",
+          "hash": "902615947462457495"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/use-cases/set-tenant-db-config/set-tenant-db-config.use-case.ts",
+          "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "cdskentities": [
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/README.md",
+          "hash": "11911515326194786433"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/eslint.config.mjs",
+          "hash": "16585758520623612183"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/jest.config.ts",
+          "hash": "10861571164936735987"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/project.json",
+          "hash": "6347602442556176014"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/src/index.ts",
+          "hash": "10466096823535534708"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/src/lib/aggregate-root.base.ts",
+          "hash": "7953191470495176489"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/src/lib/entity.base.ts",
+          "hash": "14391127423224792816"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskentities/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        }
+      ],
+      "coapwhatsapp": [
+        {
+          "file": "libs/core/application/coapwhatsapp/README.md",
+          "hash": "10620390136449310348"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/jest.config.ts",
+          "hash": "1917849933351080024"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/project.json",
+          "hash": "3901297896557875506"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/src/index.ts",
+          "hash": "2871012524006821951"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/src/lib/coapwhatsapp.spec.ts",
+          "hash": "12335389145141367244"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/src/lib/coapwhatsapp.ts",
+          "hash": "14156312151598179638"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapwhatsapp/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "codousersroles": [
+        {
+          "file": "libs/core/domain/codousersroles/README.md",
+          "hash": "8785658886299760594"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/jest.config.ts",
+          "hash": "13817196224283413878"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/project.json",
+          "hash": "8722679539875425673"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/src/index.ts",
+          "hash": "1471938541404377183"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/src/lib/codousersroles.spec.ts",
+          "hash": "13030320934028256030"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/src/lib/codousersroles.ts",
+          "hash": "4070450482960728638"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "coapantiban": [
+        {
+          "file": "libs/core/application/coapantiban/README.md",
+          "hash": "7185253050955126047"
+        },
+        {
+          "file": "libs/core/application/coapantiban/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapantiban/jest.config.ts",
+          "hash": "14572967907541183456"
+        },
+        {
+          "file": "libs/core/application/coapantiban/project.json",
+          "hash": "14348742993427644649"
+        },
+        {
+          "file": "libs/core/application/coapantiban/src/index.ts",
+          "hash": "6829140664967432893"
+        },
+        {
+          "file": "libs/core/application/coapantiban/src/lib/coapantiban.spec.ts",
+          "hash": "13042298440030436918"
+        },
+        {
+          "file": "libs/core/application/coapantiban/src/lib/coapantiban.ts",
+          "hash": "17619614640610717880"
+        },
+        {
+          "file": "libs/core/application/coapantiban/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapantiban/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapantiban/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
       "guia-investidor": [
         {
           "file": "apps/guia-investidor/.swcrc",
@@ -318,200 +969,6 @@
         {
           "file": "apps/guia-investidor/tsconfig.spec.json",
           "hash": "13752930008724566565"
-        }
-      ],
-      "ui-shared": [
-        {
-          "file": "libs/ui-shared/.babelrc",
-          "hash": "2946678488919325452"
-        },
-        {
-          "file": "libs/ui-shared/README.md",
-          "hash": "6365031885154551265"
-        },
-        {
-          "file": "libs/ui-shared/eslint.config.mjs",
-          "hash": "15860323129084774928",
-          "deps": [
-            "npm:@nx/eslint-plugin",
-            "npm:@typescript-eslint/eslint-plugin",
-            "npm:@typescript-eslint/parser",
-            "npm:eslint-plugin-jsx-a11y",
-            "npm:eslint-plugin-react",
-            "npm:eslint-plugin-react-hooks",
-            "npm:globals"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/jest.config.ts",
-          "hash": "15502235928303002316"
-        },
-        {
-          "file": "libs/ui-shared/postcss.config.js",
-          "hash": "9120271982732934841"
-        },
-        {
-          "file": "libs/ui-shared/project.json",
-          "hash": "15298302682764722440"
-        },
-        {
-          "file": "libs/ui-shared/src/components/ui/alert.tsx",
-          "hash": "1466615622130910156",
-          "deps": [
-            "npm:class-variance-authority",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/components/ui/button.spec.tsx",
-          "hash": "9776371032578305718",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/components/ui/button.tsx",
-          "hash": "16003272298562799576",
-          "deps": [
-            "npm:@radix-ui/react-slot",
-            "npm:class-variance-authority",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/components/ui/card-hover.spec.tsx",
-          "hash": "18362805059134080596",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/components/ui/card-hover.tsx",
-          "hash": "596077890851454492",
-          "deps": [
-            "npm:framer-motion",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/components/ui/card.tsx",
-          "hash": "13651619540232249465",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/components/ui/input.tsx",
-          "hash": "5170510621366764254",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/components/ui/label.tsx",
-          "hash": "15059883190599722611",
-          "deps": [
-            "npm:@radix-ui/react-label",
-            "npm:class-variance-authority",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/index.ts",
-          "hash": "4019805072883417054"
-        },
-        {
-          "file": "libs/ui-shared/src/lib/utils.ts",
-          "hash": "6076888439179101538",
-          "deps": [
-            "npm:clsx",
-            "npm:tailwind-merge"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/src/styles/globals.css",
-          "hash": "10733045810670535417"
-        },
-        {
-          "file": "libs/ui-shared/src/test-setup.ts",
-          "hash": "13963272133352277452",
-          "deps": [
-            "npm:@testing-library/jest-dom"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/tailwind.config.js",
-          "hash": "16353408070829772680",
-          "deps": [
-            "npm:@nx/react",
-            "npm:tailwindcss-animate"
-          ]
-        },
-        {
-          "file": "libs/ui-shared/tsconfig.json",
-          "hash": "15460990831984724412"
-        },
-        {
-          "file": "libs/ui-shared/tsconfig.lib.json",
-          "hash": "10215417636665594191"
-        },
-        {
-          "file": "libs/ui-shared/tsconfig.spec.json",
-          "hash": "15301054844205297937"
-        }
-      ],
-      "core-domain-shared-kernel-events": [
-        {
-          "file": "libs/core/domain/shared-kernel/events/eslint.config.mjs",
-          "hash": "16585758520623612183"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/jest.config.ts",
-          "hash": "1373867930247459879"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/project.json",
-          "hash": "7580681388156747649"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/index.ts",
-          "hash": "8804237432015127082"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event-emitter.interface.ts",
-          "hash": "11027953315729463461"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event-handler.interface.ts",
-          "hash": "3249864380453994435"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.base.ts",
-          "hash": "16206355615765542155",
-          "deps": [
-            "shared-errors",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/src/lib/domain-event.interface.ts",
-          "hash": "18297993612396496645",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/tsconfig.json",
-          "hash": "7464751594463448890"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/tsconfig.lib.json",
-          "hash": "12621438852216795570"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/events/tsconfig.spec.json",
-          "hash": "12671384051532635711"
         }
       ],
       "portal-imoveis": [
@@ -597,60 +1054,1235 @@
           "hash": "13752930008724566565"
         }
       ],
-      "core-domain-shared-kernel-value-objects": [
+      "infrapaymentgateway": [
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/eslint.config.mjs",
+          "file": "libs/infrastructure/infrapaymentgateway/README.md",
+          "hash": "17982716467957411784"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/jest.config.ts",
+          "hash": "13460940173314602962"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/project.json",
+          "hash": "1228631540521047330"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/src/index.ts",
+          "hash": "4800418717833040828"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/src/lib/infrapaymentgateway.spec.ts",
+          "hash": "14876141866556392244"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/src/lib/infrapaymentgateway.ts",
+          "hash": "2066920688623573830"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/infrastructure/infrapaymentgateway/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "coapusersroles": [
+        {
+          "file": "libs/core/application/coapusersroles/README.md",
+          "hash": "7793574193988703763"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/jest.config.ts",
+          "hash": "703552716901840208"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/project.json",
+          "hash": "16334612897169565247"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/src/index.ts",
+          "hash": "8761693399341530871"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/src/lib/coapusersroles.spec.ts",
+          "hash": "15227799713613138109"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/src/lib/coapusersroles.ts",
+          "hash": "7549317331213160374"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapusersroles/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "cdskvalueobjects": [
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/README.md",
+          "hash": "10512278558018617023"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/eslint.config.mjs",
           "hash": "16585758520623612183"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/jest.config.ts",
-          "hash": "9642659207060320892"
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/jest.config.ts",
+          "hash": "637380061412081833"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/project.json",
-          "hash": "6015636639407358584"
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/project.json",
+          "hash": "4742720050721143931"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/src/index.ts",
-          "hash": "3332286020661010816"
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/index.ts",
+          "hash": "5243872897691394988"
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/src/lib/iso-date-string.vo.spec.ts",
-          "hash": "11022451020926756194",
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.spec.ts",
+          "hash": "11022451020926756194"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.ts",
+          "hash": "9636577858597132013"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/value-object.base.ts",
+          "hash": "12771065506352564248"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        }
+      ],
+      "codoportalcontent": [
+        {
+          "file": "libs/core/domain/codoportalcontent/README.md",
+          "hash": "451766291021612747"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/jest.config.ts",
+          "hash": "16847038851434428232"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/project.json",
+          "hash": "17600659652454825151"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/src/index.ts",
+          "hash": "17087974868687267453"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/src/lib/codoportalcontent.spec.ts",
+          "hash": "2892787556484773859"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/src/lib/codoportalcontent.ts",
+          "hash": "10946184506304313519"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codoportalcontent/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "codocampaigns": [
+        {
+          "file": "libs/core/domain/codocampaigns/README.md",
+          "hash": "2161485113618169017"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/jest.config.ts",
+          "hash": "15024428896425884452"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/project.json",
+          "hash": "888365966572861544"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/src/index.ts",
+          "hash": "5657328811877025039"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/src/lib/codocampaigns.spec.ts",
+          "hash": "7776638295632951100"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/src/lib/codocampaigns.ts",
+          "hash": "6695691182929777883"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codocampaigns/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "infrasecurity": [
+        {
+          "file": "libs/infrastructure/infrasecurity/README.md",
+          "hash": "13204171762261431928"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/jest.config.ts",
+          "hash": "8637420076591447009"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/project.json",
+          "hash": "6629277150740178921"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/src/index.ts",
+          "hash": "3111892421936123927"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/src/lib/infrasecurity.spec.ts",
+          "hash": "16036236806298508385"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/src/lib/infrasecurity.ts",
+          "hash": "15366858626137964816"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "codotenancy": [
+        {
+          "file": "libs/core/domain/codotenancy/README.md",
+          "hash": "13648190334441701924"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/jest.config.ts",
+          "hash": "10655170119692212380"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/project.json",
+          "hash": "6029295088240928077"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/index.ts",
+          "hash": "6732797593854604555"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/entities/tenant-configuration.entity.spec.ts",
+          "hash": "11073127308958903352"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/entities/tenant-configuration.entity.ts",
+          "hash": "18105986762203356266"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/entities/tenant.entity.spec.ts",
+          "hash": "5164749225661364799"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/entities/tenant.entity.ts",
+          "hash": "4471300330462145135"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/errors/invalid-tenant-status-transition.error.ts",
+          "hash": "13437688351620437791"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/errors/tenant-already-exists.error.ts",
+          "hash": "7898384571335655926"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/events/tenant-activated.event.ts",
+          "hash": "17798994262476062702"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/events/tenant-created.event.ts",
+          "hash": "15047225336084198922"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/events/tenant-suspended.event.ts",
+          "hash": "8121621164715286569"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/ports/tenant-configuration.repository.port.ts",
+          "hash": "14533460519044572346"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/ports/tenant.repository.port.ts",
+          "hash": "1086452992255351158"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/value-objects/db-connection-config.vo.spec.ts",
+          "hash": "154569824508265709"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/value-objects/db-connection-config.vo.ts",
+          "hash": "1983419149064418124"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/value-objects/tenant-status.vo.spec.ts",
+          "hash": "10717004329695986843"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/value-objects/tenant-status.vo.ts",
+          "hash": "13383283898124372113"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "codowhatsapp": [
+        {
+          "file": "libs/core/domain/codowhatsapp/README.md",
+          "hash": "12781535263912142340"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/jest.config.ts",
+          "hash": "14444916954522182195"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/project.json",
+          "hash": "9085322358043339924"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/index.ts",
+          "hash": "2039467865452737123"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/codowhatsapp.spec.ts",
+          "hash": "17457358566073565548"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/codowhatsapp.ts",
+          "hash": "8529911442618312292"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "cdskcommandsqueries": [
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/README.md",
+          "hash": "17663873857881866418"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/eslint.config.mjs",
+          "hash": "16585758520623612183"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/jest.config.ts",
+          "hash": "7631144630079161693"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/project.json",
+          "hash": "9806231075510387723"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/index.ts",
+          "hash": "18359557473703099691"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/command-handler.interface.ts",
+          "hash": "405227989837931477"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/command.base.spec.ts",
+          "hash": "7205080171132510322"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/command.base.ts",
+          "hash": "5148833049566927191"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/command.interface.ts",
+          "hash": "16789807617884640477"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/paginated-query.base.ts",
+          "hash": "13135508133802143395"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/query-handler.interface.ts",
+          "hash": "16529284111713786990"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/query.base.ts",
+          "hash": "3192839637742861372"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/query.interface.ts",
+          "hash": "6638311610460172873"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        }
+      ],
+      "infrawhatsappadminapi": [
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/README.md",
+          "hash": "14775348742494751174"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/jest.config.ts",
+          "hash": "14168947684627384375"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/project.json",
+          "hash": "15363082690516986501"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/src/index.ts",
+          "hash": "17990952752261895626"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/src/lib/infrawhatsappadminapi.spec.ts",
+          "hash": "17392675415685692311"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/src/lib/infrawhatsappadminapi.ts",
+          "hash": "1094635991599496995"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "coapportalcontent": [
+        {
+          "file": "libs/core/application/coapportalcontent/README.md",
+          "hash": "2955971783599208227"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/jest.config.ts",
+          "hash": "9260115824836421685"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/project.json",
+          "hash": "869207401550965428"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/src/index.ts",
+          "hash": "6435171116791306599"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/src/lib/coapportalcontent.spec.ts",
+          "hash": "6264102120149651722"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/src/lib/coapportalcontent.ts",
+          "hash": "3252125373484171563"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapportalcontent/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "infrawhatsappcloudapi": [
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/README.md",
+          "hash": "17440068905052272877"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/jest.config.ts",
+          "hash": "6145944062410418868"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/project.json",
+          "hash": "17794357153327748902"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/src/index.ts",
+          "hash": "1969375884550864418"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/src/lib/infrawhatsappcloudapi.spec.ts",
+          "hash": "2205398004255729313"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/src/lib/infrawhatsappcloudapi.ts",
+          "hash": "4274732985726971936"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "shtypes": [
+        {
+          "file": "libs/shared/shtypes/README.md",
+          "hash": "3663584682770739607"
+        },
+        {
+          "file": "libs/shared/shtypes/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/shared/shtypes/jest.config.ts",
+          "hash": "17199495175276866952"
+        },
+        {
+          "file": "libs/shared/shtypes/project.json",
+          "hash": "7915918944564714342"
+        },
+        {
+          "file": "libs/shared/shtypes/src/index.ts",
+          "hash": "4151249050710918792"
+        },
+        {
+          "file": "libs/shared/shtypes/src/lib/api-response.interface.ts",
+          "hash": "12163190414362665549"
+        },
+        {
+          "file": "libs/shared/shtypes/src/lib/maybe.type.ts",
+          "hash": "321190837005194403"
+        },
+        {
+          "file": "libs/shared/shtypes/src/lib/object-literal.type.ts",
+          "hash": "12130679675297870943"
+        },
+        {
+          "file": "libs/shared/shtypes/src/lib/paginated.interface.ts",
+          "hash": "17284968405573204699"
+        },
+        {
+          "file": "libs/shared/shtypes/src/lib/primitive-types.ts",
+          "hash": "10605133690791372977"
+        },
+        {
+          "file": "libs/shared/shtypes/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/shared/shtypes/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/shared/shtypes/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "ui-shared": [
+        {
+          "file": "libs/ui-shared/.babelrc",
+          "hash": "2946678488919325452"
+        },
+        {
+          "file": "libs/ui-shared/README.md",
+          "hash": "16319910477477287376"
+        },
+        {
+          "file": "libs/ui-shared/eslint.config.mjs",
+          "hash": "8789163670399984295",
           "deps": [
-            "shared-errors",
-            "shared-types"
+            "npm:@nx/eslint-plugin"
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/src/lib/iso-date-string.vo.ts",
-          "hash": "9636577858597132013",
+          "file": "libs/ui-shared/jest.config.ts",
+          "hash": "18366755274649455377"
+        },
+        {
+          "file": "libs/ui-shared/package.json",
+          "hash": "1325584845078389322"
+        },
+        {
+          "file": "libs/ui-shared/project.json",
+          "hash": "5738492469547269012"
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/alert.tsx",
+          "hash": "1466615622130910156",
           "deps": [
-            "shared-types",
-            "shared-errors",
-            "shared-utils"
+            "npm:class-variance-authority",
+            "npm:react"
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/src/lib/value-object.base.ts",
-          "hash": "12771065506352564248",
+          "file": "libs/ui-shared/src/components/ui/button.spec.tsx",
+          "hash": "9776371032578305718",
           "deps": [
-            "shared-errors",
-            "shared-types",
-            "shared-utils"
+            "npm:@testing-library/react"
           ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.json",
-          "hash": "11903469455341031787"
+          "file": "libs/ui-shared/src/components/ui/button.tsx",
+          "hash": "16003272298562799576",
+          "deps": [
+            "npm:@radix-ui/react-slot",
+            "npm:class-variance-authority",
+            "npm:react"
+          ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.lib.json",
-          "hash": "8801585740643192156"
+          "file": "libs/ui-shared/src/components/ui/card-hover.spec.tsx",
+          "hash": "18362805059134080596",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
         },
         {
-          "file": "libs/core/domain/shared-kernel/value-objects/tsconfig.spec.json",
-          "hash": "9663143277105169041"
+          "file": "libs/ui-shared/src/components/ui/card-hover.tsx",
+          "hash": "596077890851454492",
+          "deps": [
+            "npm:framer-motion",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/card.tsx",
+          "hash": "13651619540232249465",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/input.tsx",
+          "hash": "5170510621366764254",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/label.tsx",
+          "hash": "15059883190599722611",
+          "deps": [
+            "npm:@radix-ui/react-label",
+            "npm:class-variance-authority",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui-shared/src/index.ts",
+          "hash": "11471684954376205673"
+        },
+        {
+          "file": "libs/ui-shared/src/lib/utils.ts",
+          "hash": "6076888439179101538",
+          "deps": [
+            "npm:clsx",
+            "npm:tailwind-merge"
+          ]
+        },
+        {
+          "file": "libs/ui-shared/src/styles/globals.css",
+          "hash": "16858211922944543819"
+        },
+        {
+          "file": "libs/ui-shared/tsconfig.json",
+          "hash": "10374583890390798648"
+        },
+        {
+          "file": "libs/ui-shared/tsconfig.lib.json",
+          "hash": "6750625921117520019"
+        },
+        {
+          "file": "libs/ui-shared/tsconfig.spec.json",
+          "hash": "11575178531540047385"
+        },
+        {
+          "file": "libs/ui-shared/vite.config.ts",
+          "hash": "16628105355055202784",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-react",
+            "npm:vite-plugin-dts",
+            "npm:@nx/vite"
+          ]
+        }
+      ],
+      "infraaiproviders": [
+        {
+          "file": "libs/infrastructure/infraaiproviders/README.md",
+          "hash": "6977927023304472501"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/jest.config.ts",
+          "hash": "14009829200729767137"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/project.json",
+          "hash": "2739071775219770295"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/src/index.ts",
+          "hash": "6078162156638461897"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/src/lib/infraaiproviders.spec.ts",
+          "hash": "344790873705266629"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/src/lib/infraaiproviders.ts",
+          "hash": "1686447922073264830"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "codoeducacontent": [
+        {
+          "file": "libs/core/domain/codoeducacontent/README.md",
+          "hash": "9480456365857943924"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/jest.config.ts",
+          "hash": "5071655621585568146"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/project.json",
+          "hash": "15676098216877141302"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/src/index.ts",
+          "hash": "13841825332002500823"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/src/lib/codoeducacontent.spec.ts",
+          "hash": "3589273005600768467"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/src/lib/codoeducacontent.ts",
+          "hash": "2745704597179185012"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codoeducacontent/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "coapcampaigns": [
+        {
+          "file": "libs/core/application/coapcampaigns/README.md",
+          "hash": "488127580018274343"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/jest.config.ts",
+          "hash": "608868165231546157"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/project.json",
+          "hash": "3967096632808140662"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/src/index.ts",
+          "hash": "14049074849320567348"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/src/lib/coapcampaigns.spec.ts",
+          "hash": "931235244182334580"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/src/lib/coapcampaigns.ts",
+          "hash": "5127279065972273055"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapcampaigns/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "web3-portal": [
+        {
+          "file": "apps/web3-portal/.swcrc",
+          "hash": "2742566327615098680"
+        },
+        {
+          "file": "apps/web3-portal/eslint.config.mjs",
+          "hash": "10818484782922660641",
+          "deps": [
+            "npm:@eslint/eslintrc",
+            "npm:@eslint/js",
+            "npm:@eslint/compat",
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "apps/web3-portal/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/web3-portal/jest.config.ts",
+          "hash": "8361673264246726499"
+        },
+        {
+          "file": "apps/web3-portal/next-env.d.ts",
+          "hash": "1320675027584673186"
+        },
+        {
+          "file": "apps/web3-portal/next.config.js",
+          "hash": "5443563404894739361",
+          "deps": [
+            "npm:@nx/next"
+          ]
+        },
+        {
+          "file": "apps/web3-portal/project.json",
+          "hash": "65349496017436065"
+        },
+        {
+          "file": "apps/web3-portal/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/web3-portal/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/web3-portal/specs/index.spec.tsx",
+          "hash": "2873936096691223229",
+          "deps": [
+            "npm:react",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/web3-portal/src/app/api/hello/route.ts",
+          "hash": "495073956729887886"
+        },
+        {
+          "file": "apps/web3-portal/src/app/global.css",
+          "hash": "2063387531564215811"
+        },
+        {
+          "file": "apps/web3-portal/src/app/layout.tsx",
+          "hash": "3842690866498052846"
+        },
+        {
+          "file": "apps/web3-portal/src/app/page.module.css",
+          "hash": "4786619528779355986"
+        },
+        {
+          "file": "apps/web3-portal/src/app/page.tsx",
+          "hash": "11642163667800587828"
+        },
+        {
+          "file": "apps/web3-portal/tsconfig.json",
+          "hash": "11074497160386775396"
+        },
+        {
+          "file": "apps/web3-portal/tsconfig.spec.json",
+          "hash": "13752930008724566565"
+        }
+      ],
+      "coapleadsflow": [
+        {
+          "file": "libs/core/application/coapleadsflow/README.md",
+          "hash": "18039461600553314681"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/jest.config.ts",
+          "hash": "12090893942748108825"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/project.json",
+          "hash": "15857297874362628027"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/src/index.ts",
+          "hash": "2758690084434603829"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/src/lib/coapleadsflow.spec.ts",
+          "hash": "4558896742073392685"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/src/lib/coapleadsflow.ts",
+          "hash": "8879769016134242918"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapleadsflow/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "infrastorageservice": [
+        {
+          "file": "libs/infrastructure/infrastorageservice/README.md",
+          "hash": "1505676432394518320"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/jest.config.ts",
+          "hash": "2631099995031695845"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/project.json",
+          "hash": "13242202836403231892"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/src/index.ts",
+          "hash": "13161059873985983273"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/src/lib/infrastorageservice.spec.ts",
+          "hash": "3972532440944003727"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/src/lib/infrastorageservice.ts",
+          "hash": "17816473572373220594"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/infrastructure/infrastorageservice/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "cdskevents": [
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/README.md",
+          "hash": "17165646100866793364"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/eslint.config.mjs",
+          "hash": "16585758520623612183"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/jest.config.ts",
+          "hash": "5054203098305676611"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/project.json",
+          "hash": "480736997573237481"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/src/index.ts",
+          "hash": "9751967016977760080"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event-emitter.interface.ts",
+          "hash": "11027953315729463461"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event-handler.interface.ts",
+          "hash": "3249864380453994435"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.base.ts",
+          "hash": "16206355615765542155"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.interface.ts",
+          "hash": "18297993612396496645"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        }
+      ],
+      "cdskmappers": [
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/README.md",
+          "hash": "11790031623982173472"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/eslint.config.mjs",
+          "hash": "16585758520623612183"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/jest.config.ts",
+          "hash": "9426847589877562889"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/project.json",
+          "hash": "9345019749273017982"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/src/index.ts",
+          "hash": "15626005527466112623"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/src/lib/mapper.interface.ts",
+          "hash": "7540904389189518035"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskmappers/tsconfig.spec.json",
+          "hash": "12671384051532635711"
+        }
+      ],
+      "infraqueue": [
+        {
+          "file": "libs/infrastructure/infraqueue/README.md",
+          "hash": "5744820267156920251"
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/jest.config.ts",
+          "hash": "12478183941509443430"
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/project.json",
+          "hash": "5927217839114062974"
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/src/index.ts",
+          "hash": "12805775578976222123"
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/src/lib/infraqueue.module.ts",
+          "hash": "1679931095706585815",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/tsconfig.lib.json",
+          "hash": "2198184121120557529"
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "cdskports": [
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/README.md",
+          "hash": "5248118550045942088"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/eslint.config.mjs",
+          "hash": "16585758520623612183"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/jest.config.ts",
+          "hash": "3794561050852156046"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/project.json",
+          "hash": "9722200400343262661"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/src/index.ts",
+          "hash": "16106871007765388714"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/src/lib/logger.port.ts",
+          "hash": "9485499116398887153"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/src/lib/repository.port.ts",
+          "hash": "8527498587920742096"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/tsconfig.json",
+          "hash": "7464751594463448890"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/tsconfig.lib.json",
+          "hash": "12621438852216795570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/tsconfig.spec.json",
+          "hash": "12671384051532635711"
         }
       ],
       "pwa-consultant": [
@@ -736,463 +2368,6 @@
           "hash": "13752930008724566565"
         }
       ],
-      "core-domain-shared-kernel-mappers": [
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/eslint.config.mjs",
-          "hash": "16585758520623612183"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/jest.config.ts",
-          "hash": "14952385245368114106"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/project.json",
-          "hash": "3835645932156169022"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/src/index.ts",
-          "hash": "10776726551422275590"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/src/lib/mapper.interface.ts",
-          "hash": "7540904389189518035",
-          "deps": [
-            "core-domain-shared-kernel-entities"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.json",
-          "hash": "7464751594463448890"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.lib.json",
-          "hash": "12621438852216795570"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/mappers/tsconfig.spec.json",
-          "hash": "12671384051532635711"
-        }
-      ],
-      "shared-constants": [
-        {
-          "file": "libs/shared/constants/eslint.config.mjs",
-          "hash": "7236874755749772245"
-        },
-        {
-          "file": "libs/shared/constants/jest.config.ts",
-          "hash": "14103391121622483189"
-        },
-        {
-          "file": "libs/shared/constants/project.json",
-          "hash": "18176038993145800696"
-        },
-        {
-          "file": "libs/shared/constants/src/index.ts",
-          "hash": "1966939580897998723"
-        },
-        {
-          "file": "libs/shared/constants/src/lib/pagination.constants.ts",
-          "hash": "4241819518145727497"
-        },
-        {
-          "file": "libs/shared/constants/src/lib/regex.constants.ts",
-          "hash": "13777699820830252905"
-        },
-        {
-          "file": "libs/shared/constants/tsconfig.json",
-          "hash": "2529090776914967885"
-        },
-        {
-          "file": "libs/shared/constants/tsconfig.lib.json",
-          "hash": "4672722969021694637"
-        },
-        {
-          "file": "libs/shared/constants/tsconfig.spec.json",
-          "hash": "14749275675582993112"
-        }
-      ],
-      "core-domain-tenancy": [
-        {
-          "file": "libs/core/domain/tenancy/eslint.config.mjs",
-          "hash": "10251180898652408314",
-          "deps": [
-            "npm:@typescript-eslint/eslint-plugin"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/jest.config.ts",
-          "hash": "7140418305373413897"
-        },
-        {
-          "file": "libs/core/domain/tenancy/project.json",
-          "hash": "18426956474156878033"
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/index.ts",
-          "hash": "13863746038949718308"
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.spec.ts",
-          "hash": "11073127308958903352",
-          "deps": [
-            "shared-errors",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/entities/tenant-configuration.entity.ts",
-          "hash": "18105986762203356266",
-          "deps": [
-            "core-domain-shared-kernel-entities",
-            "shared-errors",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.spec.ts",
-          "hash": "5164749225661364799",
-          "deps": [
-            "shared-errors",
-            "shared-result",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts",
-          "hash": "4471300330462145135",
-          "deps": [
-            "core-domain-shared-kernel-entities",
-            "shared-errors",
-            "shared-result",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/errors/invalid-tenant-status-transition.error.ts",
-          "hash": "13437688351620437791",
-          "deps": [
-            "shared-errors",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/errors/tenant-already-exists.error.ts",
-          "hash": "7898384571335655926",
-          "deps": [
-            "shared-errors",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/events/tenant-activated.event.ts",
-          "hash": "17798994262476062702",
-          "deps": [
-            "core-domain-shared-kernel-events"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/events/tenant-created.event.ts",
-          "hash": "15047225336084198922",
-          "deps": [
-            "core-domain-shared-kernel-events",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/events/tenant-suspended.event.ts",
-          "hash": "8121621164715286569",
-          "deps": [
-            "core-domain-shared-kernel-events"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/ports/tenant-configuration.repository.port.ts",
-          "hash": "14533460519044572346",
-          "deps": [
-            "core-domain-shared-kernel-ports",
-            "shared-types",
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/ports/tenant.repository.port.ts",
-          "hash": "1086452992255351158",
-          "deps": [
-            "core-domain-shared-kernel-ports",
-            "shared-types",
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/services/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.spec.ts",
-          "hash": "154569824508265709",
-          "deps": [
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/db-connection-config.vo.ts",
-          "hash": "1983419149064418124",
-          "deps": [
-            "core-domain-shared-kernel-value-objects",
-            "shared-errors",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.spec.ts",
-          "hash": "10717004329695986843",
-          "deps": [
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.ts",
-          "hash": "13383283898124372113",
-          "deps": [
-            "core-domain-shared-kernel-value-objects",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/tenancy/tsconfig.json",
-          "hash": "14172727696983024506"
-        },
-        {
-          "file": "libs/core/domain/tenancy/tsconfig.lib.json",
-          "hash": "5910479368944422634"
-        },
-        {
-          "file": "libs/core/domain/tenancy/tsconfig.spec.json",
-          "hash": "15586879747349902948"
-        }
-      ],
-      "shared-errors": [
-        {
-          "file": "libs/shared/errors/eslint.config.mjs",
-          "hash": "3529468024425055113"
-        },
-        {
-          "file": "libs/shared/errors/jest.config.ts",
-          "hash": "4901145136255232051"
-        },
-        {
-          "file": "libs/shared/errors/project.json",
-          "hash": "9527570897600468579"
-        },
-        {
-          "file": "libs/shared/errors/src/index.ts",
-          "hash": "4997326369855812725"
-        },
-        {
-          "file": "libs/shared/errors/src/lib/exception.base.ts",
-          "hash": "894415589927293019",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/shared/errors/src/lib/exception.codes.ts",
-          "hash": "18174183035627135127"
-        },
-        {
-          "file": "libs/shared/errors/src/lib/generic.exceptions.ts",
-          "hash": "17945903854403619120",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/shared/errors/tsconfig.json",
-          "hash": "10439673020789910070"
-        },
-        {
-          "file": "libs/shared/errors/tsconfig.lib.json",
-          "hash": "13492241498187088270"
-        },
-        {
-          "file": "libs/shared/errors/tsconfig.spec.json",
-          "hash": "7550541361315801767"
-        }
-      ],
-      "core-domain-shared-kernel-entities": [
-        {
-          "file": "libs/core/domain/shared-kernel/entities/eslint.config.mjs",
-          "hash": "16585758520623612183"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/jest.config.ts",
-          "hash": "5080152523234583838"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/project.json",
-          "hash": "21969991786952002"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/src/index.ts",
-          "hash": "6765042081146218763"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/src/lib/aggregate-root.base.ts",
-          "hash": "7953191470495176489",
-          "deps": [
-            "core-domain-shared-kernel-events"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/src/lib/entity.base.ts",
-          "hash": "14391127423224792816",
-          "deps": [
-            "shared-errors",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.json",
-          "hash": "7464751594463448890"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.lib.json",
-          "hash": "12621438852216795570"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/entities/tsconfig.spec.json",
-          "hash": "12671384051532635711"
-        }
-      ],
-      "core-application-tenancy": [
-        {
-          "file": "libs/core/application/tenancy/eslint.config.mjs",
-          "hash": "15872373987943413713"
-        },
-        {
-          "file": "libs/core/application/tenancy/jest.config.ts",
-          "hash": "1932307829463977283"
-        },
-        {
-          "file": "libs/core/application/tenancy/project.json",
-          "hash": "14306516293290763580"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/index.ts",
-          "hash": "8717163190097171338"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/commands/activate-tenant/activate-tenant.command.ts",
-          "hash": "8506182013429707355",
-          "deps": [
-            "core-domain-shared-kernel-commands-queries",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/commands/create-tenant/create-tenant.command.ts",
-          "hash": "16108873294802179807",
-          "deps": [
-            "core-domain-shared-kernel-commands-queries",
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/commands/set-tenant-db-config/set-tenant-db-config.command.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/dtos/tenant-details.dto.ts",
-          "hash": "10333126179050768369",
-          "deps": [
-            "shared-types",
-            "core-domain-tenancy"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/dtos/tenant-summary.dto.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/ports/database-provisioning.service.port.ts",
-          "hash": "12114197149972059131",
-          "deps": [
-            "shared-result",
-            "shared-types",
-            "shared-errors",
-            "core-domain-tenancy"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/ports/user-provisioning.service.port.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/queries/get-tenant-details/get-tenant-details.query-handler.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/queries/get-tenant-details/get-tenant-details.query.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/queries/list-tenants/list-tenants.query-handler.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/queries/list-tenants/list-tenants.query.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/use-cases/activate-tenant/activate-tenant.use-case.ts",
-          "hash": "10940102825593309768",
-          "deps": [
-            "core-domain-shared-kernel-commands-queries",
-            "core-domain-shared-kernel-ports",
-            "core-domain-tenancy",
-            "shared-errors",
-            "shared-result",
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts",
-          "hash": "902615947462457495",
-          "deps": [
-            "core-domain-shared-kernel-commands-queries",
-            "shared-types",
-            "shared-result",
-            "shared-errors",
-            "core-domain-tenancy",
-            "core-domain-shared-kernel-ports",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/application/tenancy/src/lib/use-cases/set-tenant-db-config/set-tenant-db-config.use-case.ts",
-          "hash": "7637135161675821920"
-        },
-        {
-          "file": "libs/core/application/tenancy/tsconfig.json",
-          "hash": "7846400365888195640"
-        },
-        {
-          "file": "libs/core/application/tenancy/tsconfig.lib.json",
-          "hash": "5419457303262888731"
-        },
-        {
-          "file": "libs/core/application/tenancy/tsconfig.spec.json",
-          "hash": "4164763362289325525"
-        }
-      ],
       "api-main-e2e": [
         {
           "file": "apps/api-main-e2e/eslint.config.mjs",
@@ -1240,134 +2415,96 @@
           "hash": "14954872453723519891"
         }
       ],
-      "shared-utils": [
+      "shresult": [
         {
-          "file": "libs/shared/utils/eslint.config.mjs",
-          "hash": "15536645171868176584",
-          "deps": [
-            "npm:@typescript-eslint/eslint-plugin"
-          ]
+          "file": "libs/shared/shresult/README.md",
+          "hash": "7276508146019957712"
         },
         {
-          "file": "libs/shared/utils/jest.config.ts",
-          "hash": "3439586481535294978"
+          "file": "libs/shared/shresult/eslint.config.mjs",
+          "hash": "16759498837230279251"
         },
         {
-          "file": "libs/shared/utils/project.json",
-          "hash": "10371419597559920987"
+          "file": "libs/shared/shresult/jest.config.ts",
+          "hash": "2236363168903258615"
         },
         {
-          "file": "libs/shared/utils/src/index.ts",
-          "hash": "14848164323152774511"
+          "file": "libs/shared/shresult/project.json",
+          "hash": "15249084133636228997"
         },
         {
-          "file": "libs/shared/utils/src/lib/guard.ts",
-          "hash": "15813956577286281891",
-          "deps": [
-            "shared-types"
-          ]
+          "file": "libs/shared/shresult/src/index.ts",
+          "hash": "10961035852052235001"
         },
         {
-          "file": "libs/shared/utils/src/lib/metadata.factory.ts",
-          "hash": "1527887950294024782",
-          "deps": [
-            "shared-errors",
-            "shared-types",
-            "shared-validation-schemas"
-          ]
+          "file": "libs/shared/shresult/src/lib/result.type.ts",
+          "hash": "7777601133905326088"
         },
         {
-          "file": "libs/shared/utils/src/lib/uuid.utils.spec.ts",
-          "hash": "12621490806890642386",
-          "deps": [
-            "shared-constants",
-            "npm:uuid"
-          ]
+          "file": "libs/shared/shresult/src/lib/result.utils.ts",
+          "hash": "1322592055775962960"
         },
         {
-          "file": "libs/shared/utils/src/lib/uuid.utils.ts",
-          "hash": "18273871913313676661",
-          "deps": [
-            "npm:uuid",
-            "shared-types"
-          ]
+          "file": "libs/shared/shresult/tsconfig.json",
+          "hash": "9505886339790543345"
         },
         {
-          "file": "libs/shared/utils/tsconfig.json",
-          "hash": "8990199382609902236"
+          "file": "libs/shared/shresult/tsconfig.lib.json",
+          "hash": "5554291030212586824"
         },
         {
-          "file": "libs/shared/utils/tsconfig.lib.json",
-          "hash": "18115756040657092998"
-        },
-        {
-          "file": "libs/shared/utils/tsconfig.spec.json",
-          "hash": "12377858088203616784"
+          "file": "libs/shared/shresult/tsconfig.spec.json",
+          "hash": "2037337966284968602"
         }
       ],
-      "aiper-assistance": [
+      "admin-platform": [
         {
-          "file": "apps/aiper-assistance/.gitignore",
-          "hash": "15640894140108247102"
-        },
-        {
-          "file": "apps/aiper-assistance/.swcrc",
+          "file": "apps/admin-platform/.swcrc",
           "hash": "2742566327615098680"
         },
         {
-          "file": "apps/aiper-assistance/eslint.config.mjs",
-          "hash": "5056064876072163445",
+          "file": "apps/admin-platform/eslint.config.mjs",
+          "hash": "10818484782922660641",
           "deps": [
-            "npm:@eslint/compat",
             "npm:@eslint/eslintrc",
             "npm:@eslint/js",
-            "npm:@nx/eslint-plugin",
-            "npm:@typescript-eslint/eslint-plugin",
-            "npm:@typescript-eslint/parser",
-            "npm:eslint-plugin-jsx-a11y",
-            "npm:eslint-plugin-react",
-            "npm:eslint-plugin-react-hooks",
-            "npm:globals"
+            "npm:@eslint/compat",
+            "npm:@nx/eslint-plugin"
           ]
         },
         {
-          "file": "apps/aiper-assistance/index.d.ts",
+          "file": "apps/admin-platform/index.d.ts",
           "hash": "5498222895072842432"
         },
         {
-          "file": "apps/aiper-assistance/jest.config.ts",
-          "hash": "9729216660545221652"
+          "file": "apps/admin-platform/jest.config.ts",
+          "hash": "14735509303768871756"
         },
         {
-          "file": "apps/aiper-assistance/next-env.d.ts",
+          "file": "apps/admin-platform/next-env.d.ts",
           "hash": "1320675027584673186"
         },
         {
-          "file": "apps/aiper-assistance/next.config.js",
-          "hash": "11974247725870698265",
+          "file": "apps/admin-platform/next.config.js",
+          "hash": "5443563404894739361",
           "deps": [
-            "npm:@nx/next",
-            "npm:tsconfig-paths-webpack-plugin"
+            "npm:@nx/next"
           ]
         },
         {
-          "file": "apps/aiper-assistance/postcss.config.js",
-          "hash": "8477429590743733096"
+          "file": "apps/admin-platform/project.json",
+          "hash": "3702393750339821581"
         },
         {
-          "file": "apps/aiper-assistance/project.json",
-          "hash": "4959844840857237225"
-        },
-        {
-          "file": "apps/aiper-assistance/public/.gitkeep",
+          "file": "apps/admin-platform/public/.gitkeep",
           "hash": "3244421341483603138"
         },
         {
-          "file": "apps/aiper-assistance/public/favicon.ico",
+          "file": "apps/admin-platform/public/favicon.ico",
           "hash": "9303420814833116677"
         },
         {
-          "file": "apps/aiper-assistance/specs/index.spec.tsx",
+          "file": "apps/admin-platform/specs/index.spec.tsx",
           "hash": "2873936096691223229",
           "deps": [
             "npm:react",
@@ -1375,80 +2512,344 @@
           ]
         },
         {
-          "file": "apps/aiper-assistance/src/app/api/hello/route.ts",
-          "hash": "4982391731772911298"
+          "file": "apps/admin-platform/src/app/api/hello/route.ts",
+          "hash": "495073956729887886"
         },
         {
-          "file": "apps/aiper-assistance/src/app/global-error.tsx",
-          "hash": "11980234859607399426"
+          "file": "apps/admin-platform/src/app/global.css",
+          "hash": "2063387531564215811"
         },
         {
-          "file": "apps/aiper-assistance/src/app/globals.css",
-          "hash": "3446976517252360082"
+          "file": "apps/admin-platform/src/app/layout.tsx",
+          "hash": "15437242420701476987"
         },
         {
-          "file": "apps/aiper-assistance/src/app/layout.tsx",
-          "hash": "6022284280570600984",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "ui-shared"
-          ]
-        },
-        {
-          "file": "apps/aiper-assistance/src/app/page.module.css",
+          "file": "apps/admin-platform/src/app/page.module.css",
           "hash": "4786619528779355986"
         },
         {
-          "file": "apps/aiper-assistance/src/app/page.tsx",
-          "hash": "3033581008487548800"
+          "file": "apps/admin-platform/src/app/page.tsx",
+          "hash": "18120236814837127090"
         },
         {
-          "file": "apps/aiper-assistance/src/components/layout/LiaLayoutClient.tsx",
-          "hash": "1575472535177774970",
+          "file": "apps/admin-platform/tsconfig.json",
+          "hash": "17588817448282151212"
+        },
+        {
+          "file": "apps/admin-platform/tsconfig.spec.json",
+          "hash": "13136275405411363864"
+        }
+      ],
+      "coapnotificationsservice": [
+        {
+          "file": "libs/core/application/coapnotificationsservice/README.md",
+          "hash": "11431196429433468407"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/jest.config.ts",
+          "hash": "944063679873876636"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/project.json",
+          "hash": "182295233270242886"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/src/index.ts",
+          "hash": "17828102450868067368"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/src/lib/coapnotificationsservice.spec.ts",
+          "hash": "15036688760539646245"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/src/lib/coapnotificationsservice.ts",
+          "hash": "15833404025534223639"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapnotificationsservice/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "sherrors": [
+        {
+          "file": "libs/shared/sherrors/README.md",
+          "hash": "1347733772658832663"
+        },
+        {
+          "file": "libs/shared/sherrors/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/shared/sherrors/jest.config.ts",
+          "hash": "15253764304156158214"
+        },
+        {
+          "file": "libs/shared/sherrors/project.json",
+          "hash": "7496900987882147274"
+        },
+        {
+          "file": "libs/shared/sherrors/src/index.ts",
+          "hash": "5818549397175581542"
+        },
+        {
+          "file": "libs/shared/sherrors/src/lib/exception.base.ts",
+          "hash": "894415589927293019"
+        },
+        {
+          "file": "libs/shared/sherrors/src/lib/exception.codes.ts",
+          "hash": "18174183035627135127"
+        },
+        {
+          "file": "libs/shared/sherrors/src/lib/generic.exceptions.ts",
+          "hash": "17945903854403619120"
+        },
+        {
+          "file": "libs/shared/sherrors/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/shared/sherrors/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/shared/sherrors/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "coapeducacontent": [
+        {
+          "file": "libs/core/application/coapeducacontent/README.md",
+          "hash": "14557325139848486210"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/jest.config.ts",
+          "hash": "5447956997659228344"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/project.json",
+          "hash": "12511933407589668991"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/src/index.ts",
+          "hash": "13691670055441594652"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/src/lib/coapeducacontent.spec.ts",
+          "hash": "16871301271324723071"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/src/lib/coapeducacontent.ts",
+          "hash": "12553970220050805244"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapeducacontent/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "shutils": [
+        {
+          "file": "libs/shared/shutils/README.md",
+          "hash": "13171561399191444161"
+        },
+        {
+          "file": "libs/shared/shutils/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/shared/shutils/jest.config.ts",
+          "hash": "14794346032403050082"
+        },
+        {
+          "file": "libs/shared/shutils/project.json",
+          "hash": "15657562333490675529"
+        },
+        {
+          "file": "libs/shared/shutils/src/index.ts",
+          "hash": "3224938319944754961"
+        },
+        {
+          "file": "libs/shared/shutils/src/lib/guard.ts",
+          "hash": "15813956577286281891"
+        },
+        {
+          "file": "libs/shared/shutils/src/lib/metadata.factory.ts",
+          "hash": "1527887950294024782"
+        },
+        {
+          "file": "libs/shared/shutils/src/lib/uuid.utils.spec.ts",
+          "hash": "12621490806890642386",
           "deps": [
-            "npm:react"
+            "npm:uuid"
           ]
         },
         {
-          "file": "apps/aiper-assistance/src/components/layout/LiaSidebar.tsx",
-          "hash": "6852239910950464665",
+          "file": "libs/shared/shutils/src/lib/uuid.utils.ts",
+          "hash": "18273871913313676661",
           "deps": [
-            "ui-shared",
-            "npm:lucide-react",
-            "npm:next"
+            "npm:uuid"
           ]
         },
         {
-          "file": "apps/aiper-assistance/src/components/layout/LiaTopNav.tsx",
-          "hash": "9025306605564293454"
+          "file": "libs/shared/shutils/tsconfig.json",
+          "hash": "9505886339790543345"
         },
         {
-          "file": "apps/aiper-assistance/src/components/providers/index.tsx",
-          "hash": "15757412348170422444",
-          "deps": [
-            "npm:@tanstack/react-query",
-            "npm:@tanstack/react-query-devtools",
-            "npm:next-themes",
-            "npm:react",
-            "npm:react-hot-toast"
-          ]
+          "file": "libs/shared/shutils/tsconfig.lib.json",
+          "hash": "5554291030212586824"
         },
         {
-          "file": "apps/aiper-assistance/tailwind.config.js",
-          "hash": "13255108459560612551",
-          "deps": [
-            "npm:@nx/next",
-            "ui-shared"
-          ]
+          "file": "libs/shared/shutils/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "codobilling": [
+        {
+          "file": "libs/core/domain/codobilling/README.md",
+          "hash": "915959902038220452"
         },
         {
-          "file": "apps/aiper-assistance/tsconfig.json",
-          "hash": "15129444369638497769"
+          "file": "libs/core/domain/codobilling/eslint.config.mjs",
+          "hash": "15872373987943413713"
         },
         {
-          "file": "apps/aiper-assistance/tsconfig.spec.json",
-          "hash": "13752930008724566565"
+          "file": "libs/core/domain/codobilling/jest.config.ts",
+          "hash": "6464011425794603432"
+        },
+        {
+          "file": "libs/core/domain/codobilling/project.json",
+          "hash": "10044999625031325702"
+        },
+        {
+          "file": "libs/core/domain/codobilling/src/index.ts",
+          "hash": "1063896280084919793"
+        },
+        {
+          "file": "libs/core/domain/codobilling/src/lib/codobilling.spec.ts",
+          "hash": "7057034793325340706"
+        },
+        {
+          "file": "libs/core/domain/codobilling/src/lib/codobilling.ts",
+          "hash": "2661911055535325414"
+        },
+        {
+          "file": "libs/core/domain/codobilling/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codobilling/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codobilling/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "infracache": [
+        {
+          "file": "libs/infrastructure/infracache/README.md",
+          "hash": "4889564036644036896"
+        },
+        {
+          "file": "libs/infrastructure/infracache/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infracache/jest.config.ts",
+          "hash": "1985464944879458943"
+        },
+        {
+          "file": "libs/infrastructure/infracache/project.json",
+          "hash": "4948288084854248563"
+        },
+        {
+          "file": "libs/infrastructure/infracache/src/index.ts",
+          "hash": "16050007326319107660"
+        },
+        {
+          "file": "libs/infrastructure/infracache/src/lib/infracache.spec.ts",
+          "hash": "8928605210940396940"
+        },
+        {
+          "file": "libs/infrastructure/infracache/src/lib/infracache.ts",
+          "hash": "12333290786493544998"
+        },
+        {
+          "file": "libs/infrastructure/infracache/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infracache/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/infrastructure/infracache/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "codoaiperassistance": [
+        {
+          "file": "libs/core/domain/codoaiperassistance/README.md",
+          "hash": "9187207129497363188"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/jest.config.ts",
+          "hash": "7739610846596546521"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/project.json",
+          "hash": "7599700330965851306"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/src/index.ts",
+          "hash": "7198570567406495294"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/src/lib/codoaiperassistance.spec.ts",
+          "hash": "9513379344205706099"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/src/lib/codoaiperassistance.ts",
+          "hash": "12289181610011168150"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codoaiperassistance/tsconfig.spec.json",
+          "hash": "4164763362289325525"
         }
       ],
       "pwa-supervisor": [
@@ -1709,282 +3110,6 @@
           "hash": "12992235913689004541"
         }
       ],
-      "web3-portal": [
-        {
-          "file": "apps/web3-portal/.swcrc",
-          "hash": "2742566327615098680"
-        },
-        {
-          "file": "apps/web3-portal/eslint.config.mjs",
-          "hash": "10818484782922660641",
-          "deps": [
-            "npm:@eslint/eslintrc",
-            "npm:@eslint/js",
-            "npm:@eslint/compat",
-            "npm:@nx/eslint-plugin"
-          ]
-        },
-        {
-          "file": "apps/web3-portal/index.d.ts",
-          "hash": "5498222895072842432"
-        },
-        {
-          "file": "apps/web3-portal/jest.config.ts",
-          "hash": "8361673264246726499"
-        },
-        {
-          "file": "apps/web3-portal/next-env.d.ts",
-          "hash": "1320675027584673186"
-        },
-        {
-          "file": "apps/web3-portal/next.config.js",
-          "hash": "5443563404894739361",
-          "deps": [
-            "npm:@nx/next"
-          ]
-        },
-        {
-          "file": "apps/web3-portal/project.json",
-          "hash": "65349496017436065"
-        },
-        {
-          "file": "apps/web3-portal/public/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/web3-portal/public/favicon.ico",
-          "hash": "9303420814833116677"
-        },
-        {
-          "file": "apps/web3-portal/specs/index.spec.tsx",
-          "hash": "2873936096691223229",
-          "deps": [
-            "npm:react",
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/web3-portal/src/app/api/hello/route.ts",
-          "hash": "495073956729887886"
-        },
-        {
-          "file": "apps/web3-portal/src/app/global.css",
-          "hash": "2063387531564215811"
-        },
-        {
-          "file": "apps/web3-portal/src/app/layout.tsx",
-          "hash": "3842690866498052846"
-        },
-        {
-          "file": "apps/web3-portal/src/app/page.module.css",
-          "hash": "4786619528779355986"
-        },
-        {
-          "file": "apps/web3-portal/src/app/page.tsx",
-          "hash": "11642163667800587828"
-        },
-        {
-          "file": "apps/web3-portal/tsconfig.json",
-          "hash": "11074497160386775396"
-        },
-        {
-          "file": "apps/web3-portal/tsconfig.spec.json",
-          "hash": "13752930008724566565"
-        }
-      ],
-      "core-domain-shared-kernel-ports": [
-        {
-          "file": "libs/core/domain/shared-kernel/ports/eslint.config.mjs",
-          "hash": "16585758520623612183"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/jest.config.ts",
-          "hash": "8160289314021865059"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/project.json",
-          "hash": "15582840113106905819"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/src/index.ts",
-          "hash": "14423377919037296960"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/src/lib/logger.port.ts",
-          "hash": "9485499116398887153",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/src/lib/repository.port.ts",
-          "hash": "8527498587920742096",
-          "deps": [
-            "shared-types",
-            "core-domain-shared-kernel-entities",
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.json",
-          "hash": "7464751594463448890"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.lib.json",
-          "hash": "12621438852216795570"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/ports/tsconfig.spec.json",
-          "hash": "12671384051532635711"
-        }
-      ],
-      "core-domain-shared-kernel-commands-queries": [
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/eslint.config.mjs",
-          "hash": "16585758520623612183"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/jest.config.ts",
-          "hash": "12264213429035048273"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/project.json",
-          "hash": "3103686612230234259"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/index.ts",
-          "hash": "10389525085745769874"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command-handler.interface.ts",
-          "hash": "405227989837931477",
-          "deps": [
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.spec.ts",
-          "hash": "7205080171132510322",
-          "deps": [
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.ts",
-          "hash": "5148833049566927191",
-          "deps": [
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/command.interface.ts",
-          "hash": "16789807617884640477",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/paginated-query.base.ts",
-          "hash": "13135508133802143395",
-          "deps": [
-            "shared-types",
-            "shared-constants"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query-handler.interface.ts",
-          "hash": "16529284111713786990",
-          "deps": [
-            "shared-result",
-            "shared-errors"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query.base.ts",
-          "hash": "3192839637742861372",
-          "deps": [
-            "shared-types",
-            "shared-utils"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/src/lib/query.interface.ts",
-          "hash": "6638311610460172873",
-          "deps": [
-            "shared-types"
-          ]
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.json",
-          "hash": "11198281965836123432"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.lib.json",
-          "hash": "3617061716003816438"
-        },
-        {
-          "file": "libs/core/domain/shared-kernel/commands-queries/tsconfig.spec.json",
-          "hash": "135530883858487133"
-        }
-      ],
-      "shared-validation-schemas": [
-        {
-          "file": "libs/shared/validation-schemas/eslint.config.mjs",
-          "hash": "5870933911915264065",
-          "deps": [
-            "npm:@typescript-eslint/eslint-plugin"
-          ]
-        },
-        {
-          "file": "libs/shared/validation-schemas/jest.config.ts",
-          "hash": "8276306826133071129"
-        },
-        {
-          "file": "libs/shared/validation-schemas/project.json",
-          "hash": "16392947727805009298"
-        },
-        {
-          "file": "libs/shared/validation-schemas/src/index.ts",
-          "hash": "15565758283779638183"
-        },
-        {
-          "file": "libs/shared/validation-schemas/src/lib/common.schemas.ts",
-          "hash": "17982822037778977540",
-          "deps": [
-            "shared-constants"
-          ]
-        },
-        {
-          "file": "libs/shared/validation-schemas/src/lib/pagination.schemas.ts",
-          "hash": "10919588756325519295",
-          "deps": [
-            "shared-constants"
-          ]
-        },
-        {
-          "file": "libs/shared/validation-schemas/src/lib/zod.instance.ts",
-          "hash": "16157890692859986938",
-          "deps": [
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "libs/shared/validation-schemas/tsconfig.json",
-          "hash": "17877419432731693806"
-        },
-        {
-          "file": "libs/shared/validation-schemas/tsconfig.lib.json",
-          "hash": "4239166633880504652"
-        },
-        {
-          "file": "libs/shared/validation-schemas/tsconfig.spec.json",
-          "hash": "15103555855642735866"
-        }
-      ],
       "api-main": [
         {
           "file": "apps/api-main/eslint.config.mjs",
@@ -2068,170 +3193,535 @@
           ]
         }
       ],
-      "shared-result": [
+      "shvalidationschemas": [
         {
-          "file": "libs/shared/result/eslint.config.mjs",
-          "hash": "13655064194008023973"
+          "file": "libs/shared/shvalidationschemas/README.md",
+          "hash": "16803706239696053525"
         },
         {
-          "file": "libs/shared/result/jest.config.ts",
-          "hash": "12840828713548891948"
+          "file": "libs/shared/shvalidationschemas/eslint.config.mjs",
+          "hash": "16759498837230279251"
         },
         {
-          "file": "libs/shared/result/project.json",
-          "hash": "12036590874798196985"
+          "file": "libs/shared/shvalidationschemas/jest.config.ts",
+          "hash": "14952205339653590491"
         },
         {
-          "file": "libs/shared/result/src/index.ts",
-          "hash": "11287092583336290759"
+          "file": "libs/shared/shvalidationschemas/project.json",
+          "hash": "17727356775604000721"
         },
         {
-          "file": "libs/shared/result/src/lib/result.type.ts",
-          "hash": "7777601133905326088"
+          "file": "libs/shared/shvalidationschemas/src/index.ts",
+          "hash": "17820621881412227351"
         },
         {
-          "file": "libs/shared/result/src/lib/result.utils.ts",
-          "hash": "1322592055775962960"
+          "file": "libs/shared/shvalidationschemas/src/lib/common.schemas.ts",
+          "hash": "17982822037778977540"
         },
         {
-          "file": "libs/shared/result/tsconfig.json",
-          "hash": "2513879178253761494"
+          "file": "libs/shared/shvalidationschemas/src/lib/pagination.schemas.ts",
+          "hash": "10919588756325519295"
         },
         {
-          "file": "libs/shared/result/tsconfig.lib.json",
-          "hash": "4260782727414610407"
+          "file": "libs/shared/shvalidationschemas/src/lib/zod.instance.ts",
+          "hash": "16157890692859986938",
+          "deps": [
+            "npm:zod"
+          ]
         },
         {
-          "file": "libs/shared/result/tsconfig.spec.json",
-          "hash": "8700875010668543835"
+          "file": "libs/shared/shvalidationschemas/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/shared/shvalidationschemas/tsconfig.lib.json",
+          "hash": "5554291030212586824"
+        },
+        {
+          "file": "libs/shared/shvalidationschemas/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "codoantiban": [
+        {
+          "file": "libs/core/domain/codoantiban/README.md",
+          "hash": "17058253561860135151"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/jest.config.ts",
+          "hash": "6301550288485173"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/project.json",
+          "hash": "12672458796188718396"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/src/index.ts",
+          "hash": "8974304295780046795"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/src/lib/codoantiban.spec.ts",
+          "hash": "1607521055200759675"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/src/lib/codoantiban.ts",
+          "hash": "17552032259072465394"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "codonotificationscore": [
+        {
+          "file": "libs/core/domain/codonotificationscore/README.md",
+          "hash": "16694785935739111719"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/jest.config.ts",
+          "hash": "7914894083649321212"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/project.json",
+          "hash": "7640725719042118814"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/src/index.ts",
+          "hash": "5738344915697559178"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/src/lib/codonotificationscore.spec.ts",
+          "hash": "17807057117990622702"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/src/lib/codonotificationscore.ts",
+          "hash": "9799056201884308432"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codonotificationscore/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "infratenancypersistence": [
+        {
+          "file": "libs/infrastructure/infratenancypersistence/README.md",
+          "hash": "8529805875518606329"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/jest.config.ts",
+          "hash": "17537186963061575321"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/project.json",
+          "hash": "4649576760620335269"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/src/index.ts",
+          "hash": "7009014293645658299"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/src/lib/infratenancypersistence.module.ts",
+          "hash": "3755094668438523230",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/tsconfig.lib.json",
+          "hash": "2198184121120557529"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/tsconfig.spec.json",
+          "hash": "2037337966284968602"
+        }
+      ],
+      "coapaiperassistance": [
+        {
+          "file": "libs/core/application/coapaiperassistance/README.md",
+          "hash": "17345251730071848900"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/jest.config.ts",
+          "hash": "9305098763834166917"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/project.json",
+          "hash": "7647966332181483238"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/src/index.ts",
+          "hash": "8152316028606614203"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/src/lib/coapaiperassistance.spec.ts",
+          "hash": "16498928237602294870"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/src/lib/coapaiperassistance.ts",
+          "hash": "13451609766570157346"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapaiperassistance/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "coapanalyticsservice": [
+        {
+          "file": "libs/core/application/coapanalyticsservice/README.md",
+          "hash": "6467671059706399524"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/jest.config.ts",
+          "hash": "7810536869458553912"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/project.json",
+          "hash": "5209691915707423487"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/src/index.ts",
+          "hash": "9365729012665354767"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/src/lib/coapanalyticsservice.spec.ts",
+          "hash": "10962146991554080673"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/src/lib/coapanalyticsservice.ts",
+          "hash": "16961468906208472183"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapanalyticsservice/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "codomessagetemplaterecord": [
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/README.md",
+          "hash": "3816194876669571109"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/jest.config.ts",
+          "hash": "4940125958583004454"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/project.json",
+          "hash": "7549014789061470119"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/src/index.ts",
+          "hash": "4023870063422337072"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/src/lib/codomessagetemplaterecord.spec.ts",
+          "hash": "1739788460559662451"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/src/lib/codomessagetemplaterecord.ts",
+          "hash": "16093649814324089015"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "aiper-assistance": [
+        {
+          "file": "apps/aiper-assistance/.gitignore",
+          "hash": "15640894140108247102"
+        },
+        {
+          "file": "apps/aiper-assistance/.swcrc",
+          "hash": "2742566327615098680"
+        },
+        {
+          "file": "apps/aiper-assistance/eslint.config.mjs",
+          "hash": "5056064876072163445",
+          "deps": [
+            "npm:@eslint/compat",
+            "npm:@eslint/eslintrc",
+            "npm:@eslint/js",
+            "npm:@nx/eslint-plugin",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:eslint-plugin-jsx-a11y",
+            "npm:eslint-plugin-react",
+            "npm:eslint-plugin-react-hooks",
+            "npm:globals"
+          ]
+        },
+        {
+          "file": "apps/aiper-assistance/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/aiper-assistance/jest.config.ts",
+          "hash": "9729216660545221652"
+        },
+        {
+          "file": "apps/aiper-assistance/next-env.d.ts",
+          "hash": "1320675027584673186"
+        },
+        {
+          "file": "apps/aiper-assistance/next.config.js",
+          "hash": "11974247725870698265",
+          "deps": [
+            "npm:@nx/next",
+            "npm:tsconfig-paths-webpack-plugin"
+          ]
+        },
+        {
+          "file": "apps/aiper-assistance/postcss.config.js",
+          "hash": "8477429590743733096"
+        },
+        {
+          "file": "apps/aiper-assistance/project.json",
+          "hash": "4959844840857237225"
+        },
+        {
+          "file": "apps/aiper-assistance/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/aiper-assistance/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/aiper-assistance/specs/index.spec.tsx",
+          "hash": "2873936096691223229",
+          "deps": [
+            "npm:react",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/aiper-assistance/src/app/api/hello/route.ts",
+          "hash": "4982391731772911298"
+        },
+        {
+          "file": "apps/aiper-assistance/src/app/global-error.tsx",
+          "hash": "11980234859607399426"
+        },
+        {
+          "file": "apps/aiper-assistance/src/app/globals.css",
+          "hash": "3446976517252360082"
+        },
+        {
+          "file": "apps/aiper-assistance/src/app/layout.tsx",
+          "hash": "6022284280570600984",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "ui-shared"
+          ]
+        },
+        {
+          "file": "apps/aiper-assistance/src/app/page.module.css",
+          "hash": "4786619528779355986"
+        },
+        {
+          "file": "apps/aiper-assistance/src/app/page.tsx",
+          "hash": "3033581008487548800"
+        },
+        {
+          "file": "apps/aiper-assistance/src/components/layout/LiaLayoutClient.tsx",
+          "hash": "1575472535177774970",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/aiper-assistance/src/components/layout/LiaSidebar.tsx",
+          "hash": "6852239910950464665",
+          "deps": [
+            "ui-shared",
+            "npm:lucide-react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/aiper-assistance/src/components/layout/LiaTopNav.tsx",
+          "hash": "9025306605564293454"
+        },
+        {
+          "file": "apps/aiper-assistance/src/components/providers/index.tsx",
+          "hash": "15757412348170422444",
+          "deps": [
+            "npm:@tanstack/react-query",
+            "npm:@tanstack/react-query-devtools",
+            "npm:next-themes",
+            "npm:react",
+            "npm:react-hot-toast"
+          ]
+        },
+        {
+          "file": "apps/aiper-assistance/tailwind.config.js",
+          "hash": "13255108459560612551",
+          "deps": [
+            "npm:@nx/next",
+            "ui-shared"
+          ]
+        },
+        {
+          "file": "apps/aiper-assistance/tsconfig.json",
+          "hash": "15129444369638497769"
+        },
+        {
+          "file": "apps/aiper-assistance/tsconfig.spec.json",
+          "hash": "13752930008724566565"
+        }
+      ],
+      "coapbilling": [
+        {
+          "file": "libs/core/application/coapbilling/README.md",
+          "hash": "5212380520779660819"
+        },
+        {
+          "file": "libs/core/application/coapbilling/eslint.config.mjs",
+          "hash": "15872373987943413713"
+        },
+        {
+          "file": "libs/core/application/coapbilling/jest.config.ts",
+          "hash": "9206182746666868441"
+        },
+        {
+          "file": "libs/core/application/coapbilling/project.json",
+          "hash": "5265823615476459604"
+        },
+        {
+          "file": "libs/core/application/coapbilling/src/index.ts",
+          "hash": "13895511008789835434"
+        },
+        {
+          "file": "libs/core/application/coapbilling/src/lib/coapbilling.spec.ts",
+          "hash": "10277539577690513201"
+        },
+        {
+          "file": "libs/core/application/coapbilling/src/lib/coapbilling.ts",
+          "hash": "6438191750001920197"
+        },
+        {
+          "file": "libs/core/application/coapbilling/tsconfig.json",
+          "hash": "7846400365888195640"
+        },
+        {
+          "file": "libs/core/application/coapbilling/tsconfig.lib.json",
+          "hash": "5419457303262888731"
+        },
+        {
+          "file": "libs/core/application/coapbilling/tsconfig.spec.json",
+          "hash": "4164763362289325525"
+        }
+      ],
+      "infrapersistence": [
+        {
+          "file": "libs/infrastructure/infrapersistence/README.md",
+          "hash": "17256935355568414767"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/eslint.config.mjs",
+          "hash": "16759498837230279251"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/jest.config.ts",
+          "hash": "10132796515322694617"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/project.json",
+          "hash": "14451448644917207706"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/src/index.ts",
+          "hash": "14296415436455172663"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/src/lib/infrapersistence.module.ts",
+          "hash": "12281134000161330133",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/tsconfig.json",
+          "hash": "9505886339790543345"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/tsconfig.lib.json",
+          "hash": "2198184121120557529"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/tsconfig.spec.json",
+          "hash": "2037337966284968602"
         }
       ]
-    },
-    "nonProjectFiles": [
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".env.example",
-        "hash": "9701414843099447202"
-      },
-      {
-        "file": ".github/instructions/nx.instructions.md",
-        "hash": "8794530091646052069"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "11173611516256621495"
-      },
-      {
-        "file": ".npmrc",
-        "hash": "1880664178033616490"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "16378750861203669088"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "3719944644258228693"
-      },
-      {
-        "file": ".vercelignore",
-        "hash": "11039824168913323036"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "4637156562308165301"
-      },
-      {
-        "file": "README.md",
-        "hash": "10841274974903266604"
-      },
-      {
-        "file": "components.json",
-        "hash": "1784723684728134693"
-      },
-      {
-        "file": "dependency-graph.html",
-        "hash": "18262955677129681562"
-      },
-      {
-        "file": "dependency-graph.json",
-        "hash": "10722196675876906914"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "15255107291123918229"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "12630965493391364343"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": "nx.json",
-        "hash": "3971821767367882110"
-      },
-      {
-        "file": "package copy.json",
-        "hash": "8091084440105246356"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "13852605215639941163"
-      },
-      {
-        "file": "package.json",
-        "hash": "10810573593090778939"
-      },
-      {
-        "file": "pnpm",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "pnpm-workspace.yaml",
-        "hash": "9932403079654918373"
-      },
-      {
-        "file": "scripts/ejecuta.ts",
-        "hash": "8638839745248006799"
-      },
-      {
-        "file": "static/environment.js",
-        "hash": "3744888822665143214"
-      },
-      {
-        "file": "static/favicon.ico",
-        "hash": "9303420814833116677"
-      },
-      {
-        "file": "static/main.js",
-        "hash": "13466073545778635666"
-      },
-      {
-        "file": "static/runtime.js",
-        "hash": "12948695002603102697"
-      },
-      {
-        "file": "static/styles.css",
-        "hash": "8991366033343630201"
-      },
-      {
-        "file": "static/styles.js",
-        "hash": "13859495920378584409"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "17806203153731419894"
-      },
-      {
-        "file": "tsconfig.json",
-        "hash": "15904257995032004510"
-      }
-    ]
+    }
   }
 }

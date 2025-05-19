@@ -1,0 +1,14 @@
+{
+  "name": "coapcampaigns",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapcampaigns/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "domain:campaigns"
+  ],
+  "// targets": "to see all targets run: nx show project coapcampaigns --web",
+  "targets": {}
+}

@@ -1,0 +1,5 @@
+// RUTA: libs/core/domain/shared-kernel/cdskevents/src/index.ts
+export * from './lib/domain-event.interface';
+export * from './lib/domain-event.base';
+export * from './lib/domain-event-handler.interface';
+export * from './lib/domain-event-emitter.interface';
