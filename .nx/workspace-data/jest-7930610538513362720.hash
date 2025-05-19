@@ -1,5 +1,5 @@
 {
-  "823808639083653614": {
+  "2623326461189641287": {
     "targets": {
       "test": {
         "command": "jest",
@@ -15,7 +15,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -56,7 +56,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -81,7 +81,7 @@
       }
     }
   },
-  "13205666401753526794": {
+  "8332077674659141463": {
     "targets": {
       "test": {
         "command": "jest",
@@ -97,7 +97,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -122,7 +122,7 @@
       }
     }
   },
-  "14209680151063058421": {
+  "12747094204692103711": {
     "targets": {
       "test": {
         "command": "jest",
@@ -138,7 +138,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -163,7 +163,7 @@
       }
     }
   },
-  "5693170194285916510": {
+  "9551602837557427566": {
     "targets": {
       "test": {
         "command": "jest",
@@ -179,7 +179,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -204,7 +204,7 @@
       }
     }
   },
-  "16537538099219815892": {
+  "17892056977183081385": {
     "targets": {
       "test": {
         "command": "jest",
@@ -220,7 +220,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -245,7 +245,7 @@
       }
     }
   },
-  "1760285025643945201": {
+  "17934773958598341194": {
     "targets": {
       "test": {
         "command": "jest",
@@ -261,7 +261,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -286,7 +286,7 @@
       }
     }
   },
-  "3124951293813537740": {
+  "53154909722425004": {
     "targets": {
       "test": {
         "command": "jest",
@@ -302,7 +302,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -343,7 +343,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -384,7 +384,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -425,7 +425,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -466,7 +466,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -507,7 +507,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -548,7 +548,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -589,7 +589,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -630,7 +630,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -671,7 +671,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -712,7 +712,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -753,7 +753,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -778,7 +778,7 @@
       }
     }
   },
-  "17904323794245318098": {
+  "2166852327331868688": {
     "targets": {
       "test": {
         "command": "jest",
@@ -794,7 +794,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -835,7 +835,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -876,7 +876,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true
@@ -901,7 +901,7 @@
       }
     }
   },
-  "7903495676782242175": {
+  "15267316975844597969": {
     "targets": {
       "test": {
         "command": "jest",
@@ -917,7 +917,7 @@
           ],
           "description": "Run Jest Tests",
           "help": {
-            "command": "pnpm exec jest --help",
+            "command": "npx jest --help",
             "example": {
               "options": {
                 "coverage": true

@@ -1,33 +1,44 @@
 // apps/pwa-supervisor/tailwind.config.js
-// Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
-// Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
-// Propiedad Intelectual: MetaShark (I.S.)
 const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
-const { join, resolve } = require('path'); // Importar resolve
+const { join, resolve } = require('path');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [
-    require(resolve(__dirname, '../../libs/ui-shared/tailwind.config.js')), // Usar resolve para asegurar path absoluto al preset
+    // Ruta absoluta al preset de ui-shared para asegurar la correcta carga
+    require(resolve(__dirname, '../../libs/ui-shared/tailwind.config.js')),
   ],
-  darkMode: 'class',
+  darkMode: 'class', // O 'media' si prefieres basado en OS
   content: [
+    // Paths explícitos y más amplios para el contenido de pwa-supervisor
     join(
-      __dirname, // Directorio actual (apps/pwa-supervisor)
-      'src/{app,pages,components,layouts}/**/*!(*.stories|*.spec).{ts,tsx,html,css}' // Patrones más comunes y explícitos
+      __dirname,
+      'src/{app,components,hooks,lib,store,layouts,pages}/**/*!(*.stories|*.spec).{ts,tsx,html,css,mdx}'
     ),
-    // Path explícito y absoluto a ui-shared
+    // Path explícito y absoluto a los componentes y utilidades de ui-shared
+    // Es crucial incluir el directorio 'lib' si 'cn' u otras utilidades de ui-shared se usan en clases
     resolve(
       __dirname,
-      '../../libs/ui-shared/src/**/*!(*.stories|*.spec).{ts,tsx,html,css}'
+      '../../libs/ui-shared/src/{components,lib}/**/*!(*.stories|*.spec).{ts,tsx,html,css,mdx}'
     ),
-    ...createGlobPatternsForDependencies(__dirname), // Mantener por si acaso, pero el explícito es más fuerte
+    // createGlobPatternsForDependencies es un fallback útil, pero los paths explícitos son más robustos
+    ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
     extend: {
-      // Extensiones específicas para pwa-supervisor pueden ir aquí
-      // si necesitas sobrescribir o añadir algo al tema de ui-shared.
+      // Aquí puedes añadir extensiones o sobreescrituras específicas para pwa-supervisor
+      // que se aplicarán SOBRE el tema heredado de ui-shared.
+      // Ejemplo:
+      // colors: {
+      //   'supervisor-accent': 'hsl(var(--supervisor-accent-custom))',
+      // },
+      // fontFamily: {
+      //   display: ['var(--font-specific-for-supervisor)', 'sans-serif'],
+      // },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    // Otros plugins específicos de pwa-supervisor podrían ir aquí
+  ],
 };

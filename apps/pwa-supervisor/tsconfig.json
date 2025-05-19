@@ -15,31 +15,57 @@
     "resolveJsonModule": true, // Ya heredado
     "isolatedModules": true, // Ya heredado
     "incremental": true,
-    "plugins": [{ "name": "next" }],
-    "types": ["jest", "node"], // "node" es importante para Next.js App Router
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "types": [
+      "jest",
+      "node"
+    ], // "node" es importante para Next.js App Router
     "baseUrl": "./", // BaseUrl local para los paths de esta app
     "paths": {
       // Paths específicos de esta app
-      "@/app/*": ["src/app/*"],
-      "@/components/*": ["src/components/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/lib/*": ["src/lib/*"],
-      "@/store/*": ["src/store/*"],
-      "@/styles/*": ["src/styles/*"], // Si tienes este directorio
-      "@/themes/*": ["src/themes/*"],
-      "@/types/*": ["src/types/*"],
-      "@/public/*": ["public/*"]
+      "@/app/*": [
+        "src/app/*"
+      ],
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/hooks/*": [
+        "src/hooks/*"
+      ],
+      "@/lib/*": [
+        "src/lib/*"
+      ],
+      "@/store/*": [
+        "src/store/*"
+      ],
+      "@/styles/*": [
+        "src/styles/*"
+      ], // Si tienes este directorio
+      "@/themes/*": [
+        "src/themes/*"
+      ],
+      "@/types/*": [
+        "src/types/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ]
     }
   },
   "files": [],
   "include": [
     // Los archivos específicos ya están en tsconfig.app.json y tsconfig.spec.json
     // Este include puede ser más general para el editor.
+    ".next/types/**/*.ts",
+    "index.d.ts",
     "next-env.d.ts",
-    "src/**/*.ts",
+    "src/**/*.ts", // Añadido para tipos generados por Next.js
     "src/**/*.tsx",
-    ".next/types/**/*.ts", // Añadido para tipos generados por Next.js
-    "index.d.ts"
+    "../../dist/apps/pwa-supervisor/.next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
@@ -51,7 +77,11 @@
     // No es necesario excluir **/*.spec.ts aquí si tsconfig.app.json lo hace
   ],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.spec.json" }
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
   ]
 }

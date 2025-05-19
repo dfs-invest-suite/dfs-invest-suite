@@ -1,3 +1,4 @@
+// RUTA: apps/aiper-assistance/tsconfig.json
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
@@ -7,7 +8,7 @@
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "bundler", // Correcto para App Router moderno
     "resolveJsonModule": true,
     "isolatedModules": true,
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -20,17 +21,25 @@
         "name": "next"
       }
     ],
-    "types": ["jest", "node"]
+    "baseUrl": "./src", // <--- AÑADIDO: Define la base para los paths
+    "paths": {
+      // <--- AÑADIDO: Define los alias
+      "@/*": ["*"] // Mapea "@/*" a "src/*" (relativo a baseUrl)
+    }
   },
   "include": [
     "**/*.js",
     "**/*.jsx",
     "**/*.ts",
     "**/*.tsx",
-    "../../apps/aiper-assistance/.next/types/**/*.ts",
-    "../../dist/apps/aiper-assistance/.next/types/**/*.ts",
-    "next-env.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts", // Ruta simplificada, Next.js las encontrará relativas a este tsconfig
+    // No es necesario incluir los paths de dist o los de la raíz del proyecto aquí si .next/types es suficiente
+    "next-env.d.ts"
   ],
-  "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
+  "exclude": [
+    "node_modules",
+    "jest.config.ts", // Correcto
+    "**/*.spec.ts", // Correcto
+    "**/*.test.ts" // Correcto
+  ]
 }

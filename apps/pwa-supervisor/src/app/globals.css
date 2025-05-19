@@ -1,32 +1,6 @@
-/*
-  Importante: Este archivo es el punto de entrada para los estilos globales de pwa-supervisor.
-  Debe importar los estilos base de ui-shared y luego las directivas de Tailwind.
-*/
-
-/*
-  1. Importar los estilos globales de ui-shared (que contienen las variables CSS para el tema).
-     Se usa una ruta relativa desde este archivo hasta el globals.css de ui-shared.
-*/
-@import '../../../../libs/ui-shared/src/styles/globals.css'; /* <- RUTA CRÍTICA */
-
-/*
-  2. Importar las directivas base, componentes y utilidades de Tailwind CSS.
-     Tailwind utilizará las variables CSS definidas en ui-shared/src/styles/globals.css
-     (y las sobrescrituras en el tailwind.config.js de pwa-supervisor, si las hay)
-     para generar las clases.
-*/
+/* apps/pwa-supervisor/src/app/globals.css */
+@import '../../../../libs/ui-shared/src/styles/globals.css'; /* CONFIRMA ESTA RUTA */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/*
-  3. (Opcional) Definir estilos base adicionales o sobreescrituras específicas
-     para pwa-supervisor que deban aplicarse globalmente.
-*/
-@layer base {
-  body {
-    @apply bg-background text-foreground;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
+/* ... otros estilos base de pwa-supervisor ... */

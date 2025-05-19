@@ -29,49 +29,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
-              "example": {
-                "options": {
-                  "max-warnings": 0
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "7948335168334119553": {
-    "libs/core/application/tenancy": {
-      "targets": {
-        "lint": {
-          "command": "eslint .",
-          "cache": true,
-          "options": {
-            "cwd": "libs/core/application/tenancy"
-          },
-          "inputs": [
-            "default",
-            "^default",
-            "{workspaceRoot}/eslint.config.mjs",
-            "{projectRoot}/eslint.config.mjs",
-            "{workspaceRoot}/tools/eslint-rules/**/*",
-            {
-              "externalDependencies": [
-                "eslint"
-              ]
-            }
-          ],
-          "outputs": [
-            "{options.outputFile}"
-          ],
-          "metadata": {
-            "technologies": [
-              "eslint"
-            ],
-            "description": "Runs ESLint on project",
-            "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -113,7 +71,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -125,14 +83,14 @@
       }
     }
   },
-  "656617842879973104": {
-    "libs/core/domain/shared-kernel/entities": {
+  "7948335168334119553": {
+    "libs/core/application/tenancy": {
       "targets": {
         "lint": {
           "command": "eslint .",
           "cache": true,
           "options": {
-            "cwd": "libs/core/domain/shared-kernel/entities"
+            "cwd": "libs/core/application/tenancy"
           },
           "inputs": [
             "default",
@@ -155,7 +113,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -197,7 +155,49 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
+              "example": {
+                "options": {
+                  "max-warnings": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "656617842879973104": {
+    "libs/core/domain/shared-kernel/entities": {
+      "targets": {
+        "lint": {
+          "command": "eslint .",
+          "cache": true,
+          "options": {
+            "cwd": "libs/core/domain/shared-kernel/entities"
+          },
+          "inputs": [
+            "default",
+            "^default",
+            "{workspaceRoot}/eslint.config.mjs",
+            "{projectRoot}/eslint.config.mjs",
+            "{workspaceRoot}/tools/eslint-rules/**/*",
+            {
+              "externalDependencies": [
+                "eslint"
+              ]
+            }
+          ],
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "metadata": {
+            "technologies": [
+              "eslint"
+            ],
+            "description": "Runs ESLint on project",
+            "help": {
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -239,7 +239,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -281,7 +281,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -323,7 +323,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -365,7 +365,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -407,7 +407,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -449,49 +449,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
-              "example": {
-                "options": {
-                  "max-warnings": 0
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "17398172598594280895": {
-    "libs/shared/types": {
-      "targets": {
-        "lint": {
-          "command": "eslint .",
-          "cache": true,
-          "options": {
-            "cwd": "libs/shared/types"
-          },
-          "inputs": [
-            "default",
-            "^default",
-            "{workspaceRoot}/eslint.config.mjs",
-            "{projectRoot}/eslint.config.mjs",
-            "{workspaceRoot}/tools/eslint-rules/**/*",
-            {
-              "externalDependencies": [
-                "eslint"
-              ]
-            }
-          ],
-          "outputs": [
-            "{options.outputFile}"
-          ],
-          "metadata": {
-            "technologies": [
-              "eslint"
-            ],
-            "description": "Runs ESLint on project",
-            "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -533,7 +491,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -575,7 +533,49 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
+              "example": {
+                "options": {
+                  "max-warnings": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "5521673840841941243": {
+    "libs/shared/types": {
+      "targets": {
+        "lint": {
+          "command": "eslint .",
+          "cache": true,
+          "options": {
+            "cwd": "libs/shared/types"
+          },
+          "inputs": [
+            "default",
+            "^default",
+            "{workspaceRoot}/eslint.config.mjs",
+            "{projectRoot}/eslint.config.mjs",
+            "{workspaceRoot}/tools/eslint-rules/**/*",
+            {
+              "externalDependencies": [
+                "eslint"
+              ]
+            }
+          ],
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "metadata": {
+            "technologies": [
+              "eslint"
+            ],
+            "description": "Runs ESLint on project",
+            "help": {
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -617,7 +617,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -659,7 +659,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -671,8 +671,8 @@
       }
     }
   },
-  "316785475453989844": {},
-  "14657022430027044073": {
+  "557607683079901579": {},
+  "422188720735723948": {
     "libs/ui-shared": {
       "targets": {
         "lint": {
@@ -702,7 +702,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -714,49 +714,7 @@
       }
     }
   },
-  "5968420694281219421": {
-    "apps/pwa-supervisor": {
-      "targets": {
-        "lint": {
-          "command": "eslint .",
-          "cache": true,
-          "options": {
-            "cwd": "apps/pwa-supervisor"
-          },
-          "inputs": [
-            "default",
-            "^default",
-            "{workspaceRoot}/eslint.config.mjs",
-            "{projectRoot}/eslint.config.mjs",
-            "{workspaceRoot}/tools/eslint-rules/**/*",
-            {
-              "externalDependencies": [
-                "eslint"
-              ]
-            }
-          ],
-          "outputs": [
-            "{options.outputFile}"
-          ],
-          "metadata": {
-            "technologies": [
-              "eslint"
-            ],
-            "description": "Runs ESLint on project",
-            "help": {
-              "command": "pnpm exec eslint --help",
-              "example": {
-                "options": {
-                  "max-warnings": 0
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "7365791569825490068": {
+  "5446802482396114712": {
     "apps/aiper-assistance": {
       "targets": {
         "lint": {
@@ -786,7 +744,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -798,7 +756,49 @@
       }
     }
   },
-  "2321546237578506589": {
+  "2596280801367408307": {
+    "apps/pwa-supervisor": {
+      "targets": {
+        "lint": {
+          "command": "eslint .",
+          "cache": true,
+          "options": {
+            "cwd": "apps/pwa-supervisor"
+          },
+          "inputs": [
+            "default",
+            "^default",
+            "{workspaceRoot}/eslint.config.mjs",
+            "{projectRoot}/eslint.config.mjs",
+            "{workspaceRoot}/tools/eslint-rules/**/*",
+            {
+              "externalDependencies": [
+                "eslint"
+              ]
+            }
+          ],
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "metadata": {
+            "technologies": [
+              "eslint"
+            ],
+            "description": "Runs ESLint on project",
+            "help": {
+              "command": "npx eslint --help",
+              "example": {
+                "options": {
+                  "max-warnings": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "5198701795400248580": {
     "apps/dev-hub": {
       "targets": {
         "lint": {
@@ -828,7 +828,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -840,7 +840,7 @@
       }
     }
   },
-  "15299784561113861206": {
+  "3510321771777056805": {
     "apps/guia-investidor": {
       "targets": {
         "lint": {
@@ -870,7 +870,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -882,7 +882,7 @@
       }
     }
   },
-  "7655406149669609197": {
+  "2685198851661611525": {
     "apps/portal-imoveis": {
       "targets": {
         "lint": {
@@ -912,7 +912,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -924,7 +924,7 @@
       }
     }
   },
-  "14477119212556667800": {
+  "10436375445678634574": {
     "apps/pwa-consultant": {
       "targets": {
         "lint": {
@@ -954,7 +954,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -966,7 +966,7 @@
       }
     }
   },
-  "5055157921834665877": {
+  "17746473454941695305": {
     "apps/web3-portal": {
       "targets": {
         "lint": {
@@ -996,7 +996,7 @@
             ],
             "description": "Runs ESLint on project",
             "help": {
-              "command": "pnpm exec eslint --help",
+              "command": "npx eslint --help",
               "example": {
                 "options": {
                   "max-warnings": 0
@@ -1007,34 +1007,5 @@
         }
       }
     }
-  },
-  "3828652025396035938": {},
-  "4686477765816901993": {},
-  "4585778937089053166": {},
-  "1759695757808877112": {},
-  "16829060946943260509": {},
-  "471798453119044818": {},
-  "5500690231496467473": {},
-  "9355303609402298621": {},
-  "18180110725153847572": {},
-  "16785766384351166641": {},
-  "3984558538899741089": {},
-  "13689539762421000057": {},
-  "1858338462065841604": {},
-  "1606165677517246203": {},
-  "6068121143940523864": {},
-  "5403198856660910883": {},
-  "6445454088815606487": {},
-  "5606719526043218516": {},
-  "2281766884263665225": {},
-  "13394515476310027341": {},
-  "13203958437091271096": {},
-  "8995088293240492715": {},
-  "1382417241189673965": {},
-  "7399380947356998319": {},
-  "12179709459023050599": {},
-  "1600416161534804404": {},
-  "6479700163654486377": {},
-  "5755356555251280740": {},
-  "2598124720521676297": {}
+  }
 }

@@ -1,56 +1,133 @@
+/* RUTA: libs/ui-shared/src/styles/globals.css */
+/* Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech) */
+/* Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados. */
+/* Propiedad Intelectual: MetaShark (I.S.) */
+
+/* 
+  Este archivo define las variables CSS globales para los temas,
+  especialmente los colores base de Shadcn/UI y nuestra personalización L.I.A Legacy.
+  También importa las directivas base de Tailwind.
+*/
+
 @layer base {
+  /* ----- TEMA CLARO POR DEFECTO DE SHADCN/UI (Se mantiene como opción) ----- */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Variables estándar de Shadcn/UI para el tema claro */
+    --background: 0 0% 100%; /* Blanco */
+    --foreground: 222.2 84% 4.9%; /* Texto oscuro principal */
+
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%; /* Azul oscuro de Shadcn */
+    --primary-foreground: 210 40% 98%; /* Texto claro sobre primario */
+
+    --secondary: 210 40% 96.1%; /* Gris muy claro */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* Texto oscuro sobre secundario */
+
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 215.4 16.3% 46.9%; /* Texto gris medio */
+
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
+
+    --destructive: 0 84.2% 60.2%; /* Rojo para errores */
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%; /* Variable --border */
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+
+    --border: 214.3 31.8% 91.4%; /* Borde gris claro */
+    --input: 214.3 31.8% 91.4%; /* Fondo de input */
+    --ring: 222.2 84% 4.9%; /* Anillo de foco */
+
+    --radius: 0.75rem; /* Radio de borde por defecto (ajustado de 0.5rem) */
+
+    /* Variables CSS para la fuente sans-serif (ej. Inter) */
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+      'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* ---- Variables específicas del Tema L.I.A Legacy (para modo oscuro) ---- */
+    /* Estos son los valores que se aplicarán cuando la clase .dark esté presente */
+    --lia-bg-dark: 260 30% 10%;
+    --lia-fg-dark: 260 20% 95%;
+    --lia-card-dark: 260 30% 13%;
+    --lia-card-fg-dark: 260 20% 95%;
+    --lia-popover-dark: 260 30% 10%;
+    --lia-popover-fg-dark: 260 20% 95%;
+    --lia-primary-dark: 300 85% 65%;
+    --lia-primary-fg-dark: 300 80% 15%;
+    --lia-secondary-dark: 190 95% 60%;
+    --lia-secondary-fg-dark: 190 90% 10%;
+    --lia-muted-dark: 260 20% 22%;
+    --lia-muted-fg-dark: 260 15% 65%;
+    --lia-accent-dark: 240 40% 55%;
+    --lia-accent-fg-dark: 260 20% 95%;
+    --lia-destructive-dark: 0 75% 60%;
+    --lia-destructive-fg-dark: 0 0% 100%;
+    --lia-border-dark: 260 20% 25%;
+    --lia-input-dark: 260 20% 18%;
+    --lia-ring-dark: 300 80% 70%;
+
+    /* Colores específicos L.I.A Legacy (para uso directo o en tailwind.config) */
+    --lia-deep-purple-bg-val: 265 35% 18%;
+    --lia-magenta-neon-val: 300 90% 68%;
+    --lia-cyan-neon-val: 190 100% 65%;
+    --lia-advert-bg-val: 260 25% 13%;
   }
 
+  /* ----- TEMA OSCURO "L.I.A LEGACY" (Se aplica cuando <html class="dark">) ----- */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%; /* Variable --border dark */
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: var(--lia-bg-dark);
+    --foreground: var(--lia-fg-dark);
+    --card: var(--lia-card-dark);
+    --card-foreground: var(--lia-card-fg-dark);
+    --popover: var(--lia-popover-dark);
+    --popover-foreground: var(--lia-popover-fg-dark);
+    --primary: var(--lia-primary-dark);
+    --primary-foreground: var(--lia-primary-fg-dark);
+    --secondary: var(--lia-secondary-dark);
+    --secondary-foreground: var(--lia-secondary-fg-dark);
+    --muted: var(--lia-muted-dark);
+    --muted-foreground: var(--lia-muted-fg-dark);
+    --accent: var(--lia-accent-dark);
+    --accent-foreground: var(--lia-accent-fg-dark);
+    --destructive: var(--lia-destructive-dark);
+    --destructive-foreground: var(--lia-destructive-fg-dark);
+    --border: var(--lia-border-dark);
+    --input: var(--lia-input-dark);
+    --ring: var(--lia-ring-dark);
+    /* --radius se mantiene desde :root */
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
-  * {
-    /* @apply border-border; */ /* <<<<<< TEMPORALMENTE COMENTADO */
-  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased transition-colors duration-150 ease-in-out;
     font-feature-settings: 'rlig' 1, 'calt' 1;
+    font-family: var(--font-sans);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.2);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.5);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.8);
   }
 }
+/* FIN DEL ARCHIVO: libs/ui-shared/src/styles/globals.css */

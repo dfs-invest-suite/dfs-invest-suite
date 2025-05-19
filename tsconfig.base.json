@@ -59,7 +59,7 @@
       "@dfs-suite/shared-validation-schemas": [
         "libs/shared/validation-schemas/src/index.ts"
       ],
-      "@dfs-suite/ui-shared": ["libs/ui-shared/src"]
+      "@dfs-suite/ui-shared": ["libs/ui-shared/src/index.ts"] // <--- AJUSTE AQUÍ
     },
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
