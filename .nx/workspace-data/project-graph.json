@@ -2223,6 +2223,105 @@
         "implicitDependencies": []
       }
     },
+    "infraappservices": {
+      "name": "infraappservices",
+      "type": "lib",
+      "data": {
+        "root": "libs/infrastructure/infraappservices",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/infrastructure/infraappservices",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/infrastructure/infraappservices",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\infrastructure\\infraappservices"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "infraappservices",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/infrastructure/infraappservices/src",
+        "projectType": "library",
+        "tags": [
+          "scope:infrastructure",
+          "type:adapter",
+          "layer:infrastructure",
+          "technology:app-services"
+        ],
+        "implicitDependencies": []
+      }
+    },
     "infrapersistence": {
       "name": "infrapersistence",
       "type": "lib",
@@ -2318,6 +2417,105 @@
           "type:adapter",
           "layer:infrastructure",
           "technology:prisma"
+        ],
+        "implicitDependencies": []
+      }
+    },
+    "infravectorstore": {
+      "name": "infravectorstore",
+      "type": "lib",
+      "data": {
+        "root": "libs/infrastructure/infravectorstore",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/infrastructure/infravectorstore",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/infrastructure/infravectorstore",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\infrastructure\\infravectorstore"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "infravectorstore",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/infrastructure/infravectorstore/src",
+        "projectType": "library",
+        "tags": [
+          "scope:infrastructure",
+          "type:adapter",
+          "layer:infrastructure",
+          "technology:vector-db"
         ],
         "implicitDependencies": []
       }
@@ -4345,6 +4543,46 @@
             "executor": "nx:run-commands",
             "configurations": {},
             "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/shared/shconstants",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\shared\\shconstants"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
           }
         },
         "name": "shconstants",
@@ -4489,6 +4727,105 @@
         "implicitDependencies": []
       }
     },
+    "application": {
+      "name": "application",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/application",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/application",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/application",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\application"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "application",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/application/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core",
+          "type:application-logic",
+          "layer:application",
+          "feature:message-log"
+        ],
+        "implicitDependencies": []
+      }
+    },
     "guia-investidor": {
       "name": "guia-investidor",
       "type": "app",
@@ -4522,7 +4859,7 @@
               ],
               "description": "Runs ESLint on project",
               "help": {
-                "command": "npx eslint --help",
+                "command": "pnpm exec eslint --help",
                 "example": {
                   "options": {
                     "max-warnings": 0
@@ -4548,7 +4885,7 @@
               ],
               "description": "Run Jest Tests",
               "help": {
-                "command": "npx jest --help",
+                "command": "pnpm exec jest --help",
                 "example": {
                   "options": {
                     "coverage": true
@@ -5084,7 +5421,7 @@
               ],
               "description": "Runs ESLint on project",
               "help": {
-                "command": "npx eslint --help",
+                "command": "pnpm exec eslint --help",
                 "example": {
                   "options": {
                     "max-warnings": 0
@@ -5110,7 +5447,7 @@
               ],
               "description": "Run Jest Tests",
               "help": {
-                "command": "npx jest --help",
+                "command": "pnpm exec jest --help",
                 "example": {
                   "options": {
                     "coverage": true
@@ -5267,7 +5604,7 @@
               ],
               "description": "Runs ESLint on project",
               "help": {
-                "command": "npx eslint --help",
+                "command": "pnpm exec eslint --help",
                 "example": {
                   "options": {
                     "max-warnings": 0
@@ -5293,7 +5630,7 @@
               ],
               "description": "Run Jest Tests",
               "help": {
-                "command": "npx jest --help",
+                "command": "pnpm exec jest --help",
                 "example": {
                   "options": {
                     "coverage": true
@@ -5789,7 +6126,7 @@
               ],
               "description": "Runs ESLint on project",
               "help": {
-                "command": "npx eslint --help",
+                "command": "pnpm exec eslint --help",
                 "example": {
                   "options": {
                     "max-warnings": 0
@@ -5827,6 +6164,105 @@
         "tags": []
       }
     },
+    "domain": {
+      "name": "domain",
+      "type": "lib",
+      "data": {
+        "root": "libs/core/domain",
+        "targets": {
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "libs/core/domain",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{projectRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "pnpm exec eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "options": {
+              "cwd": "libs/core/domain",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest"
+            },
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "pnpm exec jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^production",
+              "{workspaceRoot}\\jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\libs\\core\\domain"
+            ],
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "name": "domain",
+        "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/core/domain/src",
+        "projectType": "library",
+        "tags": [
+          "scope:core",
+          "type:domain-logic",
+          "layer:domain",
+          "domain:message-log"
+        ],
+        "implicitDependencies": []
+      }
+    },
     "web3-portal": {
       "name": "web3-portal",
       "type": "app",
@@ -5860,7 +6296,7 @@
               ],
               "description": "Runs ESLint on project",
               "help": {
-                "command": "npx eslint --help",
+                "command": "pnpm exec eslint --help",
                 "example": {
                   "options": {
                     "max-warnings": 0
@@ -5886,7 +6322,7 @@
               ],
               "description": "Run Jest Tests",
               "help": {
-                "command": "npx jest --help",
+                "command": "pnpm exec jest --help",
                 "example": {
                   "options": {
                     "coverage": true
@@ -6483,7 +6919,7 @@
               ],
               "description": "Runs ESLint on project",
               "help": {
-                "command": "npx eslint --help",
+                "command": "pnpm exec eslint --help",
                 "example": {
                   "options": {
                     "max-warnings": 0
@@ -6502,7 +6938,7 @@
               ],
               "description": "Run Jest Tests",
               "help": {
-                "command": "npx jest --help",
+                "command": "pnpm exec jest --help",
                 "example": {
                   "options": {
                     "coverage": true
@@ -6579,7 +7015,7 @@
               ],
               "description": "Runs ESLint on project",
               "help": {
-                "command": "npx eslint --help",
+                "command": "pnpm exec eslint --help",
                 "example": {
                   "options": {
                     "max-warnings": 0
@@ -6605,7 +7041,7 @@
               ],
               "description": "Run Jest Tests",
               "help": {
-                "command": "npx jest --help",
+                "command": "pnpm exec jest --help",
                 "example": {
                   "options": {
                     "coverage": true
@@ -14685,6 +15121,15 @@
         "version": "1.0.1",
         "packageName": "data-view-byte-offset",
         "hash": "sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ=="
+      }
+    },
+    "npm:date-fns": {
+      "type": "npm",
+      "name": "npm:date-fns",
+      "data": {
+        "version": "4.1.0",
+        "packageName": "date-fns",
+        "hash": "sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg=="
       }
     },
     "npm:date-format": {
@@ -24160,15 +24605,88 @@
     "cdskcommandsqueries": [
       {
         "source": "cdskcommandsqueries",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "cdskcommandsqueries",
         "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "cdskcommandsqueries",
+        "target": "shutils",
+        "type": "static"
+      },
+      {
+        "source": "cdskcommandsqueries",
+        "target": "shconstants",
         "type": "static"
       }
     ],
-    "cdskvalueobjects": [],
+    "cdskvalueobjects": [
+      {
+        "source": "cdskvalueobjects",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "cdskvalueobjects",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "cdskvalueobjects",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "cdskvalueobjects",
+        "target": "shutils",
+        "type": "static"
+      },
+      {
+        "source": "cdskvalueobjects",
+        "target": "shvalidationschemas",
+        "type": "static"
+      }
+    ],
     "coapnotificationsservice": [],
-    "cdskentities": [],
+    "cdskentities": [
+      {
+        "source": "cdskentities",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "cdskentities",
+        "target": "cdskevents",
+        "type": "static"
+      },
+      {
+        "source": "cdskentities",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "cdskentities",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "cdskentities",
+        "target": "shutils",
+        "type": "static"
+      }
+    ],
     "infratenancypersistence": [],
-    "cdskmappers": [],
+    "cdskmappers": [
+      {
+        "source": "cdskmappers",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      }
+    ],
     "coapanalyticsservice": [],
     "codomessagetemplaterecord": [
       {
@@ -24190,25 +24708,213 @@
     "cdskevents": [
       {
         "source": "cdskevents",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "cdskevents",
         "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "cdskevents",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "cdskevents",
+        "target": "shresult",
         "type": "static"
       }
     ],
-    "coapaiperassistance": [],
+    "coapaiperassistance": [
+      {
+        "source": "coapaiperassistance",
+        "target": "cdskcommandsqueries",
+        "type": "static"
+      },
+      {
+        "source": "coapaiperassistance",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "coapaiperassistance",
+        "target": "shresult",
+        "type": "static"
+      },
+      {
+        "source": "coapaiperassistance",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "coapaiperassistance",
+        "target": "codoaiperassistance",
+        "type": "static"
+      },
+      {
+        "source": "coapaiperassistance",
+        "target": "cdskports",
+        "type": "static"
+      }
+    ],
     "infrawhatsappadminapi": [],
     "infrawhatsappcloudapi": [],
-    "cdskports": [],
-    "coapportalcontent": [],
+    "cdskports": [
+      {
+        "source": "cdskports",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "cdskports",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "cdskports",
+        "target": "shresult",
+        "type": "static"
+      },
+      {
+        "source": "cdskports",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "cdskports",
+        "target": "cdskentities",
+        "type": "static"
+      }
+    ],
+    "coapportalcontent": [
+      {
+        "source": "coapportalcontent",
+        "target": "cdskcommandsqueries",
+        "type": "static"
+      },
+      {
+        "source": "coapportalcontent",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "coapportalcontent",
+        "target": "shresult",
+        "type": "static"
+      },
+      {
+        "source": "coapportalcontent",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "coapportalcontent",
+        "target": "codoportalcontent",
+        "type": "static"
+      },
+      {
+        "source": "coapportalcontent",
+        "target": "cdskports",
+        "type": "static"
+      },
+      {
+        "source": "coapportalcontent",
+        "target": "shutils",
+        "type": "static"
+      }
+    ],
     "infrapaymentgateway": [],
     "infrastorageservice": [],
     "coapeducacontent": [],
     "codonotificationscore": [],
     "infraobservability": [],
     "infraemailservice": [],
-    "coapusersroles": [],
-    "codoaiperassistance": [],
+    "coapusersroles": [
+      {
+        "source": "coapusersroles",
+        "target": "cdskcommandsqueries",
+        "type": "static"
+      },
+      {
+        "source": "coapusersroles",
+        "target": "shresult",
+        "type": "static"
+      },
+      {
+        "source": "coapusersroles",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "coapusersroles",
+        "target": "codousersroles",
+        "type": "static"
+      },
+      {
+        "source": "coapusersroles",
+        "target": "infrasecurity",
+        "type": "static"
+      },
+      {
+        "source": "coapusersroles",
+        "target": "cdskports",
+        "type": "static"
+      },
+      {
+        "source": "coapusersroles",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "coapusersroles",
+        "target": "shutils",
+        "type": "static"
+      }
+    ],
+    "codoaiperassistance": [
+      {
+        "source": "codoaiperassistance",
+        "target": "cdskports",
+        "type": "static"
+      },
+      {
+        "source": "codoaiperassistance",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "codoaiperassistance",
+        "target": "shresult",
+        "type": "static"
+      },
+      {
+        "source": "codoaiperassistance",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "codoaiperassistance",
+        "target": "cdskvalueobjects",
+        "type": "static"
+      },
+      {
+        "source": "codoaiperassistance",
+        "target": "shutils",
+        "type": "static"
+      }
+    ],
     "infraaiproviders": [],
+    "infraappservices": [],
     "infrapersistence": [],
+    "infravectorstore": [
+      {
+        "source": "infravectorstore",
+        "target": "npm:@nestjs/common",
+        "type": "static"
+      }
+    ],
     "coapcampaigns": [],
     "coapleadsflow": [],
     "coapwhatsapp": [],
@@ -24216,7 +24922,13 @@
     "codoportalcontent": [],
     "coapantiban": [],
     "coapbilling": [],
-    "coaptenancy": [],
+    "coaptenancy": [
+      {
+        "source": "coaptenancy",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      }
+    ],
     "codoeducacontent": [],
     "infrasecurity": [],
     "codousersroles": [
@@ -24229,9 +24941,54 @@
         "source": "codousersroles",
         "target": "shtypes",
         "type": "static"
+      },
+      {
+        "source": "codousersroles",
+        "target": "shutils",
+        "type": "static"
+      },
+      {
+        "source": "codousersroles",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "codousersroles",
+        "target": "cdskevents",
+        "type": "static"
+      },
+      {
+        "source": "codousersroles",
+        "target": "cdskports",
+        "type": "static"
+      },
+      {
+        "source": "codousersroles",
+        "target": "shresult",
+        "type": "static"
+      },
+      {
+        "source": "codousersroles",
+        "target": "cdskvalueobjects",
+        "type": "static"
       }
     ],
     "shvalidationschemas": [
+      {
+        "source": "shvalidationschemas",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "shvalidationschemas",
+        "target": "shconstants",
+        "type": "static"
+      },
+      {
+        "source": "shvalidationschemas",
+        "target": "shtypes",
+        "type": "static"
+      },
       {
         "source": "shvalidationschemas",
         "target": "npm:zod",
@@ -24273,14 +25030,21 @@
       }
     ],
     "codobilling": [],
-    "codotenancy": [],
-    "shconstants": [],
-    "aiper-assistance": [
+    "codotenancy": [
       {
-        "source": "aiper-assistance",
-        "target": "npm:@eslint/compat",
+        "source": "codotenancy",
+        "target": "npm:typescript-eslint",
         "type": "static"
-      },
+      }
+    ],
+    "shconstants": [
+      {
+        "source": "shconstants",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      }
+    ],
+    "aiper-assistance": [
       {
         "source": "aiper-assistance",
         "target": "npm:@eslint/eslintrc",
@@ -24289,6 +25053,11 @@
       {
         "source": "aiper-assistance",
         "target": "npm:@eslint/js",
+        "type": "static"
+      },
+      {
+        "source": "aiper-assistance",
+        "target": "npm:@eslint/compat",
         "type": "static"
       },
       {
@@ -24308,17 +25077,22 @@
       },
       {
         "source": "aiper-assistance",
-        "target": "npm:eslint-plugin-jsx-a11y",
-        "type": "static"
-      },
-      {
-        "source": "aiper-assistance",
         "target": "npm:eslint-plugin-react",
         "type": "static"
       },
       {
         "source": "aiper-assistance",
         "target": "npm:eslint-plugin-react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "aiper-assistance",
+        "target": "npm:eslint-plugin-jsx-a11y",
+        "type": "static"
+      },
+      {
+        "source": "aiper-assistance",
+        "target": "npm:@next/eslint-plugin-next",
         "type": "static"
       },
       {
@@ -24382,6 +25156,48 @@
         "type": "static"
       }
     ],
+    "application": [
+      {
+        "source": "application",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "application",
+        "target": "domain",
+        "type": "static"
+      },
+      {
+        "source": "application",
+        "target": "codowhatsapp",
+        "type": "static"
+      },
+      {
+        "source": "application",
+        "target": "cdskcommandsqueries",
+        "type": "static"
+      },
+      {
+        "source": "application",
+        "target": "cdskevents",
+        "type": "static"
+      },
+      {
+        "source": "application",
+        "target": "cdskports",
+        "type": "static"
+      },
+      {
+        "source": "application",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "application",
+        "target": "shresult",
+        "type": "static"
+      }
+    ],
     "guia-investidor": [
       {
         "source": "guia-investidor",
@@ -24405,6 +25221,41 @@
       },
       {
         "source": "guia-investidor",
+        "target": "npm:@typescript-eslint/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "guia-investidor",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "guia-investidor",
+        "target": "npm:eslint-plugin-react",
+        "type": "static"
+      },
+      {
+        "source": "guia-investidor",
+        "target": "npm:eslint-plugin-react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "guia-investidor",
+        "target": "npm:eslint-plugin-jsx-a11y",
+        "type": "static"
+      },
+      {
+        "source": "guia-investidor",
+        "target": "npm:@next/eslint-plugin-next",
+        "type": "static"
+      },
+      {
+        "source": "guia-investidor",
+        "target": "npm:globals",
+        "type": "static"
+      },
+      {
+        "source": "guia-investidor",
         "target": "npm:@nx/next",
         "type": "static"
       },
@@ -24419,8 +25270,25 @@
         "type": "static"
       }
     ],
-    "sherrors": [],
-    "shresult": [],
+    "sherrors": [
+      {
+        "source": "sherrors",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "sherrors",
+        "target": "shtypes",
+        "type": "static"
+      }
+    ],
+    "shresult": [
+      {
+        "source": "shresult",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      }
+    ],
     "admin-platform": [
       {
         "source": "admin-platform",
@@ -24440,6 +25308,41 @@
       {
         "source": "admin-platform",
         "target": "npm:@nx/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "admin-platform",
+        "target": "npm:@typescript-eslint/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "admin-platform",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "admin-platform",
+        "target": "npm:eslint-plugin-react",
+        "type": "static"
+      },
+      {
+        "source": "admin-platform",
+        "target": "npm:eslint-plugin-react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "admin-platform",
+        "target": "npm:eslint-plugin-jsx-a11y",
+        "type": "static"
+      },
+      {
+        "source": "admin-platform",
+        "target": "npm:@next/eslint-plugin-next",
+        "type": "static"
+      },
+      {
+        "source": "admin-platform",
+        "target": "npm:globals",
         "type": "static"
       },
       {
@@ -24481,6 +25384,41 @@
       },
       {
         "source": "portal-imoveis",
+        "target": "npm:@typescript-eslint/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "portal-imoveis",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "portal-imoveis",
+        "target": "npm:eslint-plugin-react",
+        "type": "static"
+      },
+      {
+        "source": "portal-imoveis",
+        "target": "npm:eslint-plugin-react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "portal-imoveis",
+        "target": "npm:eslint-plugin-jsx-a11y",
+        "type": "static"
+      },
+      {
+        "source": "portal-imoveis",
+        "target": "npm:@next/eslint-plugin-next",
+        "type": "static"
+      },
+      {
+        "source": "portal-imoveis",
+        "target": "npm:globals",
+        "type": "static"
+      },
+      {
+        "source": "portal-imoveis",
         "target": "npm:@nx/next",
         "type": "static"
       },
@@ -24518,6 +25456,41 @@
       },
       {
         "source": "pwa-consultant",
+        "target": "npm:@typescript-eslint/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "pwa-consultant",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "pwa-consultant",
+        "target": "npm:eslint-plugin-react",
+        "type": "static"
+      },
+      {
+        "source": "pwa-consultant",
+        "target": "npm:eslint-plugin-react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "pwa-consultant",
+        "target": "npm:eslint-plugin-jsx-a11y",
+        "type": "static"
+      },
+      {
+        "source": "pwa-consultant",
+        "target": "npm:@next/eslint-plugin-next",
+        "type": "static"
+      },
+      {
+        "source": "pwa-consultant",
+        "target": "npm:globals",
+        "type": "static"
+      },
+      {
+        "source": "pwa-consultant",
         "target": "npm:@nx/next",
         "type": "static"
       },
@@ -24535,11 +25508,6 @@
     "pwa-supervisor": [
       {
         "source": "pwa-supervisor",
-        "target": "npm:@eslint/compat",
-        "type": "static"
-      },
-      {
-        "source": "pwa-supervisor",
         "target": "npm:@eslint/eslintrc",
         "type": "static"
       },
@@ -24550,12 +25518,42 @@
       },
       {
         "source": "pwa-supervisor",
+        "target": "npm:@eslint/compat",
+        "type": "static"
+      },
+      {
+        "source": "pwa-supervisor",
+        "target": "npm:@nx/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "pwa-supervisor",
         "target": "npm:@typescript-eslint/eslint-plugin",
         "type": "static"
       },
       {
         "source": "pwa-supervisor",
         "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "pwa-supervisor",
+        "target": "npm:eslint-plugin-react",
+        "type": "static"
+      },
+      {
+        "source": "pwa-supervisor",
+        "target": "npm:eslint-plugin-react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "pwa-supervisor",
+        "target": "npm:eslint-plugin-jsx-a11y",
+        "type": "static"
+      },
+      {
+        "source": "pwa-supervisor",
+        "target": "npm:@next/eslint-plugin-next",
         "type": "static"
       },
       {
@@ -24634,11 +25632,47 @@
         "type": "static"
       }
     ],
-    "shtypes": [],
+    "shtypes": [
+      {
+        "source": "shtypes",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      }
+    ],
     "shutils": [
       {
         "source": "shutils",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "shutils",
+        "target": "npm:date-fns",
+        "type": "static"
+      },
+      {
+        "source": "shutils",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "shutils",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "shutils",
+        "target": "shvalidationschemas",
+        "type": "static"
+      },
+      {
+        "source": "shutils",
         "target": "npm:uuid",
+        "type": "static"
+      },
+      {
+        "source": "shutils",
+        "target": "shconstants",
         "type": "static"
       }
     ],
@@ -24647,6 +25681,21 @@
         "source": "api-main-e2e",
         "target": "api-main",
         "type": "implicit"
+      },
+      {
+        "source": "api-main-e2e",
+        "target": "npm:typescript-eslint",
+        "type": "static"
+      },
+      {
+        "source": "api-main-e2e",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "api-main-e2e",
+        "target": "npm:globals",
+        "type": "static"
       },
       {
         "source": "api-main-e2e",
@@ -24659,7 +25708,59 @@
         "type": "static"
       }
     ],
+    "domain": [
+      {
+        "source": "domain",
+        "target": "cdskentities",
+        "type": "static"
+      },
+      {
+        "source": "domain",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "domain",
+        "target": "shutils",
+        "type": "static"
+      },
+      {
+        "source": "domain",
+        "target": "sherrors",
+        "type": "static"
+      },
+      {
+        "source": "domain",
+        "target": "codowhatsapp",
+        "type": "static"
+      },
+      {
+        "source": "domain",
+        "target": "cdskevents",
+        "type": "static"
+      },
+      {
+        "source": "domain",
+        "target": "cdskports",
+        "type": "static"
+      },
+      {
+        "source": "domain",
+        "target": "shresult",
+        "type": "static"
+      },
+      {
+        "source": "domain",
+        "target": "cdskvalueobjects",
+        "type": "static"
+      }
+    ],
     "web3-portal": [
+      {
+        "source": "web3-portal",
+        "target": "npm:@eslint/compat",
+        "type": "static"
+      },
       {
         "source": "web3-portal",
         "target": "npm:@eslint/eslintrc",
@@ -24672,12 +25773,27 @@
       },
       {
         "source": "web3-portal",
-        "target": "npm:@eslint/compat",
+        "target": "npm:@nx/eslint-plugin",
         "type": "static"
       },
       {
         "source": "web3-portal",
-        "target": "npm:@nx/eslint-plugin",
+        "target": "npm:@typescript-eslint/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:eslint-plugin-react",
+        "type": "static"
+      },
+      {
+        "source": "web3-portal",
+        "target": "npm:globals",
         "type": "static"
       },
       {
@@ -24771,6 +25887,16 @@
       },
       {
         "source": "api-main",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "api-main",
+        "target": "npm:globals",
+        "type": "static"
+      },
+      {
+        "source": "api-main",
         "target": "npm:@nestjs/testing",
         "type": "static"
       },
@@ -24809,6 +25935,41 @@
       {
         "source": "dev-hub",
         "target": "npm:@nx/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "dev-hub",
+        "target": "npm:@typescript-eslint/eslint-plugin",
+        "type": "static"
+      },
+      {
+        "source": "dev-hub",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "dev-hub",
+        "target": "npm:eslint-plugin-react",
+        "type": "static"
+      },
+      {
+        "source": "dev-hub",
+        "target": "npm:eslint-plugin-react-hooks",
+        "type": "static"
+      },
+      {
+        "source": "dev-hub",
+        "target": "npm:eslint-plugin-jsx-a11y",
+        "type": "static"
+      },
+      {
+        "source": "dev-hub",
+        "target": "npm:@next/eslint-plugin-next",
+        "type": "static"
+      },
+      {
+        "source": "dev-hub",
+        "target": "npm:globals",
         "type": "static"
       },
       {
@@ -48466,5 +49627,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1747703671758
+  "computedAt": 1747759879522
 }

@@ -1,29 +1,41 @@
-// libs/shared/types/src/lib/api-response.interface.ts
-import { CorrelationId } from './correlation-id.type';
-import { IsoDateString } from './primitive-types';
+// RUTA: libs/shared/shtypes/src/lib/api-response.interface.ts
+// TODO: [LIA Legacy - Corregir import de Maybe] - ¡REALIZADO!
+// Propósito: Interfaz base para respuestas de API estandarizadas.
+// Relacionado con Casos de Uso: Todas las respuestas de api-main.
+
+import { Maybe } from './maybe.type'; // CORREGIDO: Importar Maybe desde su propio archivo
+import { CorrelationId, IsoDateString } from './primitive-types'; // Importa los que SÍ están en primitive-types
 
 /**
  * Interfaz base para respuestas de API estandarizadas.
- * @template T - El tipo de datos de la respuesta exitosa.
+ * @template TData - El tipo de datos de la respuesta exitosa.
+ * @template TErrorDetails - El tipo de los detalles del error.
  */
-export interface IApiResponse<T> {
-  success: boolean;
-  data?: T;
-  error?: {
-    code: string; // Código de error específico de la aplicación
-    message: string; // Mensaje de error legible por humanos
-    details?: unknown; // Detalles adicionales, específicos del error
+export interface IApiResponse<TData = unknown, TErrorDetails = unknown> {
+  readonly success: boolean;
+  readonly data?: TData;
+  readonly error?: {
+    readonly code: string;
+    readonly message: string;
+    readonly path?: string;
+    readonly details?: TErrorDetails;
   };
-  timestamp: IsoDateString;
-  correlationId: CorrelationId;
+  readonly timestamp: IsoDateString;
+  readonly correlationId: CorrelationId;
+  readonly metadata?: Maybe<Record<string, unknown>>;
 }
-/* SECCIÓN DE MEJORAS
-// Considerar añadir un campo `path: string` al objeto `error` para indicar el endpoint que originó el error.
-// Considerar un enum para `error.code` para estandarizar códigos de error comunes a nivel de plataforma.
-*/
 
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+/* SECCIÓN DE MEJORAS REALIZADAS
 [
-  Nota estratégica 1: A medida que la API evolucione, se podrían necesitar variaciones de esta interfaz para diferentes tipos de respuestas (ej. respuestas de stream, respuestas con metadatos adicionales de paginación si no se usa IPaginated directamente).
+  { "mejora": "Corrección del path de importación para `Maybe`.", "justificacion": "`Maybe` se define en `maybe.type.ts`, no en `primitive-types.ts`. Se corrigió el import a `./maybe.type`.", "impacto": "Resuelve el error de TypeScript `El módulo '\"./primitive-types\"' no tiene ningún miembro 'Maybe' exportado.`." },
+  { "mejora": "Añadido campo opcional `path` al objeto `error`.", "justificacion": "Proporciona información adicional para el debugging.", "impacto": "Mejora la trazabilidad." },
+  { "mejora": "Tipos genéricos `TData` y `TErrorDetails`.", "justificacion": "Mayor flexibilidad y seguridad de tipos.", "impacto": "Interfaces de API más descriptivas." },
+  { "mejora": "Añadido campo opcional `metadata`.", "justificacion": "Flexibilidad para respuestas API más complejas.", "impacto": "Consistencia." }
 ]
 */
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  { "nota": "Considerar un enum para los `error.code`." }
+]
+*/
+// RUTA: libs/shared/shtypes/src/lib/api-response.interface.ts

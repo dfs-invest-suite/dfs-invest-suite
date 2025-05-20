@@ -1,79 +1,74 @@
-// ruta/relativa/al/archivo.extension
-// RUTA: eslint.config.mjs (RAÍZ DEL MONOREPO - SIMPLIFICADO)
-// Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
-// Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
-// Propiedad Intelectual: MetaShark (I.S.)
-
-// import { fixupConfigRules } from '@eslint/compat'; // No es estrictamente necesario aquí si las configs hijas lo manejan
-// import { FlatCompat } from '@eslint/eslintrc'; // No es estrictamente necesario aquí
+// RUTA: eslint.config.mjs (RAÍZ DEL MONOREPO)
 import js from '@eslint/js';
 import nxPlugin from '@nx/eslint-plugin';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import * as tsParser from '@typescript-eslint/parser';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginImport from 'eslint-plugin-import';
 import globals from 'globals';
-// import { dirname } from 'path'; // No es necesario si no se usa currentDir aquí
-// import { fileURLToPath } from 'url'; // No es necesario si no se usa currentDir aquí
 
-// const currentDir = dirname(fileURLToPath(import.meta.url)); // No se necesita para esta config raíz simplificada
+// const __filename = fileURLToPath(import.meta.url); // No necesario si no usas __dirname con import.meta.url
+// const __dirname = path.dirname(__filename);
 
-// No más projectTsConfigsForSource ni projectTsConfigsForTests aquí
+// FlatCompat solo si es necesario para alguna configuración que extiendas aquí,
+// de lo contrario, no es necesario en el archivo raíz si los locales lo manejan.
+// const compat = new FlatCompat({
+//   baseDirectory: __dirname, // __dirname definido arriba
+//   recommendedConfig: js.configs.recommended,
+// });
 
-const baseConfig = [
+export default [
   {
-    // Aplicar a todos los archivos relevantes por defecto
-    files: ['**/*.{js,jsx,ts,tsx}'],
     ignores: [
       '**/node_modules/**',
       '**/dist/**',
       '**/.nx/**',
       '**/coverage/**',
-      '**/.next/**', // Específico de Next.js, pero común en monorepos
-      '**/.swc/**', // Usado por Next.js/SWC
+      '**/.next/**',
+      '**/.vercel/**',
+      '**/.swc/**',
       '**/*.md',
+      '**/static/**',
       'dependency-graph.html',
       'project-graph.json',
-      'static/**',
-      // Excluir los archivos de config de este bloque general; se tratarán por separado
-      '**/*.config.js',
-      '**/*.config.mjs',
-      '**/*.config.ts',
+      'project-graph-despues-limpieza.json',
+      'pnpm-lock.yaml',
+      '!eslint.config.mjs', // No ignorar este mismo archivo
+      'apps/**/eslint.config.mjs', // Ignorar locales de este bloque global
+      'libs/**/eslint.config.mjs', // Ignorar locales de este bloque global
+      // Otros archivos de config que no se lintan o se lintan en bloques específicos
       '**/jest.config.ts',
       '**/jest.preset.js',
-      '**/jest.setup.ts',
-      '**/test-setup.ts',
+      '**/vite.config.ts',
       '**/webpack.config.js',
       '**/postcss.config.js',
       '**/tailwind.config.js',
-      '.prettierrc.js', // Si existiera
+      '.prettierrc.js',
+      '.prettierrc',
       './components.json',
-      'eslint.config.mjs', // Este mismo archivo
+      './package-lock.json',
+      './pnpm-workspace.yaml',
+      './*.yaml',
     ],
+  },
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    ignores: ['**/eslint.config.mjs'], // Ignorar configs locales en este bloque
     languageOptions: {
       parser: tsParser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        // NO `project` aquí para el bloque global.
-        // Los configs locales definirán `project` para sus contextos.
-      },
-      globals: {
-        ...globals.browser, // Para PWAs y libs UI
-        ...globals.node, // Para backend y libs Node
-        ...globals.jest, // Para tests en todo el monorepo
-      },
+      parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+      globals: { ...globals.es2021, ...globals.node, ...globals.jest },
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
       '@nx': nxPlugin,
+      import: eslintPluginImport,
+      // NO plugins React/JSX aquí
     },
     rules: {
-      // Reglas base de ESLint y TypeScript (NO type-checked)
       ...js.configs.recommended.rules,
       ...tsPlugin.configs['eslint-recommended'].rules,
       ...tsPlugin.configs.recommended.rules,
-
-      // Regla de arquitectura de Nx (CRUCIAL)
       '@nx/enforce-module-boundaries': [
         'error',
         {
@@ -85,121 +80,156 @@ const baseConfig = [
               onlyDependOnLibsWithTags: ['scope:shared'],
             },
             {
-              sourceTag: 'type:ui',
-              onlyDependOnLibsWithTags: ['scope:shared', 'type:ui'],
+              sourceTag: 'scope:ui-web',
+              onlyDependOnLibsWithTags: ['scope:shared', 'scope:ui-web'],
             },
             {
-              sourceTag: 'layer:domain',
-              onlyDependOnLibsWithTags: ['layer:domain', 'scope:shared'],
+              sourceTag: 'scope:ui-mobile',
+              onlyDependOnLibsWithTags: ['scope:shared', 'scope:ui-mobile'],
             },
             {
               sourceTag: 'type:shared-kernel',
-              onlyDependOnLibsWithTags: ['type:shared-kernel', 'scope:shared'],
+              onlyDependOnLibsWithTags: ['scope:shared', 'type:shared-kernel'],
+            },
+            {
+              sourceTag: 'layer:domain',
+              onlyDependOnLibsWithTags: [
+                'scope:shared',
+                'type:shared-kernel',
+                'layer:domain',
+              ],
             },
             {
               sourceTag: 'layer:application',
               onlyDependOnLibsWithTags: [
-                'layer:application',
-                'layer:domain',
                 'scope:shared',
+                'type:shared-kernel',
+                'layer:domain',
+                'layer:application',
               ],
             },
             {
               sourceTag: 'layer:infrastructure',
               onlyDependOnLibsWithTags: [
-                'layer:infrastructure',
-                'layer:application',
-                'layer:domain',
                 'scope:shared',
+                'type:shared-kernel',
+                'layer:domain',
+                'layer:application',
+                'layer:infrastructure',
               ],
             },
             {
               sourceTag: 'scope:app',
               onlyDependOnLibsWithTags: [
+                'scope:shared',
+                'scope:ui-web',
+                'scope:ui-mobile',
                 'layer:application',
                 'layer:infrastructure',
-                'type:ui',
+              ],
+            },
+            {
+              sourceTag: 'type:api',
+              onlyDependOnLibsWithTags: [
                 'scope:shared',
+                'layer:application',
+                'layer:infrastructure',
+              ],
+            },
+            {
+              sourceTag: 'type:pwa',
+              onlyDependOnLibsWithTags: [
+                'scope:shared',
+                'scope:ui-web',
+                'layer:application',
+              ],
+            },
+            {
+              sourceTag: 'type:mobile-rn',
+              onlyDependOnLibsWithTags: [
+                'scope:shared',
+                'scope:ui-mobile',
+                'layer:application',
+                'layer:domain',
+                'type:shared-kernel',
               ],
             },
             { sourceTag: 'scope:app', notDependOnLibsWithTags: ['scope:app'] },
           ],
         },
       ],
-
-      // Reglas generales de calidad y estilo (no type-aware)
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
-      'no-console': ['warn', { allow: ['warn', 'error', 'info', 'debug'] }],
-      'react/react-in-jsx-scope': 'off',
+      'no-console': [
+        'warn',
+        {
+          allow: ['warn', 'error', 'info', 'debug', 'table', 'time', 'timeEnd'],
+        },
+      ],
+      'import/order': [
+        'warn',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+            'object',
+            'type',
+          ],
+          pathGroups: [
+            { pattern: 'react', group: 'external', position: 'before' },
+            { pattern: 'next/**', group: 'external', position: 'before' },
+            { pattern: '@nestjs/**', group: 'external', position: 'before' },
+            { pattern: '@dfs-suite/**', group: 'internal', position: 'before' },
+            { pattern: '@/**', group: 'internal', position: 'before' },
+          ],
+          pathGroupsExcludedImportTypes: ['react', 'next/**', '@nestjs/**'],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
+      ],
     },
   },
-
-  // Bloque específico para archivos de Configuración
+  // Configuración para los propios archivos eslint.config.mjs (raíz y locales)
   {
-    files: [
-      '**/*.config.js',
-      '**/*.config.mjs',
-      '**/*.config.ts',
-      '**/jest.config.ts',
-      '**/jest.preset.js',
-      '**/jest.setup.ts',
-      '**/test-setup.ts',
-      'eslint.config.mjs',
-      '**/postcss.config.js',
-      '**/tailwind.config.js',
-      '**/webpack.config.js',
-      '.prettierrc.js',
-      './components.json',
-    ],
-    ignores: ['**/node_modules/**', '**/dist/**', '**/.next/**'],
+    files: ['eslint.config.mjs', '**/eslint.config.mjs'],
     languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-      },
+      parser: tsParser, // Pueden tener sintaxis TS si se usa ts-node o similar
+      parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
       globals: {
+        ...globals.node,
+        __dirname: 'readonly',
+        process: 'readonly',
         module: 'writable',
         require: 'readonly',
-        process: 'readonly',
-        __dirname: 'readonly',
-        console: 'readonly',
         exports: 'writable',
       },
     },
     plugins: { '@typescript-eslint': tsPlugin },
     rules: {
       '@typescript-eslint/no-var-requires': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      'no-undef': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/no-unsafe-return': 'off',
-      '@typescript-eslint/no-misused-promises': 'off',
-      '@typescript-eslint/no-floating-promises': 'off',
+      'import/no-commonjs': 'off',
+      'no-undef': 'off',
     },
   },
-
-  // Bloque para archivos .d.ts
-  {
-    files: ['**/*.d.ts'],
-    rules: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-    },
-  },
-
-  // Configuración de Prettier (DEBE SER LA ÚLTIMA)
   eslintConfigPrettier,
 ];
-
-export default baseConfig;
-// ruta/relativa/al/archivo.extension
-// RUTA: eslint.config.mjs (RAÍZ DEL MONOREPO - SIMPLIFICADO)
+// RUTA: eslint.config.mjs
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Asegurado que no haya `import baseConfig from ...` en el archivo raíz.", "justificacion": "El archivo raíz es la base, no hereda de otro archivo externo al proyecto.", "impacto": "Resuelve el error `ERR_MODULE_NOT_FOUND` para `eslint.config.mjs`." },
+  { "mejora": "Ajuste de `ignores` en el bloque global para `eslint.config.mjs` locales.", "justificacion": "Evita que el bloque global intente linterar los configs locales que ya tienen su propia estructura.", "impacto": "Mejor organización y previene conflictos de linting."}
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

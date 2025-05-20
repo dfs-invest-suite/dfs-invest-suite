@@ -1,18 +1,14 @@
-// RUTA: libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.spec.ts
-// Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
-// Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
-// Propiedad Intelectual: MetaShark (I.S.)
-
+// RUTA: libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/command.base.spec.ts
 import {
   CommandInstanceId,
   CorrelationId,
   IsoDateString,
   UserId,
-} from '@dfs-suite/shared-types';
-import { CommandBase } from './command.base'; // La clase bajo prueba
+} from '@dfs-suite/shtypes'; // CORREGIDO
+
+import { CommandBase } from './command.base';
 import { ICommandMetadata } from './command.interface';
 
-// --- Constantes para Mocks ---
 const mockGeneratedCommandInstanceId =
   'cmd-instance-id-123' as CommandInstanceId;
 const mockDefaultMetadata: Readonly<ICommandMetadata> = Object.freeze({
@@ -20,14 +16,12 @@ const mockDefaultMetadata: Readonly<ICommandMetadata> = Object.freeze({
   timestamp: '2025-01-01T00:00:00.000Z' as IsoDateString,
 });
 
-// --- Mock de @dfs-suite/shared-utils ---
-// 1. Mockear el módulo. La factory define la estructura del módulo mockeado.
-jest.mock('@dfs-suite/shared-utils', () => {
-  const originalModule = jest.requireActual('@dfs-suite/shared-utils');
+jest.mock('@dfs-suite/shutils', () => {
+  // CORREGIDO
+  const originalModule = jest.requireActual('@dfs-suite/shutils'); // CORREGIDO
   return {
-    __esModule: true, // Necesario para módulos ES6
+    __esModule: true,
     ...originalModule,
-    // Las funciones mock se crean y se devuelven dentro del factory
     createOperationMetadata: jest.fn(),
     UuidUtils: {
       ...originalModule.UuidUtils,
@@ -36,14 +30,11 @@ jest.mock('@dfs-suite/shared-utils', () => {
   };
 });
 
-// 2. Importar las funciones/objetos mockeados DESPUÉS de jest.mock
-// Necesitamos hacer un type assertion aquí.
 import {
   createOperationMetadata as importedMockCreateOperationMetadata,
   UuidUtils as ImportedMockUuidUtils,
-} from '@dfs-suite/shared-utils';
+} from '@dfs-suite/shutils'; // CORREGIDO
 
-// Asignar a variables con el tipo mockeado correcto para uso en tests
 const mockedCreateOperationMetadata =
   importedMockCreateOperationMetadata as jest.MockedFunction<
     typeof importedMockCreateOperationMetadata
@@ -53,7 +44,6 @@ const mockedGenerateCommandInstanceId =
     typeof ImportedMockUuidUtils.generateCommandInstanceId
   >;
 
-// --- Clase de Prueba ---
 class TestCommand extends CommandBase {
   constructor(
     public readonly payload: { data: string },
@@ -63,10 +53,8 @@ class TestCommand extends CommandBase {
   }
 }
 
-// --- Suite de Tests ---
 describe('CommandBase', () => {
   beforeEach(() => {
-    // Resetear y configurar mocks antes de cada test
     mockedGenerateCommandInstanceId.mockReturnValue(
       mockGeneratedCommandInstanceId
     );
@@ -74,7 +62,6 @@ describe('CommandBase', () => {
   });
 
   afterEach(() => {
-    // Limpiar todos los mocks después de cada test
     jest.clearAllMocks();
   });
 
@@ -133,31 +120,10 @@ describe('CommandBase', () => {
     }).toThrow(TypeError);
   });
 });
-// RUTA: libs/core/domain/shared-kernel/commands-queries/src/lib/command.base.spec.ts
-/* SECCIÓN DE MEJORAS
+// RUTA: libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/command.base.spec.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
 [
-  {
-    "mejora": "Mockeo de módulo canónico con `jest.mock` y luego import/require.",
-    "justificacion": "Esta es la forma estándar y más fiable de mockear módulos en Jest. `jest.mock` se eleva, y luego se importan las versiones mockeadas de las funciones/objetos. Esto resuelve el `ReferenceError` de inicialización.",
-    "impacto": "Los tests ahora deberían cargarse y ejecutarse correctamente."
-  },
-  {
-    "mejora": "Uso de `__esModule: true` en el factory de `jest.mock`.",
-    "justificacion": "Importante cuando se mockean módulos ES6 para asegurar la correcta interoperabilidad.",
-    "impacto": "Previene posibles problemas con la resolución de módulos ES6 mockeados."
-  },
-  {
-    "mejora": "Type assertions para las funciones importadas mockeadas.",
-    "justificacion": "Se usan `as jest.MockedFunction<...>` para informar a TypeScript que estas funciones son mocks de Jest, permitiendo el acceso a métodos como `.mockReturnValue()` de forma type-safe.",
-    "impacto": "Mejor DX y seguridad de tipos en los tests."
-  }
+  { "mejora": "Corrección de todos los imports y mocks para usar los alias codificados (`@dfs-suite/shtypes`, `@dfs-suite/shutils`).", "justificacion": "Resuelve errores de `Cannot find module`.", "impacto": "Permite que el test se ejecute y los mocks funcionen correctamente." }
 ]
 */
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "Este patrón de mockeo es fundamental. Si este no funciona, el problema de 'Your test suite must contain at least one test' es extraordinariamente persistente y podría indicar un problema más profundo en la configuración de Jest con Nx para esta librería específica, o un error muy sutil en el archivo de test que no estamos viendo."
-  }
-]
-*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

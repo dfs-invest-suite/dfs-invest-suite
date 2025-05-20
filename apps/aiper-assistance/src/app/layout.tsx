@@ -1,11 +1,9 @@
-
 import React from 'react';
 import './globals.css'; // Importa los estilos con el tema L.I.A Legacy
 import { AppProviders } from '@/components/providers';
 import { LiaLayoutClient } from '@/components/layout/LiaLayoutClient'; // El layout principal
 import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@dfs-suite/ui-shared';
-
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -32,7 +30,9 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <AppProviders> {/* Para ThemeProvider (next-themes), QueryClient, etc. */}
+        <AppProviders>
+          {' '}
+          {/* Para ThemeProvider (next-themes), QueryClient, etc. */}
           <LiaLayoutClient>{children}</LiaLayoutClient>
         </AppProviders>
       </body>

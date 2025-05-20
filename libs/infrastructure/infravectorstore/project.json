@@ -1,0 +1,14 @@
+{
+  "name": "infravectorstore",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infravectorstore/src",
+  "projectType": "library",
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:vector-db"
+  ],
+  "// targets": "to see all targets run: nx show project infravectorstore --web",
+  "targets": {}
+}

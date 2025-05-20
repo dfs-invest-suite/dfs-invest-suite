@@ -1,5 +1,9 @@
-// libs/shared/result/src/lib/result.utils.ts
-import { Ok, Err, Result } from './result.type';
+// RUTA: libs/shared/shresult/src/lib/result.utils.ts
+// TODO: [LIA Legacy - Implementar Result Utils] - ¡REVISADO!
+// Propósito: Funciones helper para crear y trabajar con el tipo Result.
+// Relacionado con Casos de Uso: Ampliamente utilizado para retornar de Casos de Uso y Servicios de Dominio.
+
+import { Ok, Err, Result } from './result.type'; // OK (relativo interno)
 
 /**
  * Crea una instancia de Ok (resultado exitoso).
@@ -15,15 +19,20 @@ export function ok<T, E = never>(value: T): Ok<T, E> {
     isErr: function (): this is Err<E, T> {
       return false;
     },
-    map: <U>(fn: (val: T) => U) => ok(fn(value)),
-    mapErr: <F>() => ok<T, F>(value),
-    andThen: <U, F>(fn: (val: T) => Result<U, F>) => fn(value),
-    orElse: <U, F>() => ok<T | U, F>(value),
-    unwrap: () => value,
-    unwrapOr: () => value,
-    unwrapErr: () => {
+    map: <U>(fn: (val: T) => U): Ok<U, E> => ok(fn(value)),
+    mapErr: <F>(_fn: (errVal: E) => F): Ok<T, F> => ok<T, F>(value), // fn no se usa, devuelve el Ok original
+    andThen: <U, NextE = E>(
+      fn: (val: T) => Result<U, NextE>
+    ): Result<U, NextE> => fn(value),
+    orElse: <NextT = T, F = E>(
+      _fn: (errVal: E) => Result<NextT, F>
+    ): Result<T | NextT, F> => ok<T | NextT, F>(value), // fn no se usa
+    unwrap: (): T => value,
+    unwrapOr: (_defaultValue: T): T => value, // defaultValue no se usa
+    unwrapErr: (): E => {
       throw new Error(
-        'Called unwrapErr on an Ok value. Value: ' + JSON.stringify(value)
+        'Called unwrapErr on an Ok value. Value: ' +
+          (typeof value === 'object' ? JSON.stringify(value) : String(value))
       );
     },
   };
@@ -43,20 +52,28 @@ export function err<E, T = never>(errorValue: E): Err<E, T> {
     isErr: function (): this is Err<E, T> {
       return true;
     },
-    map: <U>() => err<E, U>(errorValue),
-    mapErr: <F>(fn: (errVal: E) => F) => err(fn(errorValue)),
-    andThen: <F>() => err<E, F>(errorValue),
-    orElse: <U, F>(fn: (errVal: E) => Result<U, F>) => fn(errorValue),
-    unwrap: () => {
-      throw errorValue instanceof Error
-        ? errorValue
-        : new Error(
-            'Called unwrap on an Err value. Error: ' +
-              JSON.stringify(errorValue)
-          );
+    map: <U>(_fn: (val: T) => U): Err<E, U> => err<E, U>(errorValue), // fn no se usa
+    mapErr: <F>(fn: (errVal: E) => F): Err<F, T> => err(fn(errorValue)),
+    andThen: <U, NextE = E>(_fn: (val: T) => Result<U, NextE>): Err<E, NextE> =>
+      err<E, NextE>(errorValue), // fn no se usa
+    orElse: <NextT = T, F = E>(
+      fn: (errVal: E) => Result<NextT, F>
+    ): Result<NextT, F> => fn(errorValue),
+    unwrap: (): T => {
+      // Si el error es una instancia de Error, lánzalo directamente.
+      // Si no, envuélvelo en un Error genérico.
+      if (errorValue instanceof Error) {
+        throw errorValue;
+      }
+      throw new Error(
+        'Called unwrap on an Err value. Error: ' +
+          (typeof errorValue === 'object'
+            ? JSON.stringify(errorValue)
+            : String(errorValue))
+      );
     },
-    unwrapOr: (defaultValue: T) => defaultValue,
-    unwrapErr: () => errorValue,
+    unwrapOr: (defaultValue: T): T => defaultValue,
+    unwrapErr: (): E => errorValue,
   };
 }
 
@@ -73,3 +90,17 @@ export function isOk<T, E>(result: Result<T, E>): result is Ok<T, E> {
 export function isErr<T, E>(result: Result<T, E>): result is Err<E, T> {
   return result._tag === 'Err';
 }
+
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Ajuste en `unwrapErr` de `ok` y `unwrap` de `err` para ser más informativos o relanzar el error original si es una instancia de Error.", "justificacion": "Mejora la experiencia de debugging.", "impacto": "Cambios menores en el manejo de errores internos." },
+  { "mejora": "Ajuste en el tipado de `mapErr` en `ok` y `map` en `err` para reflejar que la función `fn` no se utiliza y el tipo de error/valor no cambia.", "justificacion": "Mayor precisión en los tipos.", "impacto": "Claridad de la API." },
+  { "mejora": "Tipado de `andThen` y `orElse` en `ok` y `err` consistente con `result.type.ts`.", "justificacion": "Consistencia y flexibilidad.", "impacto": "Alineación de tipos." }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  { "nota": "Considerar si los métodos `mapErr` en `ok` y `map` en `err` deberían realmente tomar una función `fn` si no la usan. Podrían simplificarse para no tomar `fn` y ajustar los tipos genéricos correspondientemente, pero la firma actual es común en implementaciones del patrón Either/Result para mantener la simetría."}
+]
+*/
+// RUTA: libs/shared/shresult/src/lib/result.utils.ts

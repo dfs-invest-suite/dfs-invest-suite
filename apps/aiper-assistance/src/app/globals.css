@@ -4,17 +4,18 @@
 @tailwind utilities;
 
 @layer base {
-  :root { /* Asumimos que el tema L.I.A Legacy es el modo oscuro por defecto */
+  :root {
+    /* Asumimos que el tema L.I.A Legacy es el modo oscuro por defecto */
     --background: 260 30% 10%; /* Azul/Lila muy oscuro (lia-dark-bg) */
     --foreground: 260 20% 95%; /* Texto casi blanco (lia-light-text) */
-    
-    --card: 260 30% 15%;      /* Un poco más claro que el fondo */
+
+    --card: 260 30% 15%; /* Un poco más claro que el fondo */
     --card-foreground: 260 20% 95%;
 
     --popover: 260 30% 12%;
     --popover-foreground: 260 20% 95%;
 
-    --primary: 300 90% 68%;   /* Lila/Magenta Neón (lia-magenta-neon) */
+    --primary: 300 90% 68%; /* Lila/Magenta Neón (lia-magenta-neon) */
     --primary-foreground: 300 100% 15%; /* Texto oscuro para contraste */
 
     --secondary: 190 100% 65%; /* Cian/Azul Claro Neón (lia-cyan-neon) */
@@ -23,20 +24,20 @@
     --muted: 260 20% 25%;
     --muted-foreground: 260 15% 60%; /* lia-muted-text */
 
-    --accent: 240 50% 60%; 
+    --accent: 240 50% 60%;
     --accent-foreground: 260 20% 95%;
 
     --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 260 20% 30%;    /* lia-border */
-    --input: 260 20% 20%;     
-    --ring: 300 80% 75%;      /* Anillo de foco con color primario */
+    --border: 260 20% 30%; /* lia-border */
+    --input: 260 20% 20%;
+    --ring: 300 80% 75%; /* Anillo de foco con color primario */
 
     --radius: 0.75rem;
 
     /* Colores específicos adicionales L.I.A (si no son directos de Tailwind) */
-    --lia-deep-purple-bg: 265 35% 18%; 
+    --lia-deep-purple-bg: 265 35% 18%;
     --lia-advert-bg: 260 25% 13%;
   }
 

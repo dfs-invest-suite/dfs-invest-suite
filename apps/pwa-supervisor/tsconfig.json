@@ -20,40 +20,19 @@
         "name": "next"
       }
     ],
-    "types": [
-      "jest",
-      "node"
-    ], // "node" es importante para Next.js App Router
+    "types": ["jest", "node"], // "node" es importante para Next.js App Router
     "baseUrl": "./", // BaseUrl local para los paths de esta app
     "paths": {
       // Paths específicos de esta app
-      "@/app/*": [
-        "src/app/*"
-      ],
-      "@/components/*": [
-        "src/components/*"
-      ],
-      "@/hooks/*": [
-        "src/hooks/*"
-      ],
-      "@/lib/*": [
-        "src/lib/*"
-      ],
-      "@/store/*": [
-        "src/store/*"
-      ],
-      "@/styles/*": [
-        "src/styles/*"
-      ], // Si tienes este directorio
-      "@/themes/*": [
-        "src/themes/*"
-      ],
-      "@/types/*": [
-        "src/types/*"
-      ],
-      "@/public/*": [
-        "public/*"
-      ]
+      "@/app/*": ["src/app/*"],
+      "@/components/*": ["src/components/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/store/*": ["src/store/*"],
+      "@/styles/*": ["src/styles/*"], // Si tienes este directorio
+      "@/themes/*": ["src/themes/*"],
+      "@/types/*": ["src/types/*"],
+      "@/public/*": ["public/*"]
     }
   },
   "files": [],

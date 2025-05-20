@@ -2,9 +2,9 @@
 // Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
+import { CommandInstanceId } from '@dfs-suite/shtypes';
+import { createOperationMetadata, UuidUtils } from '@dfs-suite/shutils';
 
-import { CommandInstanceId } from '@dfs-suite/shared-types';
-import { createOperationMetadata, UuidUtils } from '@dfs-suite/shared-utils';
 import { ICommand, ICommandMetadata } from './command.interface';
 
 /**

@@ -15,9 +15,7 @@
             },
             "test": {
               "executor": "@nx/jest:jest",
-              "outputs": [
-                "{workspaceRoot}/coverage/{projectRoot}"
-              ],
+              "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
               "options": {
                 "jestConfig": "apps/aiper-assistance/jest.config.ts",
                 "passWithNoTests": true
@@ -27,9 +25,7 @@
             },
             "build": {
               "executor": "@nx/next:build",
-              "outputs": [
-                "{options.outputPath}"
-              ],
+              "outputs": ["{options.outputPath}"],
               "defaultConfiguration": "production",
               "options": {
                 "outputPath": "dist/apps/aiper-assistance"
@@ -56,9 +52,7 @@
                 "cwd": "apps/aiper-assistance",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -69,17 +63,13 @@
                 "cwd": "apps/aiper-assistance",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
             },
             "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "configurations": {},
               "options": {},
               "parallelism": true,
@@ -87,9 +77,7 @@
             },
             "watch-deps": {
               "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
+              "dependsOn": ["build-deps"],
               "executor": "nx:run-commands",
               "options": {
                 "command": "pnpm exec nx watch --projects aiper-assistance --includeDependentProjects -- pnpm exec nx build-deps aiper-assistance"
@@ -150,18 +138,12 @@
                 "{projectRoot}/eslint.config.mjs",
                 "{workspaceRoot}/tools/eslint-rules/**/*",
                 {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
+                  "externalDependencies": ["eslint"]
                 }
               ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
+              "outputs": ["{options.outputFile}"],
               "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
+                "technologies": ["eslint"],
                 "description": "Runs ESLint on project",
                 "help": {
                   "command": "npx eslint --help",
@@ -185,9 +167,7 @@
                 "command": "jest"
               },
               "metadata": {
-                "technologies": [
-                  "jest"
-                ],
+                "technologies": ["jest"],
                 "description": "Run Jest Tests",
                 "help": {
                   "command": "npx jest --help",
@@ -204,14 +184,10 @@
                 "^production",
                 "{workspaceRoot}\\jest.preset.js",
                 {
-                  "externalDependencies": [
-                    "jest"
-                  ]
+                  "externalDependencies": ["jest"]
                 }
               ],
-              "outputs": [
-                "{workspaceRoot}\\coverage\\apps\\guia-investidor"
-              ],
+              "outputs": ["{workspaceRoot}\\coverage\\apps\\guia-investidor"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -222,17 +198,13 @@
                 "tty": false,
                 "command": "next build"
               },
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "cache": true,
               "inputs": [
                 "default",
                 "^production",
                 {
-                  "externalDependencies": [
-                    "next"
-                  ]
+                  "externalDependencies": ["next"]
                 }
               ],
               "outputs": [
@@ -259,9 +231,7 @@
                 "cwd": "apps/guia-investidor",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -272,17 +242,13 @@
                 "cwd": "apps/guia-investidor",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
             },
             "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "configurations": {},
               "options": {},
               "parallelism": true,
@@ -290,9 +256,7 @@
             },
             "watch-deps": {
               "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
+              "dependsOn": ["build-deps"],
               "executor": "nx:run-commands",
               "options": {
                 "command": "pnpm exec nx watch --projects guia-investidor --includeDependentProjects -- pnpm exec nx build-deps guia-investidor"
@@ -333,18 +297,12 @@
                 "{projectRoot}/eslint.config.mjs",
                 "{workspaceRoot}/tools/eslint-rules/**/*",
                 {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
+                  "externalDependencies": ["eslint"]
                 }
               ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
+              "outputs": ["{options.outputFile}"],
               "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
+                "technologies": ["eslint"],
                 "description": "Runs ESLint on project",
                 "help": {
                   "command": "npx eslint --help",
@@ -368,9 +326,7 @@
                 "command": "jest"
               },
               "metadata": {
-                "technologies": [
-                  "jest"
-                ],
+                "technologies": ["jest"],
                 "description": "Run Jest Tests",
                 "help": {
                   "command": "npx jest --help",
@@ -387,14 +343,10 @@
                 "^production",
                 "{workspaceRoot}\\jest.preset.js",
                 {
-                  "externalDependencies": [
-                    "jest"
-                  ]
+                  "externalDependencies": ["jest"]
                 }
               ],
-              "outputs": [
-                "{workspaceRoot}\\coverage\\apps\\portal-imoveis"
-              ],
+              "outputs": ["{workspaceRoot}\\coverage\\apps\\portal-imoveis"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -405,17 +357,13 @@
                 "tty": false,
                 "command": "next build"
               },
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "cache": true,
               "inputs": [
                 "default",
                 "^production",
                 {
-                  "externalDependencies": [
-                    "next"
-                  ]
+                  "externalDependencies": ["next"]
                 }
               ],
               "outputs": [
@@ -442,9 +390,7 @@
                 "cwd": "apps/portal-imoveis",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -455,17 +401,13 @@
                 "cwd": "apps/portal-imoveis",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
             },
             "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "configurations": {},
               "options": {},
               "parallelism": true,
@@ -473,9 +415,7 @@
             },
             "watch-deps": {
               "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
+              "dependsOn": ["build-deps"],
               "executor": "nx:run-commands",
               "options": {
                 "command": "pnpm exec nx watch --projects portal-imoveis --includeDependentProjects -- pnpm exec nx build-deps portal-imoveis"
@@ -516,18 +456,12 @@
                 "{projectRoot}/eslint.config.mjs",
                 "{workspaceRoot}/tools/eslint-rules/**/*",
                 {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
+                  "externalDependencies": ["eslint"]
                 }
               ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
+              "outputs": ["{options.outputFile}"],
               "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
+                "technologies": ["eslint"],
                 "description": "Runs ESLint on project",
                 "help": {
                   "command": "npx eslint --help",
@@ -551,9 +485,7 @@
                 "command": "jest"
               },
               "metadata": {
-                "technologies": [
-                  "jest"
-                ],
+                "technologies": ["jest"],
                 "description": "Run Jest Tests",
                 "help": {
                   "command": "npx jest --help",
@@ -570,14 +502,10 @@
                 "^production",
                 "{workspaceRoot}\\jest.preset.js",
                 {
-                  "externalDependencies": [
-                    "jest"
-                  ]
+                  "externalDependencies": ["jest"]
                 }
               ],
-              "outputs": [
-                "{workspaceRoot}\\coverage\\apps\\pwa-consultant"
-              ],
+              "outputs": ["{workspaceRoot}\\coverage\\apps\\pwa-consultant"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -588,17 +516,13 @@
                 "tty": false,
                 "command": "next build"
               },
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "cache": true,
               "inputs": [
                 "default",
                 "^production",
                 {
-                  "externalDependencies": [
-                    "next"
-                  ]
+                  "externalDependencies": ["next"]
                 }
               ],
               "outputs": [
@@ -625,9 +549,7 @@
                 "cwd": "apps/pwa-consultant",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -638,17 +560,13 @@
                 "cwd": "apps/pwa-consultant",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
             },
             "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "configurations": {},
               "options": {},
               "parallelism": true,
@@ -656,9 +574,7 @@
             },
             "watch-deps": {
               "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
+              "dependsOn": ["build-deps"],
               "executor": "nx:run-commands",
               "options": {
                 "command": "pnpm exec nx watch --projects pwa-consultant --includeDependentProjects -- pnpm exec nx build-deps pwa-consultant"
@@ -688,18 +604,14 @@
           "targets": {
             "lint": {
               "executor": "@nx/eslint:lint",
-              "outputs": [
-                "{options.outputFile}"
-              ],
+              "outputs": ["{options.outputFile}"],
               "options": {},
               "configurations": {},
               "parallelism": true
             },
             "test": {
               "executor": "@nx/jest:jest",
-              "outputs": [
-                "{workspaceRoot}/coverage/{projectRoot}"
-              ],
+              "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
               "options": {
                 "jestConfig": "apps/pwa-supervisor/jest.config.ts",
                 "passWithNoTests": false
@@ -709,9 +621,7 @@
             },
             "build": {
               "executor": "@nx/next:build",
-              "outputs": [
-                "{options.outputPath}"
-              ],
+              "outputs": ["{options.outputPath}"],
               "defaultConfiguration": "production",
               "options": {
                 "outputPath": "dist/apps/pwa-supervisor"
@@ -740,9 +650,7 @@
                 "cwd": "apps/pwa-supervisor",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -753,17 +661,13 @@
                 "cwd": "apps/pwa-supervisor",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
             },
             "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "configurations": {},
               "options": {},
               "parallelism": true,
@@ -771,9 +675,7 @@
             },
             "watch-deps": {
               "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
+              "dependsOn": ["build-deps"],
               "executor": "nx:run-commands",
               "options": {
                 "command": "pnpm exec nx watch --projects pwa-supervisor --includeDependentProjects -- pnpm exec nx build-deps pwa-supervisor"
@@ -842,18 +744,12 @@
                 "{projectRoot}/eslint.config.mjs",
                 "{workspaceRoot}/tools/eslint-rules/**/*",
                 {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
+                  "externalDependencies": ["eslint"]
                 }
               ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
+              "outputs": ["{options.outputFile}"],
               "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
+                "technologies": ["eslint"],
                 "description": "Runs ESLint on project",
                 "help": {
                   "command": "npx eslint --help",
@@ -870,17 +766,12 @@
             },
             "e2e": {
               "executor": "@nx/jest:jest",
-              "outputs": [
-                "{workspaceRoot}/coverage/{e2eProjectRoot}"
-              ],
+              "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
               "options": {
                 "jestConfig": "apps/api-main-e2e/jest.config.ts",
                 "passWithNoTests": true
               },
-              "dependsOn": [
-                "api-main:build",
-                "api-main:serve"
-              ],
+              "dependsOn": ["api-main:build", "api-main:serve"],
               "configurations": {},
               "parallelism": true
             }
@@ -888,9 +779,7 @@
           "name": "api-main-e2e",
           "$schema": "../../node_modules/nx/schemas/project-schema.json",
           "projectType": "application",
-          "implicitDependencies": [
-            "api-main"
-          ],
+          "implicitDependencies": ["api-main"],
           "tags": []
         }
       },
@@ -913,18 +802,12 @@
                 "{projectRoot}/eslint.config.mjs",
                 "{workspaceRoot}/tools/eslint-rules/**/*",
                 {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
+                  "externalDependencies": ["eslint"]
                 }
               ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
+              "outputs": ["{options.outputFile}"],
               "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
+                "technologies": ["eslint"],
                 "description": "Runs ESLint on project",
                 "help": {
                   "command": "npx eslint --help",
@@ -948,9 +831,7 @@
                 "command": "jest"
               },
               "metadata": {
-                "technologies": [
-                  "jest"
-                ],
+                "technologies": ["jest"],
                 "description": "Run Jest Tests",
                 "help": {
                   "command": "npx jest --help",
@@ -967,14 +848,10 @@
                 "^production",
                 "{workspaceRoot}\\jest.preset.js",
                 {
-                  "externalDependencies": [
-                    "jest"
-                  ]
+                  "externalDependencies": ["jest"]
                 }
               ],
-              "outputs": [
-                "{workspaceRoot}\\coverage\\apps\\web3-portal"
-              ],
+              "outputs": ["{workspaceRoot}\\coverage\\apps\\web3-portal"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -985,17 +862,13 @@
                 "tty": false,
                 "command": "next build"
               },
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "cache": true,
               "inputs": [
                 "default",
                 "^production",
                 {
-                  "externalDependencies": [
-                    "next"
-                  ]
+                  "externalDependencies": ["next"]
                 }
               ],
               "outputs": [
@@ -1022,9 +895,7 @@
                 "cwd": "apps/web3-portal",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -1035,17 +906,13 @@
                 "cwd": "apps/web3-portal",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
             },
             "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "configurations": {},
               "options": {},
               "parallelism": true,
@@ -1053,9 +920,7 @@
             },
             "watch-deps": {
               "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
+              "dependsOn": ["build-deps"],
               "executor": "nx:run-commands",
               "options": {
                 "command": "pnpm exec nx watch --projects web3-portal --includeDependentProjects -- pnpm exec nx build-deps web3-portal"
@@ -1087,25 +952,17 @@
           "targets": {
             "build": {
               "cache": true,
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "inputs": [
                 "production",
                 "^production",
                 {
-                  "externalDependencies": [
-                    "webpack-cli"
-                  ]
+                  "externalDependencies": ["webpack-cli"]
                 }
               ],
-              "outputs": [
-                "{workspaceRoot}/dist\\apps\\api-main"
-              ],
+              "outputs": ["{workspaceRoot}/dist\\apps\\api-main"],
               "metadata": {
-                "technologies": [
-                  "webpack"
-                ],
+                "technologies": ["webpack"],
                 "description": "Runs Webpack build",
                 "help": {
                   "command": "pnpm exec webpack-cli build --help",
@@ -1113,25 +970,19 @@
                     "options": {
                       "json": "stats.json"
                     },
-                    "args": [
-                      "--profile"
-                    ]
+                    "args": ["--profile"]
                   }
                 }
               },
               "executor": "nx:run-commands",
               "options": {
                 "cwd": "apps/api-main",
-                "args": [
-                  "node-env=production"
-                ],
+                "args": ["node-env=production"],
                 "command": "webpack-cli build"
               },
               "configurations": {
                 "development": {
-                  "args": [
-                    "node-env=development"
-                  ]
+                  "args": ["node-env=development"]
                 }
               },
               "parallelism": true
@@ -1140,9 +991,7 @@
               "continuous": true,
               "executor": "@nx/js:node",
               "defaultConfiguration": "development",
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "options": {
                 "buildTarget": "api-main:build",
                 "runBuildTargetDependencies": false
@@ -1161,24 +1010,17 @@
               "continuous": true,
               "options": {
                 "cwd": "apps/api-main",
-                "args": [
-                  "--node-env=production"
-                ],
+                "args": ["--node-env=production"],
                 "command": "webpack-cli serve"
               },
               "metadata": {
-                "technologies": [
-                  "webpack"
-                ],
+                "technologies": ["webpack"],
                 "description": "Starts Webpack dev server in production mode",
                 "help": {
                   "command": "pnpm exec webpack-cli serve --help",
                   "example": {
                     "options": {
-                      "args": [
-                        "--client-progress",
-                        "--history-api-fallback "
-                      ]
+                      "args": ["--client-progress", "--history-api-fallback "]
                     }
                   }
                 }
@@ -1189,9 +1031,7 @@
             },
             "serve-static": {
               "continuous": true,
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "@nx/web:file-server",
               "options": {
                 "buildTarget": "build",
@@ -1201,9 +1041,7 @@
               "parallelism": true
             },
             "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "configurations": {},
               "options": {},
               "parallelism": true,
@@ -1211,9 +1049,7 @@
             },
             "watch-deps": {
               "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
+              "dependsOn": ["build-deps"],
               "executor": "nx:run-commands",
               "options": {
                 "command": "pnpm exec nx watch --projects api-main --includeDependentProjects -- pnpm exec nx build-deps api-main"
@@ -1234,18 +1070,12 @@
                 "{projectRoot}/eslint.config.mjs",
                 "{workspaceRoot}/tools/eslint-rules/**/*",
                 {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
+                  "externalDependencies": ["eslint"]
                 }
               ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
+              "outputs": ["{options.outputFile}"],
               "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
+                "technologies": ["eslint"],
                 "description": "Runs ESLint on project",
                 "help": {
                   "command": "npx eslint --help",
@@ -1262,9 +1092,7 @@
             },
             "test": {
               "metadata": {
-                "technologies": [
-                  "jest"
-                ],
+                "technologies": ["jest"],
                 "description": "Run Jest Tests",
                 "help": {
                   "command": "npx jest --help",
@@ -1281,14 +1109,10 @@
                 "^production",
                 "{workspaceRoot}\\jest.preset.js",
                 {
-                  "externalDependencies": [
-                    "jest"
-                  ]
+                  "externalDependencies": ["jest"]
                 }
               ],
-              "outputs": [
-                "{workspaceRoot}\\coverage\\apps\\api-main"
-              ],
+              "outputs": ["{workspaceRoot}\\coverage\\apps\\api-main"],
               "executor": "nx:run-commands",
               "options": {
                 "cwd": "apps/api-main",
@@ -1305,9 +1129,7 @@
           "name": "api-main",
           "$schema": "../../node_modules/nx/schemas/project-schema.json",
           "sourceRoot": "apps/api-main/src",
-          "tags": [
-            "scope:app"
-          ],
+          "tags": ["scope:app"],
           "implicitDependencies": []
         }
       },
@@ -1330,18 +1152,12 @@
                 "{projectRoot}/eslint.config.mjs",
                 "{workspaceRoot}/tools/eslint-rules/**/*",
                 {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
+                  "externalDependencies": ["eslint"]
                 }
               ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
+              "outputs": ["{options.outputFile}"],
               "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
+                "technologies": ["eslint"],
                 "description": "Runs ESLint on project",
                 "help": {
                   "command": "npx eslint --help",
@@ -1365,9 +1181,7 @@
                 "command": "jest"
               },
               "metadata": {
-                "technologies": [
-                  "jest"
-                ],
+                "technologies": ["jest"],
                 "description": "Run Jest Tests",
                 "help": {
                   "command": "npx jest --help",
@@ -1384,14 +1198,10 @@
                 "^production",
                 "{workspaceRoot}\\jest.preset.js",
                 {
-                  "externalDependencies": [
-                    "jest"
-                  ]
+                  "externalDependencies": ["jest"]
                 }
               ],
-              "outputs": [
-                "{workspaceRoot}\\coverage\\apps\\dev-hub"
-              ],
+              "outputs": ["{workspaceRoot}\\coverage\\apps\\dev-hub"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -1402,17 +1212,13 @@
                 "tty": false,
                 "command": "next build"
               },
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "cache": true,
               "inputs": [
                 "default",
                 "^production",
                 {
-                  "externalDependencies": [
-                    "next"
-                  ]
+                  "externalDependencies": ["next"]
                 }
               ],
               "outputs": [
@@ -1439,9 +1245,7 @@
                 "cwd": "apps/dev-hub",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
@@ -1452,17 +1256,13 @@
                 "cwd": "apps/dev-hub",
                 "command": "next start"
               },
-              "dependsOn": [
-                "build"
-              ],
+              "dependsOn": ["build"],
               "executor": "nx:run-commands",
               "configurations": {},
               "parallelism": true
             },
             "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
+              "dependsOn": ["^build"],
               "configurations": {},
               "options": {},
               "parallelism": true,
@@ -1470,9 +1270,7 @@
             },
             "watch-deps": {
               "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
+              "dependsOn": ["build-deps"],
               "executor": "nx:run-commands",
               "options": {
                 "command": "pnpm exec nx watch --projects dev-hub --includeDependentProjects -- pnpm exec nx build-deps dev-hub"

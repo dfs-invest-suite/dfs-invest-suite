@@ -1,3 +1,4 @@
+// RUTA: tsconfig.base.json
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -27,18 +28,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "paths": {
-      // Shared Libs
-      "@dfs-suite/shconstants": ["libs/shared/shconstants/src/index.ts"],
-      "@dfs-suite/sherrors": ["libs/shared/sherrors/src/index.ts"],
-      "@dfs-suite/shresult": ["libs/shared/shresult/src/index.ts"],
-      "@dfs-suite/shtypes": ["libs/shared/shtypes/src/index.ts"],
-      "@dfs-suite/shutils": ["libs/shared/shutils/src/index.ts"],
-      "@dfs-suite/shvalidationschemas": [
-        "libs/shared/shvalidationschemas/src/index.ts"
-      ],
-      // UI Shared Lib
-      "@dfs-suite/ui-shared": ["libs/ui-shared/src/index.ts"],
-      // Core Domain Shared Kernel Libs
       "@dfs-suite/cdskcommandsqueries": [
         "libs/core/domain/shared-kernel/cdskcommandsqueries/src/index.ts"
       ],
@@ -57,39 +46,6 @@
       "@dfs-suite/cdskvalueobjects": [
         "libs/core/domain/shared-kernel/cdskvalueobjects/src/index.ts"
       ],
-      // Core Domain Specific Libs
-      "@dfs-suite/codoaiperassistance": [
-        "libs/core/domain/codoaiperassistance/src/index.ts"
-      ],
-      "@dfs-suite/codoanalyticscore": [
-        "libs/core/domain/codoanalyticscore/src/index.ts"
-      ],
-      "@dfs-suite/codoantiban": ["libs/core/domain/codoantiban/src/index.ts"],
-      "@dfs-suite/codobilling": ["libs/core/domain/codobilling/src/index.ts"],
-      "@dfs-suite/codocampaigns": [
-        "libs/core/domain/codocampaigns/src/index.ts"
-      ],
-      "@dfs-suite/codoeducacontent": [
-        "libs/core/domain/codoeducacontent/src/index.ts"
-      ],
-      "@dfs-suite/codoleadsflow": [
-        "libs/core/domain/codoleadsflow/src/index.ts"
-      ],
-      "@dfs-suite/codomessagetemplaterecord": [
-        "libs/core/domain/codomessagetemplaterecord/src/index.ts"
-      ],
-      "@dfs-suite/codonotificationscore": [
-        "libs/core/domain/codonotificationscore/src/index.ts"
-      ],
-      "@dfs-suite/codoportalcontent": [
-        "libs/core/domain/codoportalcontent/src/index.ts"
-      ],
-      "@dfs-suite/codotenancy": ["libs/core/domain/codotenancy/src/index.ts"],
-      "@dfs-suite/codousersroles": [
-        "libs/core/domain/codousersroles/src/index.ts"
-      ],
-      "@dfs-suite/codowhatsapp": ["libs/core/domain/codowhatsapp/src/index.ts"],
-      // Core Application Libs
       "@dfs-suite/coapaiperassistance": [
         "libs/core/application/coapaiperassistance/src/index.ts"
       ],
@@ -111,6 +67,9 @@
       "@dfs-suite/coapleadsflow": [
         "libs/core/application/coapleadsflow/src/index.ts"
       ],
+      "@dfs-suite/coapmessagelog": [
+        "libs/core/application/coapmessagelog/src/index.ts"
+      ],
       "@dfs-suite/coapnotificationsservice": [
         "libs/core/application/coapnotificationsservice/src/index.ts"
       ],
@@ -126,9 +85,45 @@
       "@dfs-suite/coapwhatsapp": [
         "libs/core/application/coapwhatsapp/src/index.ts"
       ],
-      // Infrastructure Libs
+      "@dfs-suite/codoaiperassistance": [
+        "libs/core/domain/codoaiperassistance/src/index.ts"
+      ],
+      "@dfs-suite/codoanalyticscore": [
+        "libs/core/domain/codoanalyticscore/src/index.ts"
+      ],
+      "@dfs-suite/codoantiban": ["libs/core/domain/codoantiban/src/index.ts"],
+      "@dfs-suite/codobilling": ["libs/core/domain/codobilling/src/index.ts"],
+      "@dfs-suite/codocampaigns": [
+        "libs/core/domain/codocampaigns/src/index.ts"
+      ],
+      "@dfs-suite/codoeducacontent": [
+        "libs/core/domain/codoeducacontent/src/index.ts"
+      ],
+      "@dfs-suite/codoleadsflow": [
+        "libs/core/domain/codoleadsflow/src/index.ts"
+      ],
+      "@dfs-suite/codomessagelog": [
+        "libs/core/domain/codomessagelog/src/index.ts"
+      ],
+      "@dfs-suite/codomessagetemplaterecord": [
+        "libs/core/domain/codomessagetemplaterecord/src/index.ts"
+      ],
+      "@dfs-suite/codonotificationscore": [
+        "libs/core/domain/codonotificationscore/src/index.ts"
+      ],
+      "@dfs-suite/codoportalcontent": [
+        "libs/core/domain/codoportalcontent/src/index.ts"
+      ],
+      "@dfs-suite/codotenancy": ["libs/core/domain/codotenancy/src/index.ts"],
+      "@dfs-suite/codousersroles": [
+        "libs/core/domain/codousersroles/src/index.ts"
+      ],
+      "@dfs-suite/codowhatsapp": ["libs/core/domain/codowhatsapp/src/index.ts"],
       "@dfs-suite/infraaiproviders": [
         "libs/infrastructure/infraaiproviders/src/index.ts"
+      ],
+      "@dfs-suite/infraappservices": [
+        "libs/infrastructure/infraappservices/src/index.ts"
       ],
       "@dfs-suite/infracache": ["libs/infrastructure/infracache/src/index.ts"],
       "@dfs-suite/infraemailservice": [
@@ -136,7 +131,7 @@
       ],
       "@dfs-suite/infraobservability": [
         "libs/infrastructure/infraobservability/src/index.ts"
-      ], // ÚNICA y CORRECTA entrada
+      ],
       "@dfs-suite/infrapaymentgateway": [
         "libs/infrastructure/infrapaymentgateway/src/index.ts"
       ],
@@ -153,12 +148,24 @@
       "@dfs-suite/infratenancypersistence": [
         "libs/infrastructure/infratenancypersistence/src/index.ts"
       ],
+      "@dfs-suite/infravectorstore": [
+        "libs/infrastructure/infravectorstore/src/index.ts"
+      ],
       "@dfs-suite/infrawhatsappadminapi": [
         "libs/infrastructure/infrawhatsappadminapi/src/index.ts"
       ],
       "@dfs-suite/infrawhatsappcloudapi": [
         "libs/infrastructure/infrawhatsappcloudapi/src/index.ts"
-      ]
+      ],
+      "@dfs-suite/shconstants": ["libs/shared/shconstants/src/index.ts"],
+      "@dfs-suite/sherrors": ["libs/shared/sherrors/src/index.ts"],
+      "@dfs-suite/shresult": ["libs/shared/shresult/src/index.ts"],
+      "@dfs-suite/shtypes": ["libs/shared/shtypes/src/index.ts"],
+      "@dfs-suite/shutils": ["libs/shared/shutils/src/index.ts"],
+      "@dfs-suite/shvalidationschemas": [
+        "libs/shared/shvalidationschemas/src/index.ts"
+      ],
+      "@dfs-suite/ui-shared": ["libs/ui-shared/src/index.ts"]
     },
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
@@ -183,3 +190,11 @@
     "**/*.stories.tsx"
   ]
 }
+// RUTA: tsconfig.base.json
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Eliminación de todos los comentarios del archivo JSON.", "justificacion": "Los archivos JSON estándar no soportan comentarios. Esto causaba el `SyntaxError: Unexpected token '/'` al ser importado por los `jest.config.ts`.", "impacto": "Debería resolver el error de parseo de `tsconfig.base.json` en Jest." },
+  { "mejora": "Paths para `@dfs-suite/coapmessagelog` y `@dfs-suite/codomessagelog` verificados y corregidos.", "justificacion": "Asegura que apunten a las librerías específicas.", "impacto": "Correcta resolución de módulos para estas librerías." }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

@@ -1,13 +1,14 @@
-// libs/core/domain/shared-kernel/value-objects/src/lib/iso-date-string.vo.spec.ts
+// RUTA: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.spec.ts
 // Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
-import { IsoDateStringVO } from './iso-date-string.vo';
 import {
   ArgumentInvalidException,
   ArgumentNotProvidedException,
-} from '@dfs-suite/shared-errors';
-import { IsoDateString } from '@dfs-suite/shared-types'; // Correcta importación
+} from '@dfs-suite/sherrors'; // CORREGIDO: usa alias codificado sherrors
+import { IsoDateString } from '@dfs-suite/shtypes'; // CORREGIDO: usa alias codificado shtypes
+
+import { IsoDateStringVO } from './iso-date-string.vo';
 
 describe('IsoDateStringVO', () => {
   describe('create (from string)', () => {
@@ -35,30 +36,26 @@ describe('IsoDateStringVO', () => {
       expect(() => IsoDateStringVO.create(invalidIso)).toThrow(
         ArgumentInvalidException
       );
+      // El mensaje exacto puede variar si Zod lo genera
       expect(() => IsoDateStringVO.create(invalidIso)).toThrow(
-        /Value "2023-10-27 10:30:00Z" is not a valid ISO 8601 date string format./
+        /Value "2023-10-27 10:30:00Z" is not a valid ISO 8601 date string/
       );
     });
 
-    it('should NOT throw for a "date" like "Feb 30" because new Date() corrects it and current VO validation for date validity is limited', () => {
-      const invalidDayFeb = '2023-02-30T10:30:00Z'; // JavaScript's new Date() will parse this as March 2nd
-      // La validación actual del VO con new Date().getTime() no detectará esto como NaN
-      // porque Date() lo "corrige".
-      expect(() => IsoDateStringVO.create(invalidDayFeb)).not.toThrow();
-      // Para que este test falle como se esperaba originalmente (detectar Feb 30),
-      // la validación en IsoDateStringVO.validate() necesitaría ser más estricta,
-      // por ejemplo, comparando el string de entrada con el toISOString() de la fecha parseada.
-      // O, mejor aún, confiar en z.string().datetime() para validaciones de entrada robustas.
+    it('should throw ArgumentInvalidException for a semantically invalid date like "Feb 30"', () => {
+      const invalidDayFeb = '2023-02-30T10:30:00Z';
+      // Con la validación de Zod .datetime(), esto SÍ debería fallar.
+      expect(() => IsoDateStringVO.create(invalidDayFeb)).toThrow(
+        ArgumentInvalidException
+      );
     });
 
     it('should throw ArgumentNotProvidedException for an empty string (caught by ValueObjectBase)', () => {
-      // ValueObjectBase.checkIfEmpty se llama primero y lanza ArgumentNotProvidedException
       expect(() => IsoDateStringVO.create('')).toThrow(
         ArgumentNotProvidedException
       );
-      // El mensaje viene de ValueObjectBase
       expect(() => IsoDateStringVO.create('')).toThrow(
-        /IsoDateStringVO props cannot be empty/ // Ajustar si el mensaje de ValueObjectBase es diferente
+        /IsoDateStringVO primitive value cannot be empty/
       );
     });
   });
@@ -116,67 +113,12 @@ describe('IsoDateStringVO', () => {
     });
   });
 });
-// libs/core/domain/shared-kernel/value-objects/src/lib/iso-date-string.vo.spec.ts
-/* SECCIÓN DE MEJORAS
+// RUTA: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.spec.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
 [
-  Mejora Aplicada: Corregida la importación a `IsoDateString`.
-]
-[
-  Mejora Aplicada: Ajustado el test para "Feb 30" para reflejar que la validación actual del VO
-                  (basada en `new Date().getTime() !== NaN`) no lo detecta como error porque JavaScript
-                  "corrige" la fecha. El test ahora espera que `not.toThrow()`.
-]
-[
-  Mejora Aplicada: Corregido el test para "empty string" para que espere `ArgumentNotProvidedException`
-                  (lanzada por `ValueObjectBase.checkIfEmpty()`) y el mensaje correspondiente.
+  { "mejora": "Corrección de imports a los alias codificados (`@dfs-suite/sherrors`, `@dfs-suite/shtypes`).", "justificacion": "Resuelve errores de `Cannot find module`.", "impacto": "Permite que el test se ejecute." },
+  { "mejora": "Ajuste del test para 'Feb 30' para esperar `ArgumentInvalidException`.", "justificacion": "La validación con `IsoDateStringSchema` (que usa `z.datetime()`) es más estricta y debería detectar esta fecha semánticamente inválida.", "impacto": "Test más preciso y alineado con la validación robusta." },
+  { "mejora": "Ajuste del mensaje esperado en el test de 'empty string'.", "justificacion": "`ValueObjectBase.checkIfEmpty` ahora tiene un mensaje más específico para VOs primitivos.", "impacto": "Test más preciso."}
 ]
 */
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  Nota 1: La validación robusta de que un string es una fecha *semánticamente* válida (ej. "Feb 30" es inválido)
-          es compleja. El `IsoDateStringSchema` de Zod que usa `z.string().datetime()` es el lugar
-          principal para esta validación robusta en las entradas del sistema. El `IsoDateStringVO` se enfoca
-          en el formato ISO y la parseabilidad básica a `Date`.
-]
-*/
-/* SECCIÓN DE MEJORAS
-[
-  Mejora Aplicada: Ajustado el test para "Feb 30" para reflejar la limitación actual de la validación
-                  del VO. La validación más estricta de "fecha real" se espera del Zod schema
-                  `IsoDateStringSchema` que usa `z.datetime()`.
-]
-[
-  Mejora Aplicada: Corregido el test para "empty string" para que espere `ArgumentNotProvidedException`
-                  lanzada por `ValueObjectBase.checkIfEmpty()`.
-]
-*/
-// (Resto de mejoras y notas se mantienen)
-/* SECCIÓN DE MEJORAS
-[
-  Mejora Aplicada: Corregida la importación de `IsoDateStringType` a `IsoDateString`.
-]
-[
-  Mejora 1: Añadir más casos de prueba para formatos ISO 8601 válidos e inválidos,
-            especialmente con diferentes offsets de timezone y precisión de milisegundos,
-            para asegurar la robustez de la regex y la validación `new Date()`.
-]
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  Nota 1: Estos tests validan la creación, conversión y comparación del VO.
-]
-*/
-/* SECCIÓN DE MEJORAS
-[
-  Mejora 1: Añadir más casos de prueba para formatos ISO 8601 válidos e inválidos,
-            especialmente con diferentes offsets de timezone y precisión de milisegundos,
-            para asegurar la robustez de la regex y la validación `new Date()`.
-]
-*/
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  Nota 1: Estos tests validan la creación, conversión y comparación del VO.
-]
-*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

@@ -1,4 +1,7 @@
-// libs/shared/result/src/lib/result.type.ts
+// RUTA: libs/shared/shresult/src/lib/result.type.ts
+// TODO: [LIA Legacy - Implementar Result Patrón] - ¡REVISADO!
+// Propósito: Define las interfaces y el tipo unión para el patrón Result (Ok/Err).
+// Relacionado con Casos de Uso: Manejo explícito de errores en Casos de Uso y Servicios de Dominio.
 
 /**
  * Representa un resultado exitoso, conteniendo un valor del tipo T.
@@ -11,9 +14,11 @@ export interface Ok<T, E = never> {
   isOk(): this is Ok<T, E>;
   isErr(): this is Err<E, T>;
   map<U>(fn: (value: T) => U): Ok<U, E>;
-  mapErr<F>(fn: (error: E) => F): Ok<T, F>; // No opera sobre el error, devuelve Ok
-  andThen<U, F>(fn: (value: T) => Result<U, F>): Result<U, F>;
-  orElse<U, F>(fn: (error: E) => Result<U, F>): Result<T | U, F>; // Devuelve el Ok actual
+  mapErr<F>(fn: (error: E) => F): Ok<T, F>;
+  andThen<U, NextE = E>(fn: (value: T) => Result<U, NextE>): Result<U, NextE>; // NextE para el error del siguiente Result
+  orElse<NextT = T, F = E>(
+    fn: (error: E) => Result<NextT, F>
+  ): Result<T | NextT, F>;
   unwrap(): T;
   unwrapOr(defaultValue: T): T;
   unwrapErr(): E; // Debería lanzar un error si se llama en Ok
@@ -29,10 +34,12 @@ export interface Err<E, T = never> {
   readonly error: E;
   isOk(): this is Ok<T, E>;
   isErr(): this is Err<E, T>;
-  map<U>(fn: (value: T) => U): Err<E, U>; // No opera sobre el valor, devuelve Err
+  map<U>(fn: (value: T) => U): Err<E, U>;
   mapErr<F>(fn: (error: E) => F): Err<F, T>;
-  andThen<U, F>(fn: (value: T) => Result<U, F>): Err<E, F>; // No opera, devuelve el Err actual
-  orElse<U, F>(fn: (error: E) => Result<U, F>): Result<U, F>;
+  andThen<U, NextE = E>(fn: (value: T) => Result<U, NextE>): Err<E, NextE>;
+  orElse<NextT = T, F = E>(
+    fn: (error: E) => Result<NextT, F>
+  ): Result<NextT, F>;
   unwrap(): T; // Debería lanzar un error si se llama en Err
   unwrapOr(defaultValue: T): T;
   unwrapErr(): E;
@@ -45,3 +52,11 @@ export interface Err<E, T = never> {
  * @template E - El tipo del error en caso de fallo.
  */
 export type Result<T, E> = Ok<T, E> | Err<E, T>;
+
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Tipado más preciso para `andThen` y `orElse` en `Ok` y `Err`.", "justificacion": "Los tipos genéricos `NextE` y `NextT` permiten que las funciones pasadas a `andThen` y `orElse` puedan cambiar el tipo de error o el tipo de valor exitoso del `Result` devuelto, lo cual es común en el encadenamiento de operaciones.", "impacto": "Mayor flexibilidad y seguridad de tipos al componer operaciones con Result." }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */
+// RUTA: libs/shared/shresult/src/lib/result.type.ts

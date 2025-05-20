@@ -1,7 +1,6 @@
 // RUTA: apps/aiper-assistance/src/components/layout/LiaTopNav.tsx
 // ...
 export function LiaTopNav({ onMenuButtonClick }: LiaTopNavProps) {
-
   const currentUserFromStore = useAuthStore((state) => state.user); // Ejemplo si usas store
   // ...
   return (

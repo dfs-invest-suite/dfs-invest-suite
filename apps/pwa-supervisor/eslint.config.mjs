@@ -1,61 +1,61 @@
-// RUTA: apps/pwa-supervisor/eslint.config.mjs
-// Autor: Raz Podesta (github @razpodesta, email: raz.podesta@metashark.tech)
-// Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
-// Propiedad Intelectual: MetaShark (I.S.)
-
-import { fixupConfigRules } from '@eslint/compat';
+// RUTA: apps/<nombre-app-next>/eslint.config.mjs (PLANTILLA ACTUALIZADA Y COMPLETA)
+// TODO: [LIA Legacy - Aplicar esta ESTRUCTURA ACTUALIZADA a todos los eslint.config.mjs de apps Next.js] - ¡PENDIENTE!
+import baseConfig from '../../eslint.config.mjs'; // Path a la config raíz
 import { FlatCompat } from '@eslint/eslintrc';
-import js from '@eslint/js';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import * as tsParser from '@typescript-eslint/parser';
-import globals from 'globals';
 import { dirname, resolve as pathResolve } from 'path';
 import { fileURLToPath } from 'url';
-import baseConfig from '../../eslint.config.mjs';
+import js from '@eslint/js';
+import { fixupConfigRules } from '@eslint/compat'; // <<< IMPORTACIÓN CORREGIDA Y NECESARIA
+import nxPlugin from '@nx/eslint-plugin';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import * as tsParser from '@typescript-eslint/parser';
+import eslintPluginReact from 'eslint-plugin-react'; // <<< IMPORTACIÓN AÑADIDA
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks'; // <<< IMPORTACIÓN AÑADIDA
+import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y'; // <<< IMPORTACIÓN AÑADIDA
+import eslintPluginNext from '@next/eslint-plugin-next';
+import globals from 'globals';
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
-const monorepoRoot = pathResolve(currentDir, '../../');
+const monorepoRoot = pathResolve(currentDir, '../../'); // Ajusta según la profundidad de la app
 
 const compat = new FlatCompat({
   baseDirectory: currentDir,
   recommendedConfig: js.configs.recommended,
+  resolvePluginsRelativeTo: currentDir,
 });
 
-const supervisorGlobalIgnores = [
-  '**/node_modules/**',
-  '**/dist/**',
-  'apps/pwa-supervisor/.next',
-  'apps/pwa-supervisor/jest.config.ts',
-  'apps/pwa-supervisor/tailwind.config.js',
-  'apps/pwa-supervisor/postcss.config.js',
-  'apps/pwa-supervisor/next.config.js',
-  'apps/pwa-supervisor/index.d.ts',
-];
-
-const pwaSupervisorConfig = [
+export default [
   {
-    ignores: supervisorGlobalIgnores,
-  },
-  ...baseConfig,
-  {
-    files: [
-      'apps/pwa-supervisor/src/app/**/*.{ts,tsx}',
-      'apps/pwa-supervisor/src/components/**/*.{ts,tsx}',
-      'apps/pwa-supervisor/src/hooks/**/*.{ts,tsx}',
-      'apps/pwa-supervisor/src/lib/**/*.{ts,tsx}',
-      'apps/pwa-supervisor/src/store/**/*.{ts,tsx}',
-    ],
     ignores: [
-      'apps/pwa-supervisor/src/**/*.spec.{ts,tsx}',
-      'apps/pwa-supervisor/src/**/*.test.{ts,tsx}',
-      'apps/pwa-supervisor/src/app/api/**/*',
-      'apps/pwa-supervisor/src/test-setup.ts',
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/coverage/**',
+      `apps/<nombre-app-next>/.next/**/*`, // Ajustar <nombre-app-next>
+      `apps/<nombre-app-next>/jest.config.ts`,
+      `apps/<nombre-app-next>/.swcrc`,
+      // No ignorar eslint.config.mjs de ESTE proyecto aquí.
+    ],
+  },
+  ...baseConfig, // Heredar de la raíz
+
+  // Configuración específica de Nx para proyectos React/TypeScript.
+  // Esta configuración ya define plugins para React, Hooks, JSX-A11y, etc.
+  // y sus reglas recomendadas.
+  ...nxPlugin.configs['flat/react-typescript'],
+
+  // Bloque para habilitar type-checking en esta app específica y aplicar reglas type-aware
+  {
+    files: [`apps/<nombre-app-next>/src/**/*.{ts,tsx,js,jsx}`], // Ajustar <nombre-app-next>
+    ignores: [
+      `apps/<nombre-app-next>/src/**/*.spec.{ts,tsx}`,
+      `apps/<nombre-app-next>/src/**/*.test.{ts,tsx}`,
+      `apps/<nombre-app-next>/src/app/api/**/*`,
     ],
     languageOptions: {
-      parser: tsParser,
+      parser: tsParser, // Aunque nxPlugin.configs['flat/react-typescript'] lo defina, ser explícito no daña
       parserOptions: {
         project: [
-          pathResolve(monorepoRoot, 'apps/pwa-supervisor/tsconfig.app.json'),
+          pathResolve(monorepoRoot, `apps/<nombre-app-next>/tsconfig.json`), // Ajustar <nombre-app-next>
           pathResolve(monorepoRoot, 'tsconfig.base.json'),
         ],
         tsconfigRootDir: monorepoRoot,
@@ -63,98 +63,79 @@ const pwaSupervisorConfig = [
       },
       globals: { ...globals.browser },
     },
-    plugins: { '@typescript-eslint': tsPlugin },
+    // Los plugins principales (react, react-hooks, jsx-a11y, @typescript-eslint)
+    // ya están definidos por `nxPlugin.configs['flat/react-typescript']`
+    // o por los `compat.extends` de Next.js.
+    // No es necesario redefinir el objeto `plugins` aquí si solo se heredan.
+    // Si se necesitan plugins adicionales SOLO para este bloque, se añadirían.
     rules: {
-      ...tsPlugin.configs['recommended-type-checked'].rules,
-      '@typescript-eslint/no-misused-promises': [
-        'error',
-        { checksVoidReturn: { attributes: false } },
-      ],
-      '@typescript-eslint/no-floating-promises': [
-        'error',
-        { ignoreVoid: true },
-      ],
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unsafe-assignment': 'warn',
-      '@typescript-eslint/no-unsafe-call': 'warn',
-      '@typescript-eslint/no-unsafe-member-access': 'warn',
-      '@typescript-eslint/no-unsafe-return': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn',
+      // Aplicar reglas type-aware aquí porque 'parserOptions.project' está definido
+      // Si `tsPlugin.configs['recommended-type-checked'].rules` no está en `nxPlugin.configs['flat/react-typescript']`, añadirlo:
+      // ...tsPlugin.configs['recommended-type-checked'].rules,
+
+      // Reglas que ya estaban en nxPlugin.configs['flat/react-typescript'] o Next.js configs no necesitan repetirse
+      // a menos que se quieran sobreescribir.
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      // Sobrescribir o añadir reglas específicas de la app si es necesario
+    },
+    settings: {
+      react: { version: 'detect' }, // Ya debería estar en nxPlugin.configs['flat/react-typescript']
     },
   },
+
+  // Configuración para tests de esta app (si los tiene)
   {
     files: [
-      'apps/pwa-supervisor/src/**/*.spec.{ts,tsx}',
-      'apps/pwa-supervisor/src/**/*.test.{ts,tsx}',
-      'apps/pwa-supervisor/specs/**/*.spec.{ts,tsx}',
-      'apps/pwa-supervisor/specs/**/*.test.{ts,tsx}',
+      `apps/<nombre-app-next>/src/**/*.spec.{ts,tsx}`,
+      `apps/<nombre-app-next>/src/**/*.test.{ts,tsx}`,
+      `apps/<nombre-app-next>/specs/**/*.spec.{ts,tsx}`,
     ],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
         project: [
-          pathResolve(monorepoRoot, 'apps/pwa-supervisor/tsconfig.spec.json'),
+          pathResolve(
+            monorepoRoot,
+            `apps/<nombre-app-next>/tsconfig.spec.json`
+          ), // Ajustar
           pathResolve(monorepoRoot, 'tsconfig.base.json'),
         ],
         tsconfigRootDir: monorepoRoot,
-        ecmaFeatures: { jsx: true },
       },
       globals: { ...globals.jest, ...globals.browser },
     },
-    plugins: { '@typescript-eslint': tsPlugin },
+    plugins: { '@typescript-eslint': tsPlugin, react: eslintPluginReact },
     rules: {
-      ...tsPlugin.configs['recommended-type-checked'].rules,
+      ...(tsPlugin.configs['recommended-type-checked']?.rules || {}),
+      ...(eslintPluginReact.configs.recommended?.rules || {}),
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
-      '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/no-unsafe-return': 'off',
-      '@typescript-eslint/no-unsafe-argument': 'off',
+      // ... otras reglas relajadas para tests
     },
+    settings: { react: { version: 'detect' } },
   },
-  // Configuración específica de Next.js
-  ...fixupConfigRules(compat.extends('next/core-web-vitals')).map((config) => ({
-    ...config,
-    files: [
-      // Asegurar que se aplique a los archivos correctos
-      'apps/pwa-supervisor/src/app/**/*.{ts,tsx,js,jsx}',
-      'apps/pwa-supervisor/src/components/**/*.{ts,tsx,js,jsx}',
-      'apps/pwa-supervisor/src/hooks/**/*.{ts,tsx,js,jsx}',
-      'apps/pwa-supervisor/src/lib/**/*.{ts,tsx,js,jsx}',
-      'apps/pwa-supervisor/src/store/**/*.{ts,tsx,js,jsx}',
-      // Es importante que esto también incluya el archivo layout.tsx raíz de la app
-      'apps/pwa-supervisor/src/app/layout.tsx',
-    ],
-    rules: {
-      ...config.rules,
-      '@next/next/no-html-link-for-pages': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'no-undef': 'off', // <--- AÑADIDO: Desactivar no-undef aquí, asumiendo que Next.js lo maneja.
-    },
-  })),
+
+  // Configuración de Next.js (al final, y usando fixupConfigRules)
+  // Estas configuraciones ya traen sus propios plugins (como @next/eslint-plugin-next)
+  ...fixupConfigRules(compat.extends('plugin:@next/next/recommended')).map(
+    (config) => ({
+      ...config,
+      files: [`apps/<nombre-app-next>/src/**/*.{ts,tsx,js,jsx}`],
+    }) // Ajustar
+  ),
+  ...fixupConfigRules(compat.extends('next/core-web-vitals')).map(
+    (config) => ({
+      ...config,
+      files: [`apps/<nombre-app-next>/src/**/*.{ts,tsx,js,jsx}`],
+    }) // Ajustar
+  ),
 ];
-
-export default pwaSupervisorConfig;
-// RUTA: apps/pwa-supervisor/eslint.config.mjs
-/* SECCIÓN DE MEJORAS
+// RUTA: apps/<nombre-app-next>/eslint.config.mjs
+/* SECCIÓN DE MEJORAS REALIZADAS
 [
-  {
-    "mejora": "Desactivación de `no-undef` en bloque de Next.js",
-    "justificacion": "Se añadió `'no-undef': 'off'` al bloque de reglas de `next/core-web-vitals`. Esto asume que la configuración de Next.js define los globales necesarios como `React` o que el nuevo transform JSX no los necesita para la regla `no-undef`. Si el problema es específicamente el uso de `React.ReactNode`, la importación explícita de `React` en `layout.tsx` sería la solución más limpia, pero esta desactivación es para probar si hay un conflicto de precedencia de reglas.",
-    "impacto": "Podría resolver el error `no-undef` para `React`. Si no, la importación explícita de `React` en `layout.tsx` sigue siendo una opción válida."
-  },
-  {
-    "mejora": "Asegurar que `ecmaFeatures: { jsx: true }` esté en `parserOptions` de los bloques relevantes",
-    "justificacion": "Para que el parser entienda JSX correctamente.",
-    "impacto": "Configuración más robusta."
-  }
+  { "mejora": "Añadidas importaciones faltantes: `fixupConfigRules`, `eslintPluginReact`, `eslintPluginReactHooks`, `eslintPluginJsxA11y`, `eslintPluginNext`, `globals`.", "justificacion": "Resuelve los errores `ReferenceError: ... is not defined`.", "impacto": "Permite que el archivo de configuración se parsee y se aplique correctamente." },
+  { "mejora": "Simplificación de la sección `plugins` en el bloque de código fuente de la app.", "justificacion": "Se asume que `nxPlugin.configs['flat/react-typescript']` y las configuraciones extendidas de Next.js (`compat.extends`) ya definen los plugins necesarios. Definirlos explícitamente solo es necesario si se quiere una configuración muy particular o si los presets no los incluyen (lo cual es raro).", "impacto": "Menos redundancia y menor probabilidad de conflicto `Cannot redefine plugin`."}
 ]
 */
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "Si desactivar `no-undef` en el bloque de Next.js no funciona, y la importación de `React` en `layout.tsx` (que debería estar en el snapshot que te proporcioné) tampoco lo hizo, entonces necesitaríamos revisar la configuración de `globals` en `baseConfig` y en el bloque `languageOptions` de este archivo, para asegurar que `globals.browser` o un global específico para `React` esté correctamente definido y aplicado antes que la regla `no-undef` del `js.configs.recommended`."
-  }
-]
-*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

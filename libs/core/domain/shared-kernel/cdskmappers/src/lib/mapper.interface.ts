@@ -1,7 +1,6 @@
 // libs/core/domain/shared-kernel/mappers/src/lib/mapper.interface.ts
 import { Entity } from '@dfs-suite/core-domain-shared-kernel-entities'; // Se resolverá
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface IMapper<
   DomainEntity extends Entity<any>,
   PersistenceModel,
