@@ -24157,21 +24157,43 @@
     }
   },
   "dependencies": {
-    "cdskcommandsqueries": [],
-    "cdskvalueobjects": [],
-    "coapnotificationsservice": [],
-    "cdskentities": [],
-    "infratenancypersistence": [
+    "cdskcommandsqueries": [
       {
-        "source": "infratenancypersistence",
-        "target": "npm:@nestjs/common",
+        "source": "cdskcommandsqueries",
+        "target": "shtypes",
         "type": "static"
       }
     ],
+    "cdskvalueobjects": [],
+    "coapnotificationsservice": [],
+    "cdskentities": [],
+    "infratenancypersistence": [],
     "cdskmappers": [],
     "coapanalyticsservice": [],
-    "codomessagetemplaterecord": [],
-    "cdskevents": [],
+    "codomessagetemplaterecord": [
+      {
+        "source": "codomessagetemplaterecord",
+        "target": "cdskentities",
+        "type": "static"
+      },
+      {
+        "source": "codomessagetemplaterecord",
+        "target": "shtypes",
+        "type": "static"
+      },
+      {
+        "source": "codomessagetemplaterecord",
+        "target": "codowhatsapp",
+        "type": "static"
+      }
+    ],
+    "cdskevents": [
+      {
+        "source": "cdskevents",
+        "target": "shtypes",
+        "type": "static"
+      }
+    ],
     "coapaiperassistance": [],
     "infrawhatsappadminapi": [],
     "infrawhatsappcloudapi": [],
@@ -24186,13 +24208,7 @@
     "coapusersroles": [],
     "codoaiperassistance": [],
     "infraaiproviders": [],
-    "infrapersistence": [
-      {
-        "source": "infrapersistence",
-        "target": "npm:@nestjs/common",
-        "type": "static"
-      }
-    ],
+    "infrapersistence": [],
     "coapcampaigns": [],
     "coapleadsflow": [],
     "coapwhatsapp": [],
@@ -24203,7 +24219,18 @@
     "coaptenancy": [],
     "codoeducacontent": [],
     "infrasecurity": [],
-    "codousersroles": [],
+    "codousersroles": [
+      {
+        "source": "codousersroles",
+        "target": "cdskentities",
+        "type": "static"
+      },
+      {
+        "source": "codousersroles",
+        "target": "shtypes",
+        "type": "static"
+      }
+    ],
     "shvalidationschemas": [
       {
         "source": "shvalidationschemas",
@@ -24212,7 +24239,18 @@
       }
     ],
     "codocampaigns": [],
-    "codoleadsflow": [],
+    "codoleadsflow": [
+      {
+        "source": "codoleadsflow",
+        "target": "cdskentities",
+        "type": "static"
+      },
+      {
+        "source": "codoleadsflow",
+        "target": "shtypes",
+        "type": "static"
+      }
+    ],
     "infracache": [],
     "infraqueue": [
       {
@@ -24222,7 +24260,18 @@
       }
     ],
     "codowhatsapp": [],
-    "codoantiban": [],
+    "codoantiban": [
+      {
+        "source": "codoantiban",
+        "target": "codowhatsapp",
+        "type": "static"
+      },
+      {
+        "source": "codoantiban",
+        "target": "shtypes",
+        "type": "static"
+      }
+    ],
     "codobilling": [],
     "codotenancy": [],
     "shconstants": [],
@@ -48417,5 +48466,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1747685557245
+  "computedAt": 1747703671758
 }

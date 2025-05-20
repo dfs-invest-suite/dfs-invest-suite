@@ -216,132 +216,136 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "static/runtime.js",
-        "hash": "12948695002603102697"
-      },
-      {
-        "file": "tsconfig.json",
-        "hash": "15904257995032004510"
-      },
-      {
-        "file": "project-graph-despues-limpieza.json",
-        "hash": "15225831250387007030"
-      },
-      {
-        "file": "static/environment.js",
-        "hash": "3744888822665143214"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13772762848121229944"
-      },
-      {
-        "file": "static/main.js",
-        "hash": "13466073545778635666"
-      },
-      {
-        "file": "project-graph.json",
-        "hash": "60075120034675247"
-      },
-      {
-        "file": "package.json",
-        "hash": "12626206149993841690"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "16378750861203669088"
-      },
-      {
-        "file": "package copy.json",
-        "hash": "8091084440105246356"
-      },
-      {
-        "file": "pnpm",
-        "hash": "3244421341483603138"
-      },
-      {
-        "file": "static/favicon.ico",
-        "hash": "9303420814833116677"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": ".github/instructions/nx.instructions.md",
-        "hash": "8794530091646052069"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "13852605215639941163"
-      },
-      {
-        "file": ".env.example",
-        "hash": "9701414843099447202"
-      },
-      {
         "file": ".vercelignore",
         "hash": "11039824168913323036"
       },
       {
-        "file": "nx.json",
-        "hash": "4623778605038397166"
-      },
-      {
-        "file": "static/styles.css",
-        "hash": "8991366033343630201"
+        "file": "static/runtime.js",
+        "hash": "12948695002603102697"
       },
       {
         "file": "pnpm-lock.yaml",
         "hash": "4920893152903406923"
       },
       {
-        "file": ".vscode/extensions.json",
-        "hash": "4637156562308165301"
-      },
-      {
-        "file": "pnpm-workspace.yaml",
-        "hash": "9932403079654918373"
-      },
-      {
-        "file": "components.json",
-        "hash": "1784723684728134693"
-      },
-      {
-        "file": "README.md",
-        "hash": "10841274974903266604"
-      },
-      {
-        "file": ".npmrc",
-        "hash": "1880664178033616490"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "static/styles.js",
-        "hash": "13859495920378584409"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "15255107291123918229"
-      },
-      {
-        "file": "scripts/ejecuta.ts",
-        "hash": "8638839745248006799"
+        "file": "ibs/core/application/coapwhatsapp/src/lib/use-cases/send-whatsapp-message.use-case.ts",
+        "hash": "11696280014531188488"
       },
       {
         "file": "tsconfig.base.json",
         "hash": "15433239985705963422"
       },
       {
-        "file": ".prettierrc",
-        "hash": "3719944644258228693"
+        "file": "package.json",
+        "hash": "12626206149993841690"
       },
       {
         "file": "jest.config.ts",
         "hash": "12630965493391364343"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "pnpm",
+        "hash": "13057948965454643270"
+      },
+      {
+        "file": "static/favicon.ico",
+        "hash": "9303420814833116677"
+      },
+      {
+        "file": "nx.json",
+        "hash": "4623778605038397166"
+      },
+      {
+        "file": "README.md",
+        "hash": "10841274974903266604"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "3719944644258228693"
+      },
+      {
+        "file": "project-graph.json",
+        "hash": "60075120034675247"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "15904257995032004510"
+      },
+      {
+        "file": ".env.example",
+        "hash": "9701414843099447202"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1880664178033616490"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
+      },
+      {
+        "file": "static/main.js",
+        "hash": "13466073545778635666"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13772762848121229944"
+      },
+      {
+        "file": "static/styles.css",
+        "hash": "8991366033343630201"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "9932403079654918373"
+      },
+      {
+        "file": "project-graph-despues-limpieza.json",
+        "hash": "15225831250387007030"
+      },
+      {
+        "file": "scripts/ejecuta.ts",
+        "hash": "8638839745248006799"
+      },
+      {
+        "file": ".github/instructions/nx.instructions.md",
+        "hash": "8794530091646052069"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "components.json",
+        "hash": "1784723684728134693"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "13852605215639941163"
+      },
+      {
+        "file": "static/environment.js",
+        "hash": "3744888822665143214"
+      },
+      {
+        "file": "package copy.json",
+        "hash": "8091084440105246356"
+      },
+      {
+        "file": "static/styles.js",
+        "hash": "13859495920378584409"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "16378750861203669088"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "15255107291123918229"
       }
     ],
     "projectFileMap": {
@@ -459,6 +463,14 @@
           "hash": "9446087056200271158"
         },
         {
+          "file": "libs/infrastructure/infraobservability/src/lib/logger/pino-logger.adapter.ts",
+          "hash": "4260121009128564302"
+        },
+        {
+          "file": "libs/infrastructure/infraobservability/src/lib/telemetry/opentelemetry.config.ts",
+          "hash": "17874002817191986362"
+        },
+        {
           "file": "libs/infrastructure/infraobservability/tsconfig.json",
           "hash": "9505886339790543345"
         },
@@ -495,6 +507,10 @@
         {
           "file": "libs/shared/shconstants/src/lib/regex.constants.ts",
           "hash": "13777699820830252905"
+        },
+        {
+          "file": "libs/shared/shconstants/src/lib/time.constants.ts",
+          "hash": "3244421341483603138"
         },
         {
           "file": "libs/shared/shconstants/tsconfig.json",
@@ -618,6 +634,50 @@
           "hash": "14080642356599570722"
         },
         {
+          "file": "libs/core/domain/codoleadsflow/src/lib/entities/lead-interaction.entity.ts",
+          "hash": "15898048787213443391",
+          "deps": [
+            "cdskentities",
+            "shtypes"
+          ]
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/entities/lead.entity.ts",
+          "hash": "3904981654407488371",
+          "deps": [
+            "cdskentities",
+            "shtypes"
+          ]
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/ports/LeadInteractionRepositoryPort.ts",
+          "hash": "14847283664800513501"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/ports/lead.repository.port.ts",
+          "hash": "14719187898199050192"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/services/lead-qualification-rules.service.ts",
+          "hash": "17702167101430439336"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/value-objects/InteractionChannelVO.ts",
+          "hash": "3320737171533104088"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/value-objects/LeadScoreVO.ts",
+          "hash": "14847283664800513501"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/value-objects/LeadSourceChannelVO.ts",
+          "hash": "14847283664800513501"
+        },
+        {
+          "file": "libs/core/domain/codoleadsflow/src/lib/value-objects/lead-status.vo.ts",
+          "hash": "5310896805499449345"
+        },
+        {
           "file": "libs/core/domain/codoleadsflow/tsconfig.json",
           "hash": "7846400365888195640"
         },
@@ -706,6 +766,10 @@
         {
           "file": "libs/core/application/coaptenancy/src/lib/use-cases/set-tenant-db-config/set-tenant-db-config.use-case.ts",
           "hash": "7637135161675821920"
+        },
+        {
+          "file": "libs/core/application/coaptenancy/src/lib/use-cases/update-tenant-waba-config.use-case.ts",
+          "hash": "2570748110598928924"
         },
         {
           "file": "libs/core/application/coaptenancy/tsconfig.json",
@@ -832,6 +896,14 @@
         {
           "file": "libs/core/domain/codousersroles/src/lib/codousersroles.ts",
           "hash": "4070450482960728638"
+        },
+        {
+          "file": "libs/core/domain/codousersroles/src/lib/entities/user.entity.ts",
+          "hash": "8312562339579359585",
+          "deps": [
+            "cdskentities",
+            "shtypes"
+          ]
         },
         {
           "file": "libs/core/domain/codousersroles/tsconfig.json",
@@ -1157,7 +1229,11 @@
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/index.ts",
-          "hash": "5243872897691394988"
+          "hash": "3459914138782170726"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/email.vo.ts",
+          "hash": "8683949414455734009"
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.spec.ts",
@@ -1166,6 +1242,18 @@
         {
           "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.ts",
           "hash": "9636577858597132013"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/money.vo.ts",
+          "hash": "3016457946322075072"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/phone-number.vo.ts",
+          "hash": "8467563591038378691"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/url.vo.ts",
+          "hash": "12480104347757116596"
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/value-object.base.ts",
@@ -1290,12 +1378,24 @@
           "hash": "3111892421936123927"
         },
         {
+          "file": "libs/infrastructure/infrasecurity/src/lib/guards/roles.guard.ts",
+          "hash": "1754659010622052986"
+        },
+        {
           "file": "libs/infrastructure/infrasecurity/src/lib/infrasecurity.spec.ts",
           "hash": "16036236806298508385"
         },
         {
           "file": "libs/infrastructure/infrasecurity/src/lib/infrasecurity.ts",
           "hash": "15366858626137964816"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/src/lib/passport/jwt-platform-admin.strategy.ts",
+          "hash": "10629938237034794160"
+        },
+        {
+          "file": "libs/infrastructure/infrasecurity/src/lib/services/password-hasher.service.ts",
+          "hash": "11915291048128060387"
         },
         {
           "file": "libs/infrastructure/infrasecurity/tsconfig.json",
@@ -1329,7 +1429,7 @@
         },
         {
           "file": "libs/core/domain/codotenancy/src/index.ts",
-          "hash": "6732797593854604555"
+          "hash": "3103277042731908605"
         },
         {
           "file": "libs/core/domain/codotenancy/src/lib/entities/tenant-configuration.entity.spec.ts",
@@ -1376,12 +1476,20 @@
           "hash": "1086452992255351158"
         },
         {
+          "file": "libs/core/domain/codotenancy/src/lib/services/tenant-validation.service.ts",
+          "hash": "16139615497554349126"
+        },
+        {
           "file": "libs/core/domain/codotenancy/src/lib/value-objects/db-connection-config.vo.spec.ts",
           "hash": "154569824508265709"
         },
         {
           "file": "libs/core/domain/codotenancy/src/lib/value-objects/db-connection-config.vo.ts",
           "hash": "1983419149064418124"
+        },
+        {
+          "file": "libs/core/domain/codotenancy/src/lib/value-objects/tenant-plan.vo.ts",
+          "hash": "8317352143821131468"
         },
         {
           "file": "libs/core/domain/codotenancy/src/lib/value-objects/tenant-status.vo.spec.ts",
@@ -1434,6 +1542,58 @@
           "hash": "8529911442618312292"
         },
         {
+          "file": "libs/core/domain/codowhatsapp/src/lib/enums/EWhatsAppMessageStatus",
+          "hash": "6825052136936491303"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/enums/EWhatsAppQualityRating",
+          "hash": "6825052136936491303"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/enums/EWhatsAppTemplateCategory",
+          "hash": "16215917763499020233"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/enums/whatsapp-message-type.enum.ts",
+          "hash": "15104515625342611400"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/events/raw-whatsapp-message-sent.event.ts",
+          "hash": "5913546914024379972"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/events/raw-whatsapp-webhook-received.event.ts",
+          "hash": "1624152901852486741"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/ports/whatsapp-admin.port.ts",
+          "hash": "5886158285398850265"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/ports/whatsapp-message.port.ts",
+          "hash": "15135910826320820988"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/types/whatsapp-api-message-request.types.ts",
+          "hash": "17853604850943545878"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/types/whatsapp-asset.types.ts",
+          "hash": "1184610320229025955"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/types/whatsapp-error.types.ts",
+          "hash": "11353724464441121914"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/types/whatsapp-pricing.types.ts",
+          "hash": "13110616882437115482"
+        },
+        {
+          "file": "libs/core/domain/codowhatsapp/src/lib/types/whatsapp-webhook.types.ts",
+          "hash": "17853388293086998486"
+        },
+        {
           "file": "libs/core/domain/codowhatsapp/tsconfig.json",
           "hash": "7846400365888195640"
         },
@@ -1465,7 +1625,18 @@
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/index.ts",
-          "hash": "18359557473703099691"
+          "hash": "14981532497702238763"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/authenticated-command.interface.ts",
+          "hash": "14955040712145768448",
+          "deps": [
+            "shtypes"
+          ]
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/authenticated-query.interface.ts",
+          "hash": "14820449626773893007"
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/command-handler.interface.ts",
@@ -1532,6 +1703,10 @@
         {
           "file": "libs/infrastructure/infrawhatsappadminapi/src/index.ts",
           "hash": "17990952752261895626"
+        },
+        {
+          "file": "libs/infrastructure/infrawhatsappadminapi/src/lib/adapters/whatsapp-admin-api.adapter.ts",
+          "hash": "155308770146385608"
         },
         {
           "file": "libs/infrastructure/infrawhatsappadminapi/src/lib/infrawhatsappadminapi.spec.ts",
@@ -1626,6 +1801,10 @@
           "hash": "4274732985726971936"
         },
         {
+          "file": "libs/infrastructure/infrawhatsappcloudapi/src/lib/utils/webhook-signature.validator.ts",
+          "hash": "15564871853826939316"
+        },
+        {
           "file": "libs/infrastructure/infrawhatsappcloudapi/tsconfig.json",
           "hash": "9505886339790543345"
         },
@@ -1662,6 +1841,10 @@
         {
           "file": "libs/shared/shtypes/src/lib/api-response.interface.ts",
           "hash": "12163190414362665549"
+        },
+        {
+          "file": "libs/shared/shtypes/src/lib/common-enums.ts",
+          "hash": "2468096007114123116"
         },
         {
           "file": "libs/shared/shtypes/src/lib/maybe.type.ts",
@@ -1721,8 +1904,28 @@
           "hash": "5738492469547269012"
         },
         {
+          "file": "libs/ui-shared/src/components/composed/data-table/data-table.tsx",
+          "hash": "10605493292040962104"
+        },
+        {
+          "file": "libs/ui-shared/src/components/composed/page-header.tsx",
+          "hash": "8825272835246539049"
+        },
+        {
           "file": "libs/ui-shared/src/components/ui/alert.tsx",
           "hash": "1466615622130910156",
+          "deps": [
+            "npm:class-variance-authority",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/avatar.tsx",
+          "hash": "8112991761234412298"
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/badge.tsx",
+          "hash": "16310485913160347272",
           "deps": [
             "npm:class-variance-authority",
             "npm:react"
@@ -1767,6 +1970,18 @@
           ]
         },
         {
+          "file": "libs/ui-shared/src/components/ui/dialog.tsx",
+          "hash": "10560031267697115071"
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/dropdown-menu.tsx",
+          "hash": "14035185592654304748"
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/form.tsx",
+          "hash": "8660773037875424567"
+        },
+        {
           "file": "libs/ui-shared/src/components/ui/input.tsx",
           "hash": "5170510621366764254",
           "deps": [
@@ -1783,8 +1998,28 @@
           ]
         },
         {
+          "file": "libs/ui-shared/src/components/ui/select.tsx",
+          "hash": "15193298028326298034"
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/separator.tsx",
+          "hash": "339070118462893552"
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/table.tsx",
+          "hash": "2696621974570246325"
+        },
+        {
+          "file": "libs/ui-shared/src/components/ui/tooltip.tsx",
+          "hash": "9380522021039598547"
+        },
+        {
+          "file": "libs/ui-shared/src/hooks/use-breakpoint.ts",
+          "hash": "3244421341483603138"
+        },
+        {
           "file": "libs/ui-shared/src/index.ts",
-          "hash": "11471684954376205673"
+          "hash": "9587862014623696991"
         },
         {
           "file": "libs/ui-shared/src/lib/utils.ts",
@@ -1841,6 +2076,10 @@
         {
           "file": "libs/infrastructure/infraaiproviders/src/index.ts",
           "hash": "6078162156638461897"
+        },
+        {
+          "file": "libs/infrastructure/infraaiproviders/src/lib/adapters/google-gemini.adapter.ts",
+          "hash": "7220242754453251729"
         },
         {
           "file": "libs/infrastructure/infraaiproviders/src/lib/infraaiproviders.spec.ts",
@@ -2133,7 +2372,7 @@
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskevents/src/index.ts",
-          "hash": "9751967016977760080"
+          "hash": "6703828174272242270"
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event-emitter.interface.ts",
@@ -2150,6 +2389,21 @@
         {
           "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.interface.ts",
           "hash": "18297993612396496645"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/event-bus.port.ts",
+          "hash": "6545264435360780174"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/integration-event.base.ts",
+          "hash": "3488068310807995570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskevents/src/lib/integration-event.interface.ts",
+          "hash": "723812713869536276",
+          "deps": [
+            "shtypes"
+          ]
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskevents/tsconfig.json",
@@ -2221,7 +2475,11 @@
         },
         {
           "file": "libs/infrastructure/infraqueue/src/index.ts",
-          "hash": "12805775578976222123"
+          "hash": "441106206513531068"
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/src/lib/constants/queue-names.constants.ts",
+          "hash": "12291060564409749537"
         },
         {
           "file": "libs/infrastructure/infraqueue/src/lib/infraqueue.module.ts",
@@ -2229,6 +2487,10 @@
           "deps": [
             "npm:@nestjs/common"
           ]
+        },
+        {
+          "file": "libs/infrastructure/infraqueue/src/lib/processors/lead-import.processor.ts",
+          "hash": "17079099762983466810"
         },
         {
           "file": "libs/infrastructure/infraqueue/tsconfig.json",
@@ -2262,7 +2524,11 @@
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskports/src/index.ts",
-          "hash": "16106871007765388714"
+          "hash": "8425411885030964570"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/src/lib/config.port.ts",
+          "hash": "13470763192633017027"
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskports/src/lib/logger.port.ts",
@@ -2271,6 +2537,10 @@
         {
           "file": "libs/core/domain/shared-kernel/cdskports/src/lib/repository.port.ts",
           "hash": "8527498587920742096"
+        },
+        {
+          "file": "libs/core/domain/shared-kernel/cdskports/src/lib/unit-of-work.port.ts",
+          "hash": "16165753598231564165"
         },
         {
           "file": "libs/core/domain/shared-kernel/cdskports/tsconfig.json",
@@ -2689,7 +2959,11 @@
         },
         {
           "file": "libs/shared/shutils/src/index.ts",
-          "hash": "3224938319944754961"
+          "hash": "6425374662490251209"
+        },
+        {
+          "file": "libs/shared/shutils/src/lib/date.utils.ts",
+          "hash": "15080583217818806725"
         },
         {
           "file": "libs/shared/shutils/src/lib/guard.ts",
@@ -2698,6 +2972,14 @@
         {
           "file": "libs/shared/shutils/src/lib/metadata.factory.ts",
           "hash": "1527887950294024782"
+        },
+        {
+          "file": "libs/shared/shutils/src/lib/object.utils.ts",
+          "hash": "1860693913448138750"
+        },
+        {
+          "file": "libs/shared/shutils/src/lib/string.utils.ts",
+          "hash": "3706691533366147871"
         },
         {
           "file": "libs/shared/shutils/src/lib/uuid.utils.spec.ts",
@@ -2790,12 +3072,20 @@
           "hash": "16050007326319107660"
         },
         {
+          "file": "libs/infrastructure/infracache/src/lib/adapters/redis-rate-limiter.adapter.ts",
+          "hash": "4350929647818134641"
+        },
+        {
           "file": "libs/infrastructure/infracache/src/lib/infracache.spec.ts",
           "hash": "8928605210940396940"
         },
         {
           "file": "libs/infrastructure/infracache/src/lib/infracache.ts",
           "hash": "12333290786493544998"
+        },
+        {
+          "file": "libs/infrastructure/infracache/src/lib/providers/redis-client.provider.ts",
+          "hash": "13951948510278259603"
         },
         {
           "file": "libs/infrastructure/infracache/tsconfig.json",
@@ -3212,7 +3502,11 @@
         },
         {
           "file": "libs/shared/shvalidationschemas/src/index.ts",
-          "hash": "17820621881412227351"
+          "hash": "13592787146869563696"
+        },
+        {
+          "file": "libs/shared/shvalidationschemas/src/lib/address.schema.ts",
+          "hash": "10019261556566883531"
         },
         {
           "file": "libs/shared/shvalidationschemas/src/lib/common.schemas.ts",
@@ -3221,6 +3515,10 @@
         {
           "file": "libs/shared/shvalidationschemas/src/lib/pagination.schemas.ts",
           "hash": "10919588756325519295"
+        },
+        {
+          "file": "libs/shared/shvalidationschemas/src/lib/phone-number.schema.ts",
+          "hash": "15726531848133739882"
         },
         {
           "file": "libs/shared/shvalidationschemas/src/lib/zod.instance.ts",
@@ -3270,6 +3568,14 @@
         {
           "file": "libs/core/domain/codoantiban/src/lib/codoantiban.ts",
           "hash": "17552032259072465394"
+        },
+        {
+          "file": "libs/core/domain/codoantiban/src/lib/entities/whatsapp-account.entity.ts",
+          "hash": "10767864745850431159",
+          "deps": [
+            "codowhatsapp",
+            "shtypes"
+          ]
         },
         {
           "file": "libs/core/domain/codoantiban/tsconfig.json",
@@ -3349,10 +3655,23 @@
         },
         {
           "file": "libs/infrastructure/infratenancypersistence/src/lib/infratenancypersistence.module.ts",
-          "hash": "3755094668438523230",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
+          "hash": "9916855139700095682"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/src/lib/mappers/tenant.prisma-mapper.ts",
+          "hash": "16141392066033820111"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/src/lib/repositories/prisma-tenant.repository.adapter.ts",
+          "hash": "6828706064256606770"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/src/lib/repositories/secure-tenant-config.repository.adapter.ts",
+          "hash": "5718116291840510907"
+        },
+        {
+          "file": "libs/infrastructure/infratenancypersistence/src/lib/services/platform-prisma.service.ts",
+          "hash": "1554670619272846329"
         },
         {
           "file": "libs/infrastructure/infratenancypersistence/tsconfig.json",
@@ -3479,6 +3798,15 @@
         {
           "file": "libs/core/domain/codomessagetemplaterecord/src/lib/codomessagetemplaterecord.ts",
           "hash": "16093649814324089015"
+        },
+        {
+          "file": "libs/core/domain/codomessagetemplaterecord/src/lib/entities/message-template-record.entity.ts",
+          "hash": "4553290932045041011",
+          "deps": [
+            "cdskentities",
+            "shtypes",
+            "codowhatsapp"
+          ]
         },
         {
           "file": "libs/core/domain/codomessagetemplaterecord/tsconfig.json",
@@ -3704,10 +4032,15 @@
         },
         {
           "file": "libs/infrastructure/infrapersistence/src/lib/infrapersistence.module.ts",
-          "hash": "12281134000161330133",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
+          "hash": "14426079215933442591"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/src/lib/repositories/prisma-lead.repository.adapter.ts",
+          "hash": "1179550259481333935"
+        },
+        {
+          "file": "libs/infrastructure/infrapersistence/src/lib/services/tenant-prisma.service.ts",
+          "hash": "9363099672742139584"
         },
         {
           "file": "libs/infrastructure/infrapersistence/tsconfig.json",
