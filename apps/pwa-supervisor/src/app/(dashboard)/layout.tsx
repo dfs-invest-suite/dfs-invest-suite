@@ -3,6 +3,7 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 import React from 'react';
+
 import { AppLayoutClient } from '../../components/layout/AppLayoutClient'; // CAMBIO: Importar AppLayoutClient directamente aquí
 // import { redirect } from 'next/navigation'; // No se usa por ahora a nivel de servidor aquí
 

@@ -7,6 +7,7 @@ import {
   TenantId /*, AggregateId -> No usado directamente */,
 } from '@dfs-suite/shared-types';
 import { UuidUtils } from '@dfs-suite/shared-utils';
+
 import { TenantConfigurationEntity } from './tenant-configuration.entity';
 
 describe('TenantConfigurationEntity', () => {

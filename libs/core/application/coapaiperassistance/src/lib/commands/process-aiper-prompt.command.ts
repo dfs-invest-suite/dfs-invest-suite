@@ -5,6 +5,7 @@
 
 import { CommandBase, ICommandMetadata } from '@dfs-suite/cdskcommandsqueries';
 import { TenantId, UserId, Maybe } from '@dfs-suite/shtypes';
+
 import { AiperChatMessageDto } from '../dtos/aiper-chat-message.dto'; // Se creará después
 
 export interface ProcessAiperPromptCommandPayload {

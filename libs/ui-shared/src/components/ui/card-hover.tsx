@@ -4,8 +4,9 @@
 // Propiedad Intelectual: MetaShark (I.S.)
 'use client';
 
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import * as React from 'react';
+
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 
 import { cn } from '../../lib/utils';
 

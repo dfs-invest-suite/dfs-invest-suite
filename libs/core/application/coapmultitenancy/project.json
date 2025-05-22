@@ -1,0 +1,14 @@
+{
+  "name": "coapmultitenancy",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapmultitenancy/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-logic",
+    "layer:application",
+    "feature:multi-tenancy"
+  ],
+  "// targets": "to see all targets run: nx show project coapmultitenancy --web",
+  "targets": {}
+}

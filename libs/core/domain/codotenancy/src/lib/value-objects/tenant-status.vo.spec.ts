@@ -1,5 +1,6 @@
 // libs/core/domain/tenancy/src/lib/value-objects/tenant-status.vo.spec.ts
 import { ArgumentInvalidException } from '@dfs-suite/shared-errors';
+
 import { TenantStatusEnum, TenantStatusVO } from './tenant-status.vo';
 
 describe('TenantStatusVO', () => {

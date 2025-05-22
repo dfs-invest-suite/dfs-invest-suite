@@ -1,0 +1,37 @@
+{
+  "name": "infra-bullmq-queue",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infrastructure/infra-bullmq-queue/src",
+  "projectType": "library",
+  "release": {
+    "version": {
+      "manifestRootsToUpdate": ["dist/{projectRoot}"],
+      "currentVersionResolver": "git-tag",
+      "fallbackCurrentVersionResolver": "disk"
+    }
+  },
+  "tags": [
+    "scope:infrastructure",
+    "type:adapter",
+    "layer:infrastructure",
+    "technology:bullmq"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/infrastructure/infra-bullmq-queue",
+        "tsConfig": "libs/infrastructure/infra-bullmq-queue/tsconfig.lib.json",
+        "packageJson": "libs/infrastructure/infra-bullmq-queue/package.json",
+        "main": "libs/infrastructure/infra-bullmq-queue/src/index.ts",
+        "assets": ["libs/infrastructure/infra-bullmq-queue/*.md"]
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}"
+      }
+    }
+  }
+}

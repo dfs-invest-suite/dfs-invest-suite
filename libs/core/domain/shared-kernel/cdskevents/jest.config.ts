@@ -1,7 +1,7 @@
 // RUTA: libs/core/domain/shared-kernel/cdskevents/jest.config.ts
 export default {
   displayName: 'cdskevents',
-  preset: '../../../../../jest.preset.js', // 5 niveles
+  preset: '../../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
@@ -20,10 +20,10 @@ export default {
   passWithNoTests: true,
 };
 // RUTA: libs/core/domain/shared-kernel/cdskevents/jest.config.ts
-/* SECCIÓN DE MEJORAS REALIZADAS
+/* SECCIÓN DE MEJORAS REALIZADAS (Confirmada previamente)
 [
-  { "mejora": "Paths de `moduleNameMapper` y `preset` verificados (5 niveles `../` para `preset`, paths absolutos desde raíz del workspace para `moduleNameMapper`).", "justificacion": "Asegura la correcta resolución.", "impacto": "Estabilidad de tests." },
-  { "mejora": "Añadido `passWithNoTests: true`.", "justificacion": "Temporal hasta crear tests para `DomainEventBase` etc.", "impacto": "Evita fallos por 'No tests found'." }
+  { "mejora": "Paths de `moduleNameMapper` y `preset` verificados.", "justificacion": "Asegura la correcta resolución.", "impacto": "Estabilidad de tests." },
+  { "mejora": "Mantenido `passWithNoTests: true`.", "justificacion": "Temporal hasta crear tests para `DomainEventBase` etc.", "impacto": "Evita fallos por 'No tests found'." }
 ]
 */
 /* NOTAS PARA IMPLEMENTACIÓN FUTURA

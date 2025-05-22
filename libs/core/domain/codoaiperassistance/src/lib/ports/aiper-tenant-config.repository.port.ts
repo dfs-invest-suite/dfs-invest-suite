@@ -1,18 +1,29 @@
 // RUTA: libs/core/domain/codoaiperassistance/src/lib/ports/aiper-tenant-config.repository.port.ts
-// TODO: [LIA Legacy - Definir IAiperTenantConfigRepositoryPort]
 import { IRepositoryPort } from '@dfs-suite/cdskports';
-import { AiperTenantConfigEntity } from '../entities/aiper-tenant-config.entity';
-import { TenantId, Maybe } from '@dfs-suite/shtypes';
-import { Result } from '@dfs-suite/shresult';
 import { ExceptionBase } from '@dfs-suite/sherrors';
+import { Result } from '@dfs-suite/shresult';
+import { TenantId, Maybe, AiperSystemPromptId } from '@dfs-suite/shtypes';
+
+import {
+  AiperTenantConfigEntity,
+  AiperTenantConfigProps,
+} from '../entities/aiper-tenant-config.entity'; // Añadir Props
 
 export const AIPER_TENANT_CONFIG_REPOSITORY_PORT = Symbol(
   'IAiperTenantConfigRepositoryPort'
 );
-export interface IAiperTenantConfigRepositoryPort
-  extends IRepositoryPort<AiperTenantConfigEntity> {
-  findByTenantId(
+
+// Usar AiperSystemPromptId como el ID del Agregado
+export interface IAiperTenantConfigRepository
+  extends IRepositoryPort<
+    AiperTenantConfigProps,
+    AiperSystemPromptId,
+    AiperTenantConfigEntity
+  > {
+  findByTenantId( // Método específico
     tenantId: TenantId
-  ): Promise<Result<Maybe<AiperTenantConfigEntity>, ExceptionBase | Error>>;
-  // save(config: AiperTenantConfigEntity): Promise<Result<AiperTenantConfigEntity, ExceptionBase | Error>>; // save puede ser upsert
+  ): Promise<Result<Maybe<AiperTenantConfigEntity>, ExceptionBase>>;
+  // El método save (para crear o actualizar) ya viene de IRepositoryPort si es upsert.
+  // Si se necesita un create separado, se añadiría.
 }
+// RUTA: libs/core/domain/codoaiperassistance/src/lib/ports/aiper-tenant-config.repository.port.ts

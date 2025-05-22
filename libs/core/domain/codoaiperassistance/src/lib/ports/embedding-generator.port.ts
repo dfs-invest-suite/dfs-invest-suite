@@ -5,6 +5,7 @@
 
 import { ExceptionBase } from '@dfs-suite/sherrors';
 import { Result } from '@dfs-suite/shresult';
+
 import { AiModelIdentifierVO } from '../value-objects/ai-model-identifier.vo';
 
 export const EMBEDDING_GENERATOR_PORT = Symbol('IEmbeddingGeneratorPort');

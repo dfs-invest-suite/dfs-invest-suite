@@ -1,52 +1,48 @@
 // RUTA: libs/core/domain/shared-kernel/cdskports/src/lib/unit-of-work.port.ts
-// TODO: [LIA Legacy - Definir IUnitOfWorkPort] - ¡REALIZADO!
-// Propósito: Define una interfaz para el patrón Unit of Work (UoW).
-//            Permite agrupar múltiples operaciones de repositorio (y potencialmente otras acciones)
-//            dentro de una única transacción de base de datos o de negocio.
-//            Esencial para mantener la consistencia en Casos de Uso complejos.
-// Relacionado con Casos de Uso: Casos de Uso que modifican múltiples Agregados y requieren atomicidad.
-
-import { ExceptionBase } from '@dfs-suite/sherrors'; // REFACTORIZADO
-import { Result } from '@dfs-suite/shresult'; // REFACTORIZADO
+// Autor: L.I.A Legacy (IA Asistente)
+import { ExceptionBase } from '@dfs-suite/sherrors';
+import { Result } from '@dfs-suite/shresult';
 
 export const UNIT_OF_WORK_PORT = Symbol('IUnitOfWorkPort');
 
 /**
- * @template TContext El tipo del contexto transaccional específico de la implementación
- *                  (ej. el cliente Prisma transaccional, una sesión de DB).
- * @template TResult El tipo de resultado esperado del trabajo ejecutado dentro de la transacción.
+ * Puerto (Interfaz) para el patrón Unit of Work (UoW).
+ * Permite agrupar múltiples operaciones de repositorio (y potencialmente otras acciones
+ * como la publicación de eventos de dominio) dentro de una única transacción
+ * de base de datos o de negocio, asegurando la atomicidad (todo o nada).
+ *
+ * Esencial para mantener la consistencia en Casos de Uso que modifican
+ * múltiples Agregados.
+ *
+ * @template TContext - El tipo del contexto transaccional específico de la implementación
+ *                      (ej. el cliente Prisma transaccional, una sesión de DB).
+ * @template TResult - El tipo de resultado esperado del trabajo ejecutado dentro de la transacción.
  */
 export interface IUnitOfWorkPort<TContext = unknown, TResult = unknown> {
   /**
    * Ejecuta una función de trabajo (`work`) dentro de una transacción.
-   * La implementación del puerto se encarga de iniciar, confirmar (commit) o deshacer (rollback) la transacción.
-   * @param work Una función que recibe el contexto transaccional y devuelve una Promesa
-   *             conteniendo un `Result` con el resultado del trabajo o un error.
-   *             Todas las operaciones de persistencia dentro de `work` DEBEN usar el `transactionContext`.
-   * @returns Una Promesa con el `Result` del trabajo ejecutado.
+   * La implementación del puerto se encarga de iniciar, confirmar (commit)
+   * o deshacer (rollback) la transacción.
+   *
+   * @param work Una función que recibe el contexto transaccional (`transactionContext`)
+   *             y devuelve una Promesa conteniendo un `Result` con el resultado del trabajo
+   *             o un error. Todas las operaciones de persistencia dentro de `work` DEBEN
+   *             usar el `transactionContext` que se les pasa.
+   * @returns Una Promesa con el `Result` del trabajo ejecutado. Si el callback `work`
+   *          devuelve un `Err`, la transacción debe ser deshecha (rollback). Si devuelve
+   *          `Ok`, la transacción debe ser confirmada (commit).
    */
   executeInTransaction(
     work: (
       transactionContext: TContext
     ) => Promise<Result<TResult, ExceptionBase | Error>>
   ): Promise<Result<TResult, ExceptionBase | Error>>;
-
-  // Alternativamente, o de forma complementaria, una API más manual:
-  // startTransaction(): Promise<Result<TContext, ExceptionBase | Error>>;
-  // commitTransaction(transactionContext: TContext): Promise<Result<void, ExceptionBase | Error>>;
-  // rollbackTransaction(transactionContext: TContext): Promise<Result<void, ExceptionBase | Error>>;
 }
-
+// RUTA: libs/core/domain/shared-kernel/cdskports/src/lib/unit-of-work.port.ts
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Refactorización de imports a alias codificados.", "justificacion": "Alineación.", "impacto": "Resolución." },
-  { "mejora": "Definición clara de `IUnitOfWorkPort` con `executeInTransaction`.", "justificacion": "Proporciona un contrato robusto para la gestión de transacciones a nivel de Caso de Uso. El tipo genérico `TContext` permite flexibilidad para diferentes implementaciones de persistencia.", "impacto": "Establece el patrón para operaciones atómicas complejas." }
+  { "mejora": "Imports actualizados a alias codificados.", "justificacion": "Consistencia.", "impacto": "Resolución." },
+  { "mejora": "JSDoc detallado explicando el rol, uso, y la responsabilidad del callback `work`.", "justificacion": "Fundamental para el correcto uso del patrón UoW.", "impacto": "Claridad y prevención de errores de implementación." }
 ]
 */
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  { "nota": "La implementación concreta de este puerto (ej. `PrismaUnitOfWorkAdapter`) residirá en `libs/infrastructure/persistence/prisma/` y utilizará `prisma.$transaction((tx) => work(tx))`." },
-  { "nota": "Los Casos de Uso que necesiten UoW inyectarán `IUnitOfWorkPort` y pasarán sus operaciones de repositorio al callback `work`." }
-]
-*/
-// RUTA: libs/core/domain/shared-kernel/cdskports/src/lib/unit-of-work.port.ts
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

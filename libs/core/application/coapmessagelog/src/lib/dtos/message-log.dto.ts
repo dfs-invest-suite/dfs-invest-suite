@@ -1,6 +1,9 @@
 // RUTA: libs/core/application/coapmessagelog/src/lib/dtos/message-log.dto.ts
 // TODO: [LIA Legacy - Implementar MessageLogDto]
 // Propósito: DTO para exponer datos de MessageLogEntity a través de la API.
+import { EMessageDirection } from '@dfs-suite/codomessagelog'; // Asumiendo que se exporta
+import { EMessageInternalStatus } from '@dfs-suite/codomessagelog';
+import { EWhatsAppMessageStatus } from '@dfs-suite/codowhatsapp';
 import {
   AggregateId,
   CorrelationId,
@@ -10,9 +13,6 @@ import {
   TenantId,
   WhatsAppAccountId,
 } from '@dfs-suite/shtypes';
-import { EMessageDirection } from '@dfs-suite/codomessagelog'; // Asumiendo que se exporta
-import { EMessageInternalStatus } from '@dfs-suite/codomessagelog';
-import { EWhatsAppMessageStatus } from '@dfs-suite/codowhatsapp';
 
 export interface MessageLogDto {
   readonly id: AggregateId;

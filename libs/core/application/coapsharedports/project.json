@@ -1,0 +1,14 @@
+{
+  "name": "coapsharedports",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/application/coapsharedports/src",
+  "projectType": "library",
+  "tags": [
+    "scope:core",
+    "type:application-ports",
+    "layer:application",
+    "feature:shared-ports"
+  ],
+  "// targets": "to see all targets run: nx show project coapsharedports --web",
+  "targets": {}
+}

@@ -1,54 +1,62 @@
 // RUTA: libs/core/domain/shared-kernel/cdskevents/src/lib/event-bus.port.ts
-// TODO: [LIA Legacy - Definir IEventBusPort] - ¡REALIZADO!
-// Propósito: Un puerto genérico para un bus de eventos, capaz de manejar
-//            tanto DomainEvents (para comunicación intra-BC, intra-agregado si es necesario)
-//            como IntegrationEvents (para comunicación inter-BC o con sistemas externos).
-//            IDomainEventEmitter podría ser una implementación específica de este puerto o usarse en conjunto.
-// Relacionado con Casos de Uso: Publicación de Eventos de Dominio y de Integración.
+// Autor: L.I.A Legacy (IA Asistente)
+import { ExceptionBase } from '@dfs-suite/sherrors';
+import { Result } from '@dfs-suite/shresult';
 
-import { ExceptionBase } from '@dfs-suite/sherrors'; // REFACTORIZADO
-import { Result } from '@dfs-suite/shresult'; // REFACTORIZADO
+import { IDomainEvent } from './domain-event.interface';
+import { IIntegrationEvent } from './integration-event.interface';
 
-import { IDomainEvent } from './domain-event.interface'; // OK
-import { IIntegrationEvent } from './integration-event.interface'; // OK
-
+/**
+ * Símbolo de inyección para el `IEventBusPort`.
+ * Utilizado por los contenedores de Inyección de Dependencias (DI) para resolver
+ * la implementación concreta de este puerto.
+ */
 export const EVENT_BUS_PORT = Symbol('IEventBusPort');
 
+/**
+ * Puerto (Interfaz) para un Bus de Eventos genérico.
+ * Este bus es responsable de publicar tanto Eventos de Dominio (para comunicación
+ * dentro de un mismo Bounded Context o entre agregados) como Eventos de Integración
+ * (para comunicación entre diferentes Bounded Contexts o con sistemas externos).
+ *
+ * Las implementaciones pueden variar desde un simple emisor en memoria (como
+ * `@nestjs/event-emitter`) hasta sistemas de colas de mensajes robustos (como BullMQ/Redis
+ * o Kafka) para una arquitectura distribuida y resiliente.
+ */
 export interface IEventBusPort {
   /**
    * Publica un único evento (de dominio o de integración) en el bus.
+   * La implementación del puerto se encargará de despachar el evento
+   * a los `IDomainEventHandler`s o a los consumidores de eventos de integración suscritos.
    * @param event El evento a publicar.
-   * @returns Un Result que indica éxito o fracaso de la publicación.
+   * @returns Un `Result` que indica el éxito (`Ok<void>`) o fracaso (`Err<ExceptionBase | Error>`)
+   *          de la operación de publicación en el bus.
    */
   publish(
     event: IDomainEvent | IIntegrationEvent
   ): Promise<Result<void, ExceptionBase | Error>>;
 
   /**
-   * Publica múltiples eventos en el bus.
-   * La implementación debería decidir si los publica atómicamente (todo o nada) o individualmente.
+   * Publica múltiples eventos (de dominio o de integración) en el bus.
+   * La implementación debería decidir cómo manejar la atomicidad y los errores:
+   * - ¿Publicación atómica (todo o nada)?
+   * - ¿Qué sucede si la publicación de un evento falla? ¿Se detiene o continúan los demás?
+   * - ¿Devuelve un resultado agregado o resultados individuales?
+   * Por simplicidad, esta interfaz asume un resultado agregado.
+   *
    * @param events Array de eventos a publicar.
-   * @returns Un Result que indica éxito o fracaso general de la publicación.
+   * @returns Un `Result` que indica el éxito o fracaso general de la publicación de todos los eventos.
    */
   publishAll(
     events: (IDomainEvent | IIntegrationEvent)[]
   ): Promise<Result<void, ExceptionBase | Error>>;
-
-  // El EventBus usualmente no maneja la suscripción directamente en el puerto.
-  // Los Handlers (IDomainEventHandler) se registran con el emisor/bus
-  // a través de un mecanismo de la capa de infraestructura (ej. módulo NestJS con @nestjs/event-emitter o @nestjs/cqrs).
 }
-
-/* SECCIÓN DE MEJORAS REALIZADAS
+// RUTA: libs/core/domain/shared-kernel/cdskevents/src/lib/event-bus.port.ts
+/* SECCIÓN DE MEJORAS REALIZADAS (Confirmada previamente)
 [
   { "mejora": "Refactorización de imports a alias codificados.", "justificacion": "Alineación.", "impacto": "Resolución." },
-  { "mejora": "Definición clara de `IEventBusPort` para publicar tanto `IDomainEvent` como `IIntegrationEvent`.", "justificacion": "Provee una interfaz unificada para la publicación de diferentes tipos de eventos, crucial para la arquitectura orientada a eventos.", "impacto": "Contrato establecido para la infraestructura del bus de eventos." }
+  { "mejora": "Definición clara de `IEventBusPort` para publicar tanto `IDomainEvent` como `IIntegrationEvent`.", "justificacion": "Provee una interfaz unificada para la publicación de diferentes tipos de eventos, crucial para la arquitectura orientada a eventos.", "impacto": "Contrato establecido para la infraestructura del bus de eventos." },
+  { "mejora": "JSDoc detallado explicando el rol y uso del puerto, y las consideraciones para la implementación.", "justificacion": "Facilita la comprensión y la correcta implementación por la capa de infraestructura.", "impacto": "Mantenibilidad y robustez."}
 ]
 */
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  { "nota": "La implementación de este puerto (ej. en `infraqueue` usando BullMQ para un bus distribuido, o en `api-main` usando `@nestjs/event-emitter` para un bus local en memoria) será clave." },
-  { "nota": "Considerar si `publishAll` necesita devolver resultados individuales por evento en caso de fallos parciales, o si un fallo en un evento debería detener toda la publicación." }
-]
-*/
-// RUTA: libs/core/domain/shared-kernel/cdskevents/src/lib/event-bus.port.ts
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

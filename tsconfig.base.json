@@ -1,4 +1,3 @@
-// RUTA: tsconfig.base.json
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -76,6 +75,9 @@
       "@dfs-suite/coapportalcontent": [
         "libs/core/application/coapportalcontent/src/index.ts"
       ],
+      "@dfs-suite/coapsharedports": [
+        "libs/core/application/coapsharedports/src/index.ts"
+      ],
       "@dfs-suite/coaptenancy": [
         "libs/core/application/coaptenancy/src/index.ts"
       ],
@@ -119,6 +121,15 @@
         "libs/core/domain/codousersroles/src/index.ts"
       ],
       "@dfs-suite/codowhatsapp": ["libs/core/domain/codowhatsapp/src/index.ts"],
+      "@dfs-suite/core-application-multitenancy": [
+        "libs/core/application/coapmultitenancy/src/index.ts"
+      ],
+      "@dfs-suite/infra-bullmq-queue": [
+        "libs/infrastructure/infra-bullmq-queue/src/index.ts"
+      ],
+      "@dfs-suite/infra-redis-cache": [
+        "libs/infrastructure/infra-redis-cache/src/index.ts"
+      ],
       "@dfs-suite/infraaiproviders": [
         "libs/infrastructure/infraaiproviders/src/index.ts"
       ],
@@ -190,11 +201,3 @@
     "**/*.stories.tsx"
   ]
 }
-// RUTA: tsconfig.base.json
-/* SECCIÓN DE MEJORAS REALIZADAS
-[
-  { "mejora": "Eliminación de todos los comentarios del archivo JSON.", "justificacion": "Los archivos JSON estándar no soportan comentarios. Esto causaba el `SyntaxError: Unexpected token '/'` al ser importado por los `jest.config.ts`.", "impacto": "Debería resolver el error de parseo de `tsconfig.base.json` en Jest." },
-  { "mejora": "Paths para `@dfs-suite/coapmessagelog` y `@dfs-suite/codomessagelog` verificados y corregidos.", "justificacion": "Asegura que apunten a las librerías específicas.", "impacto": "Correcta resolución de módulos para estas librerías." }
-]
-*/
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

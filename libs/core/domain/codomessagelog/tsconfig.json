@@ -1,0 +1,33 @@
+// RUTA: libs/core/domain/codomessagelog/tsconfig.json
+{
+  "extends": "../../../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs", // Típico para librerías Node.js en Nx con Jest/ts-jest
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "esModuleInterop": true, // Añadido para mejor compatibilidad con CJS/ESM
+    "allowSyntheticDefaultImports": true // Añadido
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}
+// RUTA: libs/core/domain/codomessagelog/tsconfig.json
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Creación manual del archivo `tsconfig.json` para `codomessagelog`.", "justificacion": "Archivo de configuración TypeScript base para la librería, hereda de `tsconfig.base.json` y referencia los `tsconfig` específicos de lib y spec.", "impacto": "Configuración TypeScript para la librería." },
+  { "mejora": "Añadido `esModuleInterop` y `allowSyntheticDefaultImports`.", "justificacion": "Mejora la compatibilidad con diferentes tipos de módulos y es una práctica común.", "impacto": "Menos problemas potenciales de importación."}
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

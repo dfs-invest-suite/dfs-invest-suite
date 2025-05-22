@@ -1,4 +1,5 @@
 // RUTA: libs/core/domain/shared-kernel/cdskports/jest.config.ts
+// Autor: L.I.A Legacy (IA Asistente)
 export default {
   displayName: 'cdskports',
   preset: '../../../../../jest.preset.js',
@@ -16,15 +17,16 @@ export default {
       '<rootDir>/../../../../../libs/shared/shresult/src/index.ts',
     '^@dfs-suite/sherrors$':
       '<rootDir>/../../../../../libs/shared/sherrors/src/index.ts',
-    '^@dfs-suite/cdskentities$': '<rootDir>/../cdskentities/src/index.ts',
+    '^@dfs-suite/cdskentities$':
+      '<rootDir>/../../../../../libs/core/domain/shared-kernel/cdskentities/src/index.ts',
   },
-  passWithNoTests: true,
+  passWithNoTests: true, // Esta librería solo define interfaces
 };
 // RUTA: libs/core/domain/shared-kernel/cdskports/jest.config.ts
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Paths de `moduleNameMapper` y `preset` verificados.", "justificacion": "Asegura la correcta resolución.", "impacto": "Estabilidad de tests." },
-  { "mejora": "Mantenido `passWithNoTests: true`.", "justificacion": "Esta librería define principalmente interfaces.", "impacto": "Evita fallos por ausencia de tests directos." }
+  { "mejora": "Configuración Jest para `cdskports` con `moduleNameMapper` para sus dependencias.", "justificacion": "Permite la resolución correcta de imports si se añadieran tests que usen tipos de estas dependencias.", "impacto": "Preparación para tests." },
+  { "mejora": "Mantenido `passWithNoTests: true`.", "justificacion": "La librería consiste principalmente en interfaces, que no se testean directamente.", "impacto": "Evita fallos por ausencia de tests."}
 ]
 */
 /* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

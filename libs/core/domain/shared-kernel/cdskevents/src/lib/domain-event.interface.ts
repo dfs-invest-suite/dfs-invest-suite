@@ -1,64 +1,49 @@
-// RUTA: libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.interface.ts
-// TODO: [LIA Legacy - Implementar IDomainEvent y su Metadata] - ¡REVISADO Y REFACTORIZADO!
-// Propósito: Define la interfaz base para todos los Eventos de Dominio y su metadata.
-// Relacionado con Casos de Uso: Utilizado por AggregateRoots para registrar cambios y por Handlers para reaccionar.
-
+// libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.interface.ts
 import {
-  AggregateId,
   CommandInstanceId,
   CorrelationId,
   DomainEventInstanceId,
-  IntegrationEventInstanceId, // Aunque no se usa directamente aquí, es parte de la unión CausationId
   IsoDateString,
   Maybe,
-  ObjectLiteral, // Para el payload genérico
+  ObjectLiteral, // Asegurar que esté importado
   UserId,
-  CausationId, // Usaremos el tipo CausationId de shtypes
-} from '@dfs-suite/shtypes'; // REFACTORIZADO
+  CausationId,
+  AggregateId as AggregateIdType, // Mantener el alias para claridad semántica si se prefiere
+} from '@dfs-suite/shtypes';
 
+/**
+ * Define la estructura de los metadatos asociados a un evento de dominio.
+ */
 export interface IDomainEventMetadata {
-  /** El timestamp de cuándo ocurrió el evento, en formato ISO 8601 UTC. */
   readonly timestamp: IsoDateString;
-  /**
-   * El ID de correlación para rastrear la operación completa a través de múltiples contextos o servicios.
-   * Si este evento fue causado por un comando, este debería ser el correlationId del comando.
-   */
   readonly correlationId: CorrelationId;
-  /**
-   * El ID de la operación que causó este evento.
-   * Puede ser el ID de otro CorrelationId (si es un evento de integración que propaga correlación),
-   * el ID de un CommandInstanceId si fue un comando, o el ID de otro DomainEventInstanceId
-   * si este evento es una reacción a otro evento de dominio.
-   */
   readonly causationId?: Maybe<
     CausationId | CommandInstanceId | DomainEventInstanceId | CorrelationId
   >;
-  /** El ID del usuario que inició la operación que resultó en este evento, si aplica. */
-  readonly userId?: Maybe<UserId>;
+  readonly userId?: Maybe<UserId>; // Usuario que indirectamente causó el evento
 }
 
+/**
+ * Interfaz base para todos los Eventos de Dominio en el sistema.
+ * Un Evento de Dominio representa algo significativo que ha ocurrido en el pasado dentro del dominio.
+ *
+ * @template TPayload - El tipo del objeto de datos (payload) específico del evento.
+ *                      Debe ser un objeto literal.
+ */
 export interface IDomainEvent<
-  TPayload extends ObjectLiteral = Record<string, never>
+  TPayload extends ObjectLiteral = ObjectLiteral // CAMBIO: Default a ObjectLiteral
 > {
-  /** ID único de esta instancia particular del evento de dominio. */
   readonly id: DomainEventInstanceId;
-  /** Nombre de la clase del evento, usado para identificación y por event buses/handlers. */
   readonly eventName: string;
-  /** ID del agregado al que pertenece o se relaciona este evento. */
-  readonly aggregateId: AggregateId;
-  /** Los datos específicos del evento. Por defecto, un objeto vacío si no hay payload. */
+  readonly aggregateId: AggregateIdType; // Es string (o el BrandedType que es string)
   readonly payload: Readonly<TPayload>;
-  /** Metadatos asociados al evento. */
   readonly metadata: Readonly<IDomainEventMetadata>;
 }
-
+// FIN DEL ARCHIVO: libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.interface.ts
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Refactorización de imports a alias codificados (`@dfs-suite/shtypes`).", "justificacion": "Alineación.", "impacto": "Resolución." },
-  { "mejora": "Tipado de `payload` en `IDomainEvent` con default a `Record<string, never>`.", "justificacion": "Indica explícitamente que si un evento no tiene payload, su tipo es un objeto vacío, mejorando la seguridad de tipos para eventos sin datos específicos.", "impacto": "Mayor claridad y seguridad de tipos." },
-  { "mejora": "Uso del Branded Type `CausationId` y unión más explícita para `causationId` en `IDomainEventMetadata`.", "justificacion": "Mejora la semántica y la seguridad de tipos para el ID causal.", "impacto": "Claridad conceptual." },
-  { "mejora": "JSDoc detallado para cada propiedad de las interfaces.", "justificacion": "Mejora la comprensión y el uso de estas interfaces fundamentales.", "impacto": "Mantenibilidad y DX." }
+  { "mejora": "Cambiado el tipo genérico por defecto de `TPayload` en `IDomainEvent` de `Record<string, never>` a `ObjectLiteral`.", "justificacion": "Resuelve el error TS2345 donde payloads de evento específicos (ej. `LeadCreatedPayload`) no eran asignables a `Record<string, never>`. `ObjectLiteral` (definido en `shtypes` como `T extends object ? T : { [key: string]: T }`) es un tipo más flexible que acepta cualquier objeto.", "impacto": "Los eventos de dominio ahora pueden tener payloads con propiedades definidas sin causar errores de tipo con la interfaz base." },
+  { "mejora": "Asegurada la importación de `ObjectLiteral` y `AggregateIdType` (como alias) desde `@dfs-suite/shtypes`.", "justificacion": "Correctitud de tipos.", "impacto": "Resolución de dependencias."}
 ]
 */
 /* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */
-// RUTA: libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.interface.ts

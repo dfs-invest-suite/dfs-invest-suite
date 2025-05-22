@@ -1,6 +1,8 @@
 // RUTA: apps/aiper-assistance/src/components/layout/LiaSidebar.tsx
 'use client';
-import { Button, cn } from '@dfs-suite/ui-shared';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 import {
   Bot,
   History,
@@ -9,8 +11,8 @@ import {
   UploadCloud,
   X,
 } from 'lucide-react'; // Ajustar iconos
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+
+import { Button, cn } from '@dfs-suite/ui-shared';
 
 const aiperNavigation = [
   { name: 'Nuevo Chat', href: '/chat', icon: MessageSquareText, exact: true },

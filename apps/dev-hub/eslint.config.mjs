@@ -1,22 +1,23 @@
-// RUTA: apps/<nombre-app-next>/eslint.config.mjs (PLANTILLA ACTUALIZADA Y COMPLETA)
-// TODO: [LIA Legacy - Aplicar esta ESTRUCTURA ACTUALIZADA a todos los eslint.config.mjs de apps Next.js] - ¡PENDIENTE!
-import baseConfig from '../../eslint.config.mjs'; // Path a la config raíz
+// RUTA: apps/dev-hub/eslint.config.mjs
+import { fixupConfigRules } from '@eslint/compat';
 import { FlatCompat } from '@eslint/eslintrc';
-import { dirname, resolve as pathResolve } from 'path';
-import { fileURLToPath } from 'url';
 import js from '@eslint/js';
-import { fixupConfigRules } from '@eslint/compat'; // <<< IMPORTACIÓN CORREGIDA Y NECESARIA
 import nxPlugin from '@nx/eslint-plugin';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import * as tsParser from '@typescript-eslint/parser';
-import eslintPluginReact from 'eslint-plugin-react'; // <<< IMPORTACIÓN AÑADIDA
-import eslintPluginReactHooks from 'eslint-plugin-react-hooks'; // <<< IMPORTACIÓN AÑADIDA
-import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y'; // <<< IMPORTACIÓN AÑADIDA
-import eslintPluginNext from '@next/eslint-plugin-next';
+import eslintPluginReact from 'eslint-plugin-react';
+import { dirname, resolve as pathResolve } from 'path';
+import { fileURLToPath } from 'url';
+import baseConfig from '../../eslint.config.mjs';
+// Los siguientes pueden estar definidos por nxPlugin.configs['flat/react-typescript'] o Next.js,
+// pero los importamos por si acaso se necesitan para overrides o si los presets cambian.
+import eslintPluginNext from '@next/eslint-plugin-next'; // Específico de Next.js
+import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
-const monorepoRoot = pathResolve(currentDir, '../../'); // Ajusta según la profundidad de la app
+const monorepoRoot = pathResolve(currentDir, '../../');
 
 const compat = new FlatCompat({
   baseDirectory: currentDir,
@@ -30,32 +31,28 @@ export default [
       '**/node_modules/**',
       '**/dist/**',
       '**/coverage/**',
-      `apps/<nombre-app-next>/.next/**/*`, // Ajustar <nombre-app-next>
-      `apps/<nombre-app-next>/jest.config.ts`,
-      `apps/<nombre-app-next>/.swcrc`,
-      // No ignorar eslint.config.mjs de ESTE proyecto aquí.
+      `apps/dev-hub/.next/**/*`, // Específico para dev-hub
+      `apps/dev-hub/out/**/*`, // Si usas `next export`
+      `apps/dev-hub/jest.config.ts`,
+      `apps/dev-hub/.swcrc`,
     ],
   },
-  ...baseConfig, // Heredar de la raíz
+  ...baseConfig,
+  ...nxPlugin.configs['flat/react-typescript'], // Config base de Nx para React + TS
 
-  // Configuración específica de Nx para proyectos React/TypeScript.
-  // Esta configuración ya define plugins para React, Hooks, JSX-A11y, etc.
-  // y sus reglas recomendadas.
-  ...nxPlugin.configs['flat/react-typescript'],
-
-  // Bloque para habilitar type-checking en esta app específica y aplicar reglas type-aware
+  // Configuración para el código fuente de la aplicación dev-hub
   {
-    files: [`apps/<nombre-app-next>/src/**/*.{ts,tsx,js,jsx}`], // Ajustar <nombre-app-next>
+    files: [`apps/dev-hub/src/**/*.{ts,tsx,js,jsx}`],
     ignores: [
-      `apps/<nombre-app-next>/src/**/*.spec.{ts,tsx}`,
-      `apps/<nombre-app-next>/src/**/*.test.{ts,tsx}`,
-      `apps/<nombre-app-next>/src/app/api/**/*`,
+      `apps/dev-hub/src/**/*.spec.{ts,tsx}`,
+      `apps/dev-hub/src/**/*.test.{ts,tsx}`,
+      `apps/dev-hub/src/app/api/**/*`, // Usualmente los route handlers no necesitan el mismo nivel de linting React
     ],
     languageOptions: {
-      parser: tsParser, // Aunque nxPlugin.configs['flat/react-typescript'] lo defina, ser explícito no daña
+      parser: tsParser,
       parserOptions: {
         project: [
-          pathResolve(monorepoRoot, `apps/<nombre-app-next>/tsconfig.json`), // Ajustar <nombre-app-next>
+          pathResolve(monorepoRoot, `apps/dev-hub/tsconfig.json`), // tsconfig.json de la app
           pathResolve(monorepoRoot, 'tsconfig.base.json'),
         ],
         tsconfigRootDir: monorepoRoot,
@@ -63,42 +60,41 @@ export default [
       },
       globals: { ...globals.browser },
     },
-    // Los plugins principales (react, react-hooks, jsx-a11y, @typescript-eslint)
-    // ya están definidos por `nxPlugin.configs['flat/react-typescript']`
-    // o por los `compat.extends` de Next.js.
-    // No es necesario redefinir el objeto `plugins` aquí si solo se heredan.
-    // Si se necesitan plugins adicionales SOLO para este bloque, se añadirían.
+    plugins: {
+      // Asegurar que los plugins estén disponibles si se usan reglas específicas
+      '@typescript-eslint': tsPlugin,
+      react: eslintPluginReact,
+      'react-hooks': eslintPluginReactHooks,
+      'jsx-a11y': eslintPluginJsxA11y,
+      '@next/next': eslintPluginNext, // Plugin de Next.js
+    },
     rules: {
-      // Aplicar reglas type-aware aquí porque 'parserOptions.project' está definido
-      // Si `tsPlugin.configs['recommended-type-checked'].rules` no está en `nxPlugin.configs['flat/react-typescript']`, añadirlo:
-      // ...tsPlugin.configs['recommended-type-checked'].rules,
+      // Hereda de nxPlugin.configs['flat/react-typescript'] y baseConfig
+      // Sobrescribir o añadir reglas específicas si es necesario:
+      'react/react-in-jsx-scope': 'off', // No necesario con Next.js >17 y React >17
+      'react/prop-types': 'off', // Usar TypeScript para tipos de props
 
-      // Reglas que ya estaban en nxPlugin.configs['flat/react-typescript'] o Next.js configs no necesitan repetirse
-      // a menos que se quieran sobreescribir.
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
-      // Sobrescribir o añadir reglas específicas de la app si es necesario
+      // Reglas de Next.js (plugin:@next/next/recommended ya las trae, pero por si acaso)
+      '@next/next/no-html-link-for-pages': ['error', `apps/dev-hub/src/app`], // Ajustar path a tu directorio app
+      // ... otras reglas de Next.js
     },
     settings: {
-      react: { version: 'detect' }, // Ya debería estar en nxPlugin.configs['flat/react-typescript']
+      react: { version: 'detect' },
     },
   },
 
-  // Configuración para tests de esta app (si los tiene)
+  // Configuración para tests de dev-hub
   {
     files: [
-      `apps/<nombre-app-next>/src/**/*.spec.{ts,tsx}`,
-      `apps/<nombre-app-next>/src/**/*.test.{ts,tsx}`,
-      `apps/<nombre-app-next>/specs/**/*.spec.{ts,tsx}`,
+      `apps/dev-hub/src/**/*.spec.{ts,tsx}`,
+      `apps/dev-hub/src/**/*.test.{ts,tsx}`,
+      `apps/dev-hub/specs/**/*.spec.{ts,tsx}`, // Si tienes tests en /specs
     ],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
         project: [
-          pathResolve(
-            monorepoRoot,
-            `apps/<nombre-app-next>/tsconfig.spec.json`
-          ), // Ajustar
+          pathResolve(monorepoRoot, `apps/dev-hub/tsconfig.spec.json`),
           pathResolve(monorepoRoot, 'tsconfig.base.json'),
         ],
         tsconfigRootDir: monorepoRoot,
@@ -111,31 +107,49 @@ export default [
       ...(eslintPluginReact.configs.recommended?.rules || {}),
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
-      // ... otras reglas relajadas para tests
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
     },
     settings: { react: { version: 'detect' } },
   },
 
-  // Configuración de Next.js (al final, y usando fixupConfigRules)
-  // Estas configuraciones ya traen sus propios plugins (como @next/eslint-plugin-next)
+  // Configuración de Next.js (debe ir después de las configuraciones base y de Nx)
   ...fixupConfigRules(compat.extends('plugin:@next/next/recommended')).map(
     (config) => ({
       ...config,
-      files: [`apps/<nombre-app-next>/src/**/*.{ts,tsx,js,jsx}`],
-    }) // Ajustar
+      files: [`apps/dev-hub/src/**/*.{ts,tsx,js,jsx}`],
+    })
   ),
-  ...fixupConfigRules(compat.extends('next/core-web-vitals')).map(
-    (config) => ({
-      ...config,
-      files: [`apps/<nombre-app-next>/src/**/*.{ts,tsx,js,jsx}`],
-    }) // Ajustar
-  ),
+  ...fixupConfigRules(compat.extends('next/core-web-vitals')).map((config) => ({
+    ...config,
+    files: [`apps/dev-hub/src/**/*.{ts,tsx,js,jsx}`],
+  })),
+
+  // Bloque específico para next.config.js de esta app
+  {
+    files: [`apps/dev-hub/next.config.js`],
+    languageOptions: {
+      globals: {
+        ...globals.node, // next.config.js se ejecuta en entorno Node
+        require: 'readonly',
+        module: 'writable',
+        process: 'readonly',
+        __dirname: 'readonly',
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-var-requires': 'off',
+      'import/no-commonjs': 'off', // Si esta regla está activa globalmente
+    },
+  },
 ];
-// RUTA: apps/<nombre-app-next>/eslint.config.mjs
+// RUTA: apps/dev-hub/eslint.config.mjs
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Añadidas importaciones faltantes: `fixupConfigRules`, `eslintPluginReact`, `eslintPluginReactHooks`, `eslintPluginJsxA11y`, `eslintPluginNext`, `globals`.", "justificacion": "Resuelve los errores `ReferenceError: ... is not defined`.", "impacto": "Permite que el archivo de configuración se parsee y se aplique correctamente." },
-  { "mejora": "Simplificación de la sección `plugins` en el bloque de código fuente de la app.", "justificacion": "Se asume que `nxPlugin.configs['flat/react-typescript']` y las configuraciones extendidas de Next.js (`compat.extends`) ya definen los plugins necesarios. Definirlos explícitamente solo es necesario si se quiere una configuración muy particular o si los presets no los incluyen (lo cual es raro).", "impacto": "Menos redundancia y menor probabilidad de conflicto `Cannot redefine plugin`."}
+  { "mejora": "Reemplazado el placeholder `<nombre-app-next>` con `dev-hub` en todos los paths.", "justificacion": "Configuración específica y correcta para la aplicación `dev-hub`.", "impacto": "ESLint ahora se aplicará correctamente a los archivos de `dev-hub`." },
+  { "mejora": "Añadido bloque específico para `next.config.js` para desactivar reglas de importación ES Module.", "justificacion": "Resuelve el error `@typescript-eslint/no-require-imports` para el archivo `next.config.js` de esta app.", "impacto": "Linting limpio para la configuración de Next.js." },
+  { "mejora": "Incluidos los plugins de React y Next.js en el bloque de código fuente.", "justificacion": "Asegura que las reglas específicas de React y Next.js estén disponibles y se apliquen.", "impacto": "Mejor linting para código React/Next.js."}
 ]
 */
 /* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

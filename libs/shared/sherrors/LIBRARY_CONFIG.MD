@@ -17,22 +17,24 @@
 - `export * from './lib/generic.exceptions';`
 
 ## 4. Estructura de Directorios Interna Clave (dentro de `src/lib/`)
-- `exception.base.ts`, `exception.codes.ts`, `generic.exceptions.ts`.
+- `exception.base.ts`: Define `ExceptionBase` y `SerializedException`.
+- `exception.codes.ts`: Define constantes para códigos de error genéricos.
+- `generic.exceptions.ts`: Define clases de excepción comunes como `NotFoundException`, `ArgumentInvalidException`, etc.
 
 ## 5. Configuración de TypeScript (`tsconfig.lib.json`)
 - Hereda de: `../../../tsconfig.base.json` (relativo a `libs/shared/sherrors/tsconfig.json`).
 - `compilerOptions.declaration`: `true`.
 
 ## 6. Configuración de ESLint (`eslint.config.mjs` Local)
-- Hereda de: `../../../eslint.config.mjs`.
-- **`languageOptions.parserOptions.project`:** Apunta a los `tsconfig` locales y al `tsconfig.base.json` raíz.
+- Hereda de: `../../../eslint.config.mjs` (raíz del monorepo).
+- **`languageOptions.parserOptions.project`:** Apunta a los `tsconfig.lib.json` (y `tsconfig.spec.json` si tuviera tests) locales y al `tsconfig.base.json` raíz.
 
 ## 7. Configuración de Pruebas (Jest)
 - **`jest.config.ts`:**
   - `displayName`: `sherrors`
   - `preset`: `../../../jest.preset.js`
   - `moduleNameMapper`: Mapea `@dfs-suite/shtypes`.
-  - `passWithNoTests`: `true` (Temporalmente, hasta que se añadan tests para `ExceptionBase`).
+  - `passWithNoTests`: `true` (ya que el código actual es funcional y no tiene tests propios complejos más allá de la estructura).
 - **`project.json` (Target `test`):**
   - `executor`: `@nx/jest:jest`
   - `options.jestConfig`: `libs/shared/sherrors/jest.config.ts`
@@ -42,11 +44,15 @@
 - **Externas (NPM):** Ninguna.
 
 ## 9. Consideraciones Específicas y Deuda Técnica
-- Integrar `correlationId` en `ExceptionBase` con un servicio de contexto.
-- Añadir tests unitarios para la serialización de `ExceptionBase` y para cada excepción genérica.
+- Asegurar que todas las excepciones personalizadas hereden de `ExceptionBase`.
+- (Deuda) Implementar tests unitarios para la lógica de `ExceptionBase.toJSON()` y para verificar que las excepciones genéricas se construyan correctamente con sus códigos y mensajes.
 
 ## 10. Problemas Comunes y Soluciones Encontradas
-- Asegurar que los `import` a `@dfs-suite/shtypes` usen el alias correcto.
-- Verificar paths en `moduleNameMapper` del `jest.config.ts`.
-
+- (Mantener actualizado con cualquier problema y solución específica de esta librería).
 // RUTA: libs/shared/sherrors/LIBRARY_CONFIG.MD
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Creación del `LIBRARY_CONFIG.MD` para `sherrors`.", "justificacion": "Documentación esencial de la librería.", "impacto": "Claridad y mantenibilidad." }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

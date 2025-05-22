@@ -1,11 +1,10 @@
 // apps/pwa-supervisor/next.config.js
 //@ts-check
 
-const { composePlugins, withNx } = require('@nx/next');
-
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-
 const path = require('path');
+
+const { composePlugins, withNx } = require('@nx/next');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}

@@ -1,12 +1,15 @@
 // RUTA: libs/core/domain/shared-kernel/cdskports/src/lib/logger.port.ts
-// TODO: [LIA Legacy - Implementar ILoggerPort] - ¡REVISADO Y REFACTORIZADO!
-// Propósito: Define la interfaz para el servicio de logging, abstrayendo la implementación concreta (Pino, Winston, etc.).
-// Relacionado con Casos de Uso: Utilizado en todas las capas para logging estructurado y contextualizado.
-
-import { CorrelationId, ObjectLiteral, Maybe } from '@dfs-suite/shtypes'; // REFACTORIZADO
+// Autor: L.I.A Legacy (IA Asistente)
+import { CorrelationId, ObjectLiteral, Maybe } from '@dfs-suite/shtypes';
 
 export const LOGGER_PORT = Symbol('ILoggerPort');
 
+/**
+ * Puerto (Interfaz) para el servicio de Logging.
+ * Abstrae la implementación concreta del logger (Pino, Winston, etc.),
+ * permitiendo que las capas de dominio y aplicación logueen de forma
+ * estructurada y contextualizada sin acoplarse a una librería específica.
+ */
 export interface ILoggerPort {
   debug(
     message: string,
@@ -29,32 +32,34 @@ export interface ILoggerPort {
     metadata?: Maybe<ObjectLiteral>
   ): void;
 
+  /**
+   * Loguea un error.
+   * @param message - Puede ser un string descriptivo o el objeto Error mismo.
+   * @param stack - El stack trace del error, especialmente si `message` es un string.
+   * @param context - El contexto donde ocurrió el error (clase, método).
+   * @param correlationId - El ID de correlación de la operación.
+   * @param metadata - Metadata adicional relevante para el error.
+   */
   error(
-    message: string | Error, // Puede ser un string o un objeto Error
-    stack?: Maybe<string>, // El stack trace, especialmente si message es string
+    message: string | Error,
+    stack?: Maybe<string>,
     context?: Maybe<string>,
     correlationId?: Maybe<CorrelationId>,
-    metadata?: Maybe<ObjectLiteral> // Para metadata adicional del error
+    metadata?: Maybe<ObjectLiteral>
   ): void;
 
-  verbose?( // Opcional, no todos los loggers lo implementan con este nombre
+  verbose?(
     message: string,
     context?: Maybe<string>,
     correlationId?: Maybe<CorrelationId>,
     metadata?: Maybe<ObjectLiteral>
   ): void;
 }
-
+// RUTA: libs/core/domain/shared-kernel/cdskports/src/lib/logger.port.ts
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Refactorización de imports a alias codificados.", "justificacion": "Alineación.", "impacto": "Resolución." },
-  { "mejora": "Uso de `Maybe` para parámetros opcionales.", "justificacion": "Clarifica que estos parámetros pueden ser `null` o `undefined`.", "impacto": "Mejor precisión de tipos." },
-  { "mejora": "Parámetro `message` en `error` ahora puede ser `string | Error`.", "justificacion": "Permite pasar directamente objetos `Error` para un logging más rico de la causa.", "impacto": "Flexibilidad en el reporte de errores." }
+  { "mejora": "Imports actualizados a alias codificados.", "justificacion": "Consistencia.", "impacto": "Resolución." },
+  { "mejora": "JSDoc añadido para clarificar el propósito y uso del puerto y sus métodos.", "justificacion": "Mejora la DX y mantenibilidad.", "impacto": "Claridad." }
 ]
 */
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  { "nota": "La implementación de este puerto (ej. `PinoLoggerAdapter`) se encargará de formatear estos datos en un log JSON estructurado." }
-]
-*/
-// RUTA: libs/core/domain/shared-kernel/cdskports/src/lib/logger.port.ts
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

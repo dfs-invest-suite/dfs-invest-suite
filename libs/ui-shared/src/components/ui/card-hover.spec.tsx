@@ -4,6 +4,7 @@
 // Propiedad Intelectual: MetaShark (I.S.)
 
 import { render, screen } from '@testing-library/react';
+
 import { CardHover } from './card-hover';
 
 // Mock de framer-motion para entornos JSDOM

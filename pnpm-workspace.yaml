@@ -1,9 +1,17 @@
 onlyBuiltDependencies:
+  - '@apollo/protobufjs'
   - '@nestjs/core'
   - '@parcel/watcher'
+  - '@prisma/client'
+  - '@prisma/engines'
   - '@swc/core'
   - '@tailwindcss/oxide'
+  - bcrypt
+  - core-js
   - esbuild
+  - msgpackr-extract
+  - nestjs-pino
   - nx
+  - prisma
   - sharp
   - unrs-resolver

@@ -4,7 +4,7 @@
 // Relacionado con Casos de Uso: Todas las respuestas de api-main.
 
 import { Maybe } from './maybe.type'; // CORREGIDO: Importar Maybe desde su propio archivo
-import { CorrelationId, IsoDateString } from './primitive-types'; // Importa los que SÍ están en primitive-types
+import { CorrelationId, IsoDateString } from './primitives/primitive-types'; // Importa los que SÍ están en primitive-types
 
 /**
  * Interfaz base para respuestas de API estandarizadas.

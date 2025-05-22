@@ -1,5 +1,6 @@
 // libs/ui-shared/src/components/ui/input.tsx
 import * as React from 'react';
+
 import { cn } from '../../lib/utils'; // <--- ASEGÚRATE QUE SEA ASÍ
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;

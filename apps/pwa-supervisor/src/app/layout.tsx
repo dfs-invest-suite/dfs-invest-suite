@@ -3,12 +3,15 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 
-import type { Metadata, Viewport } from 'next';
-import { Inter as FontSans } from 'next/font/google';
 import React from 'react'; // Importación explícita de React
 
-import { AppProviders } from '@/components/providers'; // Asumiendo que tus providers están aquí
+import { Inter as FontSans } from 'next/font/google';
+
 import { cn } from '@dfs-suite/ui-shared'; // Asumiendo que cn viene de ui-shared
+
+import { AppProviders } from '@/components/providers'; // Asumiendo que tus providers están aquí
+
+import type { Metadata, Viewport } from 'next';
 
 import './globals.css'; // Estilos globales de la app pwa-supervisor
 

@@ -1,11 +1,32 @@
 // RUTA: libs/core/domain/codowhatsapp/src/lib/ports/whatsapp-message.port.ts
-// TODO: [LIA Legacy - Definir IWhatsAppMessagePort]
-// Propósito: Puerto para enviar mensajes a través de la Cloud API de WhatsApp.
-// import { Result } from '@dfs-suite/shresult';
-// import { MetaApiError } from '../types/whatsapp-error.types'; // Ejemplo
-// import { TWhatsAppApiMessageRequest, SendMessageResponse } from '../types/whatsapp-api-message-request.types';
-// export const WHATSAPP_MESSAGE_PORT = Symbol('IWhatsAppMessagePort');
-// export interface IWhatsAppMessagePort {
-//   sendMessage(tenantId: TenantId, phoneNumberIdToSendFrom: string, payload: TWhatsAppApiMessageRequest): Promise<Result<SendMessageResponse, MetaApiError>>;
-//   markMessageAsRead(tenantId: TenantId, phoneNumberId: string, messageId: string): Promise<Result<void, MetaApiError>>;
-// }
+import { ExceptionBase } from '@dfs-suite/sherrors';
+import { Result } from '@dfs-suite/shresult';
+import { TenantId, WhatsAppAccountId } from '@dfs-suite/shtypes'; // WhatsAppAccountId es el alias para el Phone Number ID de Meta
+
+import {
+  TWhatsAppApiMessageRequest,
+  TWhatsAppApiMessageResponse,
+} from '../types';
+
+export const WHATSAPP_MESSAGE_PORT = Symbol('IWhatsAppMessagePort');
+
+export interface IWhatsAppMessagePort {
+  sendMessage(
+    tenantId: TenantId,
+    phoneNumberIdToSendFrom: WhatsAppAccountId,
+    payload: TWhatsAppApiMessageRequest
+  ): Promise<Result<TWhatsAppApiMessageResponse, ExceptionBase>>;
+
+  markMessageAsRead(
+    tenantId: TenantId,
+    phoneNumberId: WhatsAppAccountId,
+    messageWaId: string
+  ): Promise<Result<{ success: boolean }, ExceptionBase>>;
+}
+// RUTA: libs/core/domain/codowhatsapp/src/lib/ports/whatsapp-message.port.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+{ "mejora": "Confirmación de imports y uso de WhatsAppAccountId.", "justificacion": "Asegura consistencia y correctitud.", "impacto": "Estabilidad." }
+]
+/
+/ NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

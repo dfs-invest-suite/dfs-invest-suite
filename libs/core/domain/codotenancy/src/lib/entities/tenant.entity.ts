@@ -1,58 +1,75 @@
-// RUTA: libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
-import {
-  AggregateRoot,
-  CreateEntityProps,
-} from '@dfs-suite/core-domain-shared-kernel-entities';
+// RUTA: libs/core/domain/codotenancy/src/lib/entities/tenant.entity.ts
+// Autor: L.I.A Legacy (IA Asistente)
+import { AggregateRoot, CreateEntityProps } from '@dfs-suite/cdskentities';
 import {
   ArgumentInvalidException,
   ArgumentNotProvidedException,
-} from '@dfs-suite/shared-errors';
-import { Result, err, ok } from '@dfs-suite/shared-result';
-import { AggregateId, Maybe, TenantId, UserId } from '@dfs-suite/shared-types';
-import { Guard, UuidUtils } from '@dfs-suite/shared-utils';
+} from '@dfs-suite/sherrors';
+import { Result, err, ok } from '@dfs-suite/shresult';
+import {
+  TenantId, // Específico Branded ID
+  UserId,
+  WabaId,
+  Maybe,
+  AggregateId, // Este es string
+} from '@dfs-suite/shtypes';
+import { Guard, UuidUtils } from '@dfs-suite/shutils';
 
-// Importaciones correctas desde los subdirectorios de la misma librería
 import { InvalidTenantStatusTransitionError } from '../errors/invalid-tenant-status-transition.error';
+// import { TenantAlreadyExistsError } from '../errors/tenant-already-exists.error'; // Se usa en el Caso de Uso
 import {
   TenantActivatedEvent,
   TenantActivatedEventPayload,
 } from '../events/tenant-activated.event';
 import {
-  ITenantCreatedEventPayload,
   TenantCreatedEvent,
+  ITenantCreatedEventPayload,
 } from '../events/tenant-created.event';
 import {
   TenantSuspendedEvent,
   TenantSuspendedEventPayload,
 } from '../events/tenant-suspended.event';
+import {
+  TenantWabaConfigUpdatedEvent,
+  TenantWabaConfigUpdatedPayload,
+} from '../events/tenant-waba-config-updated.event';
 import { DbConnectionConfigVO } from '../value-objects/db-connection-config.vo';
-import { TenantStatusVO } from '../value-objects/tenant-status.vo';
+import {
+  TenantStatusVO,
+  TenantStatusEnum,
+} from '../value-objects/tenant-status.vo';
+import { WabaCredentialsVO } from '../value-objects/waba-credentials.vo';
 
-interface TenantProps {
+export interface TenantProps {
   name: string;
+  slug: string;
   ownerUserId: UserId;
   status: TenantStatusVO;
   planId: Maybe<string>;
   dbConnectionConfig: Maybe<DbConnectionConfigVO>;
+  wabaCredentials: Maybe<WabaCredentialsVO>;
+  isWhatsAppConfigured: boolean;
 }
 
-interface CreateTenantProps {
+export interface CreateTenantProps {
   name: string;
+  slug: string;
   ownerUserId: UserId;
   planId?: Maybe<string>;
 }
 
-export class TenantEntity extends AggregateRoot<TenantProps> {
-  constructor(createEntityProps: CreateEntityProps<TenantProps>) {
+// TenantEntity usa TenantId como su tipo de ID específico
+export class TenantEntity extends AggregateRoot<TenantProps, TenantId> {
+  constructor(createEntityProps: CreateEntityProps<TenantProps, TenantId>) {
     super(createEntityProps);
   }
 
-  public static create(
-    props: CreateTenantProps,
-    id?: AggregateId | TenantId
-  ): TenantEntity {
+  public static create(props: CreateTenantProps, id?: TenantId): TenantEntity {
     if (Guard.isEmpty(props.name?.trim())) {
       throw new ArgumentNotProvidedException('Tenant name cannot be empty.');
+    }
+    if (Guard.isEmpty(props.slug?.trim())) {
+      throw new ArgumentNotProvidedException('Tenant slug cannot be empty.');
     }
     if (Guard.isEmpty(props.ownerUserId)) {
       throw new ArgumentNotProvidedException(
@@ -60,38 +77,48 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
       );
     }
 
-    const entityId = (id as AggregateId) || UuidUtils.generateAggregateId();
+    const entityId = id || UuidUtils.generateTenantId(); // Genera TenantId
     const initialStatus = TenantStatusVO.newPendingSetup();
 
     const tenant = new TenantEntity({
-      id: entityId,
+      id: entityId, // Pasa TenantId
       props: {
         name: props.name.trim(),
+        slug: props.slug.trim().toLowerCase(), // Slug siempre en minúscula
         ownerUserId: props.ownerUserId,
         status: initialStatus,
         planId: props.planId ?? null,
         dbConnectionConfig: null,
+        wabaCredentials: null,
+        isWhatsAppConfigured: false,
       },
       createdAt: new Date(),
       updatedAt: new Date(),
     });
 
     const eventPayload: ITenantCreatedEventPayload = {
+      tenantId: entityId,
       name: tenant.props.name,
+      slug: tenant.props.slug,
       ownerUserId: tenant.props.ownerUserId,
       status: initialStatus.value,
+      planId: tenant.props.planId,
     };
     tenant.addEvent(
       new TenantCreatedEvent({
-        aggregateId: entityId,
+        aggregateId: entityId, // this.id (TenantId) es asignable a AggregateId (string)
         payload: eventPayload,
       })
     );
     return tenant;
   }
 
+  // --- Getters ---
   get name(): string {
     return this.props.name;
+  }
+  get slug(): string {
+    return this.props.slug;
   }
   get ownerUserId(): UserId {
     return this.props.ownerUserId;
@@ -105,47 +132,60 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
   get dbConnectionConfig(): Maybe<DbConnectionConfigVO> {
     return this.props.dbConnectionConfig;
   }
+  get wabaCredentials(): Maybe<WabaCredentialsVO> {
+    return this.props.wabaCredentials;
+  }
+  get isWhatsAppConfigured(): boolean {
+    return this.props.isWhatsAppConfigured;
+  }
 
-  public activate(): Result<
-    void,
-    InvalidTenantStatusTransitionError | ArgumentInvalidException
-  > {
-    if (this.props.status.isActive()) {
-      return ok(undefined);
-    }
+  public activate(): Result<void, InvalidTenantStatusTransitionError> {
+    if (this.props.status.isActive()) return ok(undefined);
     if (
       !this.props.status.isPendingSetup() &&
       !this.props.status.isSuspended()
     ) {
       return err(
         new InvalidTenantStatusTransitionError(
-          `Cannot activate tenant from status "${this.props.status.value}". Allowed from: PENDING_SETUP, SUSPENDED.`
+          `Cannot activate tenant from status "${this.props.status.value}".`
+        )
+      );
+    }
+    if (!this.props.dbConnectionConfig) {
+      return err(
+        new InvalidTenantStatusTransitionError(
+          'Cannot activate tenant: Database configuration is missing.'
+        )
+      );
+    }
+    if (!this.props.isWhatsAppConfigured || !this.props.wabaCredentials) {
+      return err(
+        new InvalidTenantStatusTransitionError(
+          'Cannot activate tenant: WhatsApp configuration is incomplete.'
         )
       );
     }
     this.props.status = TenantStatusVO.newActive();
     this.setUpdatedAt();
-    const payload: TenantActivatedEventPayload =
-      {} as TenantActivatedEventPayload;
+    const payload: TenantActivatedEventPayload = { tenantId: this.id };
     this.addEvent(new TenantActivatedEvent({ aggregateId: this.id, payload }));
     return ok(undefined);
   }
 
-  public suspend(): Result<void, InvalidTenantStatusTransitionError> {
-    if (this.props.status.isSuspended()) {
-      return ok(undefined);
-    }
+  public suspend(
+    reason?: string
+  ): Result<void, InvalidTenantStatusTransitionError> {
+    if (this.props.status.isSuspended()) return ok(undefined);
     if (!this.props.status.isActive()) {
       return err(
         new InvalidTenantStatusTransitionError(
-          `Cannot suspend tenant from status "${this.props.status.value}". Allowed from: ACTIVE.`
+          `Cannot suspend tenant from status "${this.props.status.value}".`
         )
       );
     }
     this.props.status = TenantStatusVO.newSuspended();
     this.setUpdatedAt();
-    const payload: TenantSuspendedEventPayload =
-      {} as TenantSuspendedEventPayload;
+    const payload: TenantSuspendedEventPayload = { tenantId: this.id, reason };
     this.addEvent(new TenantSuspendedEvent({ aggregateId: this.id, payload }));
     return ok(undefined);
   }
@@ -165,6 +205,29 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
     return ok(undefined);
   }
 
+  public setWabaConfiguration(
+    credentials: WabaCredentialsVO
+  ): Result<void, ArgumentNotProvidedException> {
+    if (Guard.isNil(credentials)) {
+      return err(
+        new ArgumentNotProvidedException(
+          'WABA credentials cannot be null or undefined.'
+        )
+      );
+    }
+    this.props.wabaCredentials = credentials;
+    this.props.isWhatsAppConfigured = true;
+    this.setUpdatedAt();
+    const payload: TenantWabaConfigUpdatedPayload = {
+      tenantId: this.id,
+      wabaId: credentials.wabaId,
+    };
+    this.addEvent(
+      new TenantWabaConfigUpdatedEvent({ aggregateId: this.id, payload })
+    );
+    return ok(undefined);
+  }
+
   public updateName(
     newName: string
   ): Result<void, ArgumentNotProvidedException> {
@@ -174,138 +237,75 @@ export class TenantEntity extends AggregateRoot<TenantProps> {
         new ArgumentNotProvidedException('New tenant name cannot be empty.')
       );
     }
-    if (trimmedNewName === this.props.name) {
-      return ok(undefined);
-    }
+    if (trimmedNewName === this.props.name) return ok(undefined);
     this.props.name = trimmedNewName;
     this.setUpdatedAt();
     return ok(undefined);
   }
 
-  public validate(): void {
-    if (Guard.isEmpty(this.props.name)) {
-      throw new ArgumentNotProvidedException('TenantEntity: name is required.');
+  public updateSlug(
+    newSlug: string
+  ): Result<void, ArgumentNotProvidedException> {
+    const trimmedNewSlug = newSlug?.trim().toLowerCase();
+    if (Guard.isEmpty(trimmedNewSlug)) {
+      return err(
+        new ArgumentNotProvidedException('New tenant slug cannot be empty.')
+      );
     }
-    if (Guard.isEmpty(this.props.ownerUserId)) {
+    if (trimmedNewSlug === this.props.slug) return ok(undefined);
+    this.props.slug = trimmedNewSlug;
+    this.setUpdatedAt();
+    return ok(undefined);
+  }
+
+  public validate(): void {
+    if (Guard.isEmpty(this.props.name))
+      throw new ArgumentNotProvidedException('TenantEntity: name is required.');
+    if (Guard.isEmpty(this.props.slug))
+      throw new ArgumentNotProvidedException('TenantEntity: slug is required.');
+    if (Guard.isEmpty(this.props.ownerUserId))
       throw new ArgumentNotProvidedException(
         'TenantEntity: ownerUserId is required.'
       );
-    }
-    if (!(this.props.status instanceof TenantStatusVO)) {
+    if (!(this.props.status instanceof TenantStatusVO))
       throw new ArgumentInvalidException(
         'TenantEntity: status must be a valid TenantStatusVO.'
       );
-    }
     if (
-      this.props.dbConnectionConfig !== null &&
-      this.props.dbConnectionConfig !== undefined &&
+      this.props.dbConnectionConfig &&
       !(this.props.dbConnectionConfig instanceof DbConnectionConfigVO)
     ) {
       throw new ArgumentInvalidException(
         'TenantEntity: dbConnectionConfig must be a valid DbConnectionConfigVO if provided.'
       );
     }
+    if (
+      this.props.wabaCredentials &&
+      !(this.props.wabaCredentials instanceof WabaCredentialsVO)
+    ) {
+      throw new ArgumentInvalidException(
+        'TenantEntity: wabaCredentials must be a valid WabaCredentialsVO if provided.'
+      );
+    }
+    if (this.props.status.isActive()) {
+      if (
+        !this.props.dbConnectionConfig ||
+        !this.props.wabaCredentials ||
+        !this.props.isWhatsAppConfigured
+      ) {
+        throw new ArgumentInvalidException(
+          'TenantEntity: An ACTIVE tenant must have DB and WhatsApp configured.'
+        );
+      }
+    }
   }
 }
-// RUTA: libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
-/* SECCIÓN DE MEJORAS
+// RUTA: libs/core/domain/codotenancy/src/lib/entities/tenant.entity.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
 [
-  {
-    "mejora": "Corrección de imports de Eventos y Errores",
-    "justificacion": "Los eventos y errores específicos del dominio `Tenancy` ahora se importan correctamente desde sus respectivos subdirectorios (`../events/` y `../errors/`) dentro de la misma librería, en lugar de intentar definirlos o importarlos desde el propio archivo de la entidad.",
-    "impacto": "Resuelve los errores de TypeScript sobre declaraciones no exportadas y mejora la organización del código."
-  }
+  { "mejora": "`TenantEntity` ahora extiende `AggregateRoot<TenantProps, TenantId>` y su constructor usa `CreateEntityProps<TenantProps, TenantId>`.", "justificacion": "Alinea la entidad con las clases base genéricas que aceptan un tipo de ID específico (`TenantId`) que extiende `string`.", "impacto": "Resuelve los errores TS2344 (incompatibilidad con restricción `AggregateId`) y TS2314 (argumentos de tipo faltantes)." },
+  { "mejora": "Al emitir eventos, `this.id` (que es `TenantId`) se pasa directamente a `aggregateId` en `DomainEventProps`.", "justificacion": "Con `IDomainEvent.aggregateId` siendo `string` (o `AggregateId` que es `string`), y `TenantId` siendo `Brand<string, 'TenantId'>`, `TenantId` es asignable a `string`. Esto elimina la necesidad de casts como `as unknown as AggregateId` y resuelve errores TS2322.", "impacto": "Código más limpio y type-safe para la emisión de eventos." },
+  { "mejora": "Slug ahora se normaliza a minúsculas en `create()` y `updateSlug()`.", "justificacion": "Asegura consistencia para los slugs usados en URLs.", "impacto": "Mejora la usabilidad de los slugs."}
 ]
 */
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  {
-    "nota": "Asegurarse de que los archivos `TenantActivatedEventPayload` y `TenantSuspendedEventPayload` (que podrían ser simplemente `export type ... = Record<string, never>;`) existan y se exporten desde `../events/tenant-activated.event.ts` y `../events/tenant-suspended.event.ts` respectivamente, o que los eventos no esperen un payload específico si se usa `Record<string, never>` directamente en `DomainEventBase`."
-  }
-]
-*/
-
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mismas que la versión anterior)
-*/
-// libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
-/* SECCIÓN DE MEJORAS FUTURAS
-[
-  Mejora Propuesta 1 (Inyección de Logger): La lógica de logging ha sido eliminada de la entidad. El logging contextual sobre las operaciones de la entidad (ej. "Tenant X activado por User Y") debería realizarse en los Casos de Uso (Servicios de Aplicación) que orquestan estas operaciones.
-  Justificación: Mantiene la entidad de dominio enfocada en la lógica de negocio pura.
-  Impacto: El logging se mueve a la capa de aplicación.
-]
-[
-  Mejora Propuesta 2 (Validación de PlanId con `PlanVO`): Similar a `TenantStatusVO`, `planId` (actualmente `Maybe<string>`) podría representarse con un `PlanIdVO` o `PlanVO` que encapsule su formato y validación (ej. si los planes deben existir en un sistema de facturación o tener una estructura específica).
-  Justificación: Mayor robustez y semántica para la gestión de planes.
-  Impacto: Creación de un nuevo VO, modificación de `TenantProps` y de la lógica de creación/actualización de `planId`.
-]
-[
-  Mejora Propuesta 3 (Gestión de `TenantConfigurationEntity` como parte del Agregado): Si las `TenantConfigurationEntity` son intrínsecamente parte del ciclo de vida y las invariantes del `TenantEntity` (es decir, un Tenant "posee" sus configuraciones), entonces `TenantProps` debería incluir `configurations: TenantConfigurationEntity[]`. La entidad `TenantEntity` tendría métodos para añadir, actualizar o eliminar configuraciones, asegurando la consistencia del agregado completo.
-  Justificación: Modelado DDD más preciso si existe una fuerte relación de agregación.
-  Impacto: Cambios significativos en `TenantProps` y adición de métodos para gestionar la colección de configuraciones. `TenantConfigurationEntity` seguiría siendo una entidad, pero no un `AggregateRoot` si es parte de otro agregado.
-]
-[
-  Mejora Propuesta 4 (Método `updateDetails` Genérico): En lugar de métodos separados como `updateName`, se podría tener un método más genérico `updateDetails(props: Partial<UpdateableTenantProps>)` que maneje la actualización de varias propiedades a la vez, validando y emitiendo los eventos correspondientes.
-  Justificación: API más flexible para actualizaciones.
-  Impacto: Diseño de una interfaz `UpdateableTenantProps` y lógica de actualización más compleja.
-]
-[
-  Mejora Propuesta 5 (Uso de `Result` en métodos de cambio de estado): Los métodos `activate`, `suspend`, `setDatabaseConfiguration`, `updateName` ahora devuelven `Result<void, SpecificErrorType>`. Esto hace explícito que estas operaciones pueden fallar debido a reglas de negocio y permite a los llamadores (Casos de Uso) manejar estos errores de forma funcional.
-  Justificación: Adopción del patrón `Result` para errores de negocio esperados, mejorando la robustez y claridad del flujo de control.
-  Impacto: Los Casos de Uso que llamen a estos métodos necesitarán manejar el `Result`. Las excepciones por violación de invariantes fundamentales (en `validate()` o `create()`) siguen siendo lanzadas.
-]
-*/
-// libs/core/domain/tenancy/src/lib/entities/tenant.entity.ts
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mismas que antes, ligeramente ajustadas)
-[
-  Mejora Propuesta 1 (Inyección de Logger): La lógica de logging ha sido eliminada de la entidad. El logging contextual sobre las operaciones de la entidad (ej. "Tenant X activado por User Y") debería realizarse en los Casos de Uso (Servicios de Aplicación) que orquestan estas operaciones.
-  Justificación: Mantiene la entidad de dominio enfocada en la lógica de negocio pura.
-  Impacto: El logging se mueve a la capa de aplicación.
-]
-[
-  Mejora Propuesta 2 (Validación de PlanId con `PlanVO`): Similar a `TenantStatusVO`, `planId` (actualmente `Maybe<string>`) podría representarse con un `PlanIdVO` o `PlanVO` que encapsule su formato y validación (ej. si los planes deben existir en un sistema de facturación o tener una estructura específica).
-  Justificación: Mayor robustez y semántica para la gestión de planes.
-  Impacto: Creación de un nuevo VO, modificación de `TenantProps` y de la lógica de creación/actualización de `planId`.
-]
-[
-  Mejora Propuesta 3 (Gestión de `TenantConfigurationEntity` como parte del Agregado): Si las `TenantConfigurationEntity` son intrínsecamente parte del ciclo de vida y las invariantes del `TenantEntity` (es decir, un Tenant "posee" sus configuraciones), entonces `TenantProps` debería incluir `configurations: TenantConfigurationEntity[]`. La entidad `TenantEntity` tendría métodos para añadir, actualizar o eliminar configuraciones, asegurando la consistencia del agregado completo.
-  Justificación: Modelado DDD más preciso si existe una fuerte relación de agregación.
-  Impacto: Cambios significativos en `TenantProps` y adición de métodos para gestionar la colección de configuraciones. `TenantConfigurationEntity` seguiría siendo una entidad, pero no un `AggregateRoot` si es parte de otro agregado.
-]
-[
-  Mejora Propuesta 4 (Método `updateDetails` Genérico): (Igual que antes) Para múltiples actualizaciones.
-  Justificación: API más flexible.
-  Impacto: Diseño de una interfaz `UpdateableTenantProps` y lógica de actualización más compleja.
-]
-[
-  Mejora Propuesta 5 (Uso de `Result` en métodos de cambio de estado): Los métodos `activate`, `suspend`, `setDatabaseConfiguration`, `updateName` ahora devuelven `Result<void, SpecificErrorType>`. Esto hace explícito que estas operaciones pueden fallar debido a reglas de negocio y permite a los llamadores (Casos de Uso) manejar estos errores de forma funcional.
-  Justificación: Adopción del patrón `Result` para errores de negocio esperados, mejorando la robustez y claridad del flujo de control.
-  Impacto: Los Casos de Uso que llamen a estos métodos necesitarán manejar el `Result`. Las excepciones por violación de invariantes fundamentales (en `validate()` o `create()`) siguen siendo lanzadas.
-]
-*/
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mantener las mismas mejoras propuestas anteriormente para este archivo)
-[
-  Mejora Propuesta 1 (Inyección de Logger): La entidad actualmente tiene un `this.logger?.debug()`. Para que esto funcione, `EntityBase` o `AggregateRoot` necesitarían una forma de recibir una instancia de `ILoggerPort`. Esto podría hacerse a través del constructor (complicando la creación de entidades) o, de forma más pragmática para DDD, que las entidades no logueen directamente, sino que los servicios de aplicación/dominio que las usan se encarguen del logging contextual. Alternativamente, se podría usar un logger estático si se configura adecuadamente, pero la inyección es preferible para testabilidad.
-  Justificación: Mejorar la observabilidad y testabilidad. El logging directo en entidades a veces se considera una violación de SRP, pero puede ser pragmático para ciertos debugs. **Decisión actual: Se eliminó el logging de la entidad.**
-  Impacto: Modificación de `EntityBase`/`AggregateRoot` o eliminación del logging directo en la entidad.
-]
-[
-  Mejora Propuesta 2 (Validación de PlanId): Actualmente `planId` es un `Maybe<string>`. Si los planes tienen una estructura o reglas de validación (ej. deben existir en una lista predefinida, o tener un formato específico), se podría crear un `PlanIdVO` o validar contra un servicio de dominio de planes.
-  Justificación: Asegurar la validez de los `planId` asignados.
-  Impacto: Creación de un nuevo VO o servicio de dominio, y modificación de la lógica de validación y creación.
-]
-[
-  Mejora Propuesta 3 (Gestión de Configuraciones Múltiples): `TenantConfigurationEntity` se mencionó antes. La relación entre `TenantEntity` y sus múltiples `TenantConfigurationEntity` (si es una relación de composición dentro del agregado Tenant) necesitaría ser modelada aquí. Esto podría implicar que `TenantProps` tenga un `configurations: TenantConfigurationEntity[]` y métodos para añadir/actualizar/eliminar configuraciones.
-  Justificación: Modelar completamente el agregado Tenant si las configuraciones son parte integral de él.
-  Impacto: Modificaciones significativas en `TenantProps`, métodos de la entidad y su lógica de validación.
-]
-[
-  Mejora Propuesta 4 (Método `updateDetails` Genérico): En lugar de métodos separados como `updateName`, se podría tener un método más genérico `updateDetails(props: Partial<UpdateableTenantProps>)` que maneje la actualización de varias propiedades a la vez, validando y emitiendo los eventos correspondientes.
-  Justificación: API más flexible para actualizaciones.
-  Impacto: Diseño de una interfaz `UpdateableTenantProps` y lógica de actualización más compleja.
-]
-*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

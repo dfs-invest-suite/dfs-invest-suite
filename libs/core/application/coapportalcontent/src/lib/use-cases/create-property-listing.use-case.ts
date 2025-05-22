@@ -4,10 +4,7 @@
 // Relacionado con Casos de Uso: BP-PORTAL-PROP-001
 
 import { ICommandHandler } from '@dfs-suite/cdskcommandsqueries';
-import { CreatePropertyListingCommand } from '../commands/create-property-listing.command';
-import { PropertyListingPublicDto } from '../dtos/property-listing-public.dto'; // DTO de respuesta
-import { Result, ok } from '@dfs-suite/shresult';
-import { ExceptionBase } from '@dfs-suite/sherrors';
+import { ILoggerPort, LOGGER_PORT } from '@dfs-suite/cdskports';
 import {
   IPortalPropertyListingRepository,
   PORTALPROPERTYLISTING_REPOSITORY_PORT,
@@ -17,20 +14,22 @@ import {
   PropertyStatusPublicVO,
   SeoMetadataVO,
 } from '@dfs-suite/codoportalcontent';
+import { ExceptionBase } from '@dfs-suite/sherrors';
+import { Result, ok } from '@dfs-suite/shresult';
+import { UuidUtils } from '@dfs-suite/shutils';
+
+import { CreatePropertyListingCommand } from '../commands/create-property-listing.command';
+import { PropertyListingPublicDto } from '../dtos/property-listing-public.dto'; // DTO de respuesta
 import {
   ISlugGenerationPort,
   SLUG_GENERATION_PORT,
 } from '../ports/i-slug-generation.port'; // Puerto de app
-import { ILoggerPort, LOGGER_PORT } from '@dfs-suite/cdskports';
-import { UuidUtils } from '@dfs-suite/shutils';
 
 export class CreatePropertyListingUseCase
   implements
     ICommandHandler<CreatePropertyListingCommand, PropertyListingPublicDto>
 {
-  constructor() // @Inject(SLUG_GENERATION_PORT) private readonly slugService: ISlugGenerationPort, // @Inject(PORTALPROPERTYLISTING_REPOSITORY_PORT) private readonly repo: IPortalPropertyListingRepository,
-  // @Inject(LOGGER_PORT) private readonly logger: ILoggerPort,
-  {}
+  constructor() {} // @Inject(LOGGER_PORT) private readonly logger: ILoggerPort, // @Inject(SLUG_GENERATION_PORT) private readonly slugService: ISlugGenerationPort, // @Inject(PORTALPROPERTYLISTING_REPOSITORY_PORT) private readonly repo: IPortalPropertyListingRepository,
 
   async execute(
     command: CreatePropertyListingCommand

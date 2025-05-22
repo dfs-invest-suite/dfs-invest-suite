@@ -4,10 +4,11 @@
 //            como sentimiento, intención, entidades nombradas, etc.
 // Relacionado con Casos de Uso: QualifyLeadUseCase, AnalyzeConversationTextUseCase (app).
 
-import { Result } from '@dfs-suite/shresult';
 import { ExceptionBase } from '@dfs-suite/sherrors';
-import { AIAnalysisResult } from '../types/ai-analysis-result.type';
+import { Result } from '@dfs-suite/shresult';
 import { TenantId, Maybe } from '@dfs-suite/shtypes';
+
+import { AIAnalysisResult } from '../types/ai-analysis-result.type';
 import { AiModelIdentifierVO } from '../value-objects/ai-model-identifier.vo';
 
 export interface ConversationAnalysisConfig {

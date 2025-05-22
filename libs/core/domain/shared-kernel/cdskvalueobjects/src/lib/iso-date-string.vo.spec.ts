@@ -5,8 +5,8 @@
 import {
   ArgumentInvalidException,
   ArgumentNotProvidedException,
-} from '@dfs-suite/sherrors'; // CORREGIDO: usa alias codificado sherrors
-import { IsoDateString } from '@dfs-suite/shtypes'; // CORREGIDO: usa alias codificado shtypes
+} from '@dfs-suite/sherrors';
+import { IsoDateString as IsoDateStringType } from '@dfs-suite/shtypes'; // Renombrado para evitar colisión
 
 import { IsoDateStringVO } from './iso-date-string.vo';
 
@@ -16,19 +16,19 @@ describe('IsoDateStringVO', () => {
       const validIso = '2023-10-27T10:30:00.000Z';
       const vo = IsoDateStringVO.create(validIso);
       expect(vo).toBeInstanceOf(IsoDateStringVO);
-      expect(vo.value).toBe(validIso as IsoDateString);
+      expect(vo.value).toBe(validIso as IsoDateStringType);
     });
 
     it('should create an IsoDateStringVO from a valid ISO string with offset', () => {
       const validIso = '2023-10-27T12:30:00.000+02:00';
       const vo = IsoDateStringVO.create(validIso);
-      expect(vo.value).toBe(validIso as IsoDateString);
+      expect(vo.value).toBe(validIso as IsoDateStringType);
     });
 
     it('should create an IsoDateStringVO from a valid ISO string with milliseconds', () => {
       const validIso = '2023-10-27T10:30:00.123Z';
       const vo = IsoDateStringVO.create(validIso);
-      expect(vo.value).toBe(validIso as IsoDateString);
+      expect(vo.value).toBe(validIso as IsoDateStringType);
     });
 
     it('should throw ArgumentInvalidException for an invalid format (no T)', () => {
@@ -36,7 +36,6 @@ describe('IsoDateStringVO', () => {
       expect(() => IsoDateStringVO.create(invalidIso)).toThrow(
         ArgumentInvalidException
       );
-      // El mensaje exacto puede variar si Zod lo genera
       expect(() => IsoDateStringVO.create(invalidIso)).toThrow(
         /Value "2023-10-27 10:30:00Z" is not a valid ISO 8601 date string/
       );
@@ -44,7 +43,6 @@ describe('IsoDateStringVO', () => {
 
     it('should throw ArgumentInvalidException for a semantically invalid date like "Feb 30"', () => {
       const invalidDayFeb = '2023-02-30T10:30:00Z';
-      // Con la validación de Zod .datetime(), esto SÍ debería fallar.
       expect(() => IsoDateStringVO.create(invalidDayFeb)).toThrow(
         ArgumentInvalidException
       );
@@ -65,7 +63,7 @@ describe('IsoDateStringVO', () => {
       const date = new Date();
       const vo = IsoDateStringVO.fromDate(date);
       expect(vo).toBeInstanceOf(IsoDateStringVO);
-      expect(vo.value).toBe(date.toISOString() as IsoDateString);
+      expect(vo.value).toBe(date.toISOString() as IsoDateStringType);
     });
 
     it('should throw ArgumentInvalidException if Date object is null', () => {
@@ -109,16 +107,15 @@ describe('IsoDateStringVO', () => {
     it('should return the primitive string value', () => {
       const isoStr = '2023-10-27T10:30:00.000Z';
       const vo = IsoDateStringVO.create(isoStr);
-      expect(vo.unpack()).toBe(isoStr as IsoDateString);
+      expect(vo.unpack()).toBe(isoStr as IsoDateStringType);
     });
   });
 });
 // RUTA: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.spec.ts
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Corrección de imports a los alias codificados (`@dfs-suite/sherrors`, `@dfs-suite/shtypes`).", "justificacion": "Resuelve errores de `Cannot find module`.", "impacto": "Permite que el test se ejecute." },
-  { "mejora": "Ajuste del test para 'Feb 30' para esperar `ArgumentInvalidException`.", "justificacion": "La validación con `IsoDateStringSchema` (que usa `z.datetime()`) es más estricta y debería detectar esta fecha semánticamente inválida.", "impacto": "Test más preciso y alineado con la validación robusta." },
-  { "mejora": "Ajuste del mensaje esperado en el test de 'empty string'.", "justificacion": "`ValueObjectBase.checkIfEmpty` ahora tiene un mensaje más específico para VOs primitivos.", "impacto": "Test más preciso."}
+  { "mejora": "Refactorización de imports a alias codificados.", "justificacion": "Alineación.", "impacto": "Resolución." },
+  { "mejora": "Renombrado de `IsoDateString` a `IsoDateStringType` en la importación de `@dfs-suite/shtypes`.", "justificacion": "Evita colisión de nombres con la clase `IsoDateStringVO` y es una práctica común para diferenciar el tipo Branded de la clase VO.", "impacto": "Claridad y prevención de errores de nombrado." }
 ]
 */
 /* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

@@ -1,27 +1,31 @@
-// RUTA: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/value-object.base.ts
+// libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/value-object.base.ts
 import { ArgumentNotProvidedException } from '@dfs-suite/sherrors';
 import { Maybe } from '@dfs-suite/shtypes';
 import { Guard } from '@dfs-suite/shutils';
 
-export type Primitives = string | number | boolean;
+export type Primitives = string | number | boolean; // EXPORTADO
+
 export interface IDomainPrimitive<T extends Primitives | Date> {
+  // EXPORTADO
   value: T;
 }
+
 type ValueObjectPropsType<P> = P extends Primitives | Date
   ? IDomainPrimitive<P>
   : P;
 
 export abstract class ValueObject<TProps> {
+  // EXPORTADO
   protected readonly props: Readonly<ValueObjectPropsType<TProps>>;
+
   constructor(props: ValueObjectPropsType<TProps>) {
     this.checkIfEmpty(props);
     this.validate(props);
     this.props = Object.freeze(props);
   }
+
   protected abstract validate(props: ValueObjectPropsType<TProps>): void;
-  static isValueObject(obj: unknown): obj is ValueObject<unknown> {
-    return obj instanceof ValueObject;
-  }
+
   public equals(vo?: Maybe<ValueObject<TProps>>): boolean {
     if (Guard.isNil(vo)) {
       return false;
@@ -34,6 +38,7 @@ export abstract class ValueObject<TProps> {
     }
     return JSON.stringify(this.props) === JSON.stringify(vo.props);
   }
+
   public unpack(): TProps {
     if (this.isDomainPrimitive(this.props)) {
       return this.props.value;
@@ -42,6 +47,7 @@ export abstract class ValueObject<TProps> {
     const propsCopy = { ...objectProps };
     return Object.freeze(propsCopy);
   }
+
   private checkIfEmpty(props: ValueObjectPropsType<TProps>): void {
     if (Guard.isNil(props)) {
       throw new ArgumentNotProvidedException(
@@ -57,15 +63,12 @@ export abstract class ValueObject<TProps> {
           `${this.constructor.name} primitive value cannot be empty, null, or undefined.`
         );
       }
-    } else if (
-      typeof props === 'object' &&
-      Object.keys(props as object).length === 0
-    ) {
-      /* Permitir objetos de props vacíos si la subclase lo valida */
     }
   }
+
   private isDomainPrimitive(
-    obj: unknown
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    obj: any
   ): obj is IDomainPrimitive<TProps & (Primitives | Date)> {
     return (
       typeof obj === 'object' &&
@@ -75,10 +78,10 @@ export abstract class ValueObject<TProps> {
     );
   }
 }
-// RUTA: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/value-object.base.ts
+// FIN DEL ARCHIVO: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/value-object.base.ts
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Confirmación de imports refactorizados.", "justificacion": "Uso de alias codificados.", "impacto": "Resolución correcta." }
+  { "mejora": "Confirmada la exportación de `IDomainPrimitive` y `Primitives`.", "justificacion": "Esencial para que los VOs que heredan de `ValueObject` y los que usan `IDomainPrimitive` en sus `props` puedan compilar.", "impacto": "Resuelve errores `TS2305` en las librerías de dominio." }
 ]
 */
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */
+/* SECCIÓN DE MEJORAS FUTURAS: [] */

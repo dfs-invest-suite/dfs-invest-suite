@@ -6,6 +6,7 @@
 'use client'; // Este layout probablemente manejará estado (ej. sidebar abierto/cerrado)
 
 import React, { useState } from 'react';
+
 import { Sidebar } from './Sidebar';
 import { TopNav } from './TopNav';
 

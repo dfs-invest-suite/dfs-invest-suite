@@ -1,24 +1,13 @@
 // RUTA: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.ts
-// TODO: [LIA Legacy - Implementar IsoDateStringVO] - ¡REVISADO Y REFACTORIZADO!
-// Propósito: Value Object para representar y validar una cadena de fecha en formato ISO 8601.
-// Relacionado con Casos de Uso: Timestamps en entidades, DTOs, eventos.
+// Autor: L.I.A Legacy (IA Asistente)
+import { ArgumentInvalidException } from '@dfs-suite/sherrors';
+import { IsoDateString as IsoDateStringType } from '@dfs-suite/shtypes';
+import { Guard } from '@dfs-suite/shutils';
+import { IsoDateStringSchema } from '@dfs-suite/shvalidationschemas';
 
-import {
-  ArgumentInvalidException,
-  ArgumentNotProvidedException,
-} from '@dfs-suite/sherrors'; // REFACTORIZADO
-import { IsoDateString as IsoDateStringType } from '@dfs-suite/shtypes'; // REFACTORIZADO
-import { Guard } from '@dfs-suite/shutils'; // REFACTORIZADO
-import { IsoDateStringSchema } from '@dfs-suite/shvalidationschemas'; // REFACTORIZADO
-
-import { ValueObject, IDomainPrimitive } from './value-object.base'; // OK (relativo interno)
-
-// La regex de ISO 8601 es útil para una primera pasada, pero Zod es más robusto.
-// const ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|([+-]\d{2}(:?\d{2})?))$/;
+import { ValueObject, IDomainPrimitive } from './value-object.base';
 
 export class IsoDateStringVO extends ValueObject<IsoDateStringType> {
-  // ValueObjectBase maneja el tipo de props internamente como IDomainPrimitive<IsoDateStringType>
-  // porque IsoDateStringType (Brand<string, 'IsoDateString'>) es esencialmente un string primitivo.
   protected constructor(props: IDomainPrimitive<IsoDateStringType>) {
     super(props);
   }
@@ -28,8 +17,7 @@ export class IsoDateStringVO extends ValueObject<IsoDateStringType> {
   }
 
   protected validate(props: IDomainPrimitive<IsoDateStringType>): void {
-    // La validación de que props.value no es nil/empty ya la hace ValueObjectBase.checkIfEmpty.
-    // Aquí validamos el formato específico.
+    // La validación de nil/empty ya la hace ValueObjectBase.checkIfEmpty.
     const parseResult = IsoDateStringSchema.safeParse(props.value);
     if (!parseResult.success) {
       throw new ArgumentInvalidException(
@@ -40,12 +28,10 @@ export class IsoDateStringVO extends ValueObject<IsoDateStringType> {
         )}`
       );
     }
-    // Zod datetime() ya valida que sea una fecha parseable, por lo que new Date() / isNaN() es redundante.
   }
 
   public static create(isoDateString: string): IsoDateStringVO {
-    // Se hace un cast a IsoDateStringType después de la validación en el constructor.
-    // La validación principal ocurre en `validate`.
+    // El cast a IsoDateStringType es seguro después de la validación en el constructor.
     return new IsoDateStringVO({ value: isoDateString as IsoDateStringType });
   }
 
@@ -56,6 +42,7 @@ export class IsoDateStringVO extends ValueObject<IsoDateStringType> {
       );
     }
     const isoString = dateObject.toISOString() as IsoDateStringType;
+    // La validación del formato ISO generado por toISOString() se hará en el constructor.
     return new IsoDateStringVO({ value: isoString });
   }
 
@@ -64,18 +51,11 @@ export class IsoDateStringVO extends ValueObject<IsoDateStringType> {
     return new Date(this.props.value);
   }
 }
-
+// RUTA: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.ts
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Refactorización de imports a alias codificados.", "justificacion": "Alineación.", "impacto": "Resolución." },
-  { "mejora": "Uso de `IsoDateStringSchema` de Zod para la validación principal.", "justificacion": "`z.string().datetime()` es más robusto que una regex simple o `new Date().isNaN()` para validar el formato ISO 8601 y que sea una fecha válida.", "impacto": "Validación más confiable y precisa." },
-  { "mejora": "Simplificación de la validación en `validate`.", "justificacion": "Se delega la mayor parte de la validación de formato a Zod. La validación de nil/empty ya la hace `ValueObjectBase`.", "impacto": "Menos código, más robustez." },
-  { "mejora": "Ajuste en `fromDate` para usar `Guard.isValidDate`.", "justificacion": "Validación más clara de la fecha de entrada.", "impacto": "Robustez." }
+  { "mejora": "Refactorización de imports a alias codificados.", "justificacion": "Alineación con la nueva estructura.", "impacto": "Correcta resolución de módulos." },
+  { "mejora": "Uso de `IsoDateStringSchema` de Zod para la validación principal en `validate`.", "justificacion": "Aprovecha la robustez de Zod para la validación de formato y semántica de fecha.", "impacto": "Validación más confiable." }
 ]
 */
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  { "nota": "Este VO ahora confía fuertemente en `IsoDateStringSchema` (Zod) para la validación. Si ese schema cambia, el comportamiento de este VO también lo hará." }
-]
-*/
-// RUTA: libs/core/domain/shared-kernel/cdskvalueobjects/src/lib/iso-date-string.vo.ts
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

@@ -1,68 +1,55 @@
-// RUTA: libs/core/domain/shared-kernel/cdskevents/src/lib/integration-event.base.ts
-// TODO: [LIA Legacy - Implementar IntegrationEventBase]
-// Propósito: Clase base abstracta para Eventos de Integración.
-// Relacionado con Casos de Uso: Publicación de eventos a otros contextos/servicios.
-
-import { ObjectLiteral } from '@dfs-suite/shtypes'; // REFACTORIZADO
-
-import { DomainEventBase, DomainEventProps } from './domain-event.base'; // OK
+// libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.base.ts
 import {
-  IIntegrationEvent,
-  IIntegrationEventMetadata,
-} from './integration-event.interface'; // OK
-// IntegrationEventInstanceId también se importa de shtypes
+  AggregateId as AggregateIdType, // Mantener alias
+  DomainEventInstanceId,
+  ObjectLiteral, // Asegurar importación
+} from '@dfs-suite/shtypes';
+import { createOperationMetadata, UuidUtils } from '@dfs-suite/shutils';
 
-export type IntegrationEventProps<TPayload extends ObjectLiteral> =
-  DomainEventProps<TPayload> & {
-    // Permitir pasar metadata de integración, o se usarán defaults
-    metadata?: Partial<IIntegrationEventMetadata>;
-  };
+import { IDomainEvent, IDomainEventMetadata } from './domain-event.interface';
 
-export abstract class IntegrationEventBase<
-    TPayload extends ObjectLiteral = Record<string, never>
-  >
-  extends DomainEventBase<TPayload>
-  implements IIntegrationEvent<TPayload>
-{
-  // Sobrescribe la declaración de metadata para usar el tipo más específico
-  declare readonly metadata: Readonly<IIntegrationEventMetadata>;
-
-  protected constructor(props: IntegrationEventProps<TPayload>) {
-    // DomainEventBase ya inicializa 'id', 'eventName', 'aggregateId', 'payload', y 'metadata' base.
-    // Aquí necesitamos asegurar que la metadata también incluya 'eventVersion' y 'sourceContext'.
-    super(props);
-
-    // Sobrescribir o extender la metadata creada por DomainEventBase
-    // createOperationMetadata ya fue llamado en DomainEventBase.
-    const baseMetadata = this.metadata; // La metadata creada por DomainEventBase
-
-    const integrationMetadata: IIntegrationEventMetadata = {
-      ...baseMetadata, // Conserva correlationId, causationId, userId, timestamp
-      eventVersion: props.metadata?.eventVersion || '1.0.0', // Default version
-      sourceContext:
-        props.metadata?.sourceContext ||
-        this.constructor.name.replace(/Event$/, 'Context'), // Infiere contexto
-      topic: props.metadata?.topic,
-    };
-    // Re-asignar y congelar la metadata completa
-    // Esto es un poco hacky debido a que 'metadata' es readonly en el padre.
-    // Una mejor solución sería que DomainEventBase tome una factory para la metadata.
-    (this as { -readonly [K in keyof this]: this[K] }).metadata =
-      Object.freeze(integrationMetadata);
-  }
+export interface DomainEventProps<TPayload extends ObjectLiteral> {
+  readonly aggregateId: AggregateIdType; // ID del agregado relacionado (string)
+  readonly payload: TPayload;
+  readonly metadata?: Partial<IDomainEventMetadata>;
 }
 
+export abstract class DomainEventBase<
+  TPayload extends ObjectLiteral = ObjectLiteral // CAMBIO: Default a ObjectLiteral
+> implements IDomainEvent<TPayload>
+{
+  readonly id: DomainEventInstanceId;
+  readonly eventName: string;
+  readonly aggregateId: AggregateIdType;
+  readonly payload: Readonly<TPayload>;
+  readonly metadata: Readonly<IDomainEventMetadata>;
+
+  protected constructor(props: DomainEventProps<TPayload>) {
+    this.id = UuidUtils.generateDomainEventInstanceId(); // Este método debe existir en UuidUtils
+    this.eventName = this.constructor.name;
+    this.aggregateId = props.aggregateId;
+
+    const payloadToFreeze =
+      typeof props.payload === 'object' && props.payload !== null
+        ? { ...props.payload }
+        : ({} as TPayload); // Asegurar que siempre sea un objeto, incluso si TPayload permite `never`
+    this.payload = Object.freeze(payloadToFreeze);
+
+    this.metadata = Object.freeze(
+      createOperationMetadata(props.metadata) as IDomainEventMetadata
+    );
+  }
+}
+// FIN DEL ARCHIVO: libs/core/domain/shared-kernel/cdskevents/src/lib/domain-event.base.ts
 /* SECCIÓN DE MEJORAS REALIZADAS
 [
-  { "mejora": "Refactorización de imports.", "justificacion": "Alineación.", "impacto": "Resolución." },
-  { "mejora": "Estructura base para `IntegrationEventBase` que extiende `DomainEventBase`.", "justificacion": "Reutiliza la lógica común y añade/sobrescribe la metadata específica de integración.", "impacto": "Fundación para eventos de integración." },
-  { "mejora": "Tipo `IntegrationEventProps` para el constructor.", "justificacion": "Permite pasar `Partial<IIntegrationEventMetadata>`.", "impacto": "Flexibilidad."}
+  { "mejora": "Cambiado el tipo genérico por defecto de `TPayload` en `DomainEventBase` a `ObjectLiteral`.", "justificacion": "Alineación con `IDomainEvent` para resolver errores TS2345. Asegura que la clase base y la interfaz sean consistentes.", "impacto": "Correcta implementación de la interfaz `IDomainEvent`." },
+  { "mejora": "Asegurada la importación de `ObjectLiteral` y `AggregateIdType` desde `@dfs-suite/shtypes`.", "justificacion": "Correctitud de tipos.", "impacto": "Resolución de dependencias." },
+  { "mejora": "El constructor ahora usa `UuidUtils.generateDomainEventInstanceId()`.", "justificacion": "Asegura que este método exista en `UuidUtils` o que se use el generador correcto.", "impacto": "Correcta generación de IDs de evento."}
 ]
 */
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA:
 [
-  { "nota": "La forma de sobrescribir `this.metadata` (con el cast `(this as { ... })`) es para evitar errores de TypeScript con propiedades `readonly`. Una refactorización de `DomainEventBase` para aceptar una función factory de metadata podría ser más limpia." },
-  { "nota": "La inferencia de `sourceContext` a partir de `this.constructor.name` es una convención; puede necesitar ser explícita en algunos casos." }
+  {"nota": "Confirmar que `UuidUtils` en `@dfs-suite/shutils` exporta `generateDomainEventInstanceId()`. Si no, se debe añadir o usar `generateAggregateId() as DomainEventInstanceId`."}
 ]
 */
-// RUTA: libs/core/domain/shared-kernel/cdskevents/src/lib/integration-event.base.ts

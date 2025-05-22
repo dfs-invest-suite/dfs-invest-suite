@@ -1,7 +1,8 @@
 // RUTA: apps/aiper-assistance/next.config.js
+const path = require('path');
+
 const { composePlugins, withNx } = require('@nx/next');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const path = require('path');
 
 /** @type {import('@nx/next/plugins/with-nx').WithNxOptions} **/
 const nextConfig = {

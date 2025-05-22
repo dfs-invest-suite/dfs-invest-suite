@@ -1,9 +1,10 @@
 // RUTA: apps/aiper-assistance/src/components/providers/index.tsx
 'use client';
+import React, { useEffect, useState } from 'react'; // Importar useEffect y useState
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'; // Importar directamente
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import React, { useEffect, useState } from 'react'; // Importar useEffect y useState
 import { Toaster } from 'react-hot-toast';
 // Si Aiper tiene su propio auth.store y acciones:
 // import { useAuthActions } from '@/store/auth.store'; // Necesitará su propio auth.store

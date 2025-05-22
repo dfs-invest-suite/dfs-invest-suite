@@ -5,11 +5,14 @@
 
 'use client';
 
-import { cn } from '@dfs-suite/ui-shared'; // Corregido
-import { LayoutDashboard, MessageSquare, Settings, Users } from 'lucide-react'; // Settings ya estaba importado
+import React from 'react';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+
+import { LayoutDashboard, MessageSquare, Settings, Users } from 'lucide-react'; // Settings ya estaba importado
+
+import { cn } from '@dfs-suite/ui-shared'; // Corregido
 
 interface MobileNavItem {
   href: string;

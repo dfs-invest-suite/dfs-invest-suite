@@ -4,10 +4,11 @@
 // Propiedad Intelectual: MetaShark (I.S.)
 'use client';
 
+import React, { useEffect, useState } from 'react'; // CAMBIO: useState importado explícitamente
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; // Importar QueryClient
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import React, { useEffect, useState } from 'react'; // CAMBIO: useState importado explícitamente
 import { Toaster } from 'react-hot-toast';
 
 // import { queryClient } from '../../lib/config/queryClient'; // Se instancia aquí directamente

@@ -12,10 +12,6 @@
 - **`scope`:** `shared`
 - **`type`:** `constants`
 - **`layer`:** `shared`
-- **`domain` (si aplica):** N/A
-- **`feature` (si aplica):** N/A
-- **`technology` (si aplica):** N/A
-- **`app` (si aplica):** N/A
 
 ## 3. API Pública Principal (Exportaciones de `src/index.ts`)
 
@@ -29,44 +25,26 @@
 - `regex.constants.ts`: Expresiones regulares comunes (email, UUID).
 - `time.constants.ts`: Constantes para unidades de tiempo (milisegundos, segundos).
 
-## 5. Configuración de TypeScript
+## 5. Configuración de TypeScript (`tsconfig.lib.json`)
 
-- **`tsconfig.json` (Raíz de la Librería):**
-  - Hereda de: `../../../tsconfig.base.json`
-  - Referencias: `./tsconfig.lib.json` (posiblemente no `./tsconfig.spec.json` si no hay tests)
-- **`tsconfig.lib.json` (Código Fuente):**
-  - Hereda de: `./tsconfig.json`
-  - `compilerOptions.outDir`: `../../../dist/out-tsc`
-  - `compilerOptions.declaration`: `true`
-  - `compilerOptions.types`: `["node"]`
-  - `include`: `["src/**/*.ts"]`
-  - `exclude`: `["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]`
-- **`tsconfig.spec.json` (Tests):** (Si existiera)
-  - Hereda de: `./tsconfig.json`
-  - `compilerOptions.outDir`: `../../../dist/out-tsc`
-  - `compilerOptions.module`: `commonjs`
-  - `compilerOptions.types`: `["jest", "node"]`
-  - `include`: `["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts", "src/**/*.d.ts"]`
+- Hereda de: `../../../tsconfig.base.json` (relativo a `libs/shared/shconstants/tsconfig.json`).
+- `compilerOptions.declaration`: `true`.
 
 ## 6. Configuración de ESLint (`eslint.config.mjs` Local)
 
-- **Hereda de:** `../../../eslint.config.mjs` (raíz del monorepo).
-- **`languageOptions.parserOptions.project` para Código Fuente (`src/lib`):**
-  - `[ "[ruta-monorepo-root]/libs/shared/shconstants/tsconfig.lib.json", "[ruta-monorepo-root]/tsconfig.base.json" ]` (sin `tsconfig.spec.json` si no hay tests)
-- **Plugins Específicos:** Ninguno adicional al base.
-- **Reglas Sobrescritas/Adicionales:** Ninguna por defecto.
+- Hereda de: `../../../eslint.config.mjs` (raíz del monorepo).
+- **`languageOptions.parserOptions.project`:** Apunta a `tsconfig.lib.json` local y `tsconfig.base.json` raíz.
 
 ## 7. Configuración de Pruebas (Jest)
 
 - **`jest.config.ts`:**
   - `displayName`: `shconstants`
   - `preset`: `../../../jest.preset.js`
-  - `passWithNoTests`: `true` (probable para una librería de solo constantes)
+  - `passWithNoTests`: `true`.
 - **`project.json` (Target `test`):**
   - `executor`: `@nx/jest:jest`
   - `options.jestConfig`: `libs/shared/shconstants/jest.config.ts`
-  - `options.passWithNoTests`: `true`
-- **`moduleNameMapper`:** Vacío.
+  - `options.passWithNoTests`: `true`.
 
 ## 8. Dependencias Clave
 
@@ -78,4 +56,12 @@
 - Mantener las constantes verdaderamente globales y agnósticas.
 - Evitar la inclusión de valores que puedan cambiar dinámicamente o que sean específicos de un entorno (esos van en config).
 
+## 10. Problemas Comunes y Soluciones Encontradas
+- (Mantener actualizado).
 // RUTA: libs/shared/shconstants/LIBRARY_CONFIG.MD
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Creación del `LIBRARY_CONFIG.MD` para `shconstants`.", "justificacion": "Documentación esencial de la librería.", "impacto": "Claridad y mantenibilidad." }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

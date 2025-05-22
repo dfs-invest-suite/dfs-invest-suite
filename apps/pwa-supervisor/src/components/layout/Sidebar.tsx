@@ -5,7 +5,11 @@
 
 'use client';
 
-import { Button, cn } from '@dfs-suite/ui-shared'; // Corregido
+import React from 'react';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 import {
   BarChart3,
   FileText,
@@ -16,9 +20,8 @@ import {
   Users,
   X,
 } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React from 'react';
+
+import { Button, cn } from '@dfs-suite/ui-shared'; // Corregido
 
 interface NavItem {
   href: string;

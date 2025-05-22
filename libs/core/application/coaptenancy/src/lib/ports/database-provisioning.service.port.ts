@@ -1,8 +1,8 @@
 // libs/core/application/tenancy/src/lib/ports/database-provisioning.service.port.ts
+import { DbConnectionConfigVO } from '@dfs-suite/core-domain-tenancy'; // Asumiendo que se exporta
+import { ExceptionBase } from '@dfs-suite/shared-errors';
 import { Result } from '@dfs-suite/shared-result';
 import { TenantId } from '@dfs-suite/shared-types';
-import { ExceptionBase } from '@dfs-suite/shared-errors';
-import { DbConnectionConfigVO } from '@dfs-suite/core-domain-tenancy'; // Asumiendo que se exporta
 
 export const DATABASE_PROVISIONING_SERVICE_PORT = Symbol(
   'DATABASE_PROVISIONING_SERVICE_PORT'

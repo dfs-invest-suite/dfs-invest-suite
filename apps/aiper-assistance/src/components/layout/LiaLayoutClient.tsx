@@ -5,6 +5,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+
 import { LiaSidebar } from './LiaSidebar';
 import { LiaTopNav } from './LiaTopNav';
 // LiaAdvertPanel se omite para Aiper por ahora, a menos que se decida lo contrario.

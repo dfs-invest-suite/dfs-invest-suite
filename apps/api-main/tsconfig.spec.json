@@ -1,15 +1,51 @@
+// RUTA: apps/api-main/tsconfig.spec.json
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.json", // Hereda del tsconfig.json local de api-main
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc",
+    "outDir": "../../dist/out-tsc", // Relativo a ESTE archivo (apps/api-main/tsconfig.spec.json)
     "module": "commonjs",
-    "moduleResolution": "node10",
-    "types": ["jest", "node"]
+    "moduleResolution": "node", // "node" es generalmente preferido sobre "node10"
+    "types": ["jest", "node"],
+    "sourceMap": true, // Habilitar source maps para tests
+    "esModuleInterop": true // Ya debería estar en base, pero no daña ser explícito
   },
   "include": [
+    // Incluye la configuración de Jest de esta app
     "jest.config.ts",
-    "src/**/*.test.ts",
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    // Incluye todos los archivos .ts y .tsx dentro de la carpeta src de esta app,
+    // esto cubrirá los .spec.ts, .test.ts, y cualquier otro archivo de helper de test.
+    "src/**/*.ts",
+    "src/**/*.tsx"
+    // No es necesario incluir .d.ts explícitamente si ya están cubiertos por el glob anterior
+    // o por el tsconfig.app.json (que este tsconfig.spec.json extiende indirectamente).
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+    // Excluir el código fuente principal que no es de test
+    // si `src/**/*.ts` es demasiado amplio, aunque para tests suele ser ok.
+    // Si se quiere ser más específico:
+    // "src/**/!(*.spec|*.test).ts",
+    // "src/**/main.ts"
   ]
 }
+// FIN DEL ARCHIVO: apps/api-main/tsconfig.spec.json
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  {
+    "mejora": "'include' ahora es más abarcador
+    "justificacion": "Asegura que todos los archivos TypeScript dentro de `apps/api-main/src/`, incluyendo los archivos `.spec.ts` en subdirectorios como `src/app/`, sean reconocidos por este `tsconfig` utilizado por ESLint para los tests.",
+    "impacto": "Debería resolver el error `none of those TSConfigs include this file` para los archivos de especificación."
+  },
+  {
+    "mejora": "Cambiado `moduleResolution` de `node10` a `node`.",
+    "justificacion": "`node` es la opción más moderna y generalmente recomendada.",
+    "impacto": "Mejora menor, alineación con prácticas actuales."
+  },
+  {
+    "mejora": "Añadido `sourceMap: true`.",
+    "justificacion": "Útil para el debugging de tests si es necesario.",
+    "impacto": "Mejor DX para tests."
+  }
+]
+*/

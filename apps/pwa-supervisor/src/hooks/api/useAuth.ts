@@ -9,12 +9,13 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 
+import { useMutation, type UseMutationOptions } from '@tanstack/react-query';
+
 import {
   useAuthActions,
   useAuthStore,
   type AuthUser,
 } from '@/store/auth.store';
-import { useMutation, type UseMutationOptions } from '@tanstack/react-query';
 
 export interface AuthCredentials {
   email: string;

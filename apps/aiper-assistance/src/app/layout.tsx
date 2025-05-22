@@ -1,9 +1,12 @@
 import React from 'react';
+
 import './globals.css'; // Importa los estilos con el tema L.I.A Legacy
-import { AppProviders } from '@/components/providers';
-import { LiaLayoutClient } from '@/components/layout/LiaLayoutClient'; // El layout principal
 import { Inter as FontSans } from 'next/font/google';
+
 import { cn } from '@dfs-suite/ui-shared';
+
+import { LiaLayoutClient } from '@/components/layout/LiaLayoutClient'; // El layout principal
+import { AppProviders } from '@/components/providers';
 
 const fontSans = FontSans({
   subsets: ['latin'],

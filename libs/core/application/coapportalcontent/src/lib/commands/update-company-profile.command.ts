@@ -5,6 +5,7 @@
 
 import { CommandBase, ICommandMetadata } from '@dfs-suite/cdskcommandsqueries';
 import { TenantId, UserId, Maybe } from '@dfs-suite/shtypes';
+
 import { PortalCompanyProfileDto } from '../dtos/portal-company-profile.dto'; // Asume que DTO tiene los campos actualizables
 
 export interface UpdateCompanyProfileCommandPayload {

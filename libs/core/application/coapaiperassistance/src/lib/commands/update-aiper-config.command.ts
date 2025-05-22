@@ -4,6 +4,7 @@
 // Relacionado con Casos de Uso: BP-AIPER-CFG-001 (Actualizar Configuración Aiper)
 import { CommandBase, ICommandMetadata } from '@dfs-suite/cdskcommandsqueries';
 import { TenantId, UserId, Maybe } from '@dfs-suite/shtypes';
+
 import { AiperTenantConfigDto } from '../dtos/aiper-tenant-config.dto'; // Se creará después
 
 export type UpdateAiperConfigCommandPayload = AiperTenantConfigDto & {

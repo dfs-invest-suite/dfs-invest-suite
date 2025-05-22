@@ -1,26 +1,17 @@
-// RUTA: libs/shared/shtypes/src/index.ts
-// TODO: [LIA Legacy - Asegurar completitud de exports] - ¡REALIZADO!
-// Propósito: Punto de entrada principal para la librería @dfs-suite/shtypes, exportando todos los tipos y utilidades fundamentales.
+// libs/shared/shtypes/src/index.ts
+export * from './lib/core/enhanced-brand.type';
+export * from './lib/core/type-registry'; // Aunque sea placeholder
 
-// Tipos Primitivos y Brandeados Fundamentales
-export * from './lib/brand.type'; // Exporta el helper Brand<K,T>
-export * from './lib/primitive-types'; // Exporta todos los Branded IDs y tipos semánticos
+export * from './lib/primitives/core-primitives';
+// El archivo primitive-types.ts (que contenía IDs de dominio) ya no debería existir o estar vacío si seguimos la refactorización.
+// export * from './lib/primitives/primitive-types'; // Comentar o eliminar si fue refactorizado
 
-// Tipos Utilitarios Genéricos
-export * from './lib/maybe.type'; // Exporta el tipo Maybe<T>
-export * from './lib/object-literal.type'; // Exporta la interfaz ObjectLiteral<V>
+export * from './lib/api/enhanced-response.interface';
+export * from './lib/common-enums';
+export * from './lib/maybe.type';
+export * from './lib/object-literal.type';
+export * from './lib/pagination/advanced-pagination.interface'; // Renombrado en snapshot
 
-// Estructuras de Datos Comunes para API y Paginación
-export * from './lib/api-response.interface'; // Exporta IApiResponse<TData, TErrorDetails>
-export * from './lib/paginated.interface'; // Exporta IPaginatedQueryParams e IPaginated<T>
-
-// Enums Globales Compartidos
-export * from './lib/common-enums'; // Exporta SortDirection, BasicEntityStatus, CommunicationChannel
-
-/* SECCIÓN DE MEJORAS REALIZADAS
-[
-  { "mejora": "Verificación y confirmación de todas las exportaciones necesarias.", "justificacion": "Asegura que todos los artefactos definidos en `src/lib/` y que deben ser públicos estén disponibles a través de `@dfs-suite/shtypes`.", "impacto": "API pública completa y consistente para la librería." }
-]
-*/
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */
-// RUTA: libs/shared/shtypes/src/index.ts
+// Re-exportar todos los tipos de dominio para un acceso más simple desde el exterior
+export * from './lib/domains'; // Esto exportará TenantId, UserId, etc.
+// FIN DEL ARCHIVO: libs/shared/shtypes/src/index.ts

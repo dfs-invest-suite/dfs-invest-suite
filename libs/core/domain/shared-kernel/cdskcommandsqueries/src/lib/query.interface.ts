@@ -1,89 +1,35 @@
-// libs/core/domain/shared-kernel/commands-queries/src/lib/query.interface.ts
+// RUTA: libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/query.interface.ts
+// Autor: L.I.A Legacy (IA Asistente)
 import {
   CorrelationId,
   Maybe,
   UserId,
   IsoDateString,
-  QueryInstanceId, // Usamos el Branded Type
-  CommandInstanceId, // Para causationId
-  DomainEventInstanceId, // Para causationId
-} from '@dfs-suite/shared-types';
+  QueryInstanceId,
+  CommandInstanceId,
+  DomainEventInstanceId,
+  CausationId,
+} from '@dfs-suite/shtypes';
 
-/**
- * @interface IQueryMetadata
- * @description Define la estructura de los metadatos asociados a una query.
- */
 export interface IQueryMetadata {
   readonly correlationId: CorrelationId;
   readonly causationId?: Maybe<
-    CorrelationId | CommandInstanceId | DomainEventInstanceId
-  >; // Tipado más específico
+    CausationId | CommandInstanceId | DomainEventInstanceId | CorrelationId
+  >;
   readonly userId?: Maybe<UserId>;
-  readonly timestamp: IsoDateString; // Estandarizado a IsoDateString
+  readonly timestamp: IsoDateString;
 }
 
-/**
- * @interface IQuery
- * @description Define la interfaz base para todas las queries en el sistema.
- */
-export interface IQuery {
-  /**
-   * @property {QueryInstanceId} queryInstanceId - ID único de la instancia de la query.
-   */
+export interface IQuery<_TResult = unknown> {
+  // TResult prefijada con _
   readonly queryInstanceId: QueryInstanceId;
-
-  /**
-   * @property {string} queryName - Nombre de la clase de la query concreta.
-   */
   readonly queryName: string;
-
-  /**
-   * @property {IQueryMetadata} metadata - Metadatos de la query.
-   */
-  readonly metadata: IQueryMetadata;
+  readonly metadata: Readonly<IQueryMetadata>;
 }
-// libs/core/domain/shared-kernel/commands-queries/src/lib/query.interface.ts
-/* SECCIÓN DE MEJORAS (Refleja el estado deseado)
+// RUTA: libs/core/domain/shared-kernel/cdskcommandsqueries/src/lib/query.interface.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
 [
-  Mejora Aplicada: Se introdujo `IQueryMetadata` separada de `ICommandMetadata`.
-]
-[
-  Mejora Aplicada: `queryInstanceId` (tipo `QueryInstanceId`) y `queryName` añadidos a `IQuery`.
-]
-[
-  Mejora Aplicada: `metadata.timestamp` es `IsoDateString`.
-]
-[
-  Mejora Aplicada: `metadata.causationId` ahora es una unión de posibles IDs causales.
-]
-[
-  Mejora Pendiente (`userId` en `IQueryMetadata`): Evaluar si debe ser obligatorio o si se necesitan contextos específicos.
+  { "mejora": "El parámetro genérico `TResult` en `IQuery` se ha renombrado a `_TResult`.", "justificacion": "Indica a ESLint que el tipo genérico está intencionalmente no usado directamente dentro de la definición de la interfaz `IQuery`, pero es necesario para la firma y la inferencia de tipos en los `IQueryHandler`. Esto resuelve el warning `@typescript-eslint/no-unused-vars`.", "impacto": "Código más limpio y semánticamente claro sobre la intención del genérico." }
 ]
 */
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA (Sin cambios) */
-/* SECCIÓN DE MEJORAS (Refleja cambios y mejoras pendientes)
-[
-  Mejora Aplicada: Se introdujo `IQueryMetadata` separada.
-]
-[
-  Mejora Aplicada: Se añadió `queryInstanceId` (tipo `QueryInstanceId`).
-]
-[
-  Mejora Aplicada: Se añadió `queryName`.
-]
-[
-  Mejora Aplicada: `metadata.timestamp` ahora usa `IsoDateString`.
-]
-[
-  Mejora Pendiente (`userId` en `IQueryMetadata`): Evaluar si debe ser obligatorio
-    o si se necesitan contextos específicos (ej. `IAuthenticatedQueryMetadata`).
-    Para queries, `userId` es a menudo para filtrado de datos basado en permisos.
-]
-*/
-
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
-[
-  Nota 1: La clase `QueryBase` deberá implementar estas nuevas propiedades (`queryInstanceId`, `queryName`)
-          y usar `IQueryMetadata`.
-]
-*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

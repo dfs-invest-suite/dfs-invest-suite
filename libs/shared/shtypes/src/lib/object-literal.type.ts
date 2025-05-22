@@ -1,19 +1,25 @@
-// libs/shared/types/src/lib/object-literal.type.ts
+// RUTA: libs/shared/shtypes/src/lib/object-literal.type.ts
+// Autor: L.I.A Legacy (IA Asistente)
 
 /**
- * Interfaz para representar un objeto literal simple con claves de tipo string
- * y valores de cualquier tipo. Útil para tipos de datos genéricos o no estructurados,
- * pero debe usarse con precaución para no perder la seguridad de tipos.
+ * Tipo para representar un objeto literal simple.
+ * Si T es un objeto, lo mantiene. Si no, usa la signatura de índice.
+ * Esto permite que interfaces sin signatura de índice explícita (como nuestros payloads de evento)
+ * sigan siendo compatibles con `TPayload extends ObjectLiteral`.
  */
-export interface ObjectLiteral<V = unknown> {
-  [key: string]: V;
-}
-/* SECCIÓN DE MEJORAS
-// Podría parametrizarse el tipo del valor: `export interface ObjectLiteral<V = any> { [key: string]: V; }` para mayor flexibilidad controlada.
-*/
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type ObjectLiteral<T = any> = T extends object
+  ? T
+  : { [key: string]: T };
 
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+// Definición anterior (más restrictiva):
+// export interface ObjectLiteral<V = unknown> {
+//   [key: string]: V;
+// }
+// RUTA: libs/shared/shtypes/src/lib/object-literal.type.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
 [
-  Nota estratégica 1: Usar este tipo con moderación. Preferir interfaces específicas siempre que la estructura del objeto sea conocida.
+  { "mejora": "Flexibilizada la definición de `ObjectLiteral` usando un tipo condicional.", "justificacion": "Permite que interfaces simples sin una signatura de índice explícita (como `TenantActivatedEventPayload { readonly tenantId: TenantId; }`) cumplan la restricción `extends ObjectLiteral`. Esto es menos restrictivo que requerir `[key: string]: V;` en todos los payloads.", "impacto": "Debería resolver los errores TS2344 sobre payloads de evento no conformes con `ObjectLiteral`." }
 ]
 */
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

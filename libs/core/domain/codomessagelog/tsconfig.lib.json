@@ -1,0 +1,18 @@
+// RUTA: libs/core/domain/codomessagelog/tsconfig.lib.json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../../dist/out-tsc",
+    "declaration": true,
+    "types": ["node"] // Para tipos de Node.js si se usan
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/__tests__/**",
+    "src/**/__mocks__/**"
+  ]
+}
+// RUTA: libs/core/domain/codomessagelog/tsconfig.lib.json

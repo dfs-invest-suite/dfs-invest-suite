@@ -4,24 +4,25 @@
 // Relacionado con Casos de Uso: BP-PORTAL-PROFILE-001
 
 import { ICommandHandler } from '@dfs-suite/cdskcommandsqueries';
-import { UpdateCompanyProfileCommand } from '../commands/update-company-profile.command';
-import { PortalCompanyProfileDto } from '../dtos/portal-company-profile.dto';
-import { Result, ok, err } from '@dfs-suite/shresult';
-import { ExceptionBase, NotFoundException } from '@dfs-suite/sherrors';
+import { ILoggerPort, LOGGER_PORT } from '@dfs-suite/cdskports';
 import {
   IPortalCompanyProfileRepository,
   PORTALCOMPANYPROFILE_REPOSITORY_PORT,
   PortalCompanyProfileEntity,
 } from '@dfs-suite/codoportalcontent';
-import { ILoggerPort, LOGGER_PORT } from '@dfs-suite/cdskports';
+import { ExceptionBase, NotFoundException } from '@dfs-suite/sherrors';
+import { Result, ok, err } from '@dfs-suite/shresult';
+
+import { UpdateCompanyProfileCommand } from '../commands/update-company-profile.command';
+import { PortalCompanyProfileDto } from '../dtos/portal-company-profile.dto';
+
 // import { Inject } from '@nestjs/common'; // Opcional, según DI
 
 export class UpdatePortalCompanyProfileUseCase
   implements
     ICommandHandler<UpdateCompanyProfileCommand, PortalCompanyProfileDto>
 {
-  constructor() // @Inject(LOGGER_PORT) private readonly logger: ILoggerPort, // @Inject(PORTALCOMPANYPROFILE_REPOSITORY_PORT) private readonly profileRepo: IPortalCompanyProfileRepository,
-  {}
+  constructor() {} // @Inject(LOGGER_PORT) private readonly logger: ILoggerPort, // @Inject(PORTALCOMPANYPROFILE_REPOSITORY_PORT) private readonly profileRepo: IPortalCompanyProfileRepository,
 
   async execute(
     command: UpdateCompanyProfileCommand

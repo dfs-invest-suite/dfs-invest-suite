@@ -3,6 +3,8 @@
 // Empresa: MetaShark (I.S.) Florianópolis/SC, Brasil. Año 2025. Todos los derechos reservados.
 // Propiedad Intelectual: MetaShark (I.S.)
 
+import { Home, Mail, MapPin, Phone, Search, Users } from 'lucide-react';
+
 import {
   Button,
   Card,
@@ -11,7 +13,6 @@ import {
   CardTitle,
   Input,
 } from '@dfs-suite/ui-shared';
-import { Home, Mail, MapPin, Phone, Search, Users } from 'lucide-react';
 
 // Placeholder simple para los componentes de item que no vamos a replicar en detalle
 const PlaceholderItemCard = ({

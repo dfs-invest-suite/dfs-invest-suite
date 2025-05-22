@@ -4,23 +4,23 @@
 // Relacionado con Casos de Uso: BP-AIPER-CFG-001
 
 import { ICommandHandler } from '@dfs-suite/cdskcommandsqueries';
-import { UpdateAiperConfigCommand } from '../commands/update-aiper-config.command';
-import { AiperTenantConfigDto } from '../dtos/aiper-tenant-config.dto';
-import { Result, ok, err } from '@dfs-suite/shresult';
-import { ExceptionBase, NotFoundException } from '@dfs-suite/sherrors';
+import { ILoggerPort, LOGGER_PORT } from '@dfs-suite/cdskports';
 import {
   IAiperTenantConfigRepository,
   AIPER_TENANT_CONFIG_REPOSITORY_PORT,
   AiperTenantConfigEntity,
   AiModelIdentifierVO,
 } from '@dfs-suite/codoaiperassistance';
-import { ILoggerPort, LOGGER_PORT } from '@dfs-suite/cdskports';
+import { ExceptionBase, NotFoundException } from '@dfs-suite/sherrors';
+import { Result, ok, err } from '@dfs-suite/shresult';
+
+import { UpdateAiperConfigCommand } from '../commands/update-aiper-config.command';
+import { AiperTenantConfigDto } from '../dtos/aiper-tenant-config.dto';
 
 export class UpdateAiperTenantConfigUseCase
   implements ICommandHandler<UpdateAiperConfigCommand, AiperTenantConfigDto>
 {
-  constructor() // @Inject(LOGGER_PORT) private readonly logger: ILoggerPort, // @Inject(AIPER_TENANT_CONFIG_REPOSITORY_PORT) private readonly configRepo: IAiperTenantConfigRepository,
-  {}
+  constructor() {} // @Inject(LOGGER_PORT) private readonly logger: ILoggerPort, // @Inject(AIPER_TENANT_CONFIG_REPOSITORY_PORT) private readonly configRepo: IAiperTenantConfigRepository,
 
   async execute(
     command: UpdateAiperConfigCommand

@@ -3,7 +3,7 @@
 
 ## 1. Propósito y Responsabilidad Principal
 
-- **Descripción Concisa:** Define interfaces (puertos) genéricos para abstracciones de infraestructura que la capa de dominio o aplicación necesita, como `IRepositoryPort` para la persistencia y `ILoggerPort` para el logging. También incluye esqueletos para `IUnitOfWorkPort` y `IConfigPort`.
+- **Descripción Concisa:** Define interfaces (puertos) genéricos y fundamentales para abstracciones de infraestructura que las capas de dominio y aplicación necesitan. Incluye `IRepositoryPort` para persistencia, `ILoggerPort` para logging, `IUnitOfWorkPort` para gestión de transacciones, y `IConfigPort` para acceso a configuraciones globales de la plataforma.
 - **Alias de Importación (importPath):** `@dfs-suite/cdskports`
 - **Ubicación en el Monorepo:** `libs/core/domain/shared-kernel/cdskports`
 
@@ -13,52 +13,40 @@
 - **`type`:** `shared-kernel`
 - **`layer`:** `domain`
 - **`kernel` (sub-tipo):** `ports`
-- **`domain` (si aplica):** N/A
-- **`feature` (si aplica):** N/A
-- **`technology` (si aplica):** N/A
-- **`app` (si aplica):** N/A
 
 ## 3. API Pública Principal (Exportaciones de `src/index.ts`)
 
-- `export * from './lib/repository.port';` (Exporta `IRepositoryPort`)
-- `export * from './lib/logger.port';` (Exporta `ILoggerPort` y `LOGGER_PORT` symbol)
-- `export * from './lib/unit-of-work.port';` (Cuando se implemente)
-- `export * from './lib/config.port';` (Cuando se implemente)
+- `export * from './lib/repository.port';` (Exporta `IRepositoryPort` y `REPOSITORY_PORT` Symbol)
+- `export * from './lib/logger.port';` (Exporta `ILoggerPort` y `LOGGER_PORT` Symbol)
+- `export * from './lib/unit-of-work.port';` (Exporta `IUnitOfWorkPort` y `UNIT_OF_WORK_PORT` Symbol)
+- `export * from './lib/config.port';` (Exporta `IConfigPort` y `CONFIG_PORT` Symbol)
 
 ## 4. Estructura de Directorios Interna Clave (dentro de `src/lib/`)
 
 - `repository.port.ts`: Define `IRepositoryPort`.
 - `logger.port.ts`: Define `ILoggerPort`.
-- `unit-of-work.port.ts`: Esqueleto para `IUnitOfWorkPort`.
-- `config.port.ts`: Esqueleto para `IConfigPort`.
+- `unit-of-work.port.ts`: Define `IUnitOfWorkPort`.
+- `config.port.ts`: Define `IConfigPort`.
 
-## 5. Configuración de TypeScript
+## 5. Configuración de TypeScript (`tsconfig.lib.json`, `tsconfig.spec.json`)
 
-- **`tsconfig.json` (Raíz de la Librería):**
-  - Hereda de: `../../../../../tsconfig.base.json`
-  - Referencias: `./tsconfig.lib.json`, `./tsconfig.spec.json`
-- **`tsconfig.lib.json` (Código Fuente):**
-  - (Similar a `cdskentities`)
-- **`tsconfig.spec.json` (Tests):**
-  - (Similar a `cdskentities`, si hay tests)
+- Heredan de: `../../../../../tsconfig.base.json`.
+- `compilerOptions.declaration`: `true` en `tsconfig.lib.json`.
 
 ## 6. Configuración de ESLint (`eslint.config.mjs` Local)
 
-- **Hereda de:** `../../../../../eslint.config.mjs`.
-- **`languageOptions.parserOptions.project` para Código Fuente (`src/lib`):**
-  - `[ "[ruta-monorepo-root]/libs/core/domain/shared-kernel/cdskports/tsconfig.lib.json", "[ruta-monorepo-root]/libs/core/domain/shared-kernel/cdskports/tsconfig.spec.json", "[ruta-monorepo-root]/tsconfig.base.json" ]`
+- Hereda de: `../../../../../eslint.config.mjs`.
+- **`languageOptions.parserOptions.project`:** Configurado para los `tsconfig` locales y el `tsconfig.base.json` raíz.
 
 ## 7. Configuración de Pruebas (Jest)
 
 - **`jest.config.ts`:**
   - `displayName`: `cdskports`
   - `preset`: `../../../../../jest.preset.js`
-  - `moduleNameMapper`: (Mapea a `@dfs-suite/shtypes`, `@dfs-suite/shresult`, `@dfs-suite/sherrors`, `@dfs-suite/cdskentities`)
-  - `passWithNoTests`: `true` (ya que son mayormente interfaces, podrían no tener tests directos)
+  - `moduleNameMapper`: Mapea a `@dfs-suite/shtypes`, `@dfs-suite/shresult`, `@dfs-suite/sherrors`, `@dfs-suite/cdskentities`.
+  - `passWithNoTests`: `true`.
 - **`project.json` (Target `test`):**
-  - `executor`: `@nx/jest:jest`
-  - `options.jestConfig`: `libs/core/domain/shared-kernel/cdskports/jest.config.ts`
-  - `options.passWithNoTests`: `true`
+  - `options.passWithNoTests`: `true`.
 
 ## 8. Dependencias Clave
 
@@ -66,8 +54,15 @@
 - **Externas (NPM):** Ninguna.
 
 ## 9. Consideraciones Específicas y Deuda Técnica
+- Estos puertos son la base para la inversión de dependencias.
+- (Deuda) Aunque son interfaces, se podrían añadir tests conceptuales para validar su estructura o ejemplos de uso si fuera beneficioso para la documentación o el DX.
 
-- Estos puertos son cruciales para la inversión de dependencias y la testabilidad de las capas de dominio y aplicación.
-- La definición de `IUnitOfWorkPort` y `IConfigPort` debe hacerse cuidadosamente para que sean genéricos y útiles.
-
+## 10. Problemas Comunes y Soluciones Encontradas
+- (Mantener actualizado).
 // RUTA: libs/core/domain/shared-kernel/cdskports/LIBRARY_CONFIG.MD
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Creación del `LIBRARY_CONFIG.MD` para `cdskports`.", "justificacion": "Documentación esencial de la librería.", "impacto": "Claridad y mantenibilidad." }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

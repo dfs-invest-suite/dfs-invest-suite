@@ -1,58 +1,47 @@
 // RUTA: libs/core/domain/codoaiperassistance/src/lib/value-objects/ai-model-identifier.vo.ts
-// TODO: [LIA Legacy - Implementar validaciones y lógica adicional para AiModelIdentifierVO]
-// Propósito: Value Object para identificar un modelo de IA específico (ej. "gemini-1.5-pro", "openai/gpt-4-turbo"),
-//            incluyendo opcionalmente el proveedor y la versión para mayor especificidad.
-// Relacionado con Casos de Uso: Configuración de Aiper, llamadas a LLMs y servicios de embedding.
-
-import { ValueObject } from '@dfs-suite/cdskvalueobjects';
-import { Guard } from '@dfs-suite/shutils';
+import { ValueObject, IDomainPrimitive } from '@dfs-suite/cdskvalueobjects';
 import {
   ArgumentNotProvidedException,
-  ArgumentInvalidException,
+  // ArgumentInvalidException, // No se usa actualmente en la lógica de validación
 } from '@dfs-suite/sherrors';
 import { Maybe } from '@dfs-suite/shtypes';
-
-// Futuro: Podríamos tener un enum de proveedores conocidos.
-// export enum AiModelProvider { GOOGLE = 'GOOGLE', OPENAI = 'OPENAI', ANTHROPIC = 'ANTHROPIC', AZURE_OPENAI = 'AZURE_OPENAI' }
+import { Guard } from '@dfs-suite/shutils';
 
 export interface AiModelIdentifierProps {
-  readonly modelId: string; // Nombre/ID del modelo, ej: "gemini-1.5-pro-latest", "text-embedding-3-large"
-  readonly provider?: Maybe<string>; // Ej: "google", "openai", "anthropic"
-  readonly version?: Maybe<string>; // Ej: "20240515", "v1"
+  readonly modelId: string;
+  readonly provider?: Maybe<string>;
+  readonly version?: Maybe<string>;
 }
 
 export class AiModelIdentifierVO extends ValueObject<AiModelIdentifierProps> {
+  // El constructor ahora toma directamente AiModelIdentifierProps
   constructor(props: AiModelIdentifierProps) {
-    super(props);
+    super(props); // ValueObject ahora espera el objeto props directamente
   }
 
-  public get modelId(): string {
+  get modelId(): string {
     return this.props.modelId;
   }
-  public get provider(): Maybe<string> {
+  get provider(): Maybe<string> {
     return this.props.provider;
   }
-  public get version(): Maybe<string> {
+  get version(): Maybe<string> {
     return this.props.version;
   }
 
-  public static create(props: AiModelIdentifierProps): AiModelIdentifierVO {
-    this.validateProps(props);
-    return new AiModelIdentifierVO(props);
-  }
-
+  // El método validate ahora recibe el objeto props completo
   protected validate(props: AiModelIdentifierProps): void {
-    AiModelIdentifierVO.validateProps(props);
-  }
-
-  private static validateProps(props: AiModelIdentifierProps): void {
     if (Guard.isEmpty(props.modelId)) {
       throw new ArgumentNotProvidedException(
         'AiModelIdentifierVO: modelId cannot be empty.'
       );
     }
-    // Opcional: Validar formato de modelId si hay un patrón esperado
-    // Opcional: Validar si el provider es uno de los conocidos si se implementa un enum
+    // Aquí irían otras validaciones si fueran necesarias
+  }
+
+  public static create(props: AiModelIdentifierProps): AiModelIdentifierVO {
+    // La validación se hace en el constructor
+    return new AiModelIdentifierVO(props);
   }
 
   public toString(): string {
@@ -65,11 +54,4 @@ export class AiModelIdentifierVO extends ValueObject<AiModelIdentifierProps> {
     return identifier;
   }
 }
-
-/* SECCIÓN DE MEJORAS FUTURAS
-[
-  { "mejora": "Introducir un Enum para AiModelProvider y validar contra él.", "justificacion": "Mayor robustez y control de tipos.", "impacto": "Menor flexibilidad si se añaden nuevos providers no listados." },
-  { "mejora": "Añadir un método para verificar compatibilidad de features con el modelo (ej. streaming, tool use).", "justificacion": "Abstracción útil.", "impacto": "Podría requerir metadatos adicionales sobre los modelos." }
-]
-*/
-/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */
+// RUTA: libs/core/domain/codoaiperassistance/src/lib/value-objects/ai-model-identifier.vo.ts

@@ -4,8 +4,10 @@
 // Basado en las especificaciones y estilos de Shadcn/UI para Badge.
 // Relacionado con Casos de Uso: Mostrar estado de leads, calidad de números WA, categorías de plantillas.
 
-import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
+
+import { cva, type VariantProps } from 'class-variance-authority';
+
 import { cn } from '../../lib/utils';
 
 export const badgeVariants = cva(

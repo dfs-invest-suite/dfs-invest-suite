@@ -5,13 +5,15 @@
 
 'use client';
 
+import React, { useEffect } from 'react';
+
+import { usePathname, useRouter } from 'next/navigation';
+
 import {
   useAuthIsLoading,
   useIsAuthenticated,
   useIsAuthInitialized, // Importar el nuevo selector
 } from '@/store/auth.store';
-import { usePathname, useRouter } from 'next/navigation';
-import React, { useEffect } from 'react';
 
 interface AuthGuardProps {
   children: React.ReactNode;

@@ -3,6 +3,7 @@
 // Propósito: Define las estructuras de respuesta esperadas de las interacciones con LLMs.
 // Relacionado con Casos de Uso: ILLMPort.
 import { Maybe } from '@dfs-suite/shtypes';
+
 import { ChatMessage } from './chat-message.type'; // Asumiendo que ToolCall se define allí
 
 // Para respuestas de generación de texto simple

@@ -1,14 +1,13 @@
 // RUTA: libs/core/domain/codousersroles/src/lib/value-objects/user-role.vo.ts
-// TODO: [LIA Legacy - Implementar UserRoleVO]
-// Propósito: Value Object para los roles de usuario dentro de un tenant.
-// Relacionado con Casos de Uso: Gestión de Usuarios, Autorización.
+// Autor: L.I.A Legacy (IA Asistente)
 import { ValueObject } from '@dfs-suite/cdskvalueobjects';
 import { ArgumentInvalidException } from '@dfs-suite/sherrors';
 
+// Roles específicos para usuarios DENTRO de un tenant
 export enum EUserRole {
-  TENANT_ADMIN = 'TENANT_ADMIN',
-  SUPERVISOR = 'SUPERVISOR',
-  CONSULTANT = 'CONSULTANT',
+  TENANT_ADMIN = 'TENANT_ADMIN', // Administrador del tenant, puede gestionar otros usuarios del tenant
+  SUPERVISOR = 'SUPERVISOR', // Supervisor de equipo, puede ver leads de su equipo
+  CONSULTANT = 'CONSULTANT', // Consultor/Agente, solo ve sus propios leads
 }
 
 export class UserRoleVO extends ValueObject<EUserRole> {
@@ -23,7 +22,9 @@ export class UserRoleVO extends ValueObject<EUserRole> {
   protected validate(props: { value: EUserRole }): void {
     if (!Object.values(EUserRole).includes(props.value)) {
       throw new ArgumentInvalidException(
-        `Invalid user role: "${props.value}".`
+        `Invalid user role: "${props.value}". Must be one of [${Object.values(
+          EUserRole
+        ).join(', ')}]`
       );
     }
   }
@@ -38,6 +39,7 @@ export class UserRoleVO extends ValueObject<EUserRole> {
     return new UserRoleVO(EUserRole.CONSULTANT);
   }
 
+  // Métodos helper
   public isTenantAdmin(): boolean {
     return this.props.value === EUserRole.TENANT_ADMIN;
   }
@@ -48,3 +50,11 @@ export class UserRoleVO extends ValueObject<EUserRole> {
     return this.props.value === EUserRole.CONSULTANT;
   }
 }
+// RUTA: libs/core/domain/codousersroles/src/lib/value-objects/user-role.vo.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Imports refactorizados.", "justificacion": "Consistencia.", "impacto": "Resolución." },
+  { "mejora": "JSDoc y comentarios añadidos para clarificar los roles.", "justificacion": "Mejora la comprensión del dominio.", "impacto": "Mantenibilidad." }
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA: [] */

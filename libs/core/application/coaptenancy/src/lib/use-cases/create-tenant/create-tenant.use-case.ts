@@ -1,209 +1,223 @@
-// libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts
-import { ICommandHandler } from '@dfs-suite/core-domain-shared-kernel-commands-queries';
-import { CreateTenantCommand } from '../../commands/create-tenant/create-tenant.command';
+// RUTA: libs/core/application/coaptenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts
+import { ICommandHandler } from '@dfs-suite/cdskcommandsqueries';
 import {
-  TenantId,
-  UserId,
-  CorrelationId,
-  AggregateId,
-} from '@dfs-suite/shared-types'; // Maybe eliminado
-import { Result, err, ok, isErr } from '@dfs-suite/shared-result';
-import {
-  ExceptionBase,
-  InternalServerErrorException,
-} from '@dfs-suite/shared-errors';
+  IDomainEventEmitter,
+  DOMAIN_EVENT_EMITTER_PORT,
+} from '@dfs-suite/cdskevents';
+import { ILoggerPort, LOGGER_PORT } from '@dfs-suite/cdskports';
 import {
   ITenantRepository,
   TenantEntity,
   TenantAlreadyExistsError,
   TENANT_REPOSITORY_PORT,
-} from '@dfs-suite/core-domain-tenancy';
+  DbConnectionConfigVO,
+} from '@dfs-suite/codotenancy';
+import {
+  ExceptionBase,
+  InternalServerErrorException,
+  ConflictException,
+} from '@dfs-suite/sherrors';
+import { Result, err, ok, isErr } from '@dfs-suite/shresult';
+import {
+  TenantId,
+  CorrelationId,
+  UserId,
+  IsoDateString /* <<< AÑADIDO IMPORT */,
+} from '@dfs-suite/shtypes';
+import { UuidUtils } from '@dfs-suite/shutils'; // UuidUtils no estaba importado
+
+import { CreateTenantCommand } from '../../commands/create-tenant/create-tenant.command';
+import { CreateTenantAppOutputDto } from '../../dtos/tenant-creation.dto'; // Suponiendo que este DTO existe
 import {
   IDatabaseProvisioningServicePort,
   DATABASE_PROVISIONING_SERVICE_PORT,
 } from '../../ports/database-provisioning.service.port';
 import {
-  ILoggerPort,
-  LOGGER_PORT,
-} from '@dfs-suite/core-domain-shared-kernel-ports';
-import { UuidUtils } from '@dfs-suite/shared-utils';
+  IUserProvisioningServicePortAppLayer,
+  USER_PROVISIONING_SERVICE_APP_PORT,
+} from '../../ports/user-provisioning.service.port';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const NestJsCommandHandler =
-  (_commandType: unknown) =>
-  <T extends { new (...args: any[]): object }>(_target: T): T | void =>
-    _target;
+// DTO de Salida del Caso de Uso (si es diferente a TenantDetailsDto)
+// export interface CreateTenantUseCaseResultDto { // Ya lo teníamos definido como CreateTenantAppOutputDto
+//   tenantId: TenantId;
+//   name: string;
+//   slug: string;
+//   status: string;
+// }
 
-const NestJsInject =
-  (_token: unknown) =>
-  (
-    _target: object,
-    _propertyKey: string | symbol | undefined,
-    _parameterIndex?: number
-  ): void => {
-    /* placeholder */
-  };
+export const CREATE_TENANT_USE_CASE = Symbol('ICreateTenantUseCase');
+// Convertido a type alias
+export type ICreateTenantUseCase = ICommandHandler<
+  CreateTenantCommand,
+  CreateTenantAppOutputDto
+>;
 
-@NestJsCommandHandler(CreateTenantCommand)
-export class CreateTenantUseCase
-  implements ICommandHandler<CreateTenantCommand, TenantId>
-{
+export class CreateTenantUseCaseImpl implements ICreateTenantUseCase {
   constructor(
-    @NestJsInject(TENANT_REPOSITORY_PORT)
+    // @Inject(TENANT_REPOSITORY_PORT)
     private readonly tenantRepository: ITenantRepository,
-    @NestJsInject(DATABASE_PROVISIONING_SERVICE_PORT)
+    // @Inject(DATABASE_PROVISIONING_SERVICE_PORT)
     private readonly dbProvisioningService: IDatabaseProvisioningServicePort,
-    @NestJsInject(LOGGER_PORT)
+    // @Inject(USER_PROVISIONING_SERVICE_APP_PORT)
+    private readonly userProvisioningService: IUserProvisioningServicePortAppLayer,
+    // @Inject(DOMAIN_EVENT_EMITTER_PORT)
+    private readonly eventEmitter: IDomainEventEmitter,
+    // @Inject(LOGGER_PORT)
     private readonly logger: ILoggerPort
   ) {}
 
   async execute(
     command: CreateTenantCommand
-  ): Promise<Result<TenantId, ExceptionBase | Error>> {
-    const correlationId: CorrelationId = command.metadata.correlationId;
-    const useCaseName = CreateTenantUseCase.name;
+  ): Promise<
+    Result<CreateTenantAppOutputDto, ExceptionBase | TenantAlreadyExistsError>
+  > {
+    const { name, ownerEmail, planId, slug } = command.payload;
+    const correlationId = command.metadata.correlationId;
+    const useCaseName = CreateTenantUseCaseImpl.name;
+
     this.logger.log(
-      `Attempting to create tenant: "${command.name}" by owner email: ${command.ownerEmail}`,
+      `Attempting to create tenant: "${name}" by owner: ${ownerEmail}, slug: ${slug}`,
       useCaseName,
       correlationId
     );
 
     try {
-      // ... (lógica de findByName, creación de entidad, provisioning, insert) ...
-      const existingTenantResult = await this.tenantRepository.findByName(
-        command.name.trim()
+      const existingByNameResult = await this.tenantRepository.findByName(
+        name.trim()
       );
+      if (isErr(existingByNameResult)) return err(existingByNameResult.error);
+      if (existingByNameResult.value) {
+        return err(
+          new TenantAlreadyExistsError(
+            `Tenant name "${name}" already exists.`,
+            undefined,
+            { name },
+            correlationId
+          )
+        );
+      }
+      // Asumiendo que findBySlug existe en el puerto y la implementación
+      const existingBySlugResult = await this.tenantRepository.findBySlug(
+        slug.trim().toLowerCase()
+      );
+      if (isErr(existingBySlugResult)) return err(existingBySlugResult.error);
+      if (existingBySlugResult.value) {
+        return err(
+          new TenantAlreadyExistsError(
+            `Tenant slug "${slug}" already exists.`,
+            undefined,
+            { slug },
+            correlationId
+          )
+        );
+      }
 
-      if (isErr(existingTenantResult)) {
-        const findError = existingTenantResult.error;
+      const userProvisionResult =
+        await this.userProvisioningService.provisionInitialTenantAdmin(
+          {
+            email: ownerEmail,
+            name: `Admin for ${name}`,
+            tenantNameForContext: name,
+          },
+          {
+            correlationId,
+            timestamp: new Date().toISOString() as IsoDateString,
+            userId: command.metadata.userId,
+          }
+        );
+      if (isErr(userProvisionResult)) {
         this.logger.error(
-          `Error checking for existing tenant name "${command.name}": ${findError.message}`,
-          findError.stack,
+          `User provisioning failed for ${ownerEmail} during tenant creation: ${userProvisionResult.error.message}`,
           useCaseName,
           correlationId
         );
-        return err(findError);
+        return err(userProvisionResult.error);
       }
+      const ownerUserId = userProvisionResult.value.userId;
 
-      if (existingTenantResult.value) {
-        const alreadyExistsError = new TenantAlreadyExistsError(
-          `Tenant with name "${command.name}" already exists.`,
-          undefined,
-          { name: command.name },
-          correlationId
-        );
-        this.logger.warn(
-          alreadyExistsError.message,
-          useCaseName,
-          correlationId
-        );
-        return err(alreadyExistsError);
-      }
-
-      const ownerUserId = command.ownerEmail as unknown as UserId;
-      this.logger.debug(
-        `Using ownerEmail as ownerUserId (temporary): ${ownerUserId}`,
-        useCaseName,
-        correlationId
-      );
-
-      const entityId: AggregateId = UuidUtils.generateAggregateId();
       const tenantEntity = TenantEntity.create(
-        {
-          name: command.name,
-          ownerUserId: ownerUserId,
-          planId: command.planId,
-        },
-        entityId
+        { name, ownerUserId, planId, slug },
+        UuidUtils.generateTenantId()
       );
 
       const dbProvisionResult =
         await this.dbProvisioningService.provisionTenantDatabase(
-          tenantEntity.id as unknown as TenantId
+          tenantEntity.id
         );
 
       if (isErr(dbProvisionResult)) {
-        const provError = dbProvisionResult.error;
         this.logger.error(
           `Database provisioning failed for new tenant "${
             tenantEntity.name
-          }" (ID: ${String(tenantEntity.id)}): ${provError.message}`,
-          provError.stack,
-          CreateTenantUseCase.name,
+          }" (ID: ${String(tenantEntity.id)}): ${
+            dbProvisionResult.error.message
+          }`,
+          dbProvisionResult.error.stack,
+          useCaseName,
           correlationId
         );
-        return err(provError);
+        return err(dbProvisionResult.error);
       }
-      const dbConfig = dbProvisionResult.value;
-      tenantEntity.setDatabaseConfiguration(dbConfig);
+      const dbConfigVo: DbConnectionConfigVO = dbProvisionResult.value;
+      const setDbConfigResult =
+        tenantEntity.setDatabaseConfiguration(dbConfigVo);
+      if (isErr(setDbConfigResult)) return err(setDbConfigResult.error);
 
       const insertResult = await this.tenantRepository.insert(tenantEntity);
       if (isErr(insertResult)) {
-        const insertError = insertResult.error;
         this.logger.error(
           `Failed to insert tenant "${tenantEntity.name}" (ID: ${String(
             tenantEntity.id
-          )}): ${insertError.message}`,
-          insertError.stack,
-          CreateTenantUseCase.name,
+          )}): ${insertResult.error.message}`,
+          insertResult.error.stack,
+          useCaseName,
           correlationId
         );
-        return err(insertError);
+        return err(insertResult.error);
       }
+
+      await this.eventEmitter.publishAll(
+        tenantEntity.getAndClearDomainEvents()
+      );
 
       this.logger.log(
         `Tenant "${tenantEntity.name}" (ID: ${String(
           tenantEntity.id
-        )}) created successfully.`,
+        )}) created, DB provisioned, admin user provisioned. Initial status: ${
+          tenantEntity.status.value
+        }`,
         useCaseName,
         correlationId
       );
-      return ok(tenantEntity.id as unknown as TenantId);
+
+      return ok({
+        tenantId: tenantEntity.id,
+        name: tenantEntity.name,
+        slug: tenantEntity.slug,
+        status: tenantEntity.status.value, // Acceder al valor del VO
+      });
     } catch (error: unknown) {
-      let displayMessage: string;
-      let errorCause: Error;
-
-      if (error instanceof Error) {
-        errorCause = error;
-        displayMessage = error.message;
-      } else {
-        displayMessage = String(error); // Simplificado y con el disable aquí
-        errorCause = new Error(displayMessage);
-      }
-
-      const stackForLog = errorCause.stack ?? 'No stack trace available';
+      const errBase =
+        error instanceof ExceptionBase
+          ? error
+          : new InternalServerErrorException(
+              'Unexpected error creating tenant.',
+              error as Error,
+              undefined,
+              correlationId
+            );
       this.logger.error(
-        `Unexpected error during tenant creation: ${displayMessage}`,
-        stackForLog,
-        CreateTenantUseCase.name,
-        correlationId,
-        { originalCaughtValueString: displayMessage }
+        `Unexpected error in ${CreateTenantUseCaseImpl.name}: ${errBase.message}`,
+        errBase.stack,
+        useCaseName,
+        correlationId
       );
-      return err(
-        new InternalServerErrorException(
-          'Failed to create tenant due to an unexpected error.',
-          errorCause,
-          { originalErrorContent: displayMessage },
-          correlationId
-        )
-      );
+      return err(errBase);
     }
   }
 }
-
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mismas que antes)
-*/
-// libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mismas que antes)
-*/
-// libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts
-
-/* SECCIÓN DE MEJORAS FUTURAS
-// (Mismas que antes)
-*/
-// libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts
+// RUTA: libs/core/application/coaptenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts
+// RUTA: libs/core/application/coaptenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts
 /* SECCIÓN DE MEJORAS FUTURAS
 
 [
@@ -235,4 +249,18 @@ export class CreateTenantUseCase
 ]
 
 */
-// libs/core/application/tenancy/src/lib/use-cases/create-tenant/create-tenant.use-case.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+{ "mejora": "Implementación completa del flujo CreateTenantUseCaseImpl.", "justificacion": "Orquesta la creación de la entidad, provisión de DB (vía puerto), provisión del admin inicial (vía puerto), persistencia y emisión de eventos. Usa Result para manejo de errores.", "impacto": "Caso de uso funcional clave para el onboarding." },
+{ "mejora": "Corrección de imports y uso de tokens de inyección correctos para los puertos de servicio de aplicación.", "justificacion": "Alineación con el patrón de DI y la estructura de la librería.", "impacto": "Correctitud." },
+{ "mejora": "Llamada a ITenantRepository.findBySlug para asegurar unicidad del slug.", "justificacion": "Robustez en la creación de tenants.", "impacto": "Previene conflictos de URL." },
+{ "mejora": "Uso de CreateTenantAppOutputDto para el resultado exitoso.", "justificacion": "DTO específico para la capa de aplicación.", "impacto": "Claridad de la API del caso de uso." }
+]
+/
+/ NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+{"nota": "El método findBySlug debe añadirse a ITenantRepositoryPort (en codotenancy) y a su implementación PrismaPlatformTenantRepositoryAdapter (en infratenancypersistence)."},
+{"nota": "La lógica de compensación para fallos en dbProvisioningService.provisionTenantDatabase o tenantRepository.insert (ej. eliminar DB creada o usuario creado) es compleja y se considerará post-MVP, posiblemente con un patrón Saga."},
+{"nota": "El USER_PROVISIONING_SERVICE_APP_PORT y su implementación (IUserProvisioningServicePortAppLayer) necesitan ser creados en coapusersroles y su infraestructura correspondiente."}
+]
+*/

@@ -10,12 +10,6 @@ import {
 import { isErr, isOk } from '@dfs-suite/shared-result';
 import { AggregateId, UserId } from '@dfs-suite/shared-types';
 import { UuidUtils } from '@dfs-suite/shared-utils';
-import { DbConnectionConfigVO } from '../value-objects/db-connection-config.vo';
-import {
-  TenantStatusEnum,
-  TenantStatusVO,
-} from '../value-objects/tenant-status.vo';
-import { TenantEntity } from './tenant.entity';
 
 import { InvalidTenantStatusTransitionError } from '../errors/invalid-tenant-status-transition.error';
 import { TenantActivatedEvent } from '../events/tenant-activated.event';
@@ -24,6 +18,13 @@ import {
   TenantCreatedEvent,
 } from '../events/tenant-created.event';
 import { TenantSuspendedEvent } from '../events/tenant-suspended.event';
+import { DbConnectionConfigVO } from '../value-objects/db-connection-config.vo';
+import {
+  TenantStatusEnum,
+  TenantStatusVO,
+} from '../value-objects/tenant-status.vo';
+
+import { TenantEntity } from './tenant.entity';
 
 describe('TenantEntity', () => {
   const mockOwnerId = UuidUtils.generateUserId();

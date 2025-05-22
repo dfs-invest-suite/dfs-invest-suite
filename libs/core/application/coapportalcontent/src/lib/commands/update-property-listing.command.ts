@@ -5,6 +5,7 @@
 
 import { CommandBase, ICommandMetadata } from '@dfs-suite/cdskcommandsqueries';
 import { TenantId, UserId, AggregateId } from '@dfs-suite/shtypes';
+
 import { PropertyListingInputDto } from '../dtos/property-listing-input.dto';
 
 export interface UpdatePropertyListingCommandPayload {

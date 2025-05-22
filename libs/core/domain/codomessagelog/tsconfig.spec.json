@@ -1,0 +1,19 @@
+// RUTA: libs/core/domain/codomessagelog/tsconfig.spec.json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../../dist/out-tsc",
+    "module": "commonjs", // Necesario para Jest con ts-jest
+    "moduleResolution": "node", // O "node10" o "nodenext" según la versión de ts-jest/node
+    "types": ["jest", "node"]
+  },
+  "include": [
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/*.d.ts",
+    "src/**/__tests__/**/*.ts", // Incluir archivos de test en subdirectorios
+    "src/**/__mocks__/**/*.ts" // Incluir mocks
+  ]
+}
+// RUTA: libs/core/domain/codomessagelog/tsconfig.spec.json

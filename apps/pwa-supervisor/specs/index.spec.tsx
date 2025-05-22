@@ -1,6 +1,8 @@
 // RUTA: apps/pwa-supervisor/specs/index.spec.tsx
-import { render } from '@testing-library/react';
 import * as Navigation from 'next/navigation'; // Importar todo el módulo
+
+import { render } from '@testing-library/react';
+
 import Page from '../src/app/page';
 
 describe('Page (RootPage)', () => {

@@ -5,15 +5,8 @@
 
 'use client';
 
-import {
-  Button,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel, // Añadido para el nombre del usuario
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@dfs-suite/ui-shared'; // Asumiendo que estos componentes se exportan desde ui-shared
+import { useRouter } from 'next/navigation'; // Para redirigir después del logout
+
 import {
   Bell,
   LogOut,
@@ -24,7 +17,16 @@ import {
   UserCircle,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useRouter } from 'next/navigation'; // Para redirigir después del logout
+
+import {
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel, // Añadido para el nombre del usuario
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@dfs-suite/ui-shared'; // Asumiendo que estos componentes se exportan desde ui-shared
 
 import { useAuthActions, useCurrentUser } from '@/store/auth.store';
 

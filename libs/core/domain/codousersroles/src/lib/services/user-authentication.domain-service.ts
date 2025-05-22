@@ -1,29 +1,37 @@
 // RUTA: libs/core/domain/codousersroles/src/lib/services/user-authentication.domain-service.ts
-// TODO: [LIA Legacy - Implementar UserAuthenticationDomainService]
-// Propósito: Lógica de dominio para validar credenciales (comparar contraseña en texto plano con hash).
-// Relacionado con Casos de Uso: AuthenticateUserUseCase.
-import { UserEntity } from '../entities/user.entity';
-import { HashedPasswordVO } from '../value-objects/hashed-password.vo';
-import { Result, ok, err } from '@dfs-suite/shresult';
-import { InvalidCredentialsError } from '../errors'; // Se creará después
+// Autor: L.I.A Legacy (IA Asistente)
+import { Result } from '@dfs-suite/shresult';
 
+import { HashedPasswordVO } from '../value-objects/hashed-password.vo';
+// IPasswordHasherPort se importará de infrasecurity cuando se use, aquí solo definimos la interfaz del servicio de dominio.
+// import { IPasswordHasherPort } from '@dfs-suite/infrasecurity'; // Ejemplo de dónde vendría
+
+/**
+ * Puerto para un servicio de dominio que verifica contraseñas.
+ * Este servicio de dominio encapsula la lógica de comparación de contraseñas,
+ * pero DELEGA la operación de comparación real (que depende de bcrypt/argon2)
+ * a una implementación de `IPasswordHasherPort` proporcionada por la capa de infraestructura.
+ */
 export interface IUserAuthenticationDomainService {
-  // El puerto de hasheo podría ser inyectado o ser un helper estático
   verifyPassword(
     plainPassword: string,
-    hashedPassword: HashedPasswordVO
-  ): Promise<Result<boolean, Error>>;
+    hashedPasswordFromDb: HashedPasswordVO
+  ): Promise<Result<boolean, Error>>; // Podría retornar un error específico como InvalidPasswordFormatError
 }
-export const USER_AUTHENTICATION_DOMAIN_SERVICE_PORT = Symbol(
-  'IUserAuthenticationDomainService'
-);
 
-// La implementación podría estar en infraestructura (si depende de bcrypt) o aquí si es pura
-// export class UserAuthenticationDomainService implements IUserAuthenticationDomainService {
-//   constructor(private readonly passwordHasher: IPasswordHasherPort) {} // IPasswordHasherPort de infrasecurity
-//   async verifyPassword(plainPassword: string, hashedPassword: HashedPasswordVO): Promise<Result<boolean, Error>> {
-//      const match = await this.passwordHasher.compare(plainPassword, hashedPassword.value);
-//      if (!match) return err(new InvalidCredentialsError('Password does not match.'));
-//      return ok(true);
-//   }
-// }
+export const USER_AUTHENTICATION_DOMAIN_SERVICE_PORT = Symbol(
+  'IUserAuthenticationDomainServicePort' // Cambiado para seguir convención de PUERTO
+);
+// RUTA: libs/core/domain/codousersroles/src/lib/services/user-authentication.domain-service.ts
+/* SECCIÓN DE MEJORAS REALIZADAS
+[
+  { "mejora": "Renombrado el Symbol a `USER_AUTHENTICATION_DOMAIN_SERVICE_PORT`.", "justificacion": "Consistencia con la convención de nombrar Symbols de puertos.", "impacto": "Claridad." },
+  { "mejora": "JSDoc añadido para explicar el rol del servicio de dominio y su dependencia de un puerto de infraestructura (`IPasswordHasherPort`).", "justificacion": "Clarifica la arquitectura.", "impacto": "Mantenibilidad."}
+]
+*/
+/* NOTAS PARA IMPLEMENTACIÓN FUTURA
+[
+  {"nota": "La implementación concreta de `IUserAuthenticationDomainService` (que inyectaría `IPasswordHasherPort`) residiría en la capa de aplicación (`coapusersroles`) o como un adaptador en infraestructura si la lógica es puramente técnica."},
+  {"nota": "El `IPasswordHasherPort` se definiría en `libs/infrastructure/infrasecurity/src/lib/ports/` y su implementación (`BcryptPasswordHasherService`) en `libs/infrastructure/infrasecurity/src/lib/services/`."}
+]
+*/

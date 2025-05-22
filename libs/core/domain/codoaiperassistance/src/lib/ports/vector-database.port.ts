@@ -6,6 +6,7 @@
 import { ExceptionBase } from '@dfs-suite/sherrors';
 import { Result } from '@dfs-suite/shresult';
 import { AggregateId, TenantId } from '@dfs-suite/shtypes';
+
 import { KnowledgeChunk } from '../types/knowledge-chunk.type';
 
 export interface VectorSearchFilter {
